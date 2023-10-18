@@ -38,7 +38,7 @@ def readGraphFromFile(file_path):
 
 # Function to write a graph to a file
 def writeGraph(graph):
-    graph.serialize(destination="C:/Users/Administrator/Documents/Branches/mermaid/Tools/Output/"+filename_stem+"-manchestersyntax.ttl", format="turtle")
+    graph.serialize(destination="C:/Users/Administrator/Documents/Branches/mermaid/Tools/Output/"+filename_stem+"-mermaid.ttl", format="turtle")
 
 # Function to call the PyShacl engine so that a RDF model of an HTML document can be serialized to HTML-code.
 def iteratePyShacl(mermaid_generator, serializable_graph):
@@ -63,145 +63,27 @@ prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix sh: <http://www.w3.org/ns/shacl#>
-ASK
+
+SELECT (GROUP_CONCAT(?label; separator="\\n") AS ?concatenatedLabels)
 WHERE {
-  # Any OWL or RDFS entity that is not yet described in terms of the manchester syntax
-  {
-    $this a owl:Class.
-  }  
-  UNION
-  {
-    $this a rdfs:Class.
-  }
-  UNION
-  {
-    $this rdfs:subClassOf []
-  }
-  UNION
-  {
-    $this owl:equivalentClass []
-  }
-  UNION
-  {
-    $this owl:unionOf []
-  }
-  UNION
-  {
-    $this owl:intersectionOf []
-  }
-  UNION
-  {
-    $this owl:complementOf []
-  }
-  UNION
-  {
-    $this owl:oneOf []
-  }
-  UNION
-  {
-    $this owl:allValuesFrom []
-  }
-  UNION
-  {
-    $this owl:someValuesFrom []
-  }
-  UNION
-  {
-    $this owl:hasValue []
-  }
-  UNION
-  {
-    $this owl:cardinality []
-  }
-  UNION
-  {
-    $this owl:maxCardinality []
-  }
-  UNION
-  {
-    $this owl:minCardinality []
-  }  
-  UNION
-  {
-    $this rdf:type owl:DatatypeProperty.
-  }
-  UNION
-  {
-    $this rdf:type owl:ObjectProperty.
-  }
-  UNION
-  {
-    $this rdfs:subPropertyOf [].
-  }
-  UNION
-  {
-    $this owl:equivalentProperty [].
-  }
-  filter not exists {
-    $this mermaid:syntax 'CLASS'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'CLASS'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'SUBCLASSOF'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'EQUIVALENTTO'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'OR'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'AND'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'NOT'.
-  }
-  filter not exists {
-    $this mermaid:syntax '{}'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'ONLY'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'SOME'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'VALUE'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'EXACTLY'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'MAX'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'MIN'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'DATATYPEPROPERTY'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'OBJECTPROPERTY'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'SUBPROPERTYOF'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'EQUIVALENTPROPERTY'.
-  }
+  ?element mermaid:label ?label.
+
 }
+
         ''')   
 
         # Check whether another iteration is needed. If every OWL and RDFS construct contains a mermaid:syntax statement, the processing is considered done.
         for result in resultquery:
-            if result == True:
-                writeGraph(serializable_graph)
-                iteratePyShacl(mermaid_generator, serializable_graph)
-            else: 
-                 print ("The ontology has been interpreted in mermaid and saved to Turtle-format as " + filename_stem+"-mermaid.ttl")
-                 writeGraph(serializable_graph)
+            mermaidlabels = result["concatenatedLabels"]
+            print("BEGIN")
+            print(mermaidlabels)
+            print("EIND")
+            output_file_path = "C:/Users/Administrator/Documents/Branches/mermaid/Tools/Output/concatenated_labels.txt"
+            with open(output_file_path, "w") as file:
+              file.write(mermaidlabels)
+            writeGraph(serializable_graph)
+            iteratePyShacl(mermaid_generator, serializable_graph)
+            
 
 # loop through any turtle files in the input directory
 for filename in os.listdir(directory_path+"mermaid/Tools/Input"):

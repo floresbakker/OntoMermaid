@@ -144,7 +144,7 @@ construct {
   bind(replace(str($this),'.*[/#]','') as ?implicitLabel)
   
   
-  BIND(CONCAT("((",STR(COALESCE(?preferredLabel, ?alternativeLabel, ?implicitLabel)),"))") as ?mermaidLabel)
+  BIND(CONCAT(STR($this),"((",STR(COALESCE(?preferredLabel, ?alternativeLabel, ?implicitLabel)),"))") as ?mermaidLabel)
 } 
 '''.
 
@@ -238,7 +238,7 @@ construct {
   
   # Establish the label based on certain preferred labels   
   BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
-  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]<br>", ?mermaidRestriction, "<br>end"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]<br>", ?mermaidRestriction, "<br>end<br>")) as ?mermaidLabel)
+  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]\\n", ?mermaidRestriction, "\\nend"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]\\n", ?mermaidRestriction, "\\nend\\n")) as ?mermaidLabel)
 }
 '''.
 
@@ -330,7 +330,7 @@ construct {
   
   # Establish the label based on certain preferred labels   
   BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
-  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]<br>", ?mermaidRestriction, "<br>end"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]<br>", ?mermaidRestriction, "<br>end<br>")) as ?mermaidLabel)
+  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]\\n", ?mermaidRestriction, "\\nend"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]\\n", ?mermaidRestriction, "\\nend\\n")) as ?mermaidLabel)
 }  '''.
 
 
@@ -414,7 +414,7 @@ construct {
   
   # Establish the label based on certain preferred labels   
   BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
-  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]<br>", ?mermaidRestriction, "<br>end"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]<br>", ?mermaidRestriction, "<br>end<br>")) as ?mermaidLabel)
+  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]\\n", ?mermaidRestriction, "\\nend"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]\\n", ?mermaidRestriction, "\\nend\\n")) as ?mermaidLabel)
 } '''.
 
 shp:SerializableOwlRestriction_cardinality
@@ -497,7 +497,7 @@ construct {
   
   # Establish the label based on certain preferred labels   
   BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
-  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]<br>", ?mermaidRestriction, "<br>end"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]<br>", ?mermaidRestriction, "<br>end<br>")) as ?mermaidLabel)
+  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]\\n", ?mermaidRestriction, "\\nend"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]\\n", ?mermaidRestriction, "\\nend\\n")) as ?mermaidLabel)
 }
 
 '''.
@@ -582,7 +582,7 @@ construct {
   
   # Establish the label based on certain preferred labels   
   BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
-  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]<br>", ?mermaidRestriction, "<br>end"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]<br>", ?mermaidRestriction, "<br>end<br>")) as ?mermaidLabel)
+  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]\\n", ?mermaidRestriction, "\\nend"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]\\n", ?mermaidRestriction, "\\nend\\n")) as ?mermaidLabel)
 }
 '''.
 
@@ -665,7 +665,7 @@ construct {
   
   # Establish the label based on certain preferred labels   
   BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
-  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]<br>", ?mermaidRestriction, "<br>end"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]<br>", ?mermaidRestriction, "<br>end<br>")) as ?mermaidLabel)
+  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]\\n", ?mermaidRestriction, "\\nend"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]\\n", ?mermaidRestriction, "\\nend\\n")) as ?mermaidLabel)
 }
 '''.
 
@@ -757,7 +757,7 @@ construct {
   # Get the label of the class to be serialized.
    
   BIND(IF(isBlank($this),"Anonymous class",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
-  BIND(CONCAT(STR($this), "((",?classLabel,")) -- subClassOf --> ", STR(?superClass), "<br>") as ?mermaidLabel)
+  BIND(CONCAT(STR($this), "((",?classLabel,")) -- subClassOf --> ", STR(?superClass), "\\n") as ?mermaidLabel)
 
 } '''.
 
@@ -848,7 +848,7 @@ construct {
   # Get the label of the class to be serialized.
    
   BIND(IF(isBlank($this),"Anonymous class",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
-  BIND(CONCAT(STR($this), "((",?classLabel,")) -- equivalentTo --> ", STR(?superClass), "<br>") as ?mermaidLabel)
+  BIND(CONCAT(STR($this), "((",?classLabel,")) -- equivalentTo --> ", STR(?superClass), "\\n") as ?mermaidLabel)
 
 }
 '''.
@@ -925,7 +925,7 @@ construct {
   BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
   BIND(IF(isBlank($this),"Anonymous class",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
   
-  BIND(CONCAT("subgraph ",STR($this),"[", ?classLabel, "]<BR>", ?mermaidDefinition, "<br>end<br>") as ?mermaidLabel)
+  BIND(CONCAT("subgraph ",STR($this),"[", ?classLabel, "]\\n", ?mermaidDefinition, "\\nend\\n") as ?mermaidLabel)
   
 }
 '''.
@@ -1002,7 +1002,7 @@ construct {
   BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
   BIND(IF(isBlank($this),"Anonymous class",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
   
-  BIND(CONCAT("subgraph ",STR($this),"[", ?classLabel, "]<BR>", ?mermaidDefinition, "<br>end<br>") as ?mermaidLabel)
+  BIND(CONCAT("subgraph ",STR($this),"[", ?classLabel, "]\\n", ?mermaidDefinition, "\\nend\\n") as ?mermaidLabel)
   
 }
 '''.
@@ -1080,7 +1080,7 @@ construct {
   BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
   BIND(IF(isBlank($this),"Anonymous class",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
   
-  BIND(CONCAT("subgraph ",STR($this),"[", ?classLabel, "]<BR>", ?mermaidDefinition, "<br>end") as ?mermaidLabel)
+  BIND(CONCAT("subgraph ",STR($this),"[", ?classLabel, "]\\n", ?mermaidDefinition, "\\nend") as ?mermaidLabel)
   
 }
 '''.
@@ -1155,7 +1155,7 @@ construct {
   BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
   BIND(IF(isBlank($this),"Anonymous class",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
   BIND(CONCAT(" -- not --> ",STR(?complementOfClass)) as ?mermaidDefinition)
-  BIND(CONCAT("subgraph ",STR($this),"[", ?classLabel, "]<BR>", ?mermaidDefinition, "<br>end") as ?mermaidLabel)
+  BIND(CONCAT("subgraph ",STR($this),"[", ?classLabel, "]\\n", ?mermaidDefinition, "\\nend") as ?mermaidLabel)
   
 } 
 '''.
