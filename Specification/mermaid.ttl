@@ -175,19 +175,6 @@ select $this {
     $this mermaid:syntax "ONLY"
    }
    
-  minus {
-    $this owl:allValuesFrom ?allValuesFromClass.
-      filter not exists {
-       ?allValuesFromClass mermaid:label []
-    }
-  }
-  
-  minus {
-    $this owl:onProperty ?someProperty.
-    filter not exists {
-      ?someProperty mermaid:label []
-    }
- }
 }
  
  '''.
@@ -216,14 +203,9 @@ construct {
   $this owl:allValuesFrom ?otherClass;
         owl:onProperty ?someProperty.
   
-  # Get the labels for the class and property
-  ?otherClass mermaid:label ?otherClassLabel.
-  ?someProperty mermaid:label ?propertyLabel
-  
-  # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?propertyLabel, "] -- only --> ", str(?otherClass)) as ?mermaidRestriction)
-  
-  
+  # Establish the full definition of the OWL restriction class to be serialized.
+  BIND(CONCAT(STR(?someProperty)," -- only --> ", str(?otherClass)) as ?mermaidRestriction)
+   
   # Establish whether the restriction class has a label of its own or not. Use when present (but only if @this is not a blank node).
   OPTIONAL
   {
@@ -876,14 +858,7 @@ select $this {
   filter not exists {
     $this mermaid:syntax "OR"
    }
-   
-  minus {
-    $this owl:unionOf/rdf:rest*/rdf:first ?someClass.
-    filter not exists {
-     ?someClass mermaid:label []
-    }
-  }
- }
+}
   '''.
 
   rule:Serialize_unionOf
@@ -924,7 +899,6 @@ construct {
   }
   BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
   BIND(IF(isBlank($this),"Anonymous class",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
-  
   BIND(CONCAT("subgraph ",STR($this),"[", ?classLabel, "]\\n", ?mermaidDefinition, "\\nend\\n") as ?mermaidLabel)
   
 }
@@ -953,14 +927,8 @@ select $this {
   filter not exists {
     $this mermaid:syntax "AND"
    }
-   
-  minus {
-    $this owl:intersectionOf/rdf:rest*/rdf:first ?someClass
-    filter not exists {
-     ?someClass mermaid:syntax [].
-    }
-  }
- }
+  
+}
   '''.
 
   rule:Serialize_intersectionOf
@@ -1030,13 +998,6 @@ select $this {
   filter not exists {
     $this mermaid:syntax "{}"
    }
-   
-  minus {
-    $this owl:oneOf/rdf:rest*/rdf:first ?someIndividual.
-    filter not exists {
-     ?someIndividual mermaid:label []
-    }
-  }
  }
   '''.
 
@@ -1108,14 +1069,7 @@ select $this {
   filter not exists {
     $this mermaid:syntax "NOT"
    }
-   
-  minus {
-    $this owl:complementOf ?complementOfClass
-    filter not exists {
-     ?complementOfClass mermaid:label []
-    }
-  }
- }
+}
   '''.
 
   rule:Serialize_complementOf
@@ -1182,12 +1136,6 @@ select $this {
   filter not exists {
   $this mermaid:syntax 'DATATYPEPROPERTY'}
    
-  minus {
-    $this rdfs:domain ?someClass.
-    filter not exists {
-     ?someClass mermaid:label []
-    }
-  }
  }
   '''.
 
@@ -1210,9 +1158,7 @@ construct {
   # create the Mermaid diagram language for the OWL property to be serialized.
   
   $this mermaid:syntax 'DATATYPEPROPERTY';
-        mermaid:label ?mermaidLabel;
-        mermaid:domain ?manchesterDomain;
-        mermaid:range ?manchesterRange.
+        mermaid:label ?mermaidLabel, ?mermaidDomain, ?mermaidRange.
         
 } where {
 
@@ -1220,30 +1166,32 @@ construct {
   # Label
   
   {
-  {$this skos:prefLabel ?preferredLabel.
+   OPTIONAL
+   {$this skos:prefLabel ?preferredLabel.
   FILTER (lang(?preferredLabel) = 'en')}
-  UNION 
+  
+  OPTIONAL 
   {$this rdfs:label ?alternativeLabel.
   FILTER (lang(?alternativeLabel) = 'en')}
-    
-  # Get the label of the OWL class to be serialized when there is no formal label
-  bind(replace(str($this),'.*[/#]','') as ?implicitLabel)
   
+  BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
+    
   # Establish the label of the property to be serialized.
-  BIND(CONCAT("[=",COALESCE(?preferredLabel, ?alternativeLabel, ?implicitLabel),"=]") as ?mermaidLabel)
+  BIND(CONCAT(STR($this),">",COALESCE(?preferredLabel, ?alternativeLabel, ?implicitLabel),"]") as ?mermaidLabel)
   }
+  
   
   # Domain
   UNION
   {$this rdfs:domain ?domainClass.
-  ?domainClass mermaid:label ?manchesterDomain.}
+  BIND(CONCAT(STR($this), " -- domain --> ", STR(?domainClass)) as ?mermaidDomain)}
   
   # Range 
   UNION
   {$this rdfs:range ?rangeDatatype.
-  BIND(function:getPrefixedIRI(?rangeDatatype) as ?manchesterRange)
-  }
+  BIND(CONCAT(STR($this), " -- range --> ", STR(?rangeDatatype)) as ?mermaidRange)}
 }  
+
 '''.
 
 shp:Serializable_objectProperty
@@ -1267,20 +1215,6 @@ select $this {
   $this rdf:type owl:ObjectProperty.
   filter not exists {
   $this mermaid:syntax 'OBJECTPROPERTY'}
-   
-  minus {
-    $this rdfs:domain ?someDomainClass.
-    filter not exists {
-     ?someDomainClass mermaid:label []
-    }
-  }
-  
-  minus {
-    $this rdfs:range ?someRangeClass.
-    filter not exists {
-     ?someDomainClass mermaid:label []
-    }
-  }
   
  }
   '''.
@@ -1304,9 +1238,7 @@ construct {
   # create the Mermaid diagram language for the OWL property to be serialized.
   
   $this mermaid:syntax 'OBJECTPROPERTY';
-        mermaid:label ?mermaidLabel;
-        mermaid:domain ?manchesterDomain;
-        mermaid:range ?manchesterRange.
+        mermaid:label ?mermaidLabel,?mermaidDomain, ?mermaidRange.
         
 } where {
 
@@ -1314,30 +1246,31 @@ construct {
   # Label
   
   {
+   OPTIONAL
   {$this skos:prefLabel ?preferredLabel.
   FILTER (lang(?preferredLabel) = 'en')}
-  UNION 
+  
+  OPTIONAL 
   {$this rdfs:label ?alternativeLabel.
   FILTER (lang(?alternativeLabel) = 'en')}
-    
-  # Get the label of the OWL class to be serialized when there is no formal label
-  bind(replace(str($this),'.*[/#]','') as ?implicitLabel)
   
+  BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
+    
   # Establish the label of the property to be serialized.
-  BIND(CONCAT("[=",COALESCE(?preferredLabel, ?alternativeLabel, ?implicitLabel),"=]") as ?mermaidLabel)
+  BIND(CONCAT(STR($this), ">",COALESCE(?preferredLabel, ?alternativeLabel, ?implicitLabel),"]") as ?mermaidLabel)
   }
+  
   
   # Domain
   UNION
   {$this rdfs:domain ?domainClass.
-  ?domainClass mermaid:label ?manchesterDomain.}
+  BIND(CONCAT(STR($this), " -- domain --> ", STR(?domainClass)) as ?mermaidDomain)}
   
   # Range 
   UNION
   {$this rdfs:range ?rangeClass.
-  ?rangeClass mermaid:label ?manchesterRange.}
-  
-}  
+  BIND(CONCAT(STR($this), " -- range --> ", STR(?rangeClass)) as ?mermaidRange)}
+}   
 '''.
 
 shp:Serializable_subPropertyOf
@@ -1360,15 +1293,9 @@ select $this {
   
   $this rdfs:subPropertyOf ?someProperty.
   filter not exists {
-    $this mermaid:subPropertyOf []
+    $this mermaid:syntax "SUBPROPERTY".
     }
   
-  minus {
-	$this rdfs:subPropertyOf ?someProperty.
-     filter not exists {	
-     ?someProperty mermaid:label []
-    }
-   }
 }
 '''.
 
@@ -1390,12 +1317,13 @@ construct {
   # create the Mermaid diagram language for the OWL property to be serialized.
   
   $this mermaid:syntax 'SUBPROPERTY';
-        mermaid:subPropertyOf ?manchesterSuperProperty.		
+        mermaid:label ?mermaidLabel.		
   
 } where {
 
   $this rdfs:subPropertyOf ?superProperty.
-  ?superProperty mermaid:label ?manchesterSuperProperty.
+  
+  BIND(CONCAT(STR($this), " -- subPropertyOf --> ", STR(?superProperty)) as ?mermaidLabel)
    
 }  
 '''.
@@ -1420,15 +1348,8 @@ select $this {
   $this owl:equivalentProperty ?someProperty.
   
   filter not exists {
-  $this mermaid:equivalentProperty []}
-  
-  minus {
-  $this owl:equivalentProperty ?someProperty
-    filter not exists 
-      {
-       ?someProperty mermaid:label []
-      }   
-  }
+  $this mermaid:syntax "EQUIVALENTPROPERTY".}
+
 }
 '''.
 
@@ -1449,136 +1370,18 @@ construct {
 
   # create the Mermaid diagram language for the OWL property to be serialized.
   
-  $this mermaid:syntax 'EQUIVALENTPROPERTY';
-        mermaid:equivalentProperty ?manchesterEquivalentProperty.		
+  $this mermaid:syntax 'SUBPROPERTY';
+        mermaid:label ?mermaidLabel.		
   
 } where {
 
-  $this owl:equivalentProperty ?equivalentProperty.
+  $this owl:equivalentProperty ?superProperty.
   
-  ?equivalentProperty mermaid:label ?manchesterEquivalentProperty.
-  
+  BIND(CONCAT(STR($this), " -- equivalentProperty --> ", STR(?superProperty)) as ?mermaidLabel)
+   
 }  
 '''.
 
-shp:Serializable_namedIndividual
-    a sh:NodeShape;
-    sh:rule rule:Serialize_namedIndividual;
-    sh:target target:Serialize_namedIndividual;
-    skos:prefLabel 'Serializable Named Individual shape.'@en.
-
-target:Serialize_namedIndividual
-    a sh:SPARQLTarget;
-    sh:select '''
-prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
-prefix owl: <http://www.w3.org/2002/07/owl#>
-prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix sh: <http://www.w3.org/ns/shacl#>
-
-select $this {
-
-  # A named individual for which underlying class expressions are already serialized to Mermaid diagram language.
-  
-  $this rdf:type ?class.   
-  filter not exists {
-    $this mermaid:syntax 'individual'
-  }  
- 
-  minus {
-    $this rdf:type ?class. 
-    filter not exists {
-     ?class mermaid:label []
-    }
-  }
-FILTER (?class NOT IN (sh:PropertyShape, sh:NodeShape, sh:SPARQLRule, rdfs:Class, rdf:Property, owl:Class, owl:DatatypeProperty, owl:ObjectProperty, owl:FunctionalProperty, owl:Restriction, owl:Ontology))
-}
-'''.
-
-rule:Serialize_namedIndividual
-  a sh:SPARQLRule;
-  skos:prefLabel 'Named individuals rule'@en;
-  rdfs:comment 'The named individuals rule creates a section of named individuals for the ontology in the document.'@en ;
-  sh:construct """
-prefix dct: <http://purl.org/dc/terms/>
-prefix dc:  <http://purl.org/dc/elements/1.1/>
-prefix dcm: <http://purl.org/dc/dcmitype/>
-prefix dom: <https://data.rijksfinancien.nl/dom/model/def/>
-prefix function: <https://data.rijksfinancien.nl/html/model/function/>
-prefix html: <https://data.rijksfinancien.nl/html/model/def/> 
-prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
-prefix owl: <http://www.w3.org/2002/07/owl#>
-prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
-prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
-prefix respec: <https://respec.org/model/> 
-prefix schema: <http://schema.org/>
-prefix sh: <http://www.w3.org/ns/shacl#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
-prefix vann: <http://purl.org/vocab/vann/>
-construct {
-  # create the Mermaid diagram language for the named individual to be serialized.
-  $this mermaid:syntax 'INDIVIDUAL';
-        mermaid:individual ?mermaidLabel;
-		mermaid:label ?mermaidLabel;
-        mermaid:type ?manchesterType;
-        mermaid:fact ?manchesterFact.
-} where {
-  # Label
-  {
-    {
-      $this skos:prefLabel ?preferredLabel.
-	   FILTER (lang(?preferredLabel) = 'en')
-	  
-    }
-    UNION 
-    {
-      $this rdfs:label ?alternativeLabel.
-	      FILTER (lang(?alternativeLabel) = 'en')
-    }
-   
-    # We use an heuristic based on the last part of the IRI to determine the mermaid diagram language based label
-    BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
-     
-	# Establish explicit label, if any.
-    BIND(CONCAT("[=",COALESCE(?preferredLabel, ?alternativeLabel),"=]") as ?explicitLabel)
-    
-	# Establish the label of the named individual to be serialized.
-    BIND(COALESCE(?explicitLabel, ?implicitLabel) as ?mermaidLabel)
-  }
-  # Type
-  UNION
-  {
-    $this a ?class.
-    ?class mermaid:label ?className.
-    BIND(CONCAT("Type:  ", ?className) as ?manchesterType)
-    FILTER (?class NOT IN (sh:PropertyShape, sh:NodeShape, owl:Class))
-  }
-  # Fact 
-  UNION
-  {
-    $this ?property ?literal.
-    ?property rdf:type owl:DatatypeProperty;
-              mermaid:label ?propertyLabel.
-    FILTER NOT EXISTS 
-    {
-      $this rdf:type sh:PropertyShape
-    }
-  }
-  UNION
-  {
-    $this ?property ?object.
-    ?property rdf:type owl:ObjectProperty;
-              mermaid:label ?propertyLabel.
-    ?object   mermaid:label ?objectLabel.
-    FILTER NOT EXISTS 
-    {
-      $this rdf:type sh:PropertyShape
-    }
-  }
-  BIND(CONCAT("Fact:  ", function:getPrefixedIRI(?propertyLabel), " ", COALESCE(str(?literal), ?objectLabel)) as ?manchesterFact)
-}
-  
-""".
 
 function:getPrefixedIRI
     a sh:SPARQLFunction ;

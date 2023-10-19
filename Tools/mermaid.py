@@ -56,6 +56,145 @@ def iteratePyShacl(mermaid_generator, serializable_graph):
         debug=False,
         )
         
+       
+        statusquery = serializable_graph.query('''
+            
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix sh: <http://www.w3.org/ns/shacl#>
+ASK
+WHERE {
+  # Any OWL or RDFS entity that is not yet described in terms of the manchester syntax
+  {
+    $this a owl:Class.
+  }  
+  UNION
+  {
+    $this a rdfs:Class.
+  }
+  UNION
+  {
+    $this rdfs:subClassOf []
+  }
+  UNION
+  {
+    $this owl:equivalentClass []
+  }
+  UNION
+  {
+    $this owl:unionOf []
+  }
+  UNION
+  {
+    $this owl:intersectionOf []
+  }
+  UNION
+  {
+    $this owl:complementOf []
+  }
+  UNION
+  {
+    $this owl:oneOf []
+  }
+  UNION
+  {
+    $this owl:allValuesFrom []
+  }
+  UNION
+  {
+    $this owl:someValuesFrom []
+  }
+  UNION
+  {
+    $this owl:hasValue []
+  }
+  UNION
+  {
+    $this owl:cardinality []
+  }
+  UNION
+  {
+    $this owl:maxCardinality []
+  }
+  UNION
+  {
+    $this owl:minCardinality []
+  }  
+  UNION
+  {
+    $this rdf:type owl:DatatypeProperty.
+  }
+  UNION
+  {
+    $this rdf:type owl:ObjectProperty.
+  }
+  UNION
+  {
+    $this rdfs:subPropertyOf [].
+  }
+  UNION
+  {
+    $this owl:equivalentProperty [].
+  }
+  filter not exists {
+    $this mermaid:syntax 'CLASS'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'CLASS'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'SUBCLASSOF'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'EQUIVALENTTO'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'OR'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'AND'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'NOT'.
+  }
+  filter not exists {
+    $this mermaid:syntax '{}'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'ONLY'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'SOME'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'VALUE'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'EXACTLY'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'MAX'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'MIN'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'DATATYPEPROPERTY'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'OBJECTPROPERTY'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'SUBPROPERTYOF'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'EQUIVALENTPROPERTY'.
+  }
+}
+        ''')   
+
         resultquery = serializable_graph.query('''
             
 prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
@@ -64,7 +203,7 @@ prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix sh: <http://www.w3.org/ns/shacl#>
 
-SELECT (GROUP_CONCAT(?label; separator="\\n") AS ?concatenatedLabels)
+SELECT (GROUP_CONCAT(?label; separator="\\n") AS ?mermaid_code)
 WHERE {
   ?element mermaid:label ?label.
 
@@ -73,18 +212,42 @@ WHERE {
         ''')   
 
         # Check whether another iteration is needed. If every OWL and RDFS construct contains a mermaid:syntax statement, the processing is considered done.
-        for result in resultquery:
-            mermaidlabels = result["concatenatedLabels"]
-            print("BEGIN")
-            print(mermaidlabels)
-            print("EIND")
-            output_file_path = "C:/Users/Administrator/Documents/Branches/mermaid/Tools/Output/concatenated_labels.txt"
-            with open(output_file_path, "w") as file:
-              file.write(mermaidlabels)
-            writeGraph(serializable_graph)
-            iteratePyShacl(mermaid_generator, serializable_graph)
-            
+        for status in statusquery:
+            if status == True:
+                writeGraph(serializable_graph)
+                iteratePyShacl(mermaid_generator, serializable_graph)
+            else: 
+                 print ("The ontology has been interpreted in manchester syntax and saved to Turtle-format as " + filename_stem+"-manchestersyntax.ttl")
+                 writeGraph(serializable_graph)
+        
+                 for result in resultquery:
+                    mermaid_code = result["mermaid_code"]
+                    output_file_path = "C:/Users/Administrator/Documents/Branches/mermaid/Tools/Output/mermaid.html"
+                    # Create the HTML content with the Mermaid code
+                    html_content = f'''
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                    </head>
+                    <body>
+                    <div><pre class="mermaid">
+                    graph TB
+                    {mermaid_code}
+                    </pre>
+                    <script type="module">
+                      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+                      mermaid.initialize({{ startOnLoad: true }});
+                    </script>
+                    </div>
+                    </body>
+                    </html>
+                    '''
+                    
+                    # Write the HTML content to the output file
+                    with open(output_file_path, "w") as file:
+                        file.write(html_content)
 
+                 
 # loop through any turtle files in the input directory
 for filename in os.listdir(directory_path+"mermaid/Tools/Input"):
     if filename.endswith(".ttl"):
