@@ -217,7 +217,7 @@ WHERE {
                 writeGraph(serializable_graph)
                 iteratePyShacl(mermaid_generator, serializable_graph)
             else: 
-                 print ("The ontology has been interpreted in manchester syntax and saved to Turtle-format as " + filename_stem+"-manchestersyntax.ttl")
+                 print ("File " + filename_stem+"-mermaid.ttl" + " created in output folder.")
                  writeGraph(serializable_graph)
         
                  for result in resultquery:
@@ -271,7 +271,7 @@ for filename in os.listdir(directory_path+"mermaid/Tools/Input"):
         serializable_graph.bind("mermaid", mermaid)
         
         # Inform user
-        print ('Creating Mermaid diagram labels...')
+        print ('Creating Mermaid diagram labels for file',filename, '...')
         
         # Call the shacl engine with the HTML vocabulary and the document to be serialized
         iteratePyShacl(mermaid_generator, serializable_graph)

@@ -200,11 +200,39 @@ construct {
 
 } where {
 
-  $this owl:allValuesFrom ?otherClass;
+  $this owl:allValuesFrom ?someClass;
         owl:onProperty ?someProperty.
+
+
+   OPTIONAL
+  {?someClass skos:prefLabel ?preferredLabelClass.
+  FILTER (lang(?preferredLabelClass) = 'en')}
+  
+  OPTIONAL 
+  {?someClass rdfs:label ?alternativeLabelClass.
+  FILTER (lang(?alternativeLabelClass) = 'en')}
+  
+  BIND(REPLACE(STR(?someClass),'.*[/#]','') as ?implicitLabelClass)
+    
+  # Establish the label of the Class to be serialized.
+  BIND(COALESCE(?preferredLabelClass, ?alternativeLabelClass, ?implicitLabelClass) as ?mermaidLabelClass)
+
+   OPTIONAL
+  {?someProperty skos:prefLabel ?preferredLabelProperty.
+  FILTER (lang(?preferredLabelProperty) = 'en')}
+  
+  OPTIONAL 
+  {?someProperty rdfs:label ?alternativeLabelProperty.
+  FILTER (lang(?alternativeLabelProperty) = 'en')}
+  
+  BIND(REPLACE(STR(?someProperty),'.*[/#]','') as ?implicitLabelProperty)
+    
+  # Establish the label of the property to be serialized.
+  BIND(COALESCE(?preferredLabelProperty, ?alternativeLabelProperty, ?implicitLabelProperty) as ?mermaidLabelProperty)
+  
   
   # Establish the full definition of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty)," -- only --> ", str(?otherClass)) as ?mermaidRestriction)
+  BIND(CONCAT("thing -- ",STR(?mermaidLabelProperty)," only --> ", CONCAT(str($this),str(?someClass)), "((", ?mermaidLabelClass,"))") as ?mermaidDefinition)
    
   # Establish whether the restriction class has a label of its own or not. Use when present (but only if @this is not a blank node).
   OPTIONAL
@@ -220,7 +248,10 @@ construct {
   
   # Establish the label based on certain preferred labels   
   BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
-  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]\\n", ?mermaidRestriction, "\\nend"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]\\n", ?mermaidRestriction, "\\nend\\n")) as ?mermaidLabel)
+  BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Restriction &forall;]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction &forall;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+  
 }
 '''.
 
@@ -295,7 +326,7 @@ construct {
   ?someProperty mermaid:label ?propertyLabel
   
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?propertyLabel, "] -- some --> ", str(?otherClass)) as ?mermaidRestriction)
+  BIND(CONCAT(STR(?someProperty),"[",?propertyLabel, "] -- some --> ", str(?otherClass)) as ?mermaidDefinition)
   
   
   # Establish whether the restriction class has a label of its own or not. Use when present (but only if @this is not a blank node).
@@ -312,7 +343,9 @@ construct {
   
   # Establish the label based on certain preferred labels   
   BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
-  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]\\n", ?mermaidRestriction, "\\nend"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]\\n", ?mermaidRestriction, "\\nend\\n")) as ?mermaidLabel)
+  BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Restriction &exist;]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction 	&exist;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }  '''.
 
 
@@ -379,7 +412,7 @@ construct {
   ?someProperty mermaid:label ?propertyLabel
   
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?propertyLabel, "] -- value --> ", str(?otherClass)) as ?mermaidRestriction)
+  BIND(CONCAT(STR(?someProperty),"[",?propertyLabel, "] -- value --> ", str(?otherClass)) as ?mermaidDefinition)
   
   
   # Establish whether the restriction class has a label of its own or not. Use when present (but only if @this is not a blank node).
@@ -395,8 +428,10 @@ construct {
   }
   
   # Establish the label based on certain preferred labels   
-  BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
-  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]\\n", ?mermaidRestriction, "\\nend"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]\\n", ?mermaidRestriction, "\\nend\\n")) as ?mermaidLabel)
+  BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel)  
+  BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction &exist; {}]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction &exist; {}]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 } '''.
 
 shp:SerializableOwlRestriction_cardinality
@@ -462,7 +497,7 @@ construct {
 
   
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?propertyLabel, "] -- exactly --> ", str(?n)) as ?mermaidRestriction)
+  BIND(CONCAT(STR(?someProperty),"[",?propertyLabel, "] -- exactly --> ", str(?n)) as ?mermaidDefinition)
   
       
   # Establish whether the restriction class has a label of its own or not. Use when present (but only if @this is not a blank node).
@@ -478,8 +513,10 @@ construct {
   }
   
   # Establish the label based on certain preferred labels   
-  BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
-  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]\\n", ?mermaidRestriction, "\\nend"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]\\n", ?mermaidRestriction, "\\nend\\n")) as ?mermaidLabel)
+  BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel)  
+  BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }
 
 '''.
@@ -547,7 +584,7 @@ construct {
 
   
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?propertyLabel, "] -- max --> ", str(?n)) as ?mermaidRestriction)
+  BIND(CONCAT(STR(?someProperty),"[",?propertyLabel, "] -- max --> ", str(?n)) as ?mermaidDefinition)
   
       
   # Establish whether the restriction class has a label of its own or not. Use when present (but only if @this is not a blank node).
@@ -564,7 +601,9 @@ construct {
   
   # Establish the label based on certain preferred labels   
   BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
-  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]\\n", ?mermaidRestriction, "\\nend"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]\\n", ?mermaidRestriction, "\\nend\\n")) as ?mermaidLabel)
+  BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction ≤ N]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }
 '''.
 
@@ -630,7 +669,7 @@ construct {
 
   
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?propertyLabel, "] -- min --> ", str(?n)) as ?mermaidRestriction)
+  BIND(CONCAT(STR(?someProperty),"[",?propertyLabel, "] -- min --> ", str(?n)) as ?mermaidDefinition)
   
       
   # Establish whether the restriction class has a label of its own or not. Use when present (but only if @this is not a blank node).
@@ -647,7 +686,10 @@ construct {
   
   # Establish the label based on certain preferred labels   
   BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
-  BIND(IF(isBlank($this), CONCAT("subgraph ",STR($this)," [Restriction]\\n", ?mermaidRestriction, "\\nend"), CONCAT("subgraph ",STR($this), "[",?classLabel,"]\\n", ?mermaidRestriction, "\\nend\\n")) as ?mermaidLabel)
+  BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
+  BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction ≥ N]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }
 '''.
 
@@ -882,11 +924,27 @@ construct {
         
 } where {
 
-  {select (group_concat(str(?list_item);separator=' -- or --> ') as ?mermaidDefinition) where {
-  $this owl:unionOf/rdf:rest*/rdf:first ?list_item.
+  {select (group_concat(str(?mermaidClass);separator=' -- or --- ') as ?mermaidDefinition) where {
+           $this owl:unionOf/rdf:rest*/rdf:first ?someClass.
+		   
+          OPTIONAL
+           {?someClass skos:prefLabel ?preferredLabelClass.
+           FILTER (lang(?preferredLabelClass) = 'en')}
   
+          OPTIONAL 
+           {?someClass rdfs:label ?alternativeLabelClass.
+           FILTER (lang(?alternativeLabelClass) = 'en')}
+
+          BIND(REPLACE(STR(?someClass),'.*[/#]','') as ?implicitLabelClass)
+    
+          # Establish the label of the Class to be serialized.
+          BIND(COALESCE(?preferredLabelClass, ?alternativeLabelClass, ?implicitLabelClass) as ?mermaidLabelClass)
+		  BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",?mermaidLabelClass, "))")) as ?mermaidClass)
+		  
+    }
+		   
   }
-  }
+   
   OPTIONAL
   {
     $this skos:prefLabel ?prefLabel.
@@ -898,8 +956,11 @@ construct {
     FILTER (lang(?altLabel) = 'en')
   }
   BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
-  BIND(IF(isBlank($this),"Anonymous class",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
-  BIND(CONCAT("subgraph ",STR($this),"[", ?classLabel, "]\\n", ?mermaidDefinition, "\\nend\\n") as ?mermaidLabel)
+  BIND(IF(isBlank($this),"Union &cup;",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
+  
+  BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Union &cup;]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256," [Union &cap;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
   
 }
 '''.
@@ -952,11 +1013,27 @@ construct {
         
 } where {
 
-  {select (group_concat(str(?list_item);separator=' -- and --> ') as ?mermaidDefinition) where {
-  $this owl:intersectionOf/rdf:rest*/rdf:first ?list_item.
+  {select (group_concat(str(?mermaidClass);separator=' -- and --- ') as ?mermaidDefinition) where {
+           $this owl:intersectionOf/rdf:rest*/rdf:first ?someClass.
+		   
+          OPTIONAL
+           {?someClass skos:prefLabel ?preferredLabelClass.
+           FILTER (lang(?preferredLabelClass) = 'en')}
   
+          OPTIONAL 
+           {?someClass rdfs:label ?alternativeLabelClass.
+           FILTER (lang(?alternativeLabelClass) = 'en')}
+
+          BIND(REPLACE(STR(?someClass),'.*[/#]','') as ?implicitLabelClass)
+    
+          # Establish the label of the Class to be serialized.
+          BIND(COALESCE(?preferredLabelClass, ?alternativeLabelClass, ?implicitLabelClass) as ?mermaidLabelClass)
+		  BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",?mermaidLabelClass, "))")) as ?mermaidClass)
+		  
+    }
+		   
   }
-  }
+   
   OPTIONAL
   {
     $this skos:prefLabel ?prefLabel.
@@ -968,9 +1045,11 @@ construct {
     FILTER (lang(?altLabel) = 'en')
   }
   BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
-  BIND(IF(isBlank($this),"Anonymous class",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
+  BIND(IF(isBlank($this),"Intersection &cap;",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
   
-  BIND(CONCAT("subgraph ",STR($this),"[", ?classLabel, "]\\n", ?mermaidDefinition, "\\nend\\n") as ?mermaidLabel)
+  BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Intersection &cap;]\\n", ?mermaidDefinition, "\\nend\\n"),
+                          CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256," [Intersection &cap;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
   
 }
 '''.
@@ -1022,12 +1101,26 @@ construct {
         
 } where {
 
-  {select (group_concat(str(?list_items);separator=' ') as ?mermaidDefinition) where {
-  $this owl:unionOf/rdf:rest*/rdf:first ?list_item.
-  BIND(CONCAT('{',?list_item, '}') as ?list_items)
+  {select (group_concat(str(?mermaidIndividual);separator=' --- ') as ?mermaidDefinition) where {
+           $this owl:oneOf/rdf:rest*/rdf:first ?someIndividual.
+		   
+          OPTIONAL
+           {?someIndividual skos:prefLabel ?preferredLabelIndividual.
+           FILTER (lang(?preferredLabelClass) = 'en')}
   
+          OPTIONAL 
+           {?someIndividual rdfs:label ?alternativeLabelIndividual.
+           FILTER (lang(?alternativeLabelClass) = 'en')}
+
+          BIND(REPLACE(STR(?someIndividual),'.*[/#]','') as ?implicitLabelIndividual)
+    
+          # Establish the label of the individual to be serialized.
+          BIND(COALESCE(?preferredLabelIndividual, ?alternativeLabelIndividual, ?implicitLabelIndividual) as ?mermaidLabelIndividual)
+		  BIND(CONCAT(STR($this), STR(?someIndividual),"((",?mermaidLabelIndividual, "))") as ?mermaidIndividual)
+		  
+    }	   
   }
-  }
+  
   OPTIONAL
   {
     $this skos:prefLabel ?prefLabel.
@@ -1039,10 +1132,10 @@ construct {
     FILTER (lang(?altLabel) = 'en')
   }
   BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
-  BIND(IF(isBlank($this),"Anonymous class",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
   
-  BIND(CONCAT("subgraph ",STR($this),"[", ?classLabel, "]\\n", ?mermaidDefinition, "\\nend") as ?mermaidLabel)
-  
+  BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Enumeration {} &cap; {}]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256," [Enumeration {}]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }
 '''.
 
@@ -1088,14 +1181,27 @@ construct {
 
   # create the Mermaid diagram language for the OWL class to be serialized.
   
-  $this mermaid:syntax "NOT";
-        mermaid:label ?mermaidLabel.
-       
+  $this  mermaid:syntax "NOT";
+         mermaid:label ?mermaidLabel.
+        
 } where {
 
-  $this owl:complementOf ?complementOfClass.
-  # There may be complement classes that unfortunately do not get defined in the turtle file. 
+   $this owl:complementOf ?someClass.
+		   
+   OPTIONAL
+           {?someClass skos:prefLabel ?preferredLabelClass.
+           FILTER (lang(?preferredLabelClass) = 'en')}
   
+   OPTIONAL 
+           {?someClass rdfs:label ?alternativeLabelClass.
+           FILTER (lang(?alternativeLabelClass) = 'en')}
+
+   BIND(REPLACE(STR(?someClass),'.*[/#]','') as ?implicitLabelClass)
+    
+   # Establish the label of the Class to be serialized.
+   BIND(COALESCE(?preferredLabelClass, ?alternativeLabelClass, ?implicitLabelClass) as ?mermaidLabelClass)
+   BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",?mermaidLabelClass, "))")) as ?mermaidClass)
+		  
   OPTIONAL
   {
     $this skos:prefLabel ?prefLabel.
@@ -1107,11 +1213,13 @@ construct {
     FILTER (lang(?altLabel) = 'en')
   }
   BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
-  BIND(IF(isBlank($this),"Anonymous class",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
-  BIND(CONCAT(" -- not --> ",STR(?complementOfClass)) as ?mermaidDefinition)
-  BIND(CONCAT("subgraph ",STR($this),"[", ?classLabel, "]\\n", ?mermaidDefinition, "\\nend") as ?mermaidLabel)
+  BIND(IF(isBlank($this),"Negation &#8705;",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
   
-} 
+  BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Negation &#8705;]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, " [Negation &#8705;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+  
+}
 '''.
 
 shp:Serializable_datatypeProperty
