@@ -28,13 +28,13 @@ prefix target: <https://data.rijksfinancien.nl/html/model/target/>
     a
       owl:Ontology,
       void:Dataset;
-    dct:conformsTo 'https://datatracker.ietf.org/doc/html/rfc1942'^^xsd:anyURI;
+    dct:conformsTo 'https://mermaid.js.org/'^^xsd:anyURI;
     dct:created '2023-07-19'^^xsd:date;
     dct:creator
       'Flores Bakker',
       'Wouter Beek';
-    dct:description '''The Mermaid Vocabulary models the Mermaid diagram language in RDF. Mermaid is a JavaScript-based diagramming and charting tool that uses Markdown-inspired text definitions and a renderer to create and modify complex diagrams. The main purpose of Mermaid is to help documentation catch up with development. This ontology defines the elements and relationships used within Mermaid diagrams, allowing for a standardized way to describe and interact with Mermaid diagrams in the context of the Semantic Web.'''@en;
-    dct:abstract '''The Mermaid Vocabulary models the Mermaid diagram language in RDF. Mermaid is a JavaScript-based diagramming and charting tool that uses Markdown-inspired text definitions and a renderer to create and modify complex diagrams. The main purpose of Mermaid is to help documentation catch up with development. This ontology defines the elements and relationships used within Mermaid diagrams, allowing for a standardized way to describe and interact with Mermaid diagrams in the context of the Semantic Web.'''@en;
+    dct:description '''The Mermaid Vocabulary models OWL constructs into Mermaid. Mermaid itself is a JavaScript-based diagramming and charting tool that uses Markdown-inspired text definitions and a renderer to create and modify complex diagrams. The main purpose of Mermaid is to help documentation catch up with development. This ontology defines the elements and relationships used within Mermaid diagrams, allowing for a standardized way to describe and interact with Mermaid diagrams in the context of the Semantic Web.'''@en;
+    dct:abstract '''The Mermaid Vocabulary models OWL constructs into Mermaid. Mermaid itself is a JavaScript-based diagramming and charting tool that uses Markdown-inspired text definitions and a renderer to create and modify complex diagrams. The main purpose of Mermaid is to help documentation catch up with development. This ontology defines the elements and relationships used within Mermaid diagrams, allowing for a standardized way to describe and interact with Mermaid diagrams in the context of the Semantic Web.'''@en;
     dct:language 'iso639-1:en';
     dct:license 'http://creativecommons.org/licenses/by/4.0'^^xsd:anyURI;
     dct:publisher <https://www.w3.org/community/mermaid/>;
@@ -119,11 +119,10 @@ select $this {
     rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for an OWL Class.'@en;
     skos:prefLabel 'Mermaid diagram language serialisation rule for owl class'@en;
     sh:construct '''
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
 prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 construct {
 
@@ -133,19 +132,8 @@ construct {
         mermaid:label ?mermaidLabel.
 } where {
 
-  # Get the label of the OWL class to be serialized.
-  {$this skos:prefLabel ?preferredLabel.
-  FILTER (lang(?preferredLabel) = 'en')}
-  union 
-  {$this rdfs:label ?alternativeLabel.
-  FILTER (lang(?alternativeLabel) = 'en')}
-  
-  # We use an heuristic based on the last part of the IRI to determine the mermaid diagram language
-  bind(replace(str($this),'.*[/#]','') as ?implicitLabel)
-  
-  
-  BIND(CONCAT(STR($this),"((",STR(COALESCE(?preferredLabel, ?alternativeLabel, ?implicitLabel)),"))") as ?mermaidLabel)
-} 
+  BIND(CONCAT(STR($this),"((",function:getLabel($this),"))") as ?mermaidLabel)
+}
 '''.
 
 ### OWL Restriction
@@ -173,10 +161,8 @@ select $this {
 
   filter not exists {
     $this mermaid:syntax "ONLY"
-   }
-   
+   }  
 }
- 
  '''.
 
   rule:SerializeOwlRestriction_AllValuesFrom
@@ -184,12 +170,11 @@ select $this {
     rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for OWL Restriction owl:allValuesFrom.'@en;
     skos:prefLabel 'Mermaid diagram language serialisation rule for owl restriction owl:allValuesFrom'@en;
     sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
 prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
 
 construct {
 
@@ -202,54 +187,21 @@ construct {
 
   $this owl:allValuesFrom ?someClass;
         owl:onProperty ?someProperty.
-
-
-   OPTIONAL
-  {?someClass skos:prefLabel ?preferredLabelClass.
-  FILTER (lang(?preferredLabelClass) = 'en')}
+		
+  # Establish the label of the class to be serialized.
+  BIND(function:getLabel(?someClass) as ?mermaidLabelClass)
   
-  OPTIONAL 
-  {?someClass rdfs:label ?alternativeLabelClass.
-  FILTER (lang(?alternativeLabelClass) = 'en')}
-  
-  BIND(REPLACE(STR(?someClass),'.*[/#]','') as ?implicitLabelClass)
-    
-  # Establish the label of the Class to be serialized.
-  BIND(COALESCE(?preferredLabelClass, ?alternativeLabelClass, ?implicitLabelClass) as ?mermaidLabelClass)
-
-   OPTIONAL
-  {?someProperty skos:prefLabel ?preferredLabelProperty.
-  FILTER (lang(?preferredLabelProperty) = 'en')}
-  
-  OPTIONAL 
-  {?someProperty rdfs:label ?alternativeLabelProperty.
-  FILTER (lang(?alternativeLabelProperty) = 'en')}
-  
-  BIND(REPLACE(STR(?someProperty),'.*[/#]','') as ?implicitLabelProperty)
-    
   # Establish the label of the property to be serialized.
-  BIND(COALESCE(?preferredLabelProperty, ?alternativeLabelProperty, ?implicitLabelProperty) as ?mermaidLabelProperty)
+  BIND(function:getLabel(?someProperty) as ?mermaidLabelProperty)
   
   # Establish the full definition of the OWL restriction class to be serialized.
   BIND(CONCAT(STR($this),"thing((thing)) -- ",STR(?mermaidLabelProperty)," only --> ", IF(isBlank(?someClass),CONCAT(?mermaidLabelClass, "\\n"),CONCAT(str($this),str(?someClass), "((", ?mermaidLabelClass,"))\\n"))) as ?mermaidDefinition)
    
-  # Establish whether the restriction class has a label of its own or not. Use when present (but only if @this is not a blank node).
-  OPTIONAL
-  {
-    $this skos:prefLabel ?preferredLabel.
-    FILTER (lang(?preferredLabel) = 'en')
-  }
-  OPTIONAL 
-  {
-    $this rdfs:label ?alternativeLabel.
-    FILTER (lang(?alternativeLabel) = 'en')
-  }
-  
   # Establish the label based on certain preferred labels   
-  BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
+  BIND(CONCAT("((",function:getLabel($this), "))") as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Restriction &forall;]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction &forall;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction &forall;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
   
 }
 '''.
@@ -287,12 +239,11 @@ select $this {
     rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for OWL Restriction owl:someValuesFrom.'@en;
     skos:prefLabel 'Mermaid diagram language serialisation rule for owl restriction owl:someValuesFrom'@en;
     sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
 prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 construct {
 
@@ -306,52 +257,20 @@ construct {
   $this owl:someValuesFrom ?someClass;
         owl:onProperty ?someProperty.
   
- OPTIONAL
-  {?someClass skos:prefLabel ?preferredLabelClass.
-  FILTER (lang(?preferredLabelClass) = 'en')}
+  # Establish the label of the class to be serialized.
+  BIND(function:getLabel(?someClass) as ?mermaidLabelClass)
   
-  OPTIONAL 
-  {?someClass rdfs:label ?alternativeLabelClass.
-  FILTER (lang(?alternativeLabelClass) = 'en')}
-  
-  BIND(REPLACE(STR(?someClass),'.*[/#]','') as ?implicitLabelClass)
-    
-  # Establish the label of the Class to be serialized.
-  BIND(COALESCE(?preferredLabelClass, ?alternativeLabelClass, ?implicitLabelClass) as ?mermaidLabelClass)
-
-  OPTIONAL
-  {?someProperty skos:prefLabel ?preferredLabelProperty.
-  FILTER (lang(?preferredLabelProperty) = 'en')}
-  
-  OPTIONAL 
-  {?someProperty rdfs:label ?alternativeLabelProperty.
-  FILTER (lang(?alternativeLabelProperty) = 'en')}
-  
-  BIND(REPLACE(STR(?someProperty),'.*[/#]','') as ?implicitLabelProperty)
-    
   # Establish the label of the property to be serialized.
-  BIND(COALESCE(?preferredLabelProperty, ?alternativeLabelProperty, ?implicitLabelProperty) as ?mermaidLabelProperty)
+  BIND(function:getLabel(?someProperty) as ?mermaidLabelProperty)
   
   # Establish the full definition of the OWL restriction class to be serialized.
   BIND(CONCAT(STR($this),"thing((thing)) -- ",STR(?mermaidLabelProperty)," some --> ", IF(isBlank(?someClass),CONCAT(?mermaidLabelClass, "\\n"),CONCAT(str($this),str(?someClass), "((", ?mermaidLabelClass,"))\\n"))) as ?mermaidDefinition)
   
-  # Establish whether the restriction class has a label of its own or not. Use when present (but only if @this is not a blank node).
-  OPTIONAL
-  {
-    $this skos:prefLabel ?preferredLabel.
-    FILTER (lang(?preferredLabel) = 'en')
-  }
-  OPTIONAL 
-  {
-    $this rdfs:label ?alternativeLabel.
-    FILTER (lang(?alternativeLabel) = 'en')
-  }
-  
   # Establish the label based on certain preferred labels   
-  BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
+  BIND(CONCAT("((",function:getLabel($this), "))") as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Restriction &exist;]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction 	&exist;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction 	&exist;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }  '''.
 
 
@@ -387,12 +306,11 @@ select $this {
     rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for OWL Restriction owl:hasValue.'@en;
     skos:prefLabel 'Mermaid diagram language serialisation rule for owl restriction owl:hasValue'@en;
     sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
 prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 construct {
 
@@ -406,52 +324,22 @@ construct {
   $this owl:hasValue ?someIndividual;
         owl:onProperty ?someProperty.
   
-  OPTIONAL
-  {?someIndividual skos:prefLabel ?preferredLabelIndividual.
-  FILTER (lang(?preferredLabelIndividual) = 'en')}
-  
-  OPTIONAL 
-  {?someIndividual rdfs:label ?alternativeLabelIndividual.
-  FILTER (lang(?alternativeLabelIndividual) = 'en')}
-  
-  BIND(REPLACE(STR(?someIndividual),'.*[/#]','') as ?implicitLabelIndividual)
-    
   # Establish the label of the individual to be serialized.
-  BIND(COALESCE(?preferredLabelIndividual, ?alternativeLabelIndividual, ?implicitLabelIndividual) as ?mermaidLabelIndividual)
+  BIND(function:getLabel(?someIndividual) as ?mermaidLabelIndividual)
 
-  OPTIONAL
-  {?someProperty skos:prefLabel ?preferredLabelProperty.
-  FILTER (lang(?preferredLabelProperty) = 'en')}
-  
-  OPTIONAL 
-  {?someProperty rdfs:label ?alternativeLabelProperty.
-  FILTER (lang(?alternativeLabelProperty) = 'en')}
-  
-  BIND(REPLACE(STR(?someProperty),'.*[/#]','') as ?implicitLabelProperty)
-    
   # Establish the label of the property to be serialized.
-  BIND(COALESCE(?preferredLabelProperty, ?alternativeLabelProperty, ?implicitLabelProperty) as ?mermaidLabelProperty)
+  BIND(function:getLabel(?someProperty) as ?mermaidLabelProperty)
 
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?propertyLabel, "] -- value --> ", CONCAT(str($this),str(?someIndividual), "((", ?mermaidLabelIndividual,"))\\n")) as ?mermaidDefinition)
+  BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- value --> ", CONCAT(str($this),str(?someIndividual), "((", ?mermaidLabelIndividual,"))\\n")) as ?mermaidDefinition)
     
-  # Establish whether the restriction class has a label of its own or not. Use when present (but only if @this is not a blank node).
-  OPTIONAL
-  {
-    $this skos:prefLabel ?preferredLabel.
-    FILTER (lang(?preferredLabel) = 'en')
-  }
-  OPTIONAL 
-  {
-    $this rdfs:label ?alternativeLabel.
-    FILTER (lang(?alternativeLabel) = 'en')
-  }
+  # Establish whether the restriction class has a label of its own or not.
+  BIND(function:getLabel($this) as ?mermaidLabelClass)
   
-  # Establish the label based on certain preferred labels   
-  BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel)  
+  # Establish the Mermaid label 
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
-  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction &exist; {}]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction &exist; {}]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction &exist; &#123&#125]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?mermaidLabelClass, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction &exist; &#123&#125]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 } '''.
 
 shp:SerializableOwlRestriction_cardinality
@@ -487,12 +375,11 @@ select $this {
     rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for OWL Restriction owl:cardinality.'@en;
     skos:prefLabel 'Mermaid diagram language serialisation rule for owl restriction owl:cardinality'@en;
     sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
 prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 construct {
 
@@ -505,31 +392,18 @@ construct {
 
   $this owl:cardinality ?n;
         owl:onProperty ?someProperty.
-  ?someProperty mermaid:label ?propertyLabel.
   
-
+  # Establish the label of the property to be serialized.
+  BIND(function:getLabel(?someProperty) as ?mermaidLabelProperty)
   
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?propertyLabel, "] -- exactly --> ", str(?n)) as ?mermaidDefinition)
-  
-      
-  # Establish whether the restriction class has a label of its own or not. Use when present (but only if @this is not a blank node).
-  OPTIONAL
-  {
-    $this skos:prefLabel ?preferredLabel.
-    FILTER (lang(?preferredLabel) = 'en')
-  }
-  OPTIONAL 
-  {
-    $this rdfs:label ?alternativeLabel.
-    FILTER (lang(?alternativeLabel) = 'en')
-  }
+  BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- exactly --> ", str(?n)) as ?mermaidDefinition)
   
   # Establish the label based on certain preferred labels   
-  BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel)  
+  BIND(CONCAT("((",function:getLabel($this),"))") as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }
 
 '''.
@@ -567,12 +441,11 @@ select $this {
     rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for OWL Restriction owl:maxCardinality.'@en;
     skos:prefLabel 'Mermaid diagram language serialisation rule for owl restriction owl:maxCardinality'@en;
     sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
 prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 construct {
 
@@ -585,31 +458,18 @@ construct {
 
   $this owl:maxCardinality ?n;
         owl:onProperty ?someProperty.
-  ?someProperty mermaid:label ?propertyLabel.
   
-
+  # Establish the label of the property to be serialized.
+  BIND(function:getLabel(?someProperty) as ?mermaidLabelProperty)
   
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?propertyLabel, "] -- max --> ", str(?n)) as ?mermaidDefinition)
-  
-      
-  # Establish whether the restriction class has a label of its own or not. Use when present (but only if @this is not a blank node).
-  OPTIONAL
-  {
-    $this skos:prefLabel ?preferredLabel.
-    FILTER (lang(?preferredLabel) = 'en')
-  }
-  OPTIONAL 
-  {
-    $this rdfs:label ?alternativeLabel.
-    FILTER (lang(?alternativeLabel) = 'en')
-  }
+  BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- max --> ", str(?n)) as ?mermaidDefinition)
   
   # Establish the label based on certain preferred labels   
-  BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
+  BIND(CONCAT("((",function:getLabel($this), "))") as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction ≤ N]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }
 '''.
 
@@ -645,12 +505,11 @@ select $this {
     rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for OWL Restriction owl:minCardinality.'@en;
     skos:prefLabel 'Mermaid diagram language serialisation rule for owl restriction owl:minCardinality'@en;
     sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
 prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 construct {
 
@@ -663,32 +522,18 @@ construct {
 
   $this owl:minCardinality ?n;
         owl:onProperty ?someProperty.
-  ?someProperty mermaid:label ?propertyLabel.
   
-
+  # Establish the label of the property to be serialized.
+  BIND(function:getLabel(?someProperty) as ?mermaidLabelProperty)
   
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?propertyLabel, "] -- min --> ", str(?n)) as ?mermaidDefinition)
-  
-      
-  # Establish whether the restriction class has a label of its own or not. Use when present (but only if @this is not a blank node).
-  OPTIONAL
-  {
-    $this skos:prefLabel ?preferredLabel.
-    FILTER (lang(?preferredLabel) = 'en')
-  }
-  OPTIONAL 
-  {
-    $this rdfs:label ?alternativeLabel.
-    FILTER (lang(?alternativeLabel) = 'en')
-  }
+  BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- min --> ", str(?n)) as ?mermaidDefinition)
   
   # Establish the label based on certain preferred labels   
-  BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
-  BIND(CONCAT("((",COALESCE(?preferredLabel, ?alternativeLabel, "))")) as ?classLabel) 
+  BIND(CONCAT("((",function:getLabel($this), "))") as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction ≥ N]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }
 '''.
 
@@ -740,12 +585,11 @@ select $this {
     rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for rdfs:subClassOf classes.'@en;
     skos:prefLabel 'Mermaid diagram language serialisation rule for rdfs:subClassOf classes.'@en;
     sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
 prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
 
 construct {
 
@@ -754,25 +598,10 @@ construct {
         mermaid:label ?mermaidLabel.
 
 } where {
-  {
-    $this rdfs:subClassOf ?superClass.
+  $this rdfs:subClassOf ?superClass.
     
-  }
-   
-    OPTIONAL
-  {
-    $this skos:prefLabel ?prefLabel.
-    FILTER (lang(?prefLabel) = 'en')
-  }
-  OPTIONAL 
-  {
-    $this rdfs:label ?altLabel.
-    FILTER (lang(?altLabel) = 'en')
-  }
-  bind(replace(str($this),'.*[/#]','') as ?implicitLabel)
-  # Get the label of the class to be serialized.
-   
-  BIND(IF(isBlank($this),"Anonymous class",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
+  BIND(function:getLabel($this) as ?label) 
+  BIND(IF(isBlank($this),"Anonymous class",?label) as ?classLabel)
   BIND(CONCAT(STR($this), "((",?classLabel,")) -- subClassOf --> ", STR(?superClass), "\\n") as ?mermaidLabel)
 
 } '''.
@@ -824,12 +653,11 @@ select $this {
     rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for owl:equivalentClass classes.'@en;
     skos:prefLabel 'Mermaid diagram language serialisation rule for owl:equivalentClass classes.'@en;
     sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
 prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
 
 construct {
 
@@ -838,25 +666,10 @@ construct {
         mermaid:label ?mermaidLabel.
 
 } where {
-  {
-    $this owl:equivalentClass ?superClass.
+  $this owl:equivalentClass ?superClass.
     
-  }
-   
-    OPTIONAL
-  {
-    $this skos:prefLabel ?prefLabel.
-    FILTER (lang(?prefLabel) = 'en')
-  }
-  OPTIONAL 
-  {
-    $this rdfs:label ?altLabel.
-    FILTER (lang(?altLabel) = 'en')
-  }
-  bind(replace(str($this),'.*[/#]','') as ?implicitLabel)
-  # Get the label of the class to be serialized.
-   
-  BIND(IF(isBlank($this),"Anonymous class",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
+  BIND(function:getLabel($this) as ?label) 
+  BIND(IF(isBlank($this),"Anonymous class",?label) as ?classLabel)
   BIND(CONCAT(STR($this), "((",?classLabel,")) -- equivalentTo --> ", STR(?superClass), "\\n") as ?mermaidLabel)
 
 }
@@ -893,12 +706,11 @@ select $this {
     rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for owl:unionOf classes.'@en;
     skos:prefLabel 'Mermaid diagram language serialisation rule for owl:unionOf classes.'@en;
     sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
 prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
 
 construct {
 
@@ -912,38 +724,16 @@ construct {
   {select (group_concat(str(?mermaidClass);separator=' -- or --- ') as ?mermaidDefinition) where {
            $this owl:unionOf/rdf:rest*/rdf:first ?someClass.
 		   
-          OPTIONAL
-           {?someClass skos:prefLabel ?preferredLabelClass.
-           FILTER (lang(?preferredLabelClass) = 'en')}
-  
-          OPTIONAL 
-           {?someClass rdfs:label ?alternativeLabelClass.
-           FILTER (lang(?alternativeLabelClass) = 'en')}
-
-          BIND(REPLACE(STR(?someClass),'.*[/#]','') as ?implicitLabelClass)
-    
-          # Establish the label of the Class to be serialized.
-          BIND(COALESCE(?preferredLabelClass, ?alternativeLabelClass, ?implicitLabelClass) as ?mermaidLabelClass)
+          BIND(function:getLabel(?someClass) as ?mermaidLabelClass)
 		  BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",?mermaidLabelClass, "))")) as ?mermaidClass)	  
     }
   }
    
-  OPTIONAL
-  {
-    $this skos:prefLabel ?prefLabel.
-    FILTER (lang(?prefLabel) = 'en')
-  }
-  OPTIONAL 
-  {
-    $this rdfs:label ?altLabel.
-    FILTER (lang(?altLabel) = 'en')
-  }
-  BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
-  BIND(IF(isBlank($this),"Union &cup;",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
-  
+
+  BIND(IF(isBlank($this),"Union &cup;",function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Union &cup;]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256," [Union &cap;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256," [Union &cap;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
   
 }
 '''.
@@ -979,12 +769,11 @@ select $this {
     rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for owl:intersectionOf classes.'@en;
     skos:prefLabel 'Mermaid diagram language serialisation rule for owl:intersectionOf classes.'@en;
     sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
 prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
 
 construct {
 
@@ -998,40 +787,16 @@ construct {
   {select (group_concat(str(?mermaidClass);separator=' -- and --- ') as ?mermaidDefinition) where {
            $this owl:intersectionOf/rdf:rest*/rdf:first ?someClass.
 		   
-          OPTIONAL
-           {?someClass skos:prefLabel ?preferredLabelClass.
-           FILTER (lang(?preferredLabelClass) = 'en')}
-  
-          OPTIONAL 
-           {?someClass rdfs:label ?alternativeLabelClass.
-           FILTER (lang(?alternativeLabelClass) = 'en')}
-
-          BIND(REPLACE(STR(?someClass),'.*[/#]','') as ?implicitLabelClass)
-    
-          # Establish the label of the Class to be serialized.
-          BIND(COALESCE(?preferredLabelClass, ?alternativeLabelClass, ?implicitLabelClass) as ?mermaidLabelClass)
+          BIND(function:getLabel(?someClass) as ?mermaidLabelClass)
 		  BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",?mermaidLabelClass, "))")) as ?mermaidClass)
 		  
-    }
-		   
+    }		   
   }
-   
-  OPTIONAL
-  {
-    $this skos:prefLabel ?prefLabel.
-    FILTER (lang(?prefLabel) = 'en')
-  }
-  OPTIONAL 
-  {
-    $this rdfs:label ?altLabel.
-    FILTER (lang(?altLabel) = 'en')
-  }
-  BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
-  BIND(IF(isBlank($this),"Intersection &cap;",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
   
+  BIND(IF(isBlank($this),"Intersection &cap;",function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Intersection &cap;]\\n", ?mermaidDefinition, "\\nend\\n"),
-                          CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256," [Intersection &cap;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+                          CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256," [Intersection &cap;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
   
 }
 '''.
@@ -1067,12 +832,11 @@ select $this {
     rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for owl:oneOf classes.'@en;
     skos:prefLabel 'Mermaid diagram language serialisation rule for owl:oneOf classes.'@en;
     sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
 prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
 
 construct {
 
@@ -1086,38 +850,16 @@ construct {
   {select (group_concat(str(?mermaidIndividual);separator=' --- ') as ?mermaidDefinition) where {
            $this owl:oneOf/rdf:rest*/rdf:first ?someIndividual.
 		   
-          OPTIONAL
-           {?someIndividual skos:prefLabel ?preferredLabelIndividual.
-           FILTER (lang(?preferredLabelClass) = 'en')}
-  
-          OPTIONAL 
-           {?someIndividual rdfs:label ?alternativeLabelIndividual.
-           FILTER (lang(?alternativeLabelClass) = 'en')}
-
-          BIND(REPLACE(STR(?someIndividual),'.*[/#]','') as ?implicitLabelIndividual)
-    
-          # Establish the label of the individual to be serialized.
-          BIND(COALESCE(?preferredLabelIndividual, ?alternativeLabelIndividual, ?implicitLabelIndividual) as ?mermaidLabelIndividual)
+          BIND(function:getLabel(?someClass) as ?mermaidLabelIndividual)
 		  BIND(CONCAT(STR($this), STR(?someIndividual),"((",?mermaidLabelIndividual, "))") as ?mermaidIndividual)
 		  
     }	   
   }
   
-  OPTIONAL
-  {
-    $this skos:prefLabel ?prefLabel.
-    FILTER (lang(?prefLabel) = 'en')
-  }
-  OPTIONAL 
-  {
-    $this rdfs:label ?altLabel.
-    FILTER (lang(?altLabel) = 'en')
-  }
-  BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
-  
+  BIND(IF(isBlank($this),"Enumeration &#123&#125 &cap; &#123&#125",function:getLabel($this)) as ?classLabel)  
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
-  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Enumeration {} &cap; {}]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256," [Enumeration {}]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Enumeration &#123&#125 &cap; &#123&#125]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256," [Enumeration &#123&#125]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }
 '''.
 
@@ -1152,12 +894,11 @@ select $this {
     rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for owl:complementOf classes.'@en;
     skos:prefLabel 'Mermaid diagram language serialisation rule for owl:complementOf classes.'@en;
     sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
 prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
 
 construct {
 
@@ -1168,39 +909,14 @@ construct {
         
 } where {
 
-   $this owl:complementOf ?someClass.
+  $this owl:complementOf ?someClass.
 		   
-   OPTIONAL
-           {?someClass skos:prefLabel ?preferredLabelClass.
-           FILTER (lang(?preferredLabelClass) = 'en')}
-  
-   OPTIONAL 
-           {?someClass rdfs:label ?alternativeLabelClass.
-           FILTER (lang(?alternativeLabelClass) = 'en')}
-
-   BIND(REPLACE(STR(?someClass),'.*[/#]','') as ?implicitLabelClass)
-    
-   # Establish the label of the Class to be serialized.
-   BIND(COALESCE(?preferredLabelClass, ?alternativeLabelClass, ?implicitLabelClass) as ?mermaidLabelClass)
-   BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",?mermaidLabelClass, "))")) as ?mermaidClass)
-		  
-  OPTIONAL
-  {
-    $this skos:prefLabel ?prefLabel.
-    FILTER (lang(?prefLabel) = 'en')
-  }
-  OPTIONAL 
-  {
-    $this rdfs:label ?altLabel.
-    FILTER (lang(?altLabel) = 'en')
-  }
-  BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
-  BIND(IF(isBlank($this),"Negation &#8705;",COALESCE(?prefLabel, ?altLabel, ?implicitLabel)) as ?classLabel)
-  
+  BIND(function:getLabel(?someClass) as ?mermaidLabelClass)
+  BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",?mermaidLabelClass, "))")) as ?mermaidDefinition)
+  BIND(IF(isBlank($this),"Negation &#8705;",function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Negation &#8705;]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) equivalentTo ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, " [Negation &#8705;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
-  
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, " [Negation &#8705;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }
 '''.
 
@@ -1613,4 +1329,31 @@ function:getPrefixedIRI
   BIND(STRAFTER(STR($IRI), ?IRI_base) as ?IRI_reference)
   BIND(COALESCE(CONCAT(STR(?IRI_prefix),":",?IRI_reference), ?IRI_href) as ?result)
 }
-        """ .
+""" .
+ 
+function:getLabel
+    a sh:SPARQLFunction ;
+    rdfs:comment "Gets a label for a RDF resource." ;
+    sh:parameter [
+        sh:path function:resource ;
+        sh:datatype xsd:anyURI ;
+        sh:description "The full IRI of a RDF resource as defined in an ontology." ;
+    ] ;
+    sh:returnType xsd:string ;
+    sh:select """
+       SELECT ?result WHERE {
+  
+  BIND(REPLACE(STR($resource),'.*[/#]','') as ?implicitLabel)
+  
+  OPTIONAL
+  {$resource skos:prefLabel ?preferredLabel.
+  FILTER (lang(?preferredLabel) = 'en')}
+  
+  OPTIONAL 
+  {$resource rdfs:label ?alternativeLabel.
+  FILTER (lang(?alternativeLabel) = 'en')}
+      
+  # Establish label
+  BIND(COALESCE(?preferredLabel, ?alternativeLabel, ?implicitLabel) as ?result)
+}
+""" .
