@@ -132,7 +132,7 @@ construct {
         mermaid:label ?mermaidLabel.
 } where {
 
-  BIND(CONCAT(STR($this),"((",function:getLabel($this),"))") as ?mermaidLabel)
+  BIND(IF(isBlank($this),STR($this),CONCAT(STR($this),"((",function:getLabel($this), "))")) as ?mermaidLabel)
 }
 '''.
 
@@ -722,7 +722,7 @@ construct {
   {select (group_concat(str(?mermaidClass);separator=' -- or --- ') as ?mermaidDefinition) where {
            $this owl:unionOf/rdf:rest*/rdf:first ?someClass.
 		   
-          BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",function:getLabel(?someClass), "))")) as ?mermaidClass)
+          BIND(IF(isBlank(?someClass),STR(?someClass),CONCAT(STR($this), STR(?someClass),"((",function:getLabel(?someClass), "))")) as ?mermaidClass)
     }
   }
    
@@ -784,7 +784,7 @@ construct {
   {select (group_concat(str(?mermaidClass);separator=' -- and --- ') as ?mermaidDefinition) where {
            $this owl:intersectionOf/rdf:rest*/rdf:first ?someClass.
 		   
-		  BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",function:getLabel(?someClass), "))")) as ?mermaidClass)
+		  BIND(IF(isBlank(?someClass),STR(?someClass),CONCAT(STR($this), STR(?someClass),"((",function:getLabel(?someClass), "))")) as ?mermaidClass)
 		  
     }		   
   }
@@ -907,7 +907,7 @@ construct {
 
   $this owl:complementOf ?someClass.
 		   
-  BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",function:getLabel(?someClass), "))")) as ?mermaidDefinition)
+  BIND(IF(isBlank(?someClass),STR(?someClass),CONCAT(STR($this), STR(?someClass),"((",function:getLabel(?someClass), "))")) as ?mermaidDefinition)
   BIND(IF(isBlank($this),"Negation &#8705;",function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Negation &#8705;]\\n", ?mermaidDefinition, "\\nend\\n"),
@@ -941,7 +941,6 @@ select $this {
  }
   '''.
 
-
   rule:Serialize_datatypeProperty
     a sh:SPARQLRule;
     rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for the rdfs:domain of an owl:DatatypeProperty.'@en;
@@ -952,8 +951,6 @@ prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
 
 construct {
 
@@ -964,24 +961,8 @@ construct {
         
 } where {
 
-
   # Label
-  
-  {
-   OPTIONAL
-   {$this skos:prefLabel ?preferredLabel.
-  FILTER (lang(?preferredLabel) = 'en')}
-  
-  OPTIONAL 
-  {$this rdfs:label ?alternativeLabel.
-  FILTER (lang(?alternativeLabel) = 'en')}
-  
-  BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
-    
-  # Establish the label of the property to be serialized.
-  BIND(CONCAT(STR($this),">",COALESCE(?preferredLabel, ?alternativeLabel, ?implicitLabel),"]") as ?mermaidLabel)
-  }
-  
+  {BIND(CONCAT(STR($this), ">",function:getLabel($this),"]") as ?mermaidLabel)}
   
   # Domain
   UNION
@@ -1006,8 +987,6 @@ prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
 
 construct {
 
@@ -1028,22 +1007,10 @@ construct {
   OPTIONAL
   {$this rdfs:range ?rangeDatatype.
   BIND(COALESCE(STR(?rangeDatatype), "rdf:Resource") as ?mermaidRange)}
-  
-  # Label
-  OPTIONAL
-   {$this skos:prefLabel ?preferredLabel.
-  FILTER (lang(?preferredLabel) = 'en')}
-  
-  OPTIONAL 
-  {$this rdfs:label ?alternativeLabel.
-  FILTER (lang(?alternativeLabel) = 'en')}
-  
-  BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
-    
+     
   # Establish the label of the property to be serialized.
-  BIND(CONCAT(STR(?mermaidDomain)," -- ",COALESCE(?preferredLabel, ?alternativeLabel, ?implicitLabel)," --> ", ?mermaidRange) as ?mermaidLabel)
+  BIND(CONCAT(STR(?mermaidDomain)," -- ",function:getLabel($this)," --> ", ?mermaidRange) as ?mermaidLabel)
 }  
-
 '''.
 
 shp:Serializable_objectProperty
@@ -1083,8 +1050,6 @@ prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
 
 construct {
 
@@ -1097,21 +1062,7 @@ construct {
 
 
   # Label
-  {
-   OPTIONAL
-  {$this skos:prefLabel ?preferredLabel.
-  FILTER (lang(?preferredLabel) = 'en')}
-  
-  OPTIONAL 
-  {$this rdfs:label ?alternativeLabel.
-  FILTER (lang(?alternativeLabel) = 'en')}
-  
-  BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
-    
-  # Establish the label of the property to be serialized.
-  BIND(CONCAT(STR($this), ">",COALESCE(?preferredLabel, ?alternativeLabel, ?implicitLabel),"]") as ?mermaidLabel)
-  }
-  
+  {BIND(CONCAT(STR($this), ">",function:getLabel($this),"]") as ?mermaidLabel)}
   
   # Domain
   UNION
@@ -1135,15 +1086,13 @@ prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
 
 construct {
 
   # create the Mermaid diagram language for the OWL property to be serialized.
   
   $this mermaid:syntax 'OBJECTPROPERTY';
-        mermaid:label ?mermaidLabel,?mermaidDomain, ?mermaidRange.
+        mermaid:label ?mermaidLabel.
         
 } where {
 
@@ -1158,20 +1107,9 @@ construct {
   OPTIONAL
   {$this rdfs:range ?rangeClass.
   BIND(COALESCE(STR(?rangeClass), "rdf:Resource") as ?mermaidRange)}
-  
-  # Label
-  OPTIONAL
-   {$this skos:prefLabel ?preferredLabel.
-  FILTER (lang(?preferredLabel) = 'en')}
-  
-  OPTIONAL 
-  {$this rdfs:label ?alternativeLabel.
-  FILTER (lang(?alternativeLabel) = 'en')}
-  
-  BIND(REPLACE(STR($this),'.*[/#]','') as ?implicitLabel)
     
   # Establish the label of the property to be serialized.
-  BIND(CONCAT(STR(?mermaidDomain)," -- ",COALESCE(?preferredLabel, ?alternativeLabel, ?implicitLabel)," --> ", ?mermaidRange) as ?mermaidLabel)
+  BIND(CONCAT(STR(?mermaidDomain)," -- ",function:getLabel($this)," --> ", ?mermaidRange) as ?mermaidLabel)
 }    
 '''.
 
@@ -1211,8 +1149,6 @@ prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
 
 construct {
 
@@ -1265,8 +1201,6 @@ prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
 
 construct {
 
@@ -1283,7 +1217,6 @@ construct {
    
 }  
 '''.
-
 
 function:getPrefixedIRI
     a sh:SPARQLFunction ;

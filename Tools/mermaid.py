@@ -132,7 +132,8 @@ WHERE {
   }
   UNION
   {
-    $this rdfs:subPropertyOf [].
+    $this rdfs:subPropertyOf []
+    FILTER NOT EXISTS {$this rdf:type owl:AnnotationProperty}.
   }
   UNION
   {
@@ -192,25 +193,29 @@ WHERE {
   filter not exists {
     $this mermaid:syntax 'EQUIVALENTPROPERTY'.
   }
-  filter not exists {
-    $this rdf:type owl:AnnotationProperty}
 }
         ''')   
 
         resultquery = serializable_graph.query('''
             
-prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix sh: <http://www.w3.org/ns/shacl#>
+prefix : <https://data.rijksfinancien.nl/mermaid/model/def/>
 
 SELECT (GROUP_CONCAT(?label; separator="\\n") AS ?mermaid_code)
 WHERE {
-  ?element mermaid:label ?label.
-
+  ?element :label ?label.
+  
+  minus {
+      ?this owl:annotatedTarget ?target.
+      ?target (:|!:)* ?element.
+      ?element :label ?label
+      FILTER isBlank(?target)
+      FILTER isBlank(?element)}
+  
 }
-
         ''')   
 
         # Check whether another iteration is needed. If every OWL and RDFS construct contains a mermaid:syntax statement, the processing is considered done.
@@ -248,6 +253,7 @@ WHERE {
                     # Write the HTML content to the output file
                     with open(output_file_path, "w", encoding="utf-8") as file:
                         file.write(html_content)
+                    print ("File " + filename_stem+"-mermaid.html" + " created in output folder.")
 
                  
 # loop through any turtle files in the input directory
@@ -273,7 +279,7 @@ for filename in os.listdir(directory_path+"mermaid/Tools/Input"):
         serializable_graph.bind("mermaid", mermaid)
         
         # Inform user
-        print ('Creating Mermaid diagram labels for file',filename, '...')
+        print ('\nCreating Mermaid diagram labels for file',filename, '...')
         
         # Call the shacl engine with the HTML vocabulary and the document to be serialized
         iteratePyShacl(mermaid_generator, serializable_graph)
