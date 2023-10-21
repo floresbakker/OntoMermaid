@@ -1,0 +1,162 @@
+
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                    </head>
+                    <body>
+                    <div><pre class="mermaid">
+                    graph TB
+                    classDef DatatypeProperty fill:#9c6,stroke:#9c6;
+                    http://www.w3.org/ns/prov#Activity((Activity))
+http://www.w3.org/ns/prov#InstantaneousEvent((InstantaneousEvent))
+http://www.w3.org/ns/prov#Entity((Entity))
+http://www.w3.org/ns/prov#Location((Location))
+http://www.w3.org/ns/prov#Agent((Agent))
+http://www.w3.org/ns/prov#Influence((Influence))
+http://www.w3.org/2002/07/owl#Thing((Thing))
+http://www.w3.org/ns/prov#Role((Role))
+subgraph nb88970267621424f9eff13066b4b5de3b1 [Restriction ≤ N]
+http://www.w3.org/ns/prov#hadActivity[hadActivity] -- max --> 0
+end
+
+http://www.w3.org/ns/prov#Communication((Communication)) -- subClassOf --> http://www.w3.org/ns/prov#ActivityInfluence
+
+http://www.w3.org/ns/prov#Revision((Revision)) -- subClassOf --> http://www.w3.org/ns/prov#Derivation
+
+http://www.w3.org/ns/prov#Plan((Plan)) -- subClassOf --> http://www.w3.org/ns/prov#Entity
+
+http://www.w3.org/ns/prov#Collection((Collection)) -- subClassOf --> http://www.w3.org/ns/prov#Entity
+
+http://www.w3.org/ns/prov#Association((Association)) -- subClassOf --> http://www.w3.org/ns/prov#AgentInfluence
+
+http://www.w3.org/ns/prov#Person((Person)) -- subClassOf --> http://www.w3.org/ns/prov#Agent
+
+http://www.w3.org/ns/prov#Invalidation((Invalidation)) -- subClassOf --> http://www.w3.org/ns/prov#ActivityInfluence
+
+http://www.w3.org/ns/prov#Invalidation((Invalidation)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent
+
+http://www.w3.org/ns/prov#Attribution((Attribution)) -- subClassOf --> http://www.w3.org/ns/prov#AgentInfluence
+
+http://www.w3.org/ns/prov#EntityInfluence((EntityInfluence)) -- subClassOf --> http://www.w3.org/ns/prov#Influence
+
+http://www.w3.org/ns/prov#ActivityInfluence((ActivityInfluence)) -- subClassOf --> http://www.w3.org/ns/prov#Influence
+
+http://www.w3.org/ns/prov#ActivityInfluence((ActivityInfluence)) -- subClassOf --> nb88970267621424f9eff13066b4b5de3b1
+
+http://www.w3.org/ns/prov#Start((Start)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence
+
+http://www.w3.org/ns/prov#Start((Start)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent
+
+http://www.w3.org/ns/prov#End((End)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent
+
+http://www.w3.org/ns/prov#End((End)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence
+
+http://www.w3.org/ns/prov#Generation((Generation)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent
+
+http://www.w3.org/ns/prov#Generation((Generation)) -- subClassOf --> http://www.w3.org/ns/prov#ActivityInfluence
+
+http://www.w3.org/ns/prov#Derivation((Derivation)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence
+
+http://www.w3.org/ns/prov#Delegation((Delegation)) -- subClassOf --> http://www.w3.org/ns/prov#AgentInfluence
+
+http://www.w3.org/ns/prov#Usage((Usage)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent
+
+http://www.w3.org/ns/prov#Usage((Usage)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence
+
+http://www.w3.org/ns/prov#AgentInfluence((AgentInfluence)) -- subClassOf --> http://www.w3.org/ns/prov#Influence
+
+http://www.w3.org/ns/prov#Quotation((Quotation)) -- subClassOf --> http://www.w3.org/ns/prov#Derivation
+
+http://www.w3.org/ns/prov#Organization((Organization)) -- subClassOf --> http://www.w3.org/ns/prov#Agent
+
+http://www.w3.org/ns/prov#Bundle((Bundle)) -- subClassOf --> http://www.w3.org/ns/prov#Entity
+
+http://www.w3.org/ns/prov#PrimarySource((PrimarySource)) -- subClassOf --> http://www.w3.org/ns/prov#Derivation
+
+http://www.w3.org/ns/prov#EmptyCollection((EmptyCollection)) -- subClassOf --> http://www.w3.org/ns/prov#Collection
+
+http://www.w3.org/ns/prov#SoftwareAgent((SoftwareAgent)) -- subClassOf --> http://www.w3.org/ns/prov#Agent
+
+subgraph nb88970267621424f9eff13066b4b5de3b35[Union &cup;]
+nb88970267621424f9eff13066b4b5de3b35http://www.w3.org/ns/prov#Activity((Activity)) -- or --- nb88970267621424f9eff13066b4b5de3b35http://www.w3.org/ns/prov#Agent((Agent)) -- or --- nb88970267621424f9eff13066b4b5de3b35http://www.w3.org/ns/prov#Entity((Entity))
+end
+
+subgraph nb88970267621424f9eff13066b4b5de3b16[Union &cup;]
+nb88970267621424f9eff13066b4b5de3b16http://www.w3.org/ns/prov#Association((Association)) -- or --- nb88970267621424f9eff13066b4b5de3b16http://www.w3.org/ns/prov#InstantaneousEvent((InstantaneousEvent))
+end
+
+subgraph nb88970267621424f9eff13066b4b5de3b4[Union &cup;]
+nb88970267621424f9eff13066b4b5de3b4http://www.w3.org/ns/prov#Activity((Activity)) -- or --- nb88970267621424f9eff13066b4b5de3b4http://www.w3.org/ns/prov#Agent((Agent)) -- or --- nb88970267621424f9eff13066b4b5de3b4http://www.w3.org/ns/prov#Entity((Entity)) -- or --- nb88970267621424f9eff13066b4b5de3b4http://www.w3.org/ns/prov#InstantaneousEvent((InstantaneousEvent))
+end
+
+subgraph nb88970267621424f9eff13066b4b5de3b9[Union &cup;]
+nb88970267621424f9eff13066b4b5de3b9http://www.w3.org/ns/prov#Delegation((Delegation)) -- or --- nb88970267621424f9eff13066b4b5de3b9http://www.w3.org/ns/prov#Derivation((Derivation)) -- or --- nb88970267621424f9eff13066b4b5de3b9http://www.w3.org/ns/prov#End((End)) -- or --- nb88970267621424f9eff13066b4b5de3b9http://www.w3.org/ns/prov#Start((Start))
+end
+
+subgraph nb88970267621424f9eff13066b4b5de3b19[Union &cup;]
+nb88970267621424f9eff13066b4b5de3b19http://www.w3.org/ns/prov#Activity((Activity)) -- or --- nb88970267621424f9eff13066b4b5de3b19http://www.w3.org/ns/prov#Agent((Agent)) -- or --- nb88970267621424f9eff13066b4b5de3b19http://www.w3.org/ns/prov#Entity((Entity))
+end
+
+subgraph nb88970267621424f9eff13066b4b5de3b39[Union &cup;]
+nb88970267621424f9eff13066b4b5de3b39http://www.w3.org/ns/prov#Activity((Activity)) -- or --- nb88970267621424f9eff13066b4b5de3b39http://www.w3.org/ns/prov#Agent((Agent)) -- or --- nb88970267621424f9eff13066b4b5de3b39http://www.w3.org/ns/prov#Entity((Entity))
+end
+
+http://www.w3.org/ns/prov#Activity -- startedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::DatatypeProperty
+http://www.w3.org/ns/prov#Entity -- invalidatedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::DatatypeProperty
+http://www.w3.org/ns/prov#Entity -- generatedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::DatatypeProperty
+http://www.w3.org/ns/prov#Activity -- endedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::DatatypeProperty
+http://www.w3.org/ns/prov#InstantaneousEvent -- atTime --> http://www.w3.org/2001/XMLSchema#dateTime:::DatatypeProperty
+http://www.w3.org/ns/prov#Entity -- specializationOf --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Entity -- wasAttributedTo --> http://www.w3.org/ns/prov#Agent
+http://www.w3.org/ns/prov#Activity -- wasStartedBy --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Entity -- alternateOf --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Derivation -- hadGeneration --> http://www.w3.org/ns/prov#Generation
+http://www.w3.org/ns/prov#Activity -- wasInformedBy --> http://www.w3.org/ns/prov#Activity
+http://www.w3.org/ns/prov#Activity -- qualifiedEnd --> http://www.w3.org/ns/prov#End
+http://www.w3.org/ns/prov#Activity -- qualifiedCommunication --> http://www.w3.org/ns/prov#Communication
+http://www.w3.org/ns/prov#Entity -- hadPrimarySource --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Entity -- qualifiedQuotation --> http://www.w3.org/ns/prov#Quotation
+http://www.w3.org/ns/prov#EntityInfluence -- entity --> http://www.w3.org/ns/prov#Entity
+nb88970267621424f9eff13066b4b5de3b35 -- wasInfluencedBy --> nb88970267621424f9eff13066b4b5de3b39
+http://www.w3.org/ns/prov#Entity -- qualifiedPrimarySource --> http://www.w3.org/ns/prov#PrimarySource
+nb88970267621424f9eff13066b4b5de3b4 -- atLocation --> http://www.w3.org/ns/prov#Location
+http://www.w3.org/ns/prov#Entity -- qualifiedGeneration --> http://www.w3.org/ns/prov#Generation
+http://www.w3.org/ns/prov#Association -- hadPlan --> http://www.w3.org/ns/prov#Plan
+http://www.w3.org/ns/prov#Activity -- invalidated --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Entity -- qualifiedInvalidation --> http://www.w3.org/ns/prov#Invalidation
+http://www.w3.org/ns/prov#Influence -- hadRole --> http://www.w3.org/ns/prov#Role
+nb88970267621424f9eff13066b4b5de3b16 -- hadRole --> http://www.w3.org/ns/prov#Role
+http://www.w3.org/ns/prov#Entity -- wasDerivedFrom --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Entity -- qualifiedRevision --> http://www.w3.org/ns/prov#Revision
+http://www.w3.org/ns/prov#AgentInfluence -- agent --> http://www.w3.org/ns/prov#Agent
+http://www.w3.org/ns/prov#Entity -- wasInvalidatedBy --> http://www.w3.org/ns/prov#Activity
+http://www.w3.org/ns/prov#Activity -- wasEndedBy --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Activity -- wasAssociatedWith --> http://www.w3.org/ns/prov#Agent
+http://www.w3.org/ns/prov#Entity -- wasQuotedFrom --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#ActivityInfluence -- activity --> http://www.w3.org/ns/prov#Activity
+http://www.w3.org/ns/prov#Agent -- qualifiedDelegation --> http://www.w3.org/ns/prov#Delegation
+http://www.w3.org/ns/prov#Activity -- used --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Activity -- qualifiedStart --> http://www.w3.org/ns/prov#Start
+http://www.w3.org/ns/prov#Agent -- actedOnBehalfOf --> http://www.w3.org/ns/prov#Agent
+nb88970267621424f9eff13066b4b5de3b19 -- qualifiedInfluence --> http://www.w3.org/ns/prov#Influence
+http://www.w3.org/ns/prov#Entity -- wasRevisionOf --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Influence -- influencer --> http://www.w3.org/2002/07/owl#Thing
+http://www.w3.org/ns/prov#Entity -- wasGeneratedBy --> http://www.w3.org/ns/prov#Activity
+http://www.w3.org/ns/prov#Entity -- qualifiedAttribution --> http://www.w3.org/ns/prov#Attribution
+http://www.w3.org/ns/prov#Entity -- qualifiedDerivation --> http://www.w3.org/ns/prov#Derivation
+http://www.w3.org/ns/prov#Activity -- generated --> http://www.w3.org/ns/prov#Entity
+nb88970267621424f9eff13066b4b5de3b9 -- hadActivity --> http://www.w3.org/ns/prov#Activity
+http://www.w3.org/ns/prov#Influence -- hadActivity --> http://www.w3.org/ns/prov#Activity
+http://www.w3.org/ns/prov#Activity -- qualifiedUsage --> http://www.w3.org/ns/prov#Usage
+http://www.w3.org/ns/prov#Activity -- qualifiedAssociation --> http://www.w3.org/ns/prov#Association
+http://www.w3.org/ns/prov#Derivation -- hadUsage --> http://www.w3.org/ns/prov#Usage
+http://www.w3.org/ns/prov#Collection -- hadMember --> http://www.w3.org/ns/prov#Entity
+                    </pre>
+                    <script type="module">
+                      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+                      mermaid.initialize({ startOnLoad: true });
+                    </script>
+                    </div>
+                    </body>
+                    </html>
+                    
