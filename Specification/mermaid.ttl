@@ -1009,7 +1009,7 @@ construct {
   BIND(COALESCE(STR(?rangeDatatype), "rdf:Resource") as ?mermaidRange)}
      
   # Establish the label of the property to be serialized.
-  BIND(CONCAT(STR(?mermaidDomain)," -- ",function:getLabel($this)," --> ", ?mermaidRange) as ?mermaidLabel)
+  BIND(CONCAT(STR(?mermaidDomain)," -- ",function:getLabel($this)," --> ", ?mermaidRange,":::DatatypeProperty") as ?mermaidLabel)
 }  
 '''.
 

@@ -216,6 +216,7 @@ WHERE {
       FILTER isBlank(?element)}
   
 }
+ORDER BY ?mermaid_code
         ''')   
 
         # Check whether another iteration is needed. If every OWL and RDFS construct contains a mermaid:syntax statement, the processing is considered done.
@@ -239,6 +240,7 @@ WHERE {
                     <body>
                     <div><pre class="mermaid">
                     graph TB
+                    classDef DatatypeProperty fill:#9c6,stroke:#9c6;
                     {mermaid_code}
                     </pre>
                     <script type="module">
