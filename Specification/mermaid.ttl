@@ -198,7 +198,7 @@ construct {
   BIND(CONCAT(STR($this),"thing((thing)) -- ",STR(?mermaidLabelProperty)," only --> ", IF(isBlank(?someClass),CONCAT(?mermaidLabelClass, "\\n"),CONCAT(str($this),str(?someClass), "((", ?mermaidLabelClass,"))\\n"))) as ?mermaidDefinition)
    
   # Establish the label based on certain preferred labels   
-  BIND(CONCAT("((",function:getLabel($this), "))") as ?classLabel)
+  BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Restriction &forall;]\\n", ?mermaidDefinition, "\\nend\\n"),
                          CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction &forall;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
@@ -267,7 +267,7 @@ construct {
   BIND(CONCAT(STR($this),"thing((thing)) -- ",STR(?mermaidLabelProperty)," some --> ", IF(isBlank(?someClass),CONCAT(?mermaidLabelClass, "\\n"),CONCAT(str($this),str(?someClass), "((", ?mermaidLabelClass,"))\\n"))) as ?mermaidDefinition)
   
   # Establish the label based on certain preferred labels   
-  BIND(CONCAT("((",function:getLabel($this), "))") as ?classLabel)
+  BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Restriction &exist;]\\n", ?mermaidDefinition, "\\nend\\n"),
                          CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction 	&exist;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
@@ -334,12 +334,12 @@ construct {
   BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- value --> ", CONCAT(str($this),str(?someIndividual), "((", ?mermaidLabelIndividual,"))\\n")) as ?mermaidDefinition)
     
   # Establish whether the restriction class has a label of its own or not.
-  BIND(function:getLabel($this) as ?mermaidLabelClass)
+  BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
   
   # Establish the Mermaid label 
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction &exist; &#123&#125]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?mermaidLabelClass, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction &exist; &#123&#125]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction &exist; &#123&#125]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 } '''.
 
 shp:SerializableOwlRestriction_cardinality
@@ -400,7 +400,7 @@ construct {
   BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- exactly --> ", str(?n)) as ?mermaidDefinition)
   
   # Establish the label based on certain preferred labels   
-  BIND(CONCAT("((",function:getLabel($this),"))") as ?classLabel)
+  BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n"),
                          CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
@@ -466,7 +466,7 @@ construct {
   BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- max --> ", str(?n)) as ?mermaidDefinition)
   
   # Establish the label based on certain preferred labels   
-  BIND(CONCAT("((",function:getLabel($this), "))") as ?classLabel)
+  BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction ≤ N]\\n", ?mermaidDefinition, "\\nend\\n"),
                          CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
@@ -530,7 +530,7 @@ construct {
   BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- min --> ", str(?n)) as ?mermaidDefinition)
   
   # Establish the label based on certain preferred labels   
-  BIND(CONCAT("((",function:getLabel($this), "))") as ?classLabel)
+  BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction ≥ N]\\n", ?mermaidDefinition, "\\nend\\n"),
                          CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
@@ -600,8 +600,7 @@ construct {
 } where {
   $this rdfs:subClassOf ?superClass.
     
-  BIND(function:getLabel($this) as ?label) 
-  BIND(IF(isBlank($this),"Anonymous class",?label) as ?classLabel)
+  BIND(IF(isBlank($this), "Anonymous class", function:getLabel($this)) as ?classLabel)
   BIND(CONCAT(STR($this), "((",?classLabel,")) -- subClassOf --> ", STR(?superClass), "\\n") as ?mermaidLabel)
 
 } '''.
@@ -668,8 +667,7 @@ construct {
 } where {
   $this owl:equivalentClass ?superClass.
     
-  BIND(function:getLabel($this) as ?label) 
-  BIND(IF(isBlank($this),"Anonymous class",?label) as ?classLabel)
+  BIND(IF(isBlank($this), "Anonymous class", function:getLabel($this)) as ?classLabel)
   BIND(CONCAT(STR($this), "((",?classLabel,")) -- equivalentTo --> ", STR(?superClass), "\\n") as ?mermaidLabel)
 
 }
@@ -724,8 +722,7 @@ construct {
   {select (group_concat(str(?mermaidClass);separator=' -- or --- ') as ?mermaidDefinition) where {
            $this owl:unionOf/rdf:rest*/rdf:first ?someClass.
 		   
-          BIND(function:getLabel(?someClass) as ?mermaidLabelClass)
-		  BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",?mermaidLabelClass, "))")) as ?mermaidClass)	  
+          BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",function:getLabel(?someClass), "))")) as ?mermaidClass)
     }
   }
    
@@ -787,8 +784,7 @@ construct {
   {select (group_concat(str(?mermaidClass);separator=' -- and --- ') as ?mermaidDefinition) where {
            $this owl:intersectionOf/rdf:rest*/rdf:first ?someClass.
 		   
-          BIND(function:getLabel(?someClass) as ?mermaidLabelClass)
-		  BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",?mermaidLabelClass, "))")) as ?mermaidClass)
+		  BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",function:getLabel(?someClass), "))")) as ?mermaidClass)
 		  
     }		   
   }
@@ -911,8 +907,7 @@ construct {
 
   $this owl:complementOf ?someClass.
 		   
-  BIND(function:getLabel(?someClass) as ?mermaidLabelClass)
-  BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",?mermaidLabelClass, "))")) as ?mermaidDefinition)
+  BIND(IF(isBlank(?someClass),STR($someClass),CONCAT(STR($this), STR(?someClass),"((",function:getLabel(?someClass), "))")) as ?mermaidDefinition)
   BIND(IF(isBlank($this),"Negation &#8705;",function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
   BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Negation &#8705;]\\n", ?mermaidDefinition, "\\nend\\n"),
