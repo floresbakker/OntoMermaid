@@ -192,6 +192,8 @@ WHERE {
   filter not exists {
     $this mermaid:syntax 'EQUIVALENTPROPERTY'.
   }
+  filter not exists {
+    $this rdf:type owl:AnnotationProperty}
 }
         ''')   
 
@@ -222,7 +224,7 @@ WHERE {
         
                  for result in resultquery:
                     mermaid_code = result["mermaid_code"]
-                    output_file_path = "C:/Users/Administrator/Documents/Branches/mermaid/Tools/Output/mermaid.html"
+                    output_file_path = "C:/Users/Administrator/Documents/Branches/mermaid/Tools/Output/"+filename_stem+"-mermaid.html"
                     # Create the HTML content with the Mermaid code
                     html_content = f'''
                     <!DOCTYPE html>
@@ -244,7 +246,7 @@ WHERE {
                     '''
                     
                     # Write the HTML content to the output file
-                    with open(output_file_path, "w") as file:
+                    with open(output_file_path, "w", encoding="utf-8") as file:
                         file.write(html_content)
 
                  

@@ -52,7 +52,7 @@ prefix target: <https://data.rijksfinancien.nl/html/model/target/>
       skos:;
     owl:versionInfo '0.1.0';
     owl:versionIRI <https://github.com/floresbakker/mermaid/tree/main>;
-    vann:preferredNamespacePrefix 'manchester';
+    vann:preferredNamespacePrefix 'mermaid';
     vann:preferredNamespaceUri 'https://data.rijksfinancien.nl/mermaid/model/def/';
     void:subSet graph:model;
     void:uriRegexPattern '^https://data.rijksfinancien.nl/mermaid/def/';
