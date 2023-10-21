@@ -6,6 +6,8 @@ A RDF-based vocabulary to express OWL ontologies into Mermaid diagram language.
 
 The RDF-based vocabulary Mermaid serves as a bridge between the expressive power of OWL (Web Ontology Language) and the visual clarity of Mermaid diagrams. This vocabulary enables the representation of OWL ontologies in a structured and visual manner using the Mermaid diagram language. By doing so, it facilitates the understanding and communication of complex ontological structures, making them more accessible to a wider audience. The RDF-based approach leverages the capabilities of the Semantic Web to enrich the diagrams with metadata, fostering data interoperability and semantic annotation. This readme outlines the development and application of this novel ontology, opening new possibilities for ontology representation and visualization.
 
+![An example of a Mermaid diagram of an owl ontology](/Examples/ExampleMermaid.JPG)
+
 ## Introduction
 Ontologies play a vital role in knowledge representation and reasoning within various domains. OWL, a standard ontology language, offers a powerful and expressive framework for defining ontological structures. However, the complexity of OWL ontologies can be a barrier to comprehension for many stakeholders, especially those without a deep understanding of formal logic or ontology engineering. This challenge has inspired the development of an RDF-based vocabulary that translates OWL ontologies into Mermaid diagrams, known for their intuitive and visually appealing representation of complex relationships. In this readme, we introduce this innovative approach and discuss its potential to bridge the gap between ontology experts and non-experts, making ontological knowledge more accessible and comprehensible.
 
