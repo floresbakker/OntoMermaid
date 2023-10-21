@@ -42,15 +42,21 @@ It has NodeShapes for the following class constructs:
 12. A class that is the intersection of other classes (owl:intersectionOf)
 13. A class that consists of the enumeration of individuals (owl:oneOf)
 14. A class that is the complement of another class (owl:complementOf)
-14. A property that is an object property (owl:ObjectProperty)
-14. A property that is a datatype property (owl:DatatypeProperty)
-16. A property that is a subPropertyOf another property (rdfs:subPropertyOf)
-17. A property that is an equivalentProperty to another property (owl:equivalentProperty)
+15. A property that is an object property (owl:ObjectProperty)
+16. A property that is a datatype property (owl:DatatypeProperty)
+17. A property that is a subPropertyOf another property (rdfs:subPropertyOf)
+18. A property that is an equivalentProperty to another property (owl:equivalentProperty)
 
 Still to do:
-18. AnnotationProperty
-19. owl:Axiom
-20. NodeShape
+
+19. owl:disjointUnionOf
+20. owl:disjointWith
+21. owl:AllDisjointProperties
+22. owl:AllDisjointClasses
+23. AnnotationProperty
+24. owl:Axiom
+25. NodeShape
+26. PropertyShape
 
 ### Example
 
