@@ -38,7 +38,7 @@ def readGraphFromFile(file_path):
 
 # Function to write a graph to a file
 def writeGraph(graph):
-    graph.serialize(destination="C:/Users/Administrator/Documents/Branches/mermaid/Tools/Output/"+filename_stem+"-mermaid.ttl", format="turtle")
+    graph.serialize(destination=directory_path+"mermaid/Tools/Output/"+filename_stem+"-mermaid.ttl", format="turtle")
 
 # Function to call the PyShacl engine so that a RDF model of an HTML document can be serialized to HTML-code.
 def iteratePyShacl(mermaid_generator, serializable_graph):
@@ -267,7 +267,7 @@ for filename in os.listdir(directory_path+"mermaid/Tools/Input"):
         filename_stem = os.path.splitext(filename)[0]
         
         # Get the manchester syntax vocabulary and place it in a string
-        mermaid_generator = readGraphFromFile("C:/Users/Administrator/Documents/Branches/mermaid/Specification/mermaid.ttl")
+        mermaid_generator = readGraphFromFile(directory_path+"mermaid/Specification/mermaid.ttl")
         
         # Get some ontology to be transformed from OWL to Manchester Syntax. The ontology needs to be placed in the input directory.
         ontology_graph = readGraphFromFile(file_path)   
