@@ -915,6 +915,67 @@ construct {
 }
 '''.
 
+shp:Serializable_RDF_Property
+    a sh:NodeShape;
+	sh:rule rule:Serialize_RDF_Property_overview;
+    sh:target target:Serialize_RDF_Property;
+    skos:prefLabel 'Serializable rdf:Property shape'@en.
+
+  target:Serialize_RDF_Property
+    a sh:SPARQLTarget;
+    sh:select '''
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+select $this {
+
+  # An object property for which underlying class expressions are already serialized to Mermaid diagram language, but which does not have subPropertyOf or equivalentProperty relations.
+  
+  $this rdf:type rdf:Property.
+  filter not exists {
+  $this mermaid:syntax 'RDF_PROPERTY'}
+  
+ }
+  '''.
+
+rule:Serialize_RDF_Property_overview
+    a sh:SPARQLRule;
+    rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for the rdfs:domain and rdfs:range of a rdf:Property.'@en;
+    skos:prefLabel 'Mermaid diagram language serialisation rule for rdf:Property.'@en;
+    sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+construct {
+
+  # create the Mermaid diagram language for the OWL property to be serialized.
+  
+  $this mermaid:syntax 'RDF_PROPERTY';
+        mermaid:label ?mermaidLabel.
+        
+} where {
+
+
+  # Domain
+  OPTIONAL
+  {$this rdfs:domain ?domainClass.}
+  BIND(COALESCE(STR(?domainClass), "rdfs:Class") as ?mermaidDomain)
+  
+  # Range 
+  OPTIONAL
+  {$this rdfs:range ?rangeClass.}
+  BIND(COALESCE(STR(?rangeClass), "rdfs:Class") as ?mermaidRange)
+    
+  # Establish the label of the property to be serialized.
+  BIND(CONCAT(STR(?mermaidDomain)," -- ",function:getLabel($this)," --> ", ?mermaidRange) as ?mermaidLabel)
+}    
+'''.
+
 shp:Serializable_datatypeProperty
     a sh:NodeShape;
     #sh:rule rule:Serialize_datatypeProperty;
@@ -1000,13 +1061,13 @@ construct {
   # Domain
   OPTIONAL
   {$this rdfs:domain ?domainClass.
-  BIND(COALESCE(STR(?domainClass), "rdf:Resource") as ?mermaidDomain)
+  BIND(COALESCE(STR(?domainClass), "rdfs:Class") as ?mermaidDomain)
   }
   
   # Range 
   OPTIONAL
   {$this rdfs:range ?rangeDatatype.
-  BIND(COALESCE(STR(?rangeDatatype), "rdf:Resource") as ?mermaidRange)}
+  BIND(COALESCE(STR(?rangeDatatype), "rdfs:Class") as ?mermaidRange)}
      
   # Establish the label of the property to be serialized.
   BIND(CONCAT(STR(?mermaidDomain)," -- ",function:getLabel($this)," --> ", ?mermaidRange,":::DatatypeProperty") as ?mermaidLabel)
@@ -1100,13 +1161,13 @@ construct {
   # Domain
   OPTIONAL
   {$this rdfs:domain ?domainClass.
-  BIND(COALESCE(STR(?domainClass), "rdf:Resource") as ?mermaidDomain)
+  BIND(COALESCE(STR(?domainClass), "rdfs:Class") as ?mermaidDomain)
   }
   
   # Range 
   OPTIONAL
   {$this rdfs:range ?rangeClass.
-  BIND(COALESCE(STR(?rangeClass), "rdf:Resource") as ?mermaidRange)}
+  BIND(COALESCE(STR(?rangeClass), "rdfs:Class") as ?mermaidRange)}
     
   # Establish the label of the property to be serialized.
   BIND(CONCAT(STR(?mermaidDomain)," -- ",function:getLabel($this)," --> ", ?mermaidRange) as ?mermaidLabel)

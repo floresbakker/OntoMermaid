@@ -124,6 +124,10 @@ WHERE {
   }  
   UNION
   {
+   $this rdf:type rdf:Property
+  }
+  UNION
+  {
     $this rdf:type owl:DatatypeProperty.
   }
   UNION
@@ -182,6 +186,9 @@ WHERE {
   }
   filter not exists {
     $this mermaid:syntax 'MIN'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'RDF_PROPERTY'.
   }
   filter not exists {
     $this mermaid:syntax 'DATATYPEPROPERTY'.

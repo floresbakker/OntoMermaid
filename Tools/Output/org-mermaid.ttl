@@ -107,18 +107,18 @@
             owl:intersectionOf ( :Organization [ a owl:Restriction ;
                         owl:allValuesFrom :Organization ;
                         owl:onProperty :hasMember ;
-                        mermaid:label """subgraph nf6712cf032f1449d88dbd12c12b3eff2b21[Restriction &forall; R C]
-nf6712cf032f1449d88dbd12c12b3eff2b21thing((thing)) -- has member only --> nf6712cf032f1449d88dbd12c12b3eff2b21http://www.w3.org/ns/org#Organization((Organization))
+                        mermaid:label """subgraph n0cc39af49a9b4b62b420b944e13ed4bbb21[Restriction &forall; R C]
+n0cc39af49a9b4b62b420b944e13ed4bbb21thing((thing)) -- has member only --> n0cc39af49a9b4b62b420b944e13ed4bbb21http://www.w3.org/ns/org#Organization((Organization))
 
 end
 """ ;
                         mermaid:syntax "ONLY" ] ) ;
-            mermaid:label """subgraph nf6712cf032f1449d88dbd12c12b3eff2b20[Intersection C &cap; D]
-nf6712cf032f1449d88dbd12c12b3eff2b20http://www.w3.org/ns/org#Organization((Organization)) -- and --- nf6712cf032f1449d88dbd12c12b3eff2b21
+            mermaid:label """subgraph n0cc39af49a9b4b62b420b944e13ed4bbb20[Intersection C &cap; D]
+n0cc39af49a9b4b62b420b944e13ed4bbb20http://www.w3.org/ns/org#Organization((Organization)) -- and --- n0cc39af49a9b4b62b420b944e13ed4bbb21
 end
 """ ;
             mermaid:syntax "AND" ] ;
-    mermaid:label """http://www.w3.org/ns/org#OrganizationalCollaboration((Endeavour)) -- equivalentTo --> nf6712cf032f1449d88dbd12c12b3eff2b20
+    mermaid:label """http://www.w3.org/ns/org#OrganizationalCollaboration((Endeavour)) -- equivalentTo --> n0cc39af49a9b4b62b420b944e13ed4bbb20
 """,
         """http://www.w3.org/ns/org#OrganizationalCollaboration((Endeavour)) -- subClassOf --> http://www.w3.org/ns/org#Organization
 """ ;
@@ -274,7 +274,8 @@ gr:BusinessEntity rdfs:subClassOf :FormalOrganization ;
     rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
     rdfs:range :Site ;
     mermaid:label "http://xmlns.com/foaf/0.1/Person -- based At --> http://www.w3.org/ns/org#Site" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :classification a rdf:Property,
         owl:ObjectProperty ;
@@ -292,7 +293,8 @@ gr:BusinessEntity rdfs:subClassOf :FormalOrganization ;
     rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
     rdfs:range skos:Concept ;
     mermaid:label "http://www.w3.org/ns/org#Organization -- classification --> http://www.w3.org/2004/02/skos/core#Concept" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :hasRegisteredSite a rdf:Property,
         owl:ObjectProperty ;
@@ -310,7 +312,8 @@ gr:BusinessEntity rdfs:subClassOf :FormalOrganization ;
     rdfs:range :Site ;
     rdfs:subPropertyOf :hasPrimarySite ;
     mermaid:label "http://www.w3.org/ns/org#FormalOrganization -- registered Site --> http://www.w3.org/ns/org#Site" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :holds a rdf:Property,
         owl:ObjectProperty ;
@@ -328,7 +331,8 @@ gr:BusinessEntity rdfs:subClassOf :FormalOrganization ;
     rdfs:range :Post ;
     owl:inverseOf :heldBy ;
     mermaid:label "http://xmlns.com/foaf/0.1/Agent -- holds --> http://www.w3.org/ns/org#Post" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :linkedTo a rdf:Property,
         owl:ObjectProperty ;
@@ -346,7 +350,8 @@ gr:BusinessEntity rdfs:subClassOf :FormalOrganization ;
     rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
     rdfs:range :Organization ;
     mermaid:label "http://www.w3.org/ns/org#Organization -- linked to --> http://www.w3.org/ns/org#Organization" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :location a rdf:Property,
         owl:DatatypeProperty ;
@@ -363,8 +368,10 @@ gr:BusinessEntity rdfs:subClassOf :FormalOrganization ;
     rdfs:domain foaf:Person ;
     rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
     rdfs:range xsd:string ;
-    mermaid:label "http://xmlns.com/foaf/0.1/Person -- location --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
-    mermaid:syntax "DATATYPEPROPERTY" .
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- location --> http://www.w3.org/2001/XMLSchema#string",
+        "http://xmlns.com/foaf/0.1/Person -- location --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY",
+        "RDF_PROPERTY" .
 
 :memberDuring a rdf:Property,
         owl:ObjectProperty ;
@@ -379,7 +386,9 @@ gr:BusinessEntity rdfs:subClassOf :FormalOrganization ;
         "æ§‹æˆå“¡ãŒæœ‰åŠ¹ã§ã‚ã‚‹ï¼ã§ã‚ã£ãŸæœŸé–“ã‚’ç¤ºã™ãŸã‚ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ¼ã€‚"@ja ;
     rdfs:domain :Membership ;
     rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:label "http://www.w3.org/ns/org#Membership -- member During --> rdfs:Class" ;
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :organization a rdf:Property,
         owl:FunctionalProperty,
@@ -397,7 +406,8 @@ gr:BusinessEntity rdfs:subClassOf :FormalOrganization ;
     rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
     rdfs:range :Organization ;
     mermaid:label "http://www.w3.org/ns/org#Membership -- organization --> http://www.w3.org/ns/org#Organization" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :postIn a rdf:Property,
         owl:ObjectProperty ;
@@ -415,7 +425,8 @@ gr:BusinessEntity rdfs:subClassOf :FormalOrganization ;
     rdfs:range :Organization ;
     owl:inverseOf :hasPost ;
     mermaid:label "http://www.w3.org/ns/org#Post -- post in --> http://www.w3.org/ns/org#Organization" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :purpose a rdf:Property ;
     rdfs:label "purpose"@en,
@@ -428,7 +439,9 @@ gr:BusinessEntity rdfs:subClassOf :FormalOrganization ;
         "Indica l'obiettivo di questa Organization. In generale, si possono esprimere gli obiettivi di un'organizzazione secondo diversi livelli di astrazione, ma la natura stessa dell'organizzazione ha una ragione d'essere ed Ã¨ proprio questa che deve essere catturata con tale proprietÃ . Inoltre, un'Organization puÃ² avere obiettivi multipli. Ãˆ raccomandabile che l'obiettivo faccia parte di una code list, e che sia preferibilmente un `skos:Concept`. Ad ogni modo, il codominio della proprietÃ  Ã¨ lasciato aperto per consentire altri tipi di di descrizione. Conseguentemente, eventuali specializzazioni o profili applicativi possono utilizzare quel vocabolario come codominio della proprietÃ ."@it,
         "ã“ã®çµ„ç¹”ã®ç›®çš„ã‚’ç¤ºã—ã¾ã™ã€‚ç•°ãªã‚‹æŠ½è±¡ãƒ¬ãƒ™ãƒ«ã®å¤šãã®ç›®çš„ãŒã‚ã‚Šãˆã¾ã™ãŒã€çµ„ç¹”ã®æœ¬è³ªã¯å­˜åœ¨ç†ç”±ã‚’æŒã¤ã“ã¨ã§ã‚ã‚Šã€ã“ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ¼ã¯ãã®ç†ç”±ã‚’ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆåŒ–ã™ã‚‹æ‰‹æ®µã§ã™ã€‚çµ„ç¹”ã¯ã€è¤‡æ•°ã®ç›®çš„ã‚’æŒã£ã¦ã„ã‚‹å¯èƒ½æ€§ãŒã‚ã‚Šã¾ã™ã€‚"@ja ;
     rdfs:domain :Organization ;
-    rdfs:isDefinedBy <http://www.w3.org/ns/org> .
+    rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
+    mermaid:label "http://www.w3.org/ns/org#Organization -- purpose --> rdfs:Class" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 :remuneration a rdf:Property,
         owl:ObjectProperty ;
@@ -443,7 +456,9 @@ gr:BusinessEntity rdfs:subClassOf :FormalOrganization ;
         "å½¹å‰²ã«é–¢ä¿‚ã™ã‚‹çµ¦æ–™ã‚„ãã®ä»–ã®å ±é…¬ã‚’ç¤ºã—ã¾ã™ã€‚"@ja ;
     rdfs:domain :Role ;
     rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:label "http://www.w3.org/ns/org#Role -- remuneration --> rdfs:Class" ;
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :reportsTo a rdf:Property,
         owl:ObjectProperty ;
@@ -458,21 +473,22 @@ gr:BusinessEntity rdfs:subClassOf :FormalOrganization ;
         "çµ„ç¹”å›³ã§æã‹ã‚Œã‚‹ã‹ã‚‚ã—ã‚Œãªã„ã‚ˆã†ãªä¸Šä¸‹é–¢ä¿‚ã‚’ç¤ºã—ã¾ã™ã€‚ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆé–“ã¾ãŸã¯ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆãŒå°±ãã“ã¨ãŒã§ãã‚‹ãƒã‚¹ãƒˆé–“ã®ä¸Šä¸‹é–¢ä¿‚ã‚’ç›´æŽ¥çš„ã«ç¤ºã™ãŸã‚ã«ä½¿ç”¨ã§ãã¾ã™ã€‚"@ja ;
     rdfs:domain [ a owl:Class ;
             owl:unionOf ( foaf:Agent :Post ) ;
-            mermaid:label """subgraph nf6712cf032f1449d88dbd12c12b3eff2b11[Union C &cup; D]
-nf6712cf032f1449d88dbd12c12b3eff2b11http://xmlns.com/foaf/0.1/Agent((Agent)) -- or --- nf6712cf032f1449d88dbd12c12b3eff2b11http://www.w3.org/ns/org#Post((Post))
+            mermaid:label """subgraph n0cc39af49a9b4b62b420b944e13ed4bbb11[Union C &cup; D]
+n0cc39af49a9b4b62b420b944e13ed4bbb11http://xmlns.com/foaf/0.1/Agent((Agent)) -- or --- n0cc39af49a9b4b62b420b944e13ed4bbb11http://www.w3.org/ns/org#Post((Post))
 end
 """ ;
             mermaid:syntax "OR" ] ;
     rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
     rdfs:range [ a owl:Class ;
             owl:unionOf ( foaf:Agent :Post ) ;
-            mermaid:label """subgraph nf6712cf032f1449d88dbd12c12b3eff2b14[Union C &cup; D]
-nf6712cf032f1449d88dbd12c12b3eff2b14http://xmlns.com/foaf/0.1/Agent((Agent)) -- or --- nf6712cf032f1449d88dbd12c12b3eff2b14http://www.w3.org/ns/org#Post((Post))
+            mermaid:label """subgraph n0cc39af49a9b4b62b420b944e13ed4bbb14[Union C &cup; D]
+n0cc39af49a9b4b62b420b944e13ed4bbb14http://xmlns.com/foaf/0.1/Agent((Agent)) -- or --- n0cc39af49a9b4b62b420b944e13ed4bbb14http://www.w3.org/ns/org#Post((Post))
 end
 """ ;
             mermaid:syntax "OR" ] ;
-    mermaid:label "nf6712cf032f1449d88dbd12c12b3eff2b11 -- reports to --> nf6712cf032f1449d88dbd12c12b3eff2b14" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:label "n0cc39af49a9b4b62b420b944e13ed4bbb11 -- reports to --> n0cc39af49a9b4b62b420b944e13ed4bbb14" ;
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :role a rdf:Property,
         owl:ObjectProperty ;
@@ -487,15 +503,16 @@ end
         "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆãŒçµ„ç¹”ã¨ã®æ§‹æˆå“¡é–¢ä¿‚ã«ãŠã„ã¦æ‹…ã†å½¹å‰²ã‚’ç¤ºã—ã¾ã™ã€‚ãƒã‚¹ãƒˆã®ä¿æŒè€…ãŒæ‹…ã†å½¹å‰²ã‚’ç¤ºã™ãŸã‚ã«org:Postã§ç”¨ã„ã‚‹ã“ã¨ã‚‚ã§ãã¾ã™ã€‚"@ja ;
     rdfs:domain [ a owl:Class ;
             owl:unionOf ( :Membership :Post ) ;
-            mermaid:label """subgraph nf6712cf032f1449d88dbd12c12b3eff2b17[Union C &cup; D]
-nf6712cf032f1449d88dbd12c12b3eff2b17http://www.w3.org/ns/org#Membership((Membership)) -- or --- nf6712cf032f1449d88dbd12c12b3eff2b17http://www.w3.org/ns/org#Post((Post))
+            mermaid:label """subgraph n0cc39af49a9b4b62b420b944e13ed4bbb17[Union C &cup; D]
+n0cc39af49a9b4b62b420b944e13ed4bbb17http://www.w3.org/ns/org#Membership((Membership)) -- or --- n0cc39af49a9b4b62b420b944e13ed4bbb17http://www.w3.org/ns/org#Post((Post))
 end
 """ ;
             mermaid:syntax "OR" ] ;
     rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
     rdfs:range :Role ;
-    mermaid:label "nf6712cf032f1449d88dbd12c12b3eff2b17 -- role --> http://www.w3.org/ns/org#Role" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:label "n0cc39af49a9b4b62b420b944e13ed4bbb17 -- role --> http://www.w3.org/ns/org#Role" ;
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :roleProperty a rdf:Property,
         owl:AnnotationProperty ;
@@ -510,7 +527,9 @@ end
         "ã“ã‚Œã¯ã€ã‚¯ã‚¨ãƒªãŒå®¹æ˜“ã«ãªã‚‹ã‚ˆã†ã«å½¹å‰²ã‚’ç›´æŽ¥çš„ã«ç¤ºã™ãŸã‚ã«ä½¿ç”¨ã§ãã‚‹org:memberOfã®ã‚µãƒ–ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ¼ã§org:Roleã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’æ³¨é‡ˆã™ã‚‹ãŸã‚ã«ç”¨ã„ã‚‰ã‚Œã‚‹ãƒ¡ã‚¿ãƒ¬ãƒ™ãƒ«ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ¼ã§ã™ã€‚"@ja ;
     rdfs:domain :Role ;
     rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
-    rdfs:range rdf:Property .
+    rdfs:range rdf:Property ;
+    mermaid:label "http://www.w3.org/ns/org#Role -- role (property) --> http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 :siteAddress a rdf:Property,
         owl:ObjectProperty ;
@@ -525,7 +544,9 @@ end
         "é©åˆ‡ã«ã‚³ãƒ¼ãƒ‰åŒ–ã•ã‚ŒãŸã‚µã‚¤ãƒˆã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’ç¤ºã—ã¾ã™ã€‚vCard[vcard-rdf]èªžå½™ãªã©ã®æœ‰åãªã‚¢ãƒ‰ãƒ¬ã‚¹ã®ã‚³ãƒ¼ãƒ‰åŒ–ã®ä½¿ç”¨ãŒå¥¨åŠ±ã•ã‚Œã¾ã™ãŒã€ä»–ã®ç¬¦å·åŒ–ã®ä½¿ç”¨ã‚’å¯èƒ½ã¨ã™ã‚‹ãŸã‚ã«å€¤åŸŸã¯ã‚ªãƒ¼ãƒ—ãƒ³ã®ã¾ã¾ã«ã•ã‚Œã¾ã™ã€‚ã‚¢ãƒ‰ãƒ¬ã‚¹ã«ã¯ã€é›»å­ãƒ¡ãƒ¼ãƒ«ã€é›»è©±ãŠã‚ˆã³ã‚¸ã‚ªãƒ­ã‚±ãƒ¼ã‚·ãƒ§ãƒ³æƒ…å ±ã‚’å«ã‚€ã“ã¨ãŒã§ãã€ç‰©ç†çš„ãªã‚¢ãƒ‰ãƒ¬ã‚¹ã«åˆ¶é™ã•ã‚Œã¾ã›ã‚“ã€‚"@ja ;
     rdfs:domain :Site ;
     rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:label "http://www.w3.org/ns/org#Site -- site Address --> rdfs:Class" ;
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization ) .
 
@@ -546,7 +567,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:range :ChangeEvent ;
     owl:inverseOf :originalOrganization ;
     mermaid:label "http://www.w3.org/ns/org#Organization -- changed by --> http://www.w3.org/ns/org#ChangeEvent" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :hasMembership a rdf:Property,
         owl:ObjectProperty ;
@@ -564,7 +586,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:range :Membership ;
     owl:inverseOf :member ;
     mermaid:label "http://xmlns.com/foaf/0.1/Agent -- membership --> http://www.w3.org/ns/org#Membership" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :hasPost a rdf:Property,
         owl:ObjectProperty ;
@@ -581,7 +604,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
     rdfs:range :Post ;
     mermaid:label "http://www.w3.org/ns/org#Organization -- post --> http://www.w3.org/ns/org#Post" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :hasPrimarySite a rdf:Property,
         owl:ObjectProperty ;
@@ -599,7 +623,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:range :Site ;
     rdfs:subPropertyOf :hasSite ;
     mermaid:label "http://www.w3.org/ns/org#Organization -- primary Site --> http://www.w3.org/ns/org#Site" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :hasUnit a rdf:Property,
         owl:ObjectProperty ;
@@ -618,7 +643,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:subPropertyOf :hasSubOrganization ;
     owl:inverseOf :unitOf ;
     mermaid:label "http://www.w3.org/ns/org#FormalOrganization -- has Unit --> http://www.w3.org/ns/org#OrganizationalUnit" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :headOf a rdf:Property,
         owl:ObjectProperty ;
@@ -636,7 +662,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:range :Organization ;
     rdfs:subPropertyOf :memberOf ;
     mermaid:label "http://xmlns.com/foaf/0.1/Agent -- head of --> http://www.w3.org/ns/org#Organization" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :heldBy a rdf:Property,
         owl:ObjectProperty ;
@@ -653,7 +680,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
     rdfs:range foaf:Agent ;
     mermaid:label "http://www.w3.org/ns/org#Post -- held by --> http://xmlns.com/foaf/0.1/Agent" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :identifier a rdf:Property,
         owl:DatatypeProperty ;
@@ -669,7 +697,9 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:domain :Organization ;
     rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
     rdfs:subPropertyOf skos:notation ;
-    mermaid:syntax "DATATYPEPROPERTY" .
+    mermaid:label "http://www.w3.org/ns/org#Organization -- identifier --> rdfs:Class" ;
+    mermaid:syntax "DATATYPEPROPERTY",
+        "RDF_PROPERTY" .
 
 :member a rdf:Property,
         owl:FunctionalProperty,
@@ -688,7 +718,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:range foaf:Agent ;
     owl:inverseOf :hasMembership ;
     mermaid:label "http://www.w3.org/ns/org#Membership -- member --> http://xmlns.com/foaf/0.1/Agent" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :resultingOrganization a rdf:Property,
         owl:ObjectProperty ;
@@ -706,7 +737,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:range :Organization ;
     owl:inverseOf :resultedFrom ;
     mermaid:label "http://www.w3.org/ns/org#ChangeEvent -- resulted in --> http://www.w3.org/ns/org#Organization" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :siteOf a rdf:Property,
         owl:ObjectProperty ;
@@ -724,7 +756,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:range :Organization ;
     owl:inverseOf :hasSite ;
     mermaid:label "http://www.w3.org/ns/org#Site -- site Of --> http://www.w3.org/ns/org#Organization" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :transitiveSubOrganizationOf a rdf:Property,
         owl:ObjectProperty,
@@ -743,7 +776,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
     rdfs:range :Organization ;
     mermaid:label "http://www.w3.org/ns/org#Organization -- transitive sub-organization --> http://www.w3.org/ns/org#Organization" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :unitOf a rdf:Property,
         owl:ObjectProperty ;
@@ -762,7 +796,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:subPropertyOf :subOrganizationOf ;
     owl:inverseOf :hasUnit ;
     mermaid:label "http://www.w3.org/ns/org#OrganizationalUnit -- unit Of --> http://www.w3.org/ns/org#FormalOrganization" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :hasMember a rdf:Property,
         owl:ObjectProperty ;
@@ -781,7 +816,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     owl:equivalentProperty foaf:member ;
     owl:inverseOf :memberOf ;
     mermaid:label "http://www.w3.org/ns/org#Organization -- has member --> http://xmlns.com/foaf/0.1/Agent" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :hasSite a rdf:Property,
         owl:ObjectProperty ;
@@ -799,7 +835,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:range :Site ;
     owl:inverseOf :siteOf ;
     mermaid:label "http://www.w3.org/ns/org#Organization -- has site --> http://www.w3.org/ns/org#Site" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :hasSubOrganization a rdf:Property,
         owl:ObjectProperty ;
@@ -817,7 +854,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:range :Organization ;
     owl:inverseOf :subOrganizationOf ;
     mermaid:label "http://www.w3.org/ns/org#Organization -- has SubOrganization --> http://www.w3.org/ns/org#Organization" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :memberOf a rdf:Property,
         owl:ObjectProperty ;
@@ -835,7 +873,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:range :Organization ;
     owl:inverseOf :hasMember ;
     mermaid:label "http://xmlns.com/foaf/0.1/Agent -- member of --> http://www.w3.org/ns/org#Organization" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :originalOrganization a rdf:Property,
         owl:ObjectProperty ;
@@ -854,7 +893,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:subPropertyOf prov:used ;
     owl:inverseOf :changedBy ;
     mermaid:label "http://www.w3.org/ns/org#ChangeEvent -- original organization --> http://www.w3.org/ns/org#Organization" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :resultedFrom a rdf:Property,
         owl:ObjectProperty ;
@@ -873,7 +913,8 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:subPropertyOf prov:wasGeneratedBy ;
     owl:inverseOf :resultingOrganization ;
     mermaid:label "http://www.w3.org/ns/org#Organization -- resulted from --> http://www.w3.org/ns/org#ChangeEvent" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 
 :subOrganizationOf a rdf:Property,
         owl:ObjectProperty ;
@@ -892,5 +933,6 @@ prov:wasDerivedFrom owl:propertyChainAxiom ( :resultedFrom :originalOrganization
     rdfs:subPropertyOf :transitiveSubOrganizationOf ;
     owl:inverseOf :hasSubOrganization ;
     mermaid:label "http://www.w3.org/ns/org#Organization -- subOrganization of --> http://www.w3.org/ns/org#Organization" ;
-    mermaid:syntax "OBJECTPROPERTY" .
+    mermaid:syntax "OBJECTPROPERTY",
+        "RDF_PROPERTY" .
 

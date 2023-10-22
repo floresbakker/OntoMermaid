@@ -947,8 +947,8 @@ html:action a owl:DatatypeProperty ;
 html:alt a owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class ;
             owl:unionOf ( html:Area html:Img html:Input ) ;
-            mermaid:label """subgraph n07ac81ded29b45b4ad1ed129494fb44ab20[Union C &cup; D]
-n07ac81ded29b45b4ad1ed129494fb44ab20https://data.rijksfinancien.nl/html/model/def/Area((the area element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab20https://data.rijksfinancien.nl/html/model/def/Img((the img element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab20https://data.rijksfinancien.nl/html/model/def/Input((the input element))
+            mermaid:label """subgraph n452d2a03fcf341c68c5f7022b54531d2b20[Union C &cup; D]
+n452d2a03fcf341c68c5f7022b54531d2b20https://data.rijksfinancien.nl/html/model/def/Area((the area element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b20https://data.rijksfinancien.nl/html/model/def/Img((the img element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b20https://data.rijksfinancien.nl/html/model/def/Input((the input element))
 end
 """ ;
             mermaid:syntax "OR" ] ;
@@ -956,7 +956,7 @@ end
     rdfs:subPropertyOf html:attribute ;
     skos:prefLabel "has alt"@en ;
     html:key "alt" ;
-    mermaid:label "n07ac81ded29b45b4ad1ed129494fb44ab20 -- has alt --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:label "n452d2a03fcf341c68c5f7022b54531d2b20 -- has alt --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
     mermaid:syntax "DATATYPEPROPERTY" .
 
 html:autocapitalize a owl:DatatypeProperty ;
@@ -1179,8 +1179,8 @@ html:lang a owl:DatatypeProperty ;
 html:media a owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class ;
             owl:unionOf ( html:A html:Area html:Link html:Source html:StyleSheet ) ;
-            mermaid:label """subgraph n07ac81ded29b45b4ad1ed129494fb44ab4[Union C &cup; D]
-n07ac81ded29b45b4ad1ed129494fb44ab4https://data.rijksfinancien.nl/html/model/def/A((the a element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab4https://data.rijksfinancien.nl/html/model/def/Area((the area element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab4https://data.rijksfinancien.nl/html/model/def/Link((the link element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab4https://data.rijksfinancien.nl/html/model/def/Source((the source element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab4https://data.rijksfinancien.nl/html/model/def/StyleSheet((the style element))
+            mermaid:label """subgraph n452d2a03fcf341c68c5f7022b54531d2b4[Union C &cup; D]
+n452d2a03fcf341c68c5f7022b54531d2b4https://data.rijksfinancien.nl/html/model/def/A((the a element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b4https://data.rijksfinancien.nl/html/model/def/Area((the area element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b4https://data.rijksfinancien.nl/html/model/def/Link((the link element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b4https://data.rijksfinancien.nl/html/model/def/Source((the source element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b4https://data.rijksfinancien.nl/html/model/def/StyleSheet((the style element))
 end
 """ ;
             mermaid:syntax "OR" ] ;
@@ -1188,7 +1188,7 @@ end
     rdfs:subPropertyOf html:attribute ;
     skos:prefLabel "media attribute"@en ;
     html:key "media" ;
-    mermaid:label "n07ac81ded29b45b4ad1ed129494fb44ab4 -- media attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:label "n452d2a03fcf341c68c5f7022b54531d2b4 -- media attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
     mermaid:syntax "DATATYPEPROPERTY" .
 
 html:name a owl:DatatypeProperty ;
@@ -1230,8 +1230,8 @@ html:popover a owl:DatatypeProperty ;
 html:rel a owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class ;
             owl:unionOf ( html:A html:Link ) ;
-            mermaid:label """subgraph n07ac81ded29b45b4ad1ed129494fb44ab1[Union C &cup; D]
-n07ac81ded29b45b4ad1ed129494fb44ab1https://data.rijksfinancien.nl/html/model/def/A((the a element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab1https://data.rijksfinancien.nl/html/model/def/Link((the link element))
+            mermaid:label """subgraph n452d2a03fcf341c68c5f7022b54531d2b1[Union C &cup; D]
+n452d2a03fcf341c68c5f7022b54531d2b1https://data.rijksfinancien.nl/html/model/def/A((the a element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b1https://data.rijksfinancien.nl/html/model/def/Link((the link element))
 end
 """ ;
             mermaid:syntax "OR" ] ;
@@ -1239,7 +1239,7 @@ end
     rdfs:subPropertyOf html:attribute ;
     skos:prefLabel "rel attribute"@en ;
     html:key "rel" ;
-    mermaid:label "n07ac81ded29b45b4ad1ed129494fb44ab1 -- rel attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:label "n452d2a03fcf341c68c5f7022b54531d2b1 -- rel attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
     mermaid:syntax "DATATYPEPROPERTY" .
 
 html:required a owl:DatatypeProperty ;
@@ -1272,8 +1272,8 @@ html:spellcheck a owl:DatatypeProperty ;
 html:src a owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class ;
             owl:unionOf ( html:Audio html:Embed html:Iframe html:Img html:Input html:Script html:Source html:Track html:Video ) ;
-            mermaid:label """subgraph n07ac81ded29b45b4ad1ed129494fb44ab10[Union C &cup; D]
-n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Audio((the audio element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Embed((the embed element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Iframe((the iframe element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Img((the img element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Input((the input element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Script((the script element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Source((the source element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Track((the track element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Video((the video element))
+            mermaid:label """subgraph n452d2a03fcf341c68c5f7022b54531d2b10[Union C &cup; D]
+n452d2a03fcf341c68c5f7022b54531d2b10https://data.rijksfinancien.nl/html/model/def/Audio((the audio element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b10https://data.rijksfinancien.nl/html/model/def/Embed((the embed element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b10https://data.rijksfinancien.nl/html/model/def/Iframe((the iframe element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b10https://data.rijksfinancien.nl/html/model/def/Img((the img element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b10https://data.rijksfinancien.nl/html/model/def/Input((the input element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b10https://data.rijksfinancien.nl/html/model/def/Script((the script element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b10https://data.rijksfinancien.nl/html/model/def/Source((the source element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b10https://data.rijksfinancien.nl/html/model/def/Track((the track element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b10https://data.rijksfinancien.nl/html/model/def/Video((the video element))
 end
 """ ;
             mermaid:syntax "OR" ] ;
@@ -1281,7 +1281,7 @@ end
     rdfs:subPropertyOf html:attribute ;
     skos:prefLabel "has src"@en ;
     html:key "src" ;
-    mermaid:label "n07ac81ded29b45b4ad1ed129494fb44ab10 -- has src --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:label "n452d2a03fcf341c68c5f7022b54531d2b10 -- has src --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
     mermaid:syntax "DATATYPEPROPERTY" .
 
 html:tabindex a owl:DatatypeProperty ;
@@ -1346,8 +1346,8 @@ html:type a owl:DatatypeProperty ;
 html:width a owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class ;
             owl:unionOf ( html:Canvas html:Embed html:Iframe html:Img html:Input html:Object html:Video ) ;
-            mermaid:label """subgraph n07ac81ded29b45b4ad1ed129494fb44ab24[Union C &cup; D]
-n07ac81ded29b45b4ad1ed129494fb44ab24https://data.rijksfinancien.nl/html/model/def/Canvas((the canvas element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab24https://data.rijksfinancien.nl/html/model/def/Embed((the embed element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab24https://data.rijksfinancien.nl/html/model/def/Iframe((the iframe element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab24https://data.rijksfinancien.nl/html/model/def/Img((the img element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab24https://data.rijksfinancien.nl/html/model/def/Input((the input element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab24https://data.rijksfinancien.nl/html/model/def/Object((the object element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab24https://data.rijksfinancien.nl/html/model/def/Video((the video element))
+            mermaid:label """subgraph n452d2a03fcf341c68c5f7022b54531d2b24[Union C &cup; D]
+n452d2a03fcf341c68c5f7022b54531d2b24https://data.rijksfinancien.nl/html/model/def/Canvas((the canvas element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b24https://data.rijksfinancien.nl/html/model/def/Embed((the embed element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b24https://data.rijksfinancien.nl/html/model/def/Iframe((the iframe element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b24https://data.rijksfinancien.nl/html/model/def/Img((the img element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b24https://data.rijksfinancien.nl/html/model/def/Input((the input element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b24https://data.rijksfinancien.nl/html/model/def/Object((the object element)) -- or --- n452d2a03fcf341c68c5f7022b54531d2b24https://data.rijksfinancien.nl/html/model/def/Video((the video element))
 end
 """ ;
             mermaid:syntax "OR" ] ;
@@ -1355,7 +1355,7 @@ end
     rdfs:subPropertyOf html:attribute ;
     skos:prefLabel "has width"@en ;
     html:key "width" ;
-    mermaid:label "n07ac81ded29b45b4ad1ed129494fb44ab24 -- has width --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:label "n452d2a03fcf341c68c5f7022b54531d2b24 -- has width --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
     mermaid:syntax "DATATYPEPROPERTY" .
 
 shp:Base a sh:NodeShape ;

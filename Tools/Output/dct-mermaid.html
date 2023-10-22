@@ -1,0 +1,104 @@
+
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                    </head>
+                    <body>
+                    <div><pre class="mermaid">
+                    graph TB
+                    classDef DatatypeProperty fill:#9c6,stroke:#9c6;
+                    http://purl.org/dc/terms/LinguisticSystem((Linguistic System))
+http://purl.org/dc/terms/MediaTypeOrExtent((Media Type or Extent))
+http://purl.org/dc/terms/Policy((Policy))
+http://purl.org/dc/terms/LocationPeriodOrJurisdiction((Location, Period, or Jurisdiction))
+http://purl.org/dc/terms/Standard((Standard))
+http://purl.org/dc/terms/MethodOfAccrual((Method of Accrual))
+http://purl.org/dc/terms/BibliographicResource((Bibliographic Resource))
+http://purl.org/dc/terms/Frequency((Frequency))
+http://purl.org/dc/terms/ProvenanceStatement((Provenance Statement))
+http://purl.org/dc/terms/MethodOfInstruction((Method of Instruction))
+http://purl.org/dc/terms/Agent((Agent))
+http://purl.org/dc/terms/PhysicalResource((Physical Resource))
+http://purl.org/dc/terms/RightsStatement((Rights Statement))
+http://purl.org/dc/terms/FileFormat((File Format)) -- subClassOf --> http://purl.org/dc/terms/MediaType
+
+http://purl.org/dc/terms/MediaType((Media Type)) -- subClassOf --> http://purl.org/dc/terms/MediaTypeOrExtent
+
+http://purl.org/dc/terms/PhysicalMedium((Physical Medium)) -- subClassOf --> http://purl.org/dc/terms/MediaType
+
+http://purl.org/dc/terms/SizeOrDuration((Size or Duration)) -- subClassOf --> http://purl.org/dc/terms/MediaTypeOrExtent
+
+http://purl.org/dc/terms/Location((Location)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction
+
+http://purl.org/dc/terms/LicenseDocument((License Document)) -- subClassOf --> http://purl.org/dc/terms/RightsStatement
+
+http://purl.org/dc/terms/PeriodOfTime((Period of Time)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction
+
+http://purl.org/dc/terms/Jurisdiction((Jurisdiction)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction
+
+http://purl.org/dc/terms/AgentClass((Agent Class)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Class
+
+rdfs:Class -- Has Version --> rdfs:Class
+rdfs:Class -- Replaces --> rdfs:Class
+rdfs:Class -- Instructional Method --> rdfs:Class
+rdfs:Class -- Rights --> rdfs:Class
+rdfs:Class -- Audience Education Level --> rdfs:Class
+rdfs:Class -- Date Available --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Class -- Subject --> rdfs:Class
+rdfs:Class -- Language --> rdfs:Class
+http://purl.org/dc/dcmitype/Collection -- Accrual Periodicity --> rdfs:Class
+rdfs:Class -- Is Required By --> rdfs:Class
+rdfs:Class -- Date Created --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Class -- Date Copyrighted --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Class -- Audience --> rdfs:Class
+rdfs:Class -- Conforms To --> rdfs:Class
+rdfs:Class -- Rights Holder --> rdfs:Class
+rdfs:Class -- Is Referenced By --> rdfs:Class
+rdfs:Class -- Is Version Of --> rdfs:Class
+rdfs:Class -- Date Valid --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Class -- Type --> rdfs:Class
+rdfs:Class -- References --> rdfs:Class
+rdfs:Class -- Table Of Contents --> rdfs:Class
+rdfs:Class -- Date Modified --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://purl.org/dc/dcmitype/Collection -- Accrual Method --> rdfs:Class
+rdfs:Class -- Alternative Title --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Class -- Provenance --> rdfs:Class
+rdfs:Class -- Mediator --> rdfs:Class
+rdfs:Class -- Date Accepted --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Class -- Source --> rdfs:Class
+rdfs:Class -- Identifier --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Class -- Medium --> rdfs:Class
+rdfs:Class -- Date --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Class -- Has Part --> rdfs:Class
+rdfs:Class -- Temporal Coverage --> rdfs:Class
+rdfs:Class -- Contributor --> rdfs:Class
+rdfs:Class -- Has Format --> rdfs:Class
+rdfs:Class -- Title --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Class -- Is Part Of --> rdfs:Class
+rdfs:Class -- License --> rdfs:Class
+rdfs:Class -- Spatial Coverage --> rdfs:Class
+rdfs:Class -- Publisher --> rdfs:Class
+rdfs:Class -- Is Replaced By --> rdfs:Class
+http://purl.org/dc/dcmitype/Collection -- Accrual Policy --> rdfs:Class
+rdfs:Class -- Bibliographic Citation --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Class -- Requires --> rdfs:Class
+rdfs:Class -- Description --> rdfs:Class
+rdfs:Class -- Extent --> rdfs:Class
+rdfs:Class -- Format --> rdfs:Class
+rdfs:Class -- Access Rights --> rdfs:Class
+rdfs:Class -- Date Submitted --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Class -- Coverage --> rdfs:Class
+rdfs:Class -- Relation --> rdfs:Class
+rdfs:Class -- Date Issued --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Class -- Is Format Of --> rdfs:Class
+rdfs:Class -- Abstract --> rdfs:Class
+rdfs:Class -- Creator --> rdfs:Class
+                    </pre>
+                    <script type="module">
+                      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+                      mermaid.initialize({ startOnLoad: true });
+                    </script>
+                    </div>
+                    </body>
+                    </html>
+                    
