@@ -200,8 +200,8 @@ construct {
   # Establish the label based on certain preferred labels   
   BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
-  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Restriction &forall;]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction &forall;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Restriction &forall; R C]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction &forall; R C]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
   
 }
 '''.
@@ -269,8 +269,8 @@ construct {
   # Establish the label based on certain preferred labels   
   BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
-  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Restriction &exist;]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction 	&exist;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Restriction &exist; R C]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction 	&exist; R C]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }  '''.
 
 
@@ -338,8 +338,8 @@ construct {
   
   # Establish the Mermaid label 
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
-  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction &exist; &#123&#125]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction &exist; &#123&#125]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction &exist; R x]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction &exist; R x]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 } '''.
 
 shp:SerializableOwlRestriction_cardinality
@@ -402,8 +402,8 @@ construct {
   # Establish the label based on certain preferred labels   
   BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
-  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction = N R]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N R]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }
 
 '''.
@@ -468,8 +468,8 @@ construct {
   # Establish the label based on certain preferred labels   
   BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
-  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction ≤ N]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction ≤ N R]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction ≤ N R]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }
 '''.
 
@@ -532,8 +532,8 @@ construct {
   # Establish the label based on certain preferred labels   
   BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
-  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction ≥ N]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction ≥ N R]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction ≥ N R]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }
 '''.
 
@@ -729,8 +729,8 @@ construct {
 
   BIND(IF(isBlank($this),"Union &cup;",function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
-  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Union &cup;]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256," [Union &cap;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Union C &cup; D]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256," [Union C &cap; D]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
   
 }
 '''.
@@ -791,8 +791,8 @@ construct {
   
   BIND(IF(isBlank($this),"Intersection &cap;",function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
-  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Intersection &cap;]\\n", ?mermaidDefinition, "\\nend\\n"),
-                          CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256," [Intersection &cap;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Intersection C &cap; D]\\n", ?mermaidDefinition, "\\nend\\n"),
+                          CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256," [Intersection C &cap; D]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
   
 }
 '''.
@@ -852,10 +852,10 @@ construct {
     }	   
   }
   
-  BIND(IF(isBlank($this),"Enumeration &#123&#125 &cap; &#123&#125",function:getLabel($this)) as ?classLabel)  
+  BIND(IF(isBlank($this),"Enumeration x &cap; y",function:getLabel($this)) as ?classLabel)  
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
-  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Enumeration &#123&#125 &cap; &#123&#125]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256," [Enumeration &#123&#125]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Enumeration x &cap; y]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256," [Enumeration x &cap; y]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }
 '''.
 
@@ -908,10 +908,10 @@ construct {
   $this owl:complementOf ?someClass.
 		   
   BIND(IF(isBlank(?someClass),STR(?someClass),CONCAT(STR($this), STR(?someClass),"((",function:getLabel(?someClass), "))")) as ?mermaidDefinition)
-  BIND(IF(isBlank($this),"Negation &#8705;",function:getLabel($this)) as ?classLabel)
+  BIND(IF(isBlank($this),"Negation &not; C",function:getLabel($this)) as ?classLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
-  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Negation &#8705;]\\n", ?mermaidDefinition, "\\nend\\n"),
-                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, " [Negation &#8705;]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), "[Negation &not; C]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, " [Negation &not; C]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
 }
 '''.
 
