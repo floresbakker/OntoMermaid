@@ -134,6 +134,8 @@ WHERE {
   {
     $this rdfs:subPropertyOf []
     FILTER NOT EXISTS {$this rdf:type owl:AnnotationProperty}.
+    FILTER NOT EXISTS {$this rdf:type owl:InverseFunctionalProperty}
+    FILTER NOT EXISTS {$this rdf:type owl:FunctionalProperty}
   }
   UNION
   {

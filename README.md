@@ -47,16 +47,20 @@ It has NodeShapes for the following class constructs:
 17. A property that is a subPropertyOf another property (rdfs:subPropertyOf)
 18. A property that is an equivalentProperty to another property (owl:equivalentProperty)
 
-Still to do:
+### To do:
 
 19. owl:disjointUnionOf
 20. owl:disjointWith
 21. owl:AllDisjointProperties
 22. owl:AllDisjointClasses
-23. AnnotationProperty
-24. owl:Axiom
-25. NodeShape
-26. PropertyShape
+23. owl:FunctionalProperty
+24. owl:InverseFunctionalProperty
+25. AnnotationProperty
+26. owl:Axiom
+27. NodeShape
+28. PropertyShape
+
+And testing and solving the many expected issues when processing other ontologies. Work in progress.
 
 ### Example
 

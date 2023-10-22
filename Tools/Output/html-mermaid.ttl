@@ -1,0 +1,2755 @@
+@prefix dcm: <http://purl.org/dc/dcmitype/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix documentType: <https://data.rijksfinancien.nl/dom/model/id/documentType/> .
+@prefix dom: <https://data.rijksfinancien.nl/dom/model/def/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix graph: <https://data.rijksfinancien.nl/html/graph/> .
+@prefix html: <https://data.rijksfinancien.nl/html/model/def/> .
+@prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix respec: <https://respec.org/model/> .
+@prefix rule: <https://data.rijksfinancien.nl/html/model/rule/> .
+@prefix section: <https://data.rijksfinancien.nl/html/id/section/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shp: <https://data.rijksfinancien.nl/html/model/shp/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix standard: <https://data.rijksfinancien.nl/html/id/standard/> .
+@prefix status: <http://purl.org/adms/status/> .
+@prefix target: <https://data.rijksfinancien.nl/html/model/target/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+html: a void:Dataset,
+        owl:Ontology ;
+    dct:abstract "This RDF-based vocabulary establishes a draft standard for semantically representing HTML documents, adhering to the HTML Living Standard. It includes classes for HTML elements, datatype properties for attributes, and SHACL shapes for code serialization. This enables the generation of HTML from RDF representations and the parsing of HTML into RDF, offering comprehensive control and detailed description of HTML content. This vocabulary enhances web content management and integration, bridging HTML and semantic technologies."@en ;
+    dct:conformsTo "https://datatracker.ietf.org/doc/html/rfc1942"^^xsd:anyURI ;
+    dct:created "2021-12-08"^^xsd:date ;
+    dct:creator "Flores Bakker",
+        "Rosaline de Haan",
+        "Thomas de Groot",
+        "Wouter Beek" ;
+    dct:description "The HTML vocabulary establishes a draft standard that enables a semantic representation of any HTML document. The vocabulary is based on the Living Standard of HTML and offers classes to represent HTML elements, datatype properties to represent HTML attributes and a small number of SHACL shapes for the serialisation of HTML code. Center to this ontology is the class 'html:Element', which represents a HTML DOM element and is in fact a subclass of DOM:element, the latter being the class of all DOM elements. Any specific HTML element like 'html:A' (anchor element) or 'html:Body' (body element) is a subclass of the class 'html:Element'. Another fundamental building block of this ontology is the 'html:attribute' datatype property. Any attribute in HTML like 'html:class' or 'html:style' is a subproperty of 'html:attribute'. An HTML attribute can be an attribute as defined in the Living Standard of HTML or a custom defined attribute. In addition, there is the class of 'html:TextElement', where all instantiations contain a html:fragment property relation with an actual textual string, as for example in the triples 'doc:1.0 a html:TextElement ; html:fragment \"Hello world\".'. Finally, there are the HTML void elements like 'html:Br' (line break), which are subclass of 'html:VoidElement'. Together, these classes and attributes can be used to represent any HTML document in RDF. In order to serialize this HTML document to actual HTML code, there are three SHACL node shapes to process the RDF-structure and transform this into HTML code, (1) shp:VoidElement, (2) shp:SerializableElement and (3) shp:Document. The logic behind these shapes is that the HTML code can be serialized from the leaves of the tree upwards up and till the top of the tree. It means that an arbitrary element in the DOM tree of an HTML document can only be serialized to HTML code, whenever the underlying child elements of that element have been serialized to HTML already, including the HTML code of possible attributes and their values. The outer edges of the tree are the void elements, that do not contain any child elements and thus can be transformed into HTML code immediately without the necessity of any context, together with HTML text elements, themselves already containing HTML fragments with textual strings. From the outer edges the node shape shp:SerializableElement works its way up the tree until the moment that all the HTML elements have received an HTML fragment and the HTML document can be created based on the html:fragment, as contained in the html:html root element of that document. The processing halts the moment the document itself has an html:fragment."@en ;
+    dct:language "iso639-1:en" ;
+    dct:license "http://creativecommons.org/licenses/by/4.0"^^xsd:anyURI ;
+    dct:publisher <https://rijksfinancien.nl> ;
+    dct:source <https://github.com/floresbakker/htmlvoc> ;
+    dct:status status:UnderDevelopment ;
+    dct:subject "HTML"@en ;
+    dct:title "HTML Ontology"@en ;
+    vann:preferredNamespacePrefix "html" ;
+    vann:preferredNamespaceUri "https://data.rijksfinancien.nl/html/model/def/" ;
+    void:subSet graph:model ;
+    void:uriRegexPattern "^https://data.rijksfinancien.nl/html/model/def/" ;
+    void:uriSpace "https://data.rijksfinancien.nl/html/model/def/"^^xsd:anyURI ;
+    owl:imports dct:,
+        rdf:,
+        rdfs:,
+        owl:,
+        skos:,
+        prov:,
+        sh: ;
+    owl:versionInfo "0.2.0" ;
+    skos:example """
+
+An 'hello world' HTML document:
+
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>
+			An 'Hello world' HTML page represented in RDF
+		</title>
+		<style> 
+			.italic-text {font-style: italic;}
+		</style>
+		<meta http-equiv="Content-Type" charset="utf-8">
+	</head>
+	<body>
+		Hello world
+	</body>
+	</html>
+	
+This can be rendered in RDF using the HTML vocabulary as follows:
+	
+	@prefix doc: <http://www.example.org/document/> .
+	@prefix html: <https://data.rijksfinancien.nl/html/model/def/> .
+	@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+	doc:1 a html:Document ;
+		rdf:_1 doc:1.15 .
+
+	doc:1.15 a html:Html ;
+		rdf:_1 doc:1.21 ;
+		rdf:_2 doc:1.218 .
+
+	doc:1.163 a html:Meta ;
+		html:charset "utf-8" ;
+		html:http-equiv "Content-Type" .
+
+	doc:1.21 a html:Head ;
+		rdf:_1 doc:1.27 ;
+		rdf:_2 doc:1.93 ;
+		rdf:_3 doc:1.163 .
+
+	doc:1.218 a html:Body ;
+		rdf:_1 doc:1.218.1 .
+
+	doc:1.218.1 a html:TextElement ;
+		html:fragment "Hello world" .
+
+	doc:1.27 a html:Title ;
+		rdf:_1 doc:1.27.1 .
+
+	doc:1.27.1 a html:TextElement ;
+		html:fragment "An 'Hello world' HTML page represented in RDF" .
+
+	doc:1.93 a html:StyleSheet ;
+		rdf:_1 doc:1.93.1 .
+
+	doc:1.93.1 a html:TextElement ;
+		html:fragment " .italic-text {font-style: italic;}" .
+	
+""" ;
+    foaf:depiction "https://www.rijksfinancien.nl/themes/custom/indicia_theme/files/logo-rijksoverheid.svg"^^xsd:anyURI ;
+    foaf:homepage "https://www.rijksfinancien.nl/"^^xsd:anyURI ;
+    respec:acknowledgements "This standard has been developed through collaborative efforts and contributions from a diverse community of experts and stakeholders. Their dedication and expertise have been instrumental in bringing this vocabulary to life."@en ;
+    respec:audience "This document is intended for a diverse audience of web developers, content managers, semantic web enthusiasts, and anyone seeking to enhance the sustainability of information management, information processing and information technology."@en ;
+    respec:background "In an era where information is akin to a constantly flowing stream, organizations must grapple with several pressing challenges in aspects like velocity, variety, the insightfulness, adaptability and validity. The speed at which information is generated, transformed, and consumed is unparalleled. Keeping pace with this velocity is essential for timely decision-making. Information comes in diverse formats, from structured data to unstructured text, images, and multimedia. Effective management necessitates the ability to handle this rich variety seamlessly. Information is not merely data; it embodies insights, functionality, and knowledge. Extracting meaningful insights and practical functionality is vital for organizational success. Organizations must be agile in adapting information products to address new crises and opportunities swiftly. Finally, ensuring the correctness, compliance and reliability of information is fundamental to trustworthy decision-making and operations."@en ;
+    respec:introduction """
+In today's fast-paced business landscape, organizations grapple with the formidable challenge of information management. The demand for robust information products and agile information processing is relentless, constantly evolving with each passing moment, transcending industry boundaries. In this dynamic environment, the creation, validation, and utilization of information products are paramount, serving as the bedrock for informed decision-making and organizational effectiveness. The ability to swiftly respond to unforeseen crises or seize emerging opportunities hinges on having the right answers to previously unasked questions.
+
+So, how can organizations effectively navigate this information-intensive terrain? A key part of the solution lies in the capability to exercise complete control over the generation, modification, validation, and reuse of information products. This entails the profound ability to construct and deconstruct any arbitrary information product, dissecting it from its foundational elements to its broader, strategic significance.
+
+To address this need, we have pioneered the development of the RDF-based Semantic HTML Vocabulary - a transformative framework designed to facilitate the management of an array of information artifacts built upon HTML."""@en ;
+    respec:ontologyIntroduction "In response to these challenges, we introduce the RDF-based semantic HTML Vocabulary - a paradigm-shifting framework that empowers organizations to conquer the intricacies of information management. With this vocabulary, organizations gain the capacity to (1) construct and deconstruct, (2) generate and validate and (3) adapt and reuse. Constructing and deconstructing means that one can craft and dismantle information products at will, from their fundamental building blocks to their overarching significance. Generating and validating comes down to creating new information products and rigorously validating their accuracy and completeness. Finally, adapting and reusing is about adapting existing information products to swiftly respond to evolving scenarios and reusing valuable components across a spectrum of contexts. This innovative vocabulary forms the cornerstone of an information management ecosystem that harmonizes the power of RDF with the ubiquity of HTML. It revolutionizes how organizations handle information artifacts, enabling them to seamlessly transition from raw data to strategic insights and practical solutions. In the following sections, we delve deeper into the RDF-based Semantic HTML Vocabulary, providing comprehensive insights, implementation guidelines, and real-world examples to empower organizations in their quest for information mastery."@en .
+
+html:Abbr a owl:Class ;
+    dct:conformsTo section:4.5.9 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <abbr> HTML element represents an abbreviation or acronym; the optional title attribute can provide an expansion or description for the abbreviation. If present, title must contain this full description and nothing else."@en ;
+    skos:prefLabel "the abbr element"@en ;
+    html:tag "abbr" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Abbr((the abbr element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Address a owl:Class ;
+    dct:conformsTo section:4.3.10 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <address> HTML element indicates that the enclosed HTML provides contact information for a person or people, or for an organization."@en ;
+    skos:prefLabel "the address element"@en ;
+    html:tag "address" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Address((the address element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Article a owl:Class ;
+    dct:conformsTo section:4.3.2 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <article> HTML element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content."@en ;
+    skos:prefLabel "the article element"@en ;
+    html:tag "article" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Article((the article element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Aside a owl:Class ;
+    dct:conformsTo section:4.3.5 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <aside> HTML element represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes."@en ;
+    skos:prefLabel "the aside element"@en ;
+    html:tag "aside" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Aside((the aside element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:B a owl:Class ;
+    dct:conformsTo section:4.5.21 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <b> HTML element is used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use <b> for styling text; instead, you should use the CSS font-weight property to create boldface text, or the <strong> element to indicate that text is of special importance."@en ;
+    skos:prefLabel "the b element"@en ;
+    html:tag "b" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/B((the b element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Bdi a owl:Class ;
+    dct:conformsTo section:4.5.24 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <bdi> HTML element tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text. It's particularly useful when a website dynamically inserts some text and doesn't know the directionality of the text being inserted."@en ;
+    skos:prefLabel "the bdi element"@en ;
+    html:tag "bdi" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Bdi((the bdi element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Bdo a owl:Class ;
+    dct:conformsTo section:4.5.25 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <bdo> HTML element overrides the current directionality of text, so that the text within is rendered in a different direction."@en ;
+    skos:prefLabel "the bdo element"@en ;
+    html:tag "bdo" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Bdo((the bdo element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Blockquote a owl:Class ;
+    dct:conformsTo section:4.4.4 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <blockquote> HTML element indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation (see Notes for how to change it). A URL for the source of the quotation may be given using the cite attribute, while a text representation of the source can be given using the <cite> element."@en ;
+    skos:prefLabel "the blockquote element"@en ;
+    html:tag "blockquote" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Blockquote((the blockquote element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Br a owl:Class ;
+    dct:conformsTo section:4.5.27 ;
+    rdfs:subClassOf html:VoidElement ;
+    skos:definition "The <br> HTML element produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant."@en ;
+    skos:prefLabel "the br element"@en ;
+    html:tag "br" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Br((the br element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/VoidElement
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Button a owl:Class ;
+    dct:conformsTo section:4.10.6 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <button> HTML element represents a clickable button, used to submit forms or anywhere in a document for accessible, standard button functionality."@en ;
+    skos:prefLabel "the button element"@en ;
+    html:tag "button" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Button((the button element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Cite a owl:Class ;
+    dct:conformsTo section:4.5.6 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <cite> HTML element is used to describe a reference to a cited creative work, and must include the title of that work. The reference may be in an abbreviated form according to context-appropriate conventions related to citation metadata."@en ;
+    skos:prefLabel "the cite element"@en ;
+    html:tag "cite" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Cite((the cite element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Code a owl:Class ;
+    dct:conformsTo section:4.5.15 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <code> HTML element displays its contents styled in a fashion intended to indicate that the text is a short fragment of computer code. By default, the content text is displayed using the user agent's default monospace font."@en ;
+    skos:prefLabel "the code element"@en ;
+    html:tag "code" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Code((the code element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Col a owl:Class ;
+    dct:conformsTo section:4.9.4 ;
+    rdfs:subClassOf html:VoidElement ;
+    skos:definition "The <col> HTML element defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <colgroup> element."@en ;
+    skos:prefLabel "the col element"@en ;
+    html:tag "col" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Col((the col element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/VoidElement
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Colgroup a owl:Class ;
+    dct:conformsTo section:4.9.3 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <colgroup> HTML element defines a group of columns within a table."@en ;
+    skos:prefLabel "the colgroup element"@en ;
+    html:tag "colgroup" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Colgroup((the colgroup element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Data a owl:Class ;
+    dct:conformsTo section:4.5.13 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <data> HTML element links a given piece of content with a machine-readable translation. If the content is time- or date-related, the <time> element must be used."@en ;
+    skos:prefLabel "the data element"@en ;
+    html:tag "data" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Data((the data element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Datalist a owl:Class ;
+    dct:conformsTo section:4.10.8 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <datalist> HTML element contains a set of <option> elements that represent the permissible or recommended options available to choose from within other controls."@en ;
+    skos:prefLabel "the datalist element"@en ;
+    html:tag "datalist" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Datalist((the datalist element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Dd a owl:Class ;
+    dct:conformsTo section:4.4.11 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <dd> HTML element provides the description, definition, or value for the preceding term (<dt>) in a description list (<dl>)."@en ;
+    skos:prefLabel "the dd element"@en ;
+    html:tag "dd" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Dd((the dd element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Del a owl:Class ;
+    dct:conformsTo section:4.7.2 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <del> HTML element represents a range of text that has been deleted from a document. This can be used when rendering \"track changes\" or source code diff information, for example. The <ins> element can be used for the opposite purpose: to indicate text that has been added to the document."@en ;
+    skos:prefLabel "the del element"@en ;
+    html:tag "del" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Del((the del element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Details a owl:Class ;
+    dct:conformsTo section:4.11.1 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <details> HTML element creates a disclosure widget in which information is visible only when the widget is toggled into an \"open\" state. A summary or label must be provided using the <summary> element."@en ;
+    skos:prefLabel "the details element"@en ;
+    html:tag "details" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Details((the details element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Dfn a owl:Class ;
+    dct:conformsTo section:4.5.8 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <dfn> HTML element is used to indicate the term being defined within the context of a definition phrase or sentence. The <p> element, the <dt>/<dd> pairing, or the <section> element which is the nearest ancestor of the <dfn> is considered to be the definition of the term."@en ;
+    skos:prefLabel "the dfn element"@en ;
+    html:tag "dfn" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Dfn((the dfn element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Dialog a owl:Class ;
+    dct:conformsTo section:4.11.4 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <dialog> HTML element represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow."@en ;
+    skos:prefLabel "the dialog element"@en ;
+    html:tag "dialog" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Dialog((the dialog element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Div a owl:Class ;
+    dct:conformsTo section:4.4.15 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <div> HTML element is the generic container for flow content. It has no effect on the content or layout until styled in some way using CSS (e.g. styling is directly applied to it, or some kind of layout model like Flexbox is applied to its parent element)."@en ;
+    skos:prefLabel "the div element"@en ;
+    html:tag "div" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Div((the div element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Dl a owl:Class ;
+    dct:conformsTo section:4.4.9 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <dl> HTML element represents a description list. The element encloses a list of groups of terms (specified using the <dt> element) and descriptions (provided by <dd> elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs)."@en ;
+    skos:prefLabel "the dl element"@en ;
+    html:tag "dl" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Dl((the dl element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Document a owl:Class ;
+    dct:conformsTo section:13.1 ;
+    owl:equivalentClass html:documentRestriction ;
+    skos:definition "An HTML document consists of a tree of elements and text. Each element is denoted in the source by a start tag, such as ‘<body>’, and an end tag, such as ‘</body>’. Tags have to be nested such that elements are all completely within each other, without overlapping. Elements can have attributes, which control how the elements work. The HTML vocabulary defines a set of elements that can be used in a HTML document, along with rules about the ways in which the elements can be nested. HTML user agents (e.g., web browsers) parse a HTML document, turning it into a DOM (Document Object Model) tree. A DOM tree is an in-memory representation of a document. A HTML document represents a media-independent description of interactive content. A HTML document might be rendered to a screen, or through a speech synthesizer, or on a braille display. To influence exactly how such rendering takes place, authors can use a styling language such as CSS."@en ;
+    skos:prefLabel "html document"@en ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Document((html document)) -- equivalentTo --> https://data.rijksfinancien.nl/html/model/def/documentRestriction
+""" ;
+    mermaid:syntax "EQUIVALENTTO" .
+
+html:Dt a owl:Class ;
+    dct:conformsTo section:4.4.10 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <dt> HTML element specifies a term in a description or definition list, and as such must be used inside a <dl> element. It is usually followed by a <dd> element; however, multiple <dt> elements in a row indicate several terms that are all defined by the immediate next <dd> element."@en ;
+    skos:prefLabel "the dt element"@en ;
+    html:tag "dt" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Dt((the dt element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Em a owl:Class ;
+    dct:conformsTo section:4.5.2 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <em> HTML element marks text that has stress emphasis. The <em> element can be nested, with each level of nesting indicating a greater degree of emphasis."@en ;
+    skos:prefLabel "the em element"@en ;
+    html:tag "em" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Em((the em element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Fieldset a owl:Class ;
+    dct:conformsTo section:4.10.15 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <fieldset> HTML element is used to group several controls as well as labels (<label>) within a web form."@en ;
+    skos:prefLabel "the fieldset element"@en ;
+    html:tag "fieldset" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Fieldset((the fieldset element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Figcaption a owl:Class ;
+    dct:conformsTo section:4.4.13 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <figcaption> HTML element represents a caption or legend describing the rest of the contents of its parent <figure> element."@en ;
+    skos:prefLabel "the figcaption element"@en ;
+    html:tag "figcaption" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Figcaption((the figcaption element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Figure a owl:Class ;
+    dct:conformsTo section:4.4.12 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <figure> HTML element represents self-contained content, potentially with an optional caption, which is specified using the <figcaption> element. The figure, its caption, and its contents are referenced as a single unit."@en ;
+    skos:prefLabel "the figure element"@en ;
+    html:tag "figure" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Figure((the figure element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Footer a owl:Class ;
+    dct:conformsTo section:4.3.9 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <footer> HTML element represents a footer for its nearest sectioning content or sectioning root element. A <footer> typically contains information about the author of the section, copyright data or links to related documents."@en ;
+    skos:prefLabel "the footer element"@en ;
+    html:tag "footer" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Footer((the footer element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:H1 a owl:Class ;
+    dct:conformsTo section:4.3.6 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <h1> to <h6> HTML elements represent six levels of section headings. <h1> is the highest section level and <h6> is the lowest."@en ;
+    skos:prefLabel "the h1 element"@en ;
+    html:tag "h1" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/H1((the h1 element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:H2 a owl:Class ;
+    dct:conformsTo section:4.3.6 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <h1> to <h6> HTML elements represent six levels of section headings. <h1> is the highest section level and <h6> is the lowest."@en ;
+    skos:prefLabel "the h2 element"@en ;
+    html:tag "h2" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/H2((the h2 element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:H3 a owl:Class ;
+    dct:conformsTo section:4.3.6 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <h1> to <h6> HTML elements represent six levels of section headings. <h1> is the highest section level and <h6> is the lowest."@en ;
+    skos:prefLabel "the h3 element"@en ;
+    html:tag "h3" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/H3((the h3 element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:H4 a owl:Class ;
+    dct:conformsTo section:4.3.6 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <h1> to <h6> HTML elements represent six levels of section headings. <h1> is the highest section level and <h6> is the lowest."@en ;
+    skos:prefLabel "the h4 element"@en ;
+    html:tag "h4" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/H4((the h4 element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:H5 a owl:Class ;
+    dct:conformsTo section:4.3.6 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <h1> to <h6> HTML elements represent six levels of section headings. <h1> is the highest section level and <h6> is the lowest."@en ;
+    skos:prefLabel "the h5 element"@en ;
+    html:tag "h5" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/H5((the h5 element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:H6 a owl:Class ;
+    dct:conformsTo section:4.3.6 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <h1> to <h6> HTML elements represent six levels of section headings. <h1> is the highest section level and <h6> is the lowest."@en ;
+    skos:prefLabel "the h6 element"@en ;
+    html:tag "h6" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/H6((the h6 element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Header a owl:Class ;
+    dct:conformsTo section:4.3.8 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <header> HTML element represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements."@en ;
+    skos:prefLabel "the header element"@en ;
+    html:tag "header" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Header((the header element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Hgroup a owl:Class ;
+    dct:conformsTo section:4.3.7 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <hgroup> HTML element represents a multi-level heading for a section of a document. It groups a set of <h1>-<h6> elements."@en ;
+    skos:prefLabel "the hgroup element"@en ;
+    html:tag "hgroup" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Hgroup((the hgroup element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Hr a owl:Class ;
+    dct:conformsTo section:4.4.2 ;
+    rdfs:subClassOf html:VoidElement ;
+    skos:definition "The <hr> HTML element represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section."@en ;
+    skos:prefLabel "the hr element"@en ;
+    html:tag "hr" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Hr((the hr element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/VoidElement
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:I a owl:Class ;
+    dct:conformsTo section:4.5.20 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <i> HTML element represents a range of text that is set off from the normal text for some reason, such as idiomatic text, technical terms, taxonomical designations, among others. Historically, these have been presented using italicized type, which is the original source of the <i> naming of this element."@en ;
+    skos:prefLabel "the i element"@en ;
+    html:tag "i" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/I((the i element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Ins a owl:Class ;
+    dct:conformsTo section:4.7.1 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <ins> HTML element represents a range of text that has been added to a document. You can use the <del> element to similarly represent a range of text that has been deleted from the document."@en ;
+    skos:prefLabel "the ins element"@en ;
+    html:tag "ins" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Ins((the ins element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Kbd a owl:Class ;
+    dct:conformsTo section:4.5.18 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <kbd> HTML element represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device. By convention, the user agent defaults to rendering the contents of a <kbd> element using its default monospace font, although this is not mandated by the HTML standard."@en ;
+    skos:prefLabel "the kbd element"@en ;
+    html:tag "kbd" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Kbd((the kbd element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Legend a owl:Class ;
+    dct:conformsTo section:4.10.16 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <legend> HTML element represents a caption for the content of its parent <fieldset>."@en ;
+    skos:prefLabel "the legend element"@en ;
+    html:tag "legend" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Legend((the legend element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Li a owl:Class ;
+    dct:conformsTo section:4.4.8 ;
+    rdfs:subClassOf html:VoidElement ;
+    skos:definition "The <li> HTML element is used to represent an item in a list. It must be contained in a parent element: an ordered list (<ol>), an unordered list (<ul>), or a menu (<menu>). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter."@en ;
+    skos:prefLabel "the li element"@en ;
+    html:tag "li" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Li((the li element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/VoidElement
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Main a owl:Class ;
+    dct:conformsTo section:4.4.14 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <main> HTML element represents the dominant content of the <body> of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application."@en ;
+    skos:prefLabel "the main element"@en ;
+    html:tag "main" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Main((the main element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Map a owl:Class ;
+    dct:conformsTo section:4.8.12 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <map> HTML element is used with <area> elements to define an image map (a clickable link area)."@en ;
+    skos:prefLabel "the map element"@en ;
+    html:tag "map" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Map((the map element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Mark a owl:Class ;
+    dct:conformsTo section:4.5.23 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <mark> HTML element represents text which is marked or highlighted for reference or notation purposes, due to the marked passage's relevance or importance in the enclosing context."@en ;
+    skos:prefLabel "the mark element"@en ;
+    html:tag "mark" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Mark((the mark element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Menu a owl:Class ;
+    dct:conformsTo section:4.4.7 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <menu> HTML element is a semantic alternative to <ul>. It represents an unordered list of items (represented by <li> elements), each of these represent a link or other command that the user can activate."@en ;
+    skos:prefLabel "the menu element"@en ;
+    html:tag "menu" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Menu((the menu element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Meter a owl:Class ;
+    dct:conformsTo section:4.10.14 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <meter> HTML element represents either a scalar value within a known range or a fractional value."@en ;
+    skos:prefLabel "the meter element"@en ;
+    html:tag "meter" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Meter((the meter element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Nav a owl:Class ;
+    dct:conformsTo section:4.3.4 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <nav> HTML element represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes."@en ;
+    skos:prefLabel "the nav element"@en ;
+    html:tag "nav" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Nav((the nav element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Noscript a owl:Class ;
+    dct:conformsTo section:4.12.2 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <noscript> HTML element defines a section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser."@en ;
+    skos:prefLabel "the noscript element"@en ;
+    html:tag "noscript" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Noscript((the noscript element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Ol a owl:Class ;
+    dct:conformsTo section:4.4.5 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <ol> HTML element represents an ordered list of items - typically rendered as a numbered list."@en ;
+    skos:prefLabel "the ol element"@en ;
+    html:tag "ol" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Ol((the ol element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Optgroup a owl:Class ;
+    dct:conformsTo section:4.10.9 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <optgroup> HTML element creates a grouping of options within a <select> element."@en ;
+    skos:prefLabel "the optgroup element"@en ;
+    html:tag "optgroup" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Optgroup((the optgroup element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Option a owl:Class ;
+    dct:conformsTo section:4.10.10 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <option> HTML element is used to define an item contained in a <select>, an <optgroup>, or a <datalist> element. As such, <option> can represent menu items in popups and other lists of items in an HTML document."@en ;
+    skos:prefLabel "the option element"@en ;
+    html:tag "option" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Option((the option element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Output a owl:Class ;
+    dct:conformsTo section:4.10.12 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <output> HTML element is a container element into which a site or app can inject the results of a calculation or the outcome of a user action."@en ;
+    skos:prefLabel "the output element"@en ;
+    html:tag "output" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Output((the output element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:P a owl:Class ;
+    dct:conformsTo section:4.4.1 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <p> HTML element represents a paragraph. Paragraphs are usually represented in visual media as blocks of text separated from adjacent blocks by blank lines and/or first-line indentation, but HTML paragraphs can be any structural grouping of related content, such as images or form fields."@en ;
+    skos:prefLabel "the p element"@en ;
+    html:tag "p" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/P((the p element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Picture a owl:Class ;
+    dct:conformsTo section:4.8.1 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <picture> HTML element contains zero or more <source> elements and one <img> element to offer alternative versions of an image for different display/device scenarios."@en ;
+    skos:prefLabel "the picture element"@en ;
+    html:tag "picture" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Picture((the picture element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Pre a owl:Class ;
+    dct:conformsTo section:4.4.3 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <pre> HTML element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or monospaced, font. Whitespace inside this element is displayed as written."@en ;
+    skos:prefLabel "the pre element"@en ;
+    html:tag "pre" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Pre((the pre element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Progress a owl:Class ;
+    dct:conformsTo section:4.10.13 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <progress> HTML element displays an indicator showing the completion progress of a task, typically displayed as a progress bar."@en ;
+    skos:prefLabel "the progress element"@en ;
+    html:tag "progress" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Progress((the progress element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Q a owl:Class ;
+    dct:conformsTo section:4.5.7 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <q> HTML element indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the <blockquote> element."@en ;
+    skos:prefLabel "the q element"@en ;
+    html:tag "q" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Q((the q element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Rp a owl:Class ;
+    dct:conformsTo section:4.5.12 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <rp> HTML element is used to provide fall-back parentheses for browsers that do not support display of ruby annotations using the <ruby> element. One <rp> element should enclose each of the opening and closing parentheses that wrap the <rt> element that contains the annotation's text."@en ;
+    skos:prefLabel "the rp element"@en ;
+    html:tag "rp" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Rp((the rp element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Rt a owl:Class ;
+    dct:conformsTo section:4.5.11 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <rt> HTML element specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The <rt> element must always be contained within a <ruby> element."@en ;
+    skos:prefLabel "the rt element"@en ;
+    html:tag "rt" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Rt((the rt element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Ruby a owl:Class ;
+    dct:conformsTo section:4.5.10 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <ruby> HTML element represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common."@en ;
+    skos:prefLabel "the ruby element"@en ;
+    html:tag "ruby" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Ruby((the ruby element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:S a owl:Class ;
+    dct:conformsTo section:4.5.5 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <s> HTML element renders text with a strikethrough, or a line through it. Use the <s> element to represent things that are no longer relevant or no longer accurate. However, <s> is not appropriate when indicating document edits; for that, use the <del> and <ins> elements, as appropriate."@en ;
+    skos:prefLabel "the s element"@en ;
+    html:tag "s" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/S((the s element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Samp a owl:Class ;
+    dct:conformsTo section:4.5.17 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <samp> HTML element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as Courier or Lucida Console)."@en ;
+    skos:prefLabel "the samp element"@en ;
+    html:tag "samp" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Samp((the samp element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Section a owl:Class ;
+    dct:conformsTo section:4.3.3 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <section> HTML element represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions."@en ;
+    skos:prefLabel "the section element"@en ;
+    html:tag "section" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Section((the section element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Select a owl:Class ;
+    dct:conformsTo section:4.10.7 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <select> HTML element represents a control that provides a menu of options:"@en ;
+    skos:prefLabel "the select element"@en ;
+    html:tag "select" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Select((the select element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Slot a owl:Class ;
+    dct:conformsTo section:4.12.4 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <slot> HTML element - part of the Web Components technology suite - is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together."@en ;
+    skos:prefLabel "the slot element"@en ;
+    html:tag "slot" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Slot((the slot element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Small a owl:Class ;
+    dct:conformsTo section:4.5.4 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <small> HTML element represents side-comments and small print, like copyright and legal text, independent of its styled presentation. By default, it renders text within it one font-size smaller, such as from small to x-small."@en ;
+    skos:prefLabel "the small element"@en ;
+    html:tag "small" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Small((the small element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Span a owl:Class ;
+    dct:conformsTo section:4.5.26 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <span> HTML element is a generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the class or id attributes), or because they share attribute values, such as lang. It should be used only when no other semantic element is appropriate. <span> is very much like a <div> element, but <div> is a block-level element whereas a <span> is an inline element."@en ;
+    skos:prefLabel "the span element"@en ;
+    html:tag "span" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Span((the span element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Strong a owl:Class ;
+    dct:conformsTo section:4.5.3 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <strong> HTML element indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type."@en ;
+    skos:prefLabel "the strong element"@en ;
+    html:tag "strong" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Strong((the strong element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Sub a owl:Class ;
+    dct:conformsTo section:4.5.19 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <sub> HTML element specifies inline text which should be displayed as subscript for solely typographical reasons. Subscripts are typically rendered with a lowered baseline using smaller text."@en ;
+    skos:prefLabel "the sub element"@en ;
+    html:tag "sub" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Sub((the sub element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Summary a owl:Class ;
+    dct:conformsTo section:4.11.2 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <summary> HTML element specifies a summary, caption, or legend for a <details> element's disclosure box. Clicking the <summary> element toggles the state of the parent <details> element open and closed."@en ;
+    skos:prefLabel "the summary element"@en ;
+    html:tag "summary" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Summary((the summary element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Sup a owl:Class ;
+    dct:conformsTo section:4.5.19 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <sup> HTML element specifies inline text which should be displayed as superscript for solely typographical reasons. Superscripts are typically rendered with half a character above the normal line, and are sometimes rendered in a smaller font."@en ;
+    skos:prefLabel "the sup element"@en ;
+    html:tag "sup" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Sup((the sup element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Textarea a owl:Class ;
+    dct:conformsTo section:4.10.11 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <textarea> HTML element represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form."@en ;
+    skos:prefLabel "the textarea element"@en ;
+    html:tag "textarea" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Textarea((the textarea element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Time a owl:Class ;
+    dct:conformsTo section:4.5.14 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <time> HTML element represents a specific period in time. It may include the datetime attribute to translate dates into machine-readable format, allowing for better search engine results or custom features such as reminders."@en ;
+    skos:prefLabel "the time element"@en ;
+    html:tag "time" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Time((the time element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:U a owl:Class ;
+    dct:conformsTo section:4.5.22 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <u> HTML element represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a simple solid underline, but may be altered using CSS."@en ;
+    skos:prefLabel "the u element"@en ;
+    html:tag "u" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/U((the u element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Ul a owl:Class ;
+    dct:conformsTo section:4.4.6 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <ul> HTML element represents an unordered list of items, typically rendered as a bulleted list."@en ;
+    skos:prefLabel "the ul element"@en ;
+    html:tag "ul" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Ul((the ul element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Var a owl:Class ;
+    dct:conformsTo section:4.5.16 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <var> HTML element represents the name of a variable in a mathematical expression or a programming context. It's typically presented using an italicized version of the current typeface, although that behavior is browser-dependent."@en ;
+    skos:prefLabel "the var element"@en ;
+    html:tag "var" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Var((the var element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Wbr a owl:Class ;
+    dct:conformsTo section:4.5.28 ;
+    rdfs:subClassOf html:VoidElement ;
+    skos:definition "The <wbr> HTML element represents a word break opportunity - a position within text where the browser may optionally break a line, though its line-breaking rules would not otherwise create a break at that location."@en ;
+    skos:prefLabel "the wbr element"@en ;
+    html:tag "wbr" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Wbr((the wbr element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/VoidElement
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:accesskey a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has accesskey attribute"@en ;
+    html:key "accesskey" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has accesskey attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:action a owl:DatatypeProperty ;
+    rdfs:domain html:Form ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "form submission URL"@en ;
+    html:key "action" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Form -- form submission URL --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:alt a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( html:Area html:Img html:Input ) ;
+            mermaid:label """subgraph n07ac81ded29b45b4ad1ed129494fb44ab20[Union C &cup; D]
+n07ac81ded29b45b4ad1ed129494fb44ab20https://data.rijksfinancien.nl/html/model/def/Area((the area element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab20https://data.rijksfinancien.nl/html/model/def/Img((the img element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab20https://data.rijksfinancien.nl/html/model/def/Input((the input element))
+end
+""" ;
+            mermaid:syntax "OR" ] ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has alt"@en ;
+    html:key "alt" ;
+    mermaid:label "n07ac81ded29b45b4ad1ed129494fb44ab20 -- has alt --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:autocapitalize a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has autocapitalize attribute"@en ;
+    html:key "autocapitalize" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has autocapitalize attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:autofocus a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has autofocus attribute"@en ;
+    html:key "autofocus" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has autofocus attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:charset a owl:DatatypeProperty ;
+    rdfs:domain html:Meta ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has charset"@en ;
+    html:key "charset" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Meta -- has charset --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:class a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has class"@en ;
+    html:key "class" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has class --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:content a owl:DatatypeProperty ;
+    rdfs:domain html:Meta ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has content"@en ;
+    html:key "content" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Meta -- has content --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:contenteditable a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has contenteditable attribute"@en ;
+    html:key "contenteditable" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has contenteditable attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:dir a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:definition "The dir attribute specifies the element's text directionality. The attribute is an enumerated attribute with the following keywords and states: (1) ltr: The contents of the element are explicitly directionally isolated left-to-right text. (2) rtl: The contents of the element are explicitly directionally isolated right-to-left text. (3) auto: The contents of the element are explicitly directionally isolated text, but the direction is to be determined programmatically using the contents of the element (as described below)."@en ;
+    skos:prefLabel "has dir attribute"@en ;
+    html:key "dir" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has dir attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:draggable a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has draggable attribute"@en ;
+    html:key "draggable" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has draggable attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:enterkeyhint a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has enterkeyhint attribute"@en ;
+    html:key "enterkeyhint" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has enterkeyhint attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:for a owl:DatatypeProperty ;
+    rdfs:domain html:Label ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "for"@en ;
+    html:key "for" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Label -- for --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:hidden a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has hidden attribute"@en ;
+    html:key "hidden" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has hidden attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:href a owl:DatatypeProperty ;
+    rdfs:domain html:A ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "hyperlink reference"@en ;
+    html:key "href" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/A -- hyperlink reference --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:http-equiv a owl:DatatypeProperty ;
+    rdfs:domain html:Meta ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has http-equiv"@en ;
+    html:key "http-equiv" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Meta -- has http-equiv --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:id a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has id"@en ;
+    html:key "id" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has id --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:inert a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has inert attribute"@en ;
+    html:key "inert" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has inert attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:inputmode a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has inputmode attribute"@en ;
+    html:key "inputmode" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has inputmode attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:is a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has is attribute"@en ;
+    html:key "is" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has is attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:itemid a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has itemid attribute"@en ;
+    html:key "itemid" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has itemid attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:itemprop a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has itemprop attribute"@en ;
+    html:key "itemprop" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has itemprop attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:itemref a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has itemref attribute"@en ;
+    html:key "itemref" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has itemref attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:itemscope a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has itemscope attribute"@en ;
+    html:key "itemscope" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has itemscope attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:itemtype a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has itemtype attribute"@en ;
+    html:key "itemtype" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has itemtype attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:key a owl:DatatypeProperty ;
+    dct:conformsTo section:13.1.2.3 ;
+    rdfs:domain owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    skos:definition "Property that links the key name of a specific HTML attribute to that HTML attribute."@en ;
+    skos:prefLabel "has key name"@en ;
+    mermaid:label "http://www.w3.org/2002/07/owl#DatatypeProperty -- has key name --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:lang a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has lang attribute"@en ;
+    html:key "lang" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has lang attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:media a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( html:A html:Area html:Link html:Source html:StyleSheet ) ;
+            mermaid:label """subgraph n07ac81ded29b45b4ad1ed129494fb44ab4[Union C &cup; D]
+n07ac81ded29b45b4ad1ed129494fb44ab4https://data.rijksfinancien.nl/html/model/def/A((the a element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab4https://data.rijksfinancien.nl/html/model/def/Area((the area element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab4https://data.rijksfinancien.nl/html/model/def/Link((the link element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab4https://data.rijksfinancien.nl/html/model/def/Source((the source element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab4https://data.rijksfinancien.nl/html/model/def/StyleSheet((the style element))
+end
+""" ;
+            mermaid:syntax "OR" ] ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "media attribute"@en ;
+    html:key "media" ;
+    mermaid:label "n07ac81ded29b45b4ad1ed129494fb44ab4 -- media attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:name a owl:DatatypeProperty ;
+    rdfs:domain html:Input ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "name"@en ;
+    html:key "name" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Input -- name --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:nonce a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has nonce attribute"@en ;
+    html:key "nonce" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has nonce attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:placeholder a owl:DatatypeProperty ;
+    rdfs:domain html:Input ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "placeholder"@en ;
+    html:key "placeholder" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Input -- placeholder --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:popover a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has popover attribute"@en ;
+    html:key "popover" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has popover attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:rel a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( html:A html:Link ) ;
+            mermaid:label """subgraph n07ac81ded29b45b4ad1ed129494fb44ab1[Union C &cup; D]
+n07ac81ded29b45b4ad1ed129494fb44ab1https://data.rijksfinancien.nl/html/model/def/A((the a element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab1https://data.rijksfinancien.nl/html/model/def/Link((the link element))
+end
+""" ;
+            mermaid:syntax "OR" ] ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "rel attribute"@en ;
+    html:key "rel" ;
+    mermaid:label "n07ac81ded29b45b4ad1ed129494fb44ab1 -- rel attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:required a owl:DatatypeProperty ;
+    rdfs:domain html:Input ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "required"@en ;
+    html:key "required" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Input -- required --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:resource a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "resource"@en ;
+    html:key "resource" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- resource --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:spellcheck a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has spellcheck attribute"@en ;
+    html:key "spellcheck" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has spellcheck attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:src a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( html:Audio html:Embed html:Iframe html:Img html:Input html:Script html:Source html:Track html:Video ) ;
+            mermaid:label """subgraph n07ac81ded29b45b4ad1ed129494fb44ab10[Union C &cup; D]
+n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Audio((the audio element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Embed((the embed element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Iframe((the iframe element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Img((the img element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Input((the input element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Script((the script element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Source((the source element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Track((the track element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab10https://data.rijksfinancien.nl/html/model/def/Video((the video element))
+end
+""" ;
+            mermaid:syntax "OR" ] ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has src"@en ;
+    html:key "src" ;
+    mermaid:label "n07ac81ded29b45b4ad1ed129494fb44ab10 -- has src --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:tabindex a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has tabindex attribute"@en ;
+    html:key "tabindex" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has tabindex attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:tag a owl:DatatypeProperty ;
+    dct:conformsTo section:13.1.2.1,
+        section:13.1.2.2 ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    skos:definition "Property that links the tag name of a specific HTML element to that element."@en ;
+    skos:prefLabel "has tag name"@en ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has tag name --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:template a owl:DatatypeProperty ;
+    dct:conformsTo section:4.12.3 ;
+    rdfs:domain html:Template ;
+    rdfs:range rdfs:Literal ;
+    skos:definition "Property that links a literal to a template element to declare fragments of HTML that can be inserted into HTML documents."@en ;
+    skos:prefLabel "has template"@en ;
+    skos:scopeNote "An HTML template contains at least one {{variable}}."@en,
+        "In a rendering, the template element represents nothing."@en,
+        "The template contents of a template element are not children of the element itself."@en ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Template -- has template --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:title a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:definition "Property that represents advisory information for the element, such as would be appropriate for a tooltip. On a link, this could be the title or a description of the target resource; on an image, it could be the image credit or a description of the image; on a paragraph, it could be a footnote or commentary on the text; on a citation, it could be further information about the source; on interactive content, it could be a label for, or instructions for, use of the element; and so forth. The value is text."@en ;
+    skos:prefLabel "has title attribute"@en ;
+    html:key "title" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has title attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:translate a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has translate attribute"@en ;
+    html:key "translate" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has translate attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:type a owl:DatatypeProperty ;
+    rdfs:domain html:Input ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "type"@en ;
+    html:key "type" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Input -- type --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:width a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( html:Canvas html:Embed html:Iframe html:Img html:Input html:Object html:Video ) ;
+            mermaid:label """subgraph n07ac81ded29b45b4ad1ed129494fb44ab24[Union C &cup; D]
+n07ac81ded29b45b4ad1ed129494fb44ab24https://data.rijksfinancien.nl/html/model/def/Canvas((the canvas element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab24https://data.rijksfinancien.nl/html/model/def/Embed((the embed element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab24https://data.rijksfinancien.nl/html/model/def/Iframe((the iframe element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab24https://data.rijksfinancien.nl/html/model/def/Img((the img element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab24https://data.rijksfinancien.nl/html/model/def/Input((the input element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab24https://data.rijksfinancien.nl/html/model/def/Object((the object element)) -- or --- n07ac81ded29b45b4ad1ed129494fb44ab24https://data.rijksfinancien.nl/html/model/def/Video((the video element))
+end
+""" ;
+            mermaid:syntax "OR" ] ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has width"@en ;
+    html:key "width" ;
+    mermaid:label "n07ac81ded29b45b4ad1ed129494fb44ab24 -- has width --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+shp:Base a sh:NodeShape ;
+    rdfs:label "base shape"@en ;
+    rdfs:comment "The base element represents the base URL to use for all relative URLs in a document."@en ;
+    sh:targetClass html:Base .
+
+shp:Body a sh:NodeShape ;
+    rdfs:label "body shape"@en ;
+    rdfs:comment "The body element represents the contents of the document."@en ;
+    sh:property shp:Body_member ;
+    sh:targetClass html:Body .
+
+shp:Caption a sh:NodeShape ;
+    rdfs:comment "A caption element contains flow content, but with no descendant table elements."@en ;
+    skos:prefLabel "caption shape"@en ;
+    sh:targetClass html:Caption .
+
+shp:Cell a sh:NodeShape ;
+    skos:prefLabel "cell shape"@en ;
+    sh:property shp:Cell_colspan,
+        shp:Cell_rowspan ;
+    sh:targetClass html:Cell .
+
+shp:DataCell a sh:NodeShape ;
+    rdfs:comment "A data cell can contain flow content."@en ;
+    skos:prefLabel "data cell shape"@en ;
+    sh:targetClass html:DataCell .
+
+shp:Document a sh:NodeShape ;
+    sh:description "A HTML document contains a required documenttype HTML and a root HTML element."@en ;
+    sh:name "HTML Document"@en ;
+    sh:property shp:Document_documentType,
+        shp:Document_root ;
+    sh:rule rule:Document ;
+    sh:target target:Document .
+
+shp:Element a sh:NodeShape ;
+    skos:prefLabel "element shape"@en ;
+    sh:property shp:Element_attribute,
+        shp:Element_fragment,
+        shp:Element_style ;
+    sh:targetClass html:Element .
+
+shp:Head a sh:NodeShape ;
+    rdfs:label "head shape"@en ;
+    rdfs:comment "The head element represents a collection of metadata for an HTML document."@en ;
+    sh:property shp:Head_styleSheet,
+        shp:Head_title ;
+    sh:targetClass html:Head .
+
+shp:HeaderCell a sh:NodeShape ;
+    rdfs:comment "A header cell (\"<th>\" element) contains flow content, but with no header, footer, sectioning content, or heading content descendants."@en ;
+    skos:prefLabel "header cell shape"@en ;
+    sh:targetClass html:HeaderCell .
+
+shp:Html a sh:NodeShape ;
+    rdfs:label "html shape"@en ;
+    rdfs:comment "The html element represents the root of an HTML document."@en ;
+    sh:property shp:Html_body,
+        shp:Html_head ;
+    sh:targetClass html:Html .
+
+shp:Link a sh:NodeShape ;
+    rdfs:label "link shape"@en ;
+    rdfs:comment "The link element allows authors to link their document to other resources."@en ;
+    sh:targetClass html:Link .
+
+shp:Meta a sh:NodeShape ;
+    rdfs:label "meta shape"@en ;
+    rdfs:comment "The meta element represents represents various kinds of metadata that cannot be expressed using the title, base, link, style, and script elements."@en ;
+    sh:targetClass html:Meta .
+
+shp:Row a sh:NodeShape ;
+    skos:prefLabel "row shape"@en ;
+    sh:property shp:Row_member ;
+    sh:targetClass html:Row .
+
+shp:SerializableElement a sh:NodeShape ;
+    skos:prefLabel "serializable element shape"@en ;
+    sh:rule rule:Serialize_HTML_fragment_HTML_Element ;
+    sh:target target:SerializableElement .
+
+shp:StyleSheet a sh:NodeShape ;
+    rdfs:label "style sheet shape"@en ;
+    rdfs:comment "A style element is a form of metadata content in a HTML document that sets up the presentation for the rest of the content in the document."@en ;
+    sh:targetClass html:StyleSheet .
+
+shp:Table a sh:NodeShape ;
+    rdfs:comment "A table contains an optional caption element, followed by zero or more colgroup elements, followed optionally by a thead element, followed optionally by a tbody element, followed optionally by a tfoot element."@en ;
+    skos:prefLabel "table shape"@en ;
+    sh:property shp:Table_caption,
+        shp:Table_tbody,
+        shp:Table_tfoot,
+        shp:Table_thead ;
+    sh:targetClass html:Table .
+
+shp:TableBody a sh:NodeShape ;
+    rdfs:comment "A table body element contains zero or more table rows with data cells."@en ;
+    skos:prefLabel "table body shape"@en ;
+    sh:property shp:TableBody_member ;
+    sh:targetClass html:TableBody .
+
+shp:TableFooter a sh:NodeShape ;
+    skos:prefLabel "table footer shape"@en ;
+    sh:targetClass html:TableFooter .
+
+shp:TableHeader a sh:NodeShape ;
+    rdfs:comment "A table head contains zero or more header rows."@en ;
+    skos:prefLabel "table header shape"@en ;
+    sh:property shp:TableHeader_member ;
+    sh:targetClass html:TableHeader .
+
+shp:TextElement a sh:NodeShape ;
+    skos:prefLabel "text element shape"@en ;
+    sh:targetClass html:TextElement .
+
+shp:Title a sh:NodeShape ;
+    rdfs:label "title shape"@en ;
+    rdfs:comment "The title element represents the title of the HTML document."@en ;
+    sh:targetClass html:Title .
+
+shp:VoidElement a sh:NodeShape ;
+    skos:prefLabel "void element shape"@en ;
+    sh:rule rule:Serialize_HTML_fragment_Void_Element ;
+    sh:target target:VoidElement .
+
+section:13.1 a dcm:Text ;
+    rdfs:label "§ 13.1 Writing HTML documents"@en ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#writing"^^xsd:anyURI .
+
+section:13.1.2.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#start-tags"^^xsd:anyURI ;
+    skos:prefLabel "§ 13.1.2.1 Start tags"@en .
+
+section:13.1.2.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#end-tags"^^xsd:anyURI ;
+    skos:prefLabel "§ 13.1.2.2 End tags"@en .
+
+section:3.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#elements"^^xsd:anyURI ;
+    skos:prefLabel "§ 3.2 Elements"@en .
+
+section:4.1.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-html-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.1.1 The html element"@en .
+
+section:4.10.10 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-option-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.10.10 The option element"@en .
+
+section:4.10.11 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-textarea-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.10.11 The textarea element"@en .
+
+section:4.10.12 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-output-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.10.12 The output element"@en .
+
+section:4.10.13 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-progress-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.10.13 The progress element"@en .
+
+section:4.10.14 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-meter-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.10.14 The meter element"@en .
+
+section:4.10.15 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-fieldset-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.10.15 The fieldset element"@en .
+
+section:4.10.16 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-legend-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.10.16 The legend element"@en .
+
+section:4.10.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-form-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.10.3 The form element"@en .
+
+section:4.10.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-label-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.10.4 The label element"@en .
+
+section:4.10.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-input-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.10.5 The input element"@en .
+
+section:4.10.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-button-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.10.6 The button element"@en .
+
+section:4.10.7 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-select-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.10.7 The select element"@en .
+
+section:4.10.8 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-datalist-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.10.8 The datalist element"@en .
+
+section:4.10.9 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-optgroup-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.10.9 The optgroup element"@en .
+
+section:4.11.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-details-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.11.1 The details element"@en .
+
+section:4.11.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-summary-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.11.2 The summary element"@en .
+
+section:4.11.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-dialog-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.11.4 The dialog element"@en .
+
+section:4.12.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-script-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.12.1 The script element"@en .
+
+section:4.12.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-noscript-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.12.2 The noscript element"@en .
+
+section:4.12.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-slot-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.12.4 The slot element"@en .
+
+section:4.12.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-canvas-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.12.5 The canvas element"@en .
+
+section:4.2.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-head-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.2.1 The head element"@en .
+
+section:4.2.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-title-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.2.2 The title element"@en .
+
+section:4.2.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-base-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.2.2 The base element"@en .
+
+section:4.2.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-link-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.2.4 The link element"@en .
+
+section:4.2.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-meta-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.2.5 The meta element"@en .
+
+section:4.2.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-style-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.2.6 The style element"@en .
+
+section:4.3.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-body-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.3.1 The body element"@en .
+
+section:4.3.10 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-address-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.3.10 The address element"@en .
+
+section:4.3.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-article-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.3.2 The article element"@en .
+
+section:4.3.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-section-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.3.3 The section element"@en .
+
+section:4.3.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-nav-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.3.4 The nav element"@en .
+
+section:4.3.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-aside-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.3.5 The aside element"@en .
+
+section:4.3.7 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-hgroup-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.3.7 The hgroup element"@en .
+
+section:4.3.8 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-header-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.3.8 The header element"@en .
+
+section:4.3.9 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-footer-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.3.9 The footer element"@en .
+
+section:4.4.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-p-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.4.1 The p element"@en .
+
+section:4.4.10 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-dt-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.4.10 The dt element"@en .
+
+section:4.4.11 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-dd-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.4.11 The dd element"@en .
+
+section:4.4.12 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-figure-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.4.12 The figure element"@en .
+
+section:4.4.13 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-figcaption-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.4.13 The figcaption element"@en .
+
+section:4.4.14 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-main-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.4.14 The main element"@en .
+
+section:4.4.15 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-div-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.4.15 The div element"@en .
+
+section:4.4.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-hr-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.4.2 The hr element"@en .
+
+section:4.4.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-pre-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.4.3 The pre element"@en .
+
+section:4.4.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-blockquote-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.4.4 The blockquote element"@en .
+
+section:4.4.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-ol-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.4.5 The ol element"@en .
+
+section:4.4.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-ul-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.4.6 The ul element"@en .
+
+section:4.4.7 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-menu-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.4.7 The menu element"@en .
+
+section:4.4.8 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-li-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.4.8 The li element"@en .
+
+section:4.4.9 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-dl-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.4.9 The dl element"@en .
+
+section:4.5.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-a-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.1 The a element"@en .
+
+section:4.5.10 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-ruby-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.10 The ruby element"@en .
+
+section:4.5.11 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-rt-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.11 The rt element"@en .
+
+section:4.5.12 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-rp-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.12 The rp element"@en .
+
+section:4.5.13 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-data-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.13 The data element"@en .
+
+section:4.5.14 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-time-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.14 The time element"@en .
+
+section:4.5.15 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-code-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.15 The code element"@en .
+
+section:4.5.16 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "hhttps://html.spec.whatwg.org/#the-var-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.16 The var element"@en .
+
+section:4.5.17 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-samp-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.17 The samp element"@en .
+
+section:4.5.18 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-kbd-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.18 The kbd element"@en .
+
+section:4.5.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-em-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.2 The em element"@en .
+
+section:4.5.20 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-i-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.20 The i element"@en .
+
+section:4.5.21 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-b-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.21 The b element"@en .
+
+section:4.5.22 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-u-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.22 The u element"@en .
+
+section:4.5.23 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-mark-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.23 The mark element"@en .
+
+section:4.5.24 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-bdi-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.24 The bdi element"@en .
+
+section:4.5.25 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-bdo-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.25 The bdo element"@en .
+
+section:4.5.26 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-span-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.26 The span element"@en .
+
+section:4.5.27 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-br-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.27 The br element"@en .
+
+section:4.5.28 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-wbr-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.28 The wbr element"@en .
+
+section:4.5.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-strong-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.3 The strong element"@en .
+
+section:4.5.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-small-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.4 The small element"@en .
+
+section:4.5.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-s-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.5 The s element"@en .
+
+section:4.5.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-cite-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.6 The cite element"@en .
+
+section:4.5.7 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-q-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.7 The q element"@en .
+
+section:4.5.8 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-dfn-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.8 The dfn element"@en .
+
+section:4.5.9 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-abbr-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.9 The abbr element"@en .
+
+section:4.7.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-ins-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.7.1 The ins element"@en .
+
+section:4.7.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-del-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.7.2 The del element"@en .
+
+section:4.8.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-picture-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.8.1 The picture element"@en .
+
+section:4.8.10 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-track-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.8.10 The track element"@en .
+
+section:4.8.12 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-map-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.8.12 The map element"@en .
+
+section:4.8.13 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-area-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.8.13 The area element"@en .
+
+section:4.8.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-source-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.8.2 The source element"@en .
+
+section:4.8.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-img-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.8.3 The img element"@en .
+
+section:4.8.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-iframe-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.8.5 The iframe element"@en .
+
+section:4.8.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-embed-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.8.6 The embed element"@en .
+
+section:4.8.7 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-object-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.8.7 The object element"@en .
+
+section:4.8.8 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-video-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.8.8 The video element"@en .
+
+section:4.8.9 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-audio-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.8.9 The audio element"@en .
+
+section:4.9.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-table-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.9.1 The table element"@en .
+
+section:4.9.10 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-th-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.9.10 The th element"@en .
+
+section:4.9.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-caption-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.9.2 The caption element"@en .
+
+section:4.9.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-colgroup-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.9.3 The colgroup element"@en .
+
+section:4.9.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-col-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.9.4. The col element"@en .
+
+section:4.9.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-tbody-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.9.5 The tbody element"@en .
+
+section:4.9.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-thead-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.9.6 The thead element"@en .
+
+section:4.9.7 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-tfoot-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.9.7 The tfoot element"@en .
+
+section:4.9.8 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-tr-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.9.8 The tr element"@en .
+
+section:4.9.9 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-td-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.9.9 The td element"@en .
+
+html:Audio a owl:Class ;
+    dct:conformsTo section:4.8.9 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <audio> HTML element is used to embed sound content in documents. It may contain one or more audio sources, represented using the src attribute or the <source> element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a MediaStream."@en ;
+    skos:prefLabel "the audio element"@en ;
+    html:tag "audio" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Audio((the audio element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Base a owl:Class ;
+    dct:conformsTo section:4.2.3 ;
+    rdfs:subClassOf html:VoidElement ;
+    skos:definition "The <base> HTML element specifies the base URL to use for all relative URLs in a document. There can be only one <base> element in a document."@en ;
+    skos:prefLabel "the base element"@en ;
+    html:tag "base" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Base((the base element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/VoidElement
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Canvas a owl:Class ;
+    dct:conformsTo section:4.12.5 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "Use the HTML <canvas> element with either the canvas scripting API or the WebGL API to draw graphics and animations."@en ;
+    skos:prefLabel "the canvas element"@en ;
+    html:tag "canvas" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Canvas((the canvas element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Form a owl:Class ;
+    dct:conformsTo section:4.10.3 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <form> HTML element represents a document section containing interactive controls for submitting information."@en ;
+    skos:prefLabel "the form element"@en ;
+    html:tag "form" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Form((the form element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Label a owl:Class ;
+    dct:conformsTo section:4.10.4 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <label> HTML element represents a caption for an item in a user interface."@en ;
+    skos:prefLabel "the label element"@en ;
+    html:tag "label" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Label((the label element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Object a owl:Class ;
+    dct:conformsTo section:4.8.7 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <object> HTML element represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin."@en ;
+    skos:prefLabel "the object element"@en ;
+    html:tag "object" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Object((the object element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Script a owl:Class ;
+    dct:conformsTo section:4.12.1 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <script> HTML element is used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The <script> element can also be used with other languages, such as WebGL's GLSL shader programming language and JSON."@en ;
+    skos:prefLabel "the script element"@en ;
+    html:tag "script" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Script((the script element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Table a owl:Class ;
+    dct:conformsTo section:4.9.1 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "A table (<table> element) represents data with more than one dimension.  Tables have rows, columns, and cells given by their descendants.  The rows and columns form a grid; a table its cells must completely cover that grid without overlap."@en ;
+    skos:prefLabel "the table element"@en ;
+    html:tag "table" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Table((the table element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:TableFooter a owl:Class ;
+    dct:conformsTo section:4.9.7 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The table footer (<tfoot> element) represents the block of rows that consist of the column summaries (footers) for the parent table."@en ;
+    skos:prefLabel "the tfoot element"@en ;
+    html:tag "tfoot" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/TableFooter((the tfoot element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Template a owl:Class ;
+    dct:conformsTo section:4.12.3 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <template> HTML element is a mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript."@en ;
+    skos:prefLabel "the template element"@en ;
+    html:tag "template" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Template((the template element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:TextElement a owl:Class ;
+    rdfs:subClassOf dom:Element ;
+    skos:definition "A DOM element that has textual content and that does not contain any HTML vocabulary."@en ;
+    skos:example "A natural language sentence that appears in a table caption."@en,
+        "A numeric value that appears in a table cell."@en ;
+    skos:prefLabel "text element"@en ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/TextElement((text element)) -- subClassOf --> https://data.rijksfinancien.nl/dom/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Track a owl:Class ;
+    dct:conformsTo section:4.8.10 ;
+    rdfs:subClassOf html:VoidElement ;
+    skos:definition "The <track> HTML element is used as a child of the media elements, <audio> and <video>. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in WebVTT format (.vtt files) - Web Video Text Tracks."@en ;
+    skos:prefLabel "the track element"@en ;
+    html:tag "track" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Track((the track element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/VoidElement
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:colspan a owl:DatatypeProperty ;
+    rdfs:domain html:Cell ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has colspan"@en ;
+    html:key "colspan" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Cell -- has colspan --> http://www.w3.org/2001/XMLSchema#nonNegativeInteger:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:documentRestriction a owl:Restriction ;
+    owl:hasValue documentType:html ;
+    owl:onProperty dom:documentType ;
+    skos:prefLabel "html document type restriction"@en ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/documentRestriction((html document type restriction)) -- equivalentTo --> https://data.rijksfinancien.nl/html/model/def/documentRestriction0f3613428eb4acdc91dba5ee855d2ab8412bba03962bf3a8316447fbe46edb68
+subgraph https://data.rijksfinancien.nl/html/model/def/documentRestriction0f3613428eb4acdc91dba5ee855d2ab8412bba03962bf3a8316447fbe46edb68[Restriction &exist; R x]
+https://data.rijksfinancien.nl/dom/model/def/documentType[documentType] -- value --> https://data.rijksfinancien.nl/html/model/def/documentRestrictionhttps://data.rijksfinancien.nl/dom/model/id/documentType/html((html))
+
+end
+""" ;
+    mermaid:syntax "VALUE" .
+
+html:fragment a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range rdf:HTML ;
+    skos:definition "Property that links the html fragment that is represented by an element within a HTML-document to that element."@en ;
+    skos:prefLabel "has fragment"@en ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has fragment --> http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:rowspan a owl:DatatypeProperty ;
+    rdfs:domain html:Cell ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:prefLabel "has rowspan"@en ;
+    html:key "rowspan" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Cell -- has rowspan --> http://www.w3.org/2001/XMLSchema#nonNegativeInteger:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+html:style a owl:DatatypeProperty ;
+    rdfs:domain html:Element ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf html:attribute ;
+    skos:definition "Property that permits the author to directly apply style information to a specific html element. All HTML elements may have the style content attribute set. This is a style attribute as defined by CSS Style Attributes."@en ;
+    skos:prefLabel "has style attribute"@en ;
+    html:key "style" ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has style attribute --> http://www.w3.org/2001/XMLSchema#string:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+rule:Document a sh:SPARQLRule ;
+    rdfs:label "HTML document generation rule"@en ;
+    rdfs:comment "A rule that creates the upper HTML fragment for an HTML document and connects it with the previously generated tree of serialized HTML elements and their HTML fragments."@en ;
+    sh:construct """prefix documentType: <https://data.rijksfinancien.nl/dom/model/id/documentType/>
+prefix dom: <https://data.rijksfinancien.nl/dom/model/def/>
+prefix html: <https://data.rijksfinancien.nl/html/model/def/>
+prefix prov: <http://www.w3.org/ns/prov#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rule: <https://data.rijksfinancien.nl/html/model/rule/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+construct {
+  $this
+    dom:documentType documentType:html;
+    html:fragment ?fragmentDocument;
+    prov:wasGeneratedBy ?activity.
+  ?activity
+    a prov:Activity;
+    prov:atTime ?activityDateTime;
+    prov:used
+      html: , # HTML Ontology
+      rule:Document.
+} where {
+  $this ?member ?root.
+  ?root rdf:type html:Html;
+        html:fragment ?fragmentRoot.
+  bind(strdt(concat('<!DOCTYPE html>',str(?fragmentRoot)),xsd:string) as ?fragmentDocument)
+  bind(iri(concat(str($this),'-html-document-generation')) as ?activity)
+  bind(now() as ?activityDateTime)
+}""" .
+
+rule:Serialize_HTML_fragment_HTML_Element a sh:SPARQLRule ;
+    rdfs:comment "A rule that creates an HTML fragment for an HTML element."@en ;
+    skos:prefLabel "HTML element fragment serialisation rule"@en ;
+    sh:construct """prefix html: <https://data.rijksfinancien.nl/html/model/def/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+construct {
+
+  # create the HTML-fragment for the HTML-element to be serialized.
+  $this html:fragment ?fragment.
+} where {
+
+  # Get the HTML tag of the HTML-element to be serialized.
+  $this a/html:tag ?tag.
+
+  # Get the (possibly empty) sequence of HTML attributes, if there are any.
+  {
+    select (group_concat(distinct ?attribute;separator=' ') as ?attributes) {
+      $this ?attribute0 ?value.
+      ?attribute0 html:key ?key.
+      bind(concat(?key,'="',str(?value),'"') as ?attribute)
+    }
+  }
+
+  # Get the (possibly empty) sequence of child element fragments, if there are any.
+  {
+    select (group_concat(str(?fragment);separator='') as ?fragments) {
+      {
+        select ?member ?fragment {
+          $this ?member ?element.
+          ?element html:fragment ?fragment.
+          filter(strstarts(str(?member),concat(str(rdf:),'_')))
+        }
+        order by xsd:integer(strafter(str(?member),concat(str(rdf:),'_')))
+      }
+    }
+  }
+
+  # Create the HTML fragment of this HTML element by combining everything retrieved above.
+  bind(strdt(
+    concat(
+      # open tag and include any attributes if there are any
+      '<',?tag,if(?attributes='','',concat(' ',?attributes)),'>',
+      # retrieved html content of children html elements
+      ?fragments,
+      # close tag and cast as HTML snippet
+      '</',?tag,'>'),xsd:string) as ?fragment)
+}""" .
+
+rule:Serialize_HTML_fragment_Void_Element a sh:SPARQLRule ;
+    rdfs:comment "A rule that creates an HTML fragment for an HTML Void element."@en ;
+    skos:prefLabel "HTML void element fragment serialisation rule"@en ;
+    sh:construct """prefix html: <https://data.rijksfinancien.nl/html/model/def/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+construct {
+
+  # create the HTML-fragment for the HTML-element to be serialized.
+  $this html:fragment ?fragment.
+} where {
+
+  # Get the HTML tag of the HTML-element to be serialized.
+  $this a/html:tag ?tag.
+
+  # Get the (possibly empty) sequence of HTML attributes, if there are any. Void elements can have attributes.
+  {
+    select (group_concat(distinct ?attribute;separator=' ') as ?attributes) {
+      $this ?attribute0 ?value.
+      ?attribute0 html:key ?key.
+      bind(concat(?key,'="',str(?value),'"') as ?attribute)
+    }
+  }
+
+  # Void elements do not have content or children so no need to fetch them.
+
+  # Create the HTML fragment of this HTML element by combining everything retrieved above.
+  bind(strdt(
+    concat(
+      # open tag and include any attributes if there are any
+      '<',?tag,if(?attributes='','',concat(' ',?attributes)),'>'
+      ),xsd:string) as ?fragment)
+}""" .
+
+shp:Body_member a sh:PropertyShape ;
+    rdfs:label "has child element"@en ;
+    sh:class html:Element ;
+    sh:path rdfs:member .
+
+shp:Cell_colspan a sh:PropertyShape ;
+    rdfs:comment "Every cell can have at most one colspan."@en ;
+    skos:prefLabel "has colspan"@en ;
+    sh:datatype xsd:nonNegativeInteger ;
+    sh:maxCount 1 ;
+    sh:path html:colspan .
+
+shp:Cell_rowspan a sh:PropertyShape ;
+    rdfs:comment "Every cell can have at most one rowspan."@en ;
+    skos:prefLabel "has rowspan"@en ;
+    sh:datatype xsd:nonNegativeInteger ;
+    sh:maxCount 1 ;
+    sh:path html:rowspan .
+
+shp:Document_documentType a sh:PropertyShape ;
+    rdfs:label "has document type HTML"@en ;
+    rdfs:comment "An HTML document contains excactly one document type with value ‘HTML’."@en ;
+    sh:hasValue documentType:html ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path dom:documentType .
+
+shp:Document_root a sh:PropertyShape ;
+    rdfs:label "has root element html"@en ;
+    rdfs:comment "The <html> tag is the root of the HTML document and a container for all other HTML elements (except for the <!DOCTYPE> tag). A HTML document contains no less and no more than one html tag."@en ;
+    sh:class html:Html ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path rdfs:member .
+
+shp:Element_attribute a sh:PropertyShape ;
+    rdfs:comment "Every element can have one or more attributes."@en ;
+    skos:prefLabel "has attribute shape"@en ;
+    sh:nodeKind sh:Literal ;
+    sh:path html:attribute .
+
+shp:Element_fragment a sh:PropertyShape ;
+    rdfs:comment "Every element can have one and only one html fragment."@en ;
+    skos:prefLabel "has fragment shape"@en ;
+    sh:datatype rdf:HTML ;
+    sh:path html:fragment .
+
+shp:Element_style a sh:PropertyShape ;
+    rdfs:label "has style attribute"@en ;
+    rdfs:comment "Every element can have at most one style attribute."@en ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:path html:style .
+
+shp:Head_styleSheet a sh:PropertyShape ;
+    rdfs:label "has style sheet"@en ;
+    rdfs:comment "A head of an html document, may have one embedded style sheet, which is comprised of presentational and formatting instructions for the rest of the document, and the expected input is CSS declarations."@en ;
+    sh:class html:StyleSheet ;
+    sh:maxCount 1 ;
+    sh:path rdfs:member .
+
+shp:Head_title a sh:PropertyShape ;
+    rdfs:label "has title"@en ;
+    rdfs:comment "A head of an html document, may have one title element."@en ;
+    sh:class html:Title ;
+    sh:maxCount 1 ;
+    sh:path rdfs:member .
+
+shp:Html_body a sh:PropertyShape ;
+    rdfs:label "has body"@en ;
+    rdfs:comment "A html root element may have one and only one body element."@en ;
+    sh:class html:Body ;
+    sh:maxCount 1 ;
+    sh:path rdfs:member .
+
+shp:Html_head a sh:PropertyShape ;
+    rdfs:label "has head"@en ;
+    rdfs:comment "An html document, may have one and only one head element, which is the first element of the document."@en ;
+    sh:class html:Head ;
+    sh:maxCount 1 ;
+    sh:path rdfs:member .
+
+shp:Row_member a sh:PropertyShape ;
+    skos:prefLabel "has data cell"@en ;
+    sh:class html:DataCell ;
+    sh:path rdfs:member .
+
+shp:TableBody_member a sh:PropertyShape ;
+    skos:prefLabel "has row"@en ;
+    sh:class html:Row ;
+    sh:path rdfs:member .
+
+shp:TableHeader_member a sh:PropertyShape ;
+    skos:prefLabel "has header row"@en ;
+    sh:class html:Row ;
+    sh:path rdfs:member .
+
+shp:Table_caption a sh:PropertyShape ;
+    rdfs:comment "Tables may have a caption."@en ;
+    skos:prefLabel "has caption shape"@en ;
+    sh:class html:Caption ;
+    sh:maxCount 1 ;
+    sh:path rdfs:member .
+
+shp:Table_tbody a sh:PropertyShape ;
+    rdfs:comment "Tables may have zero or more table bodies."@en ;
+    skos:prefLabel "has table body"@en ;
+    sh:class html:TableBody ;
+    sh:path rdfs:member .
+
+shp:Table_tfoot a sh:PropertyShape ;
+    rdfs:comment "Tables may have a footer."@en ;
+    skos:prefLabel "has table footer shape"@en ;
+    sh:class html:TFoot ;
+    sh:maxCount 1 ;
+    sh:path rdfs:member .
+
+shp:Table_thead a sh:PropertyShape ;
+    rdfs:comment "Tables may have a header."@en ;
+    skos:prefLabel "has table header shape"@en ;
+    sh:class html:TableHeader ;
+    sh:maxCount 1 ;
+    sh:path html:thead .
+
+target:Document a sh:SPARQLTarget ;
+    sh:select """prefix html: <https://data.rijksfinancien.nl/html/model/def/>
+select $this {
+  $this a html:Document.
+  filter not exists {
+    $this html:fragment [].
+  }
+}""" .
+
+target:SerializableElement a sh:SPARQLTarget ;
+    sh:select """prefix dom: <https://data.rijksfinancien.nl/dom/model/def/>
+prefix html: <https://data.rijksfinancien.nl/html/model/def/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# Select the HTML element for which there does not yet exist an HTML
+# fragment, with the additional requirement that each and any
+# underlying child element contains an HTML fragment.
+select $this {
+  # Any DOM element (`dom:Element`) that is not known to be a void element
+  # (html:VoidElement).
+  $this a/rdfs:subClassOf* dom:Element.
+  filter not exists {
+    $this a/rdfs:subClassOf html:VoidElement.
+  }
+  # The HTML element must not have an HTML fragment yet.
+  filter not exists {
+    $this html:fragment [].
+  }
+  # The HTML element may not contain one or more child elements that lack an
+  # HTML fragment.
+  minus {
+    $this ?member ?childElement.
+    ?childElement a/rdfs:subClassOf* dom:Element.
+    filter not exists {
+      ?childElement html:fragment [].
+    }
+  }
+}""" .
+
+target:VoidElement a sh:SPARQLTarget ;
+    sh:select """prefix html: <https://data.rijksfinancien.nl/html/model/def/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select $this {
+  $this a/rdfs:subClassOf* html:VoidElement.
+  filter not exists {
+    $this html:fragment [].
+  }
+}""" .
+
+section:13.1.2.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#attributes-2"^^xsd:anyURI ;
+    skos:prefLabel "§ 13.1.2.3 Attributes"@en .
+
+section:4.12.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-template-element"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.12.3 The template element"@en .
+
+section:4.5.19 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-sub-and-sup-elements"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.5.19 The sub and sup elements"@en .
+
+html:Area a owl:Class ;
+    dct:conformsTo section:4.8.13 ;
+    rdfs:subClassOf html:VoidElement ;
+    skos:definition "The <area> HTML element defines an area inside an image map that has predefined clickable areas. An image map allows geometric areas on an image to be associated with hypertext link."@en ;
+    skos:prefLabel "the area element"@en ;
+    html:tag "area" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Area((the area element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/VoidElement
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Body a owl:Class ;
+    dct:conformsTo section:4.3.1 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <body> HTML element is the second element in a root html element. It contains the contents of the document."@en ;
+    skos:prefLabel "the body element"@en ;
+    html:tag "body" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Body((the body element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Caption a owl:Class ;
+    dct:conformsTo section:4.9.2 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The caption element represents the title of the table that is its parent, if it has a parent and that is a table element."@en ;
+    skos:prefLabel "the caption element"@en ;
+    html:tag "caption" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Caption((the caption element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Embed a owl:Class ;
+    dct:conformsTo section:4.8.6 ;
+    rdfs:subClassOf html:VoidElement ;
+    skos:definition "The <embed> HTML element embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in."@en ;
+    skos:prefLabel "the embed element"@en ;
+    html:tag "embed" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Embed((the embed element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/VoidElement
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Head a owl:Class ;
+    dct:conformsTo section:4.2.1 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <head> HTML element contains machine-readable information (metadata) about the document, like its title, scripts, and style sheets."@en ;
+    skos:prefLabel "the head element"@en ;
+    html:tag "head" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Head((the head element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:HeaderCell a owl:Class ;
+    dct:conformsTo section:4.9.10 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <th> element represents a header cell in a table."@en ;
+    skos:prefLabel "the th element"@en ;
+    html:tag "th" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/HeaderCell((the th element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Html a owl:Class ;
+    dct:conformsTo section:4.1.1 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <html> HTML element represents the root (top-level element) of an HTML document, so it is also referred to as the root element. All other elements must be descendants of this element."@en ;
+    skos:prefLabel "the html element"@en ;
+    html:tag "html" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Html((the html element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Iframe a owl:Class ;
+    dct:conformsTo section:4.8.5 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <iframe> HTML element represents a nested browsing context, embedding another HTML page into the current one."@en ;
+    skos:prefLabel "the iframe element"@en ;
+    html:tag "iframe" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Iframe((the iframe element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Source a owl:Class ;
+    dct:conformsTo section:4.8.2 ;
+    rdfs:subClassOf html:VoidElement ;
+    skos:definition "The <source> HTML element specifies multiple media resources for the <picture>, the <audio> element, or the <video> element. It is an empty element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for image file formats and media file formats."@en ;
+    skos:prefLabel "the source element"@en ;
+    html:tag "source" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Source((the source element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/VoidElement
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:TableBody a owl:Class ;
+    dct:conformsTo section:4.9.5 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The table body (<tbody> element) represents a block of rows that consist of a body of data for the parent table."@en ;
+    skos:prefLabel "the tbody element"@en ;
+    html:tag "tbody" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/TableBody((the tbody element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:TableHeader a owl:Class ;
+    dct:conformsTo section:4.9.6 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The table header (<thead> element) represents the block of rows that consist of the column labels (headers) for the parent table."@en ;
+    skos:prefLabel "the thead element"@en ;
+    html:tag "thead" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/TableHeader((the thead element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Title a owl:Class ;
+    dct:conformsTo section:4.2.2 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The Title (<title> element) defines a document its title that is shown in a browser title bar or a page tab. It only contains text; tags within the element are ignored."@en ;
+    skos:prefLabel "the title element"@en ;
+    html:tag "title" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Title((the title element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Video a owl:Class ;
+    dct:conformsTo section:4.8.8 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <video> HTML element embeds a media player which supports video playback into the document. You can use <video> for audio content as well, but the <audio> element may provide a more appropriate user experience."@en ;
+    skos:prefLabel "the video element"@en ;
+    html:tag "video" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Video((the video element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:A a owl:Class ;
+    dct:conformsTo section:4.5.1 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <a> HTML element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address."@en ;
+    skos:prefLabel "the a element"@en ;
+    html:tag "a" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/A((the a element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Cell a owl:Class ;
+    rdfs:subClassOf html:Element ;
+    owl:unionOf ( html:DataCell html:HeaderCell ) ;
+    skos:prefLabel "cell element"@en ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Cell((cell element)) -- equivalentTo --> https://data.rijksfinancien.nl/html/model/def/Cellb7d97706dbdf0bf26c79d7b47f298f1619b35ef7842e822e489cbbc39bd67276
+subgraph https://data.rijksfinancien.nl/html/model/def/Cellb7d97706dbdf0bf26c79d7b47f298f1619b35ef7842e822e489cbbc39bd67276 [Union C &cap; D]
+https://data.rijksfinancien.nl/html/model/def/Cellhttps://data.rijksfinancien.nl/html/model/def/DataCell((the td element)) -- or --- https://data.rijksfinancien.nl/html/model/def/Cellhttps://data.rijksfinancien.nl/html/model/def/HeaderCell((the th element))
+end
+""",
+        """https://data.rijksfinancien.nl/html/model/def/Cell((cell element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "OR",
+        "SUBCLASSOF" .
+
+html:DataCell a owl:Class ;
+    dct:conformsTo section:4.9.9 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The data cell (<td> element) represents a cell in a table that contains some unspecified form of data."@en ;
+    skos:prefLabel "the td element"@en ;
+    html:tag "td" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/DataCell((the td element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Img a owl:Class ;
+    dct:conformsTo section:4.8.3 ;
+    rdfs:subClassOf html:VoidElement ;
+    skos:definition "The <img> HTML element embeds an image into the document."@en ;
+    skos:prefLabel "the img element"@en ;
+    html:tag "img" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Img((the img element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/VoidElement
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Link a owl:Class ;
+    dct:conformsTo section:4.2.4 ;
+    rdfs:subClassOf html:VoidElement ;
+    skos:definition "The link element allows authors to link their document to other resources."@en ;
+    skos:prefLabel "the link element"@en ;
+    html:tag "link" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Link((the link element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/VoidElement
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Row a owl:Class ;
+    dct:conformsTo section:4.9.8 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <tr> element represents a row of cells in a table."@en ;
+    skos:prefLabel "the tr element"@en ;
+    html:tag "tr" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Row((the tr element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:StyleSheet a owl:Class ;
+    dct:conformsTo section:4.2.6 ;
+    rdfs:subClassOf html:Element ;
+    skos:definition "The <style> HTML element contains style information for a document, or part of a document. It embeds a CSS style sheet, which is applied to the contents of the document containing the <style> element."@en ;
+    skos:prefLabel "the style element"@en ;
+    html:tag "style" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/StyleSheet((the style element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:Meta a owl:Class ;
+    dct:conformsTo section:4.2.5 ;
+    rdfs:subClassOf html:VoidElement ;
+    skos:definition "The <meta> HTML element can represent document-level metadata with the name attribute, pragma directives with the http-equiv attribute, and the file's character encoding declaration when an HTML document is serialized to string form (e.g. for transmission over the network or for disk storage) with the charset attribute."@en ;
+    skos:prefLabel "the meta element"@en ;
+    html:tag "meta" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Meta((the meta element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/VoidElement
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+section:4.3.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements"^^xsd:anyURI ;
+    skos:prefLabel "§ 4.3.6 The h1, h2, h3, h4 and h6 elements"@en .
+
+html:Input a owl:Class ;
+    dct:conformsTo section:4.10.5 ;
+    rdfs:subClassOf html:VoidElement ;
+    skos:definition "The <input> HTML element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent. The <input> element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes."@en ;
+    skos:prefLabel "the input element"@en ;
+    html:tag "input" ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Input((the input element)) -- subClassOf --> https://data.rijksfinancien.nl/html/model/def/VoidElement
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:VoidElement a owl:Class ;
+    rdfs:subClassOf dom:Element ;
+    skos:definition "A DOM element whose content model never allows it to have contents under any circumstances. Void elements can have attributes."@en ;
+    skos:example "<br>"@en,
+        "<hr>"@en ;
+    skos:prefLabel "void element"@en ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/VoidElement((void element)) -- subClassOf --> https://data.rijksfinancien.nl/dom/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
+html:attribute a owl:DatatypeProperty ;
+    dct:conformsTo section:13.1.2.3 ;
+    rdfs:domain html:Element ;
+    rdfs:range rdfs:Literal ;
+    skos:definition "Property that is the parent property of all existing HTML attributes. An attribute is a name-value pair that is associated with an HTML element. Attributes provide additional information about an element and are specified within the start tag of an element. Attributes can modify the behavior or appearance of an element, define relationships between elements, or provide other metadata. The name of the attribute is followed by an equal sign (=) and the attribute's value, which is enclosed in double or single quotes. Some attributes affect the element simply by their presence in the start tag of the element, with the value implicitly being an empty string."@en ;
+    skos:prefLabel "has attribute"@en ;
+    mermaid:label "https://data.rijksfinancien.nl/html/model/def/Element -- has attribute --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty" ;
+    mermaid:syntax "DATATYPEPROPERTY" .
+
+standard:html a dct:Standard ;
+    dct:created "2021-11-09"^^xsd:date ;
+    dct:source "https://html.spec.whatwg.org"^^xsd:anyURI ;
+    skos:prefLabel "HTML Living Standard"@en .
+
+html:Element a owl:Class ;
+    dct:conformsTo section:3.2 ;
+    rdfs:subClassOf prov:Entity,
+        dom:Element ;
+    skos:definition "An HTML element in the Document Object Model (DOM) represents a thing; that is, it has intrinsic meaning, also known as semantics. An element consists of an HTML start tag and an HTML end tag and has value content. An HTML start tag consists of a \"smaller than\" character (\"<\") and a tag name, followed by a \"greater than\" character (\">\"). An HTML end tag consists of a \"smaller than\" character (\"<\"), a slash (\"/\") and a tag name, followed by a \"greater than\" character (\">\"). The value content of an element can be arbitrarily complex."@en ;
+    skos:prefLabel "HTML DOM element"@en ;
+    mermaid:label """https://data.rijksfinancien.nl/html/model/def/Element((HTML DOM element)) -- subClassOf --> http://www.w3.org/ns/prov#Entity
+""",
+        """https://data.rijksfinancien.nl/html/model/def/Element((HTML DOM element)) -- subClassOf --> https://data.rijksfinancien.nl/dom/model/def/Element
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
+
