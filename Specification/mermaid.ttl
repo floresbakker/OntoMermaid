@@ -964,12 +964,12 @@ construct {
   # Domain
   OPTIONAL
   {$this rdfs:domain ?domainClass.}
-  BIND(COALESCE(STR(?domainClass), "rdfs:Class") as ?mermaidDomain)
+  BIND(COALESCE(STR(?domainClass), "rdfs:Resource") as ?mermaidDomain)
   
   # Range 
   OPTIONAL
   {$this rdfs:range ?rangeClass.}
-  BIND(COALESCE(STR(?rangeClass), "rdfs:Class") as ?mermaidRange)
+  BIND(COALESCE(STR(?rangeClass), "rdfs:Resource") as ?mermaidRange)
     
   # Establish the label of the property to be serialized.
   BIND(CONCAT(STR(?mermaidDomain)," -- ",function:getLabel($this)," --> ", ?mermaidRange) as ?mermaidLabel)
@@ -1061,13 +1061,13 @@ construct {
   # Domain
   OPTIONAL
   {$this rdfs:domain ?domainClass.
-  BIND(COALESCE(STR(?domainClass), "rdfs:Class") as ?mermaidDomain)
+  BIND(COALESCE(STR(?domainClass), "rdfs:Resource") as ?mermaidDomain)
   }
   
   # Range 
   OPTIONAL
   {$this rdfs:range ?rangeDatatype.
-  BIND(COALESCE(STR(?rangeDatatype), "rdfs:Class") as ?mermaidRange)}
+  BIND(COALESCE(STR(?rangeDatatype), "rdfs:Resource") as ?mermaidRange)}
      
   # Establish the label of the property to be serialized.
   BIND(CONCAT(STR(?mermaidDomain)," -- ",function:getLabel($this)," --> ", ?mermaidRange,":::DatatypeProperty") as ?mermaidLabel)
@@ -1161,13 +1161,13 @@ construct {
   # Domain
   OPTIONAL
   {$this rdfs:domain ?domainClass.
-  BIND(COALESCE(STR(?domainClass), "rdfs:Class") as ?mermaidDomain)
+  BIND(COALESCE(STR(?domainClass), "rdfs:Resource") as ?mermaidDomain)
   }
   
   # Range 
   OPTIONAL
   {$this rdfs:range ?rangeClass.
-  BIND(COALESCE(STR(?rangeClass), "rdfs:Class") as ?mermaidRange)}
+  BIND(COALESCE(STR(?rangeClass), "rdfs:Resource") as ?mermaidRange)}
     
   # Establish the label of the property to be serialized.
   BIND(CONCAT(STR(?mermaidDomain)," -- ",function:getLabel($this)," --> ", ?mermaidRange) as ?mermaidLabel)
