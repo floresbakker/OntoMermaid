@@ -241,25 +241,38 @@ ORDER BY ?mermaid_code
                     mermaid_code = result["mermaid_code"]
                     output_file_path = "C:/Users/Administrator/Documents/Branches/mermaid/Tools/Output/"+filename_stem+"-mermaid.html"
                     # Create the HTML content with the Mermaid code
-                    html_content = f'''
+                    html_start =  '''
                     <!DOCTYPE html>
                     <html>
                     <head>
                     </head>
                     <body>
                     <div><pre class="mermaid">
+                    
                     graph TB
                     classDef DatatypeProperty fill:#9c6,stroke:#9c6;
+                    
+                    
+                    '''
+                    
+                    html_graph = f'''
+                  
                     {mermaid_code}
+                    
+                    ''' 
+                    
+                    html_end = '''
                     </pre>
                     <script type="module">
                       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-                      mermaid.initialize({{ startOnLoad: true }});
+                      mermaid.initialize({ startOnLoad: true });
                     </script>
                     </div>
                     </body>
                     </html>
                     '''
+                    
+                    html_content = html_start + html_graph + html_end
                     
                     # Write the HTML content to the output file
                     with open(output_file_path, "w", encoding="utf-8") as file:
