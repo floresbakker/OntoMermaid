@@ -248,7 +248,13 @@ ORDER BY ?mermaid_code
                     </head>
                     <body>
                     <div><pre class="mermaid">
-                    
+                    %%{
+                    init: {
+                    "flowchart":{
+                    "useMaxWidth": 0
+                    }
+                    }
+                    }%%
                     graph TB
                     classDef DatatypeProperty fill:#9c6,stroke:#9c6;
                     
