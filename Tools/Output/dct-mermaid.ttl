@@ -356,7 +356,7 @@ dcterms:abstract a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:description,
         dcterms:description ;
-    mermaid:label "rdfs:Class -- Abstract --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Abstract --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:accessRights a rdf:Property ;
@@ -368,7 +368,7 @@ dcterms:accessRights a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:rights,
         dcterms:rights ;
-    mermaid:label "rdfs:Class -- Access Rights --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Access Rights --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:accrualMethod a rdf:Property ;
@@ -379,7 +379,7 @@ dcterms:accrualMethod a rdf:Property ;
     rdfs:comment "The method by which items are added to a collection."@en ;
     rdfs:domain dcmitype:Collection ;
     rdfs:isDefinedBy dcterms: ;
-    mermaid:label "http://purl.org/dc/dcmitype/Collection -- Accrual Method --> rdfs:Class" ;
+    mermaid:label "http://purl.org/dc/dcmitype/Collection -- Accrual Method --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:accrualPeriodicity a rdf:Property ;
@@ -390,7 +390,7 @@ dcterms:accrualPeriodicity a rdf:Property ;
     rdfs:comment "The frequency with which items are added to a collection."@en ;
     rdfs:domain dcmitype:Collection ;
     rdfs:isDefinedBy dcterms: ;
-    mermaid:label "http://purl.org/dc/dcmitype/Collection -- Accrual Periodicity --> rdfs:Class" ;
+    mermaid:label "http://purl.org/dc/dcmitype/Collection -- Accrual Periodicity --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:accrualPolicy a rdf:Property ;
@@ -401,7 +401,7 @@ dcterms:accrualPolicy a rdf:Property ;
     rdfs:comment "The policy governing the addition of items to a collection."@en ;
     rdfs:domain dcmitype:Collection ;
     rdfs:isDefinedBy dcterms: ;
-    mermaid:label "http://purl.org/dc/dcmitype/Collection -- Accrual Policy --> rdfs:Class" ;
+    mermaid:label "http://purl.org/dc/dcmitype/Collection -- Accrual Policy --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:alternative a rdf:Property ;
@@ -413,7 +413,7 @@ dcterms:alternative a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:title,
         dcterms:title ;
-    mermaid:label "rdfs:Class -- Alternative Title --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:label "rdfs:Resource -- Alternative Title --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:available a rdf:Property ;
@@ -425,7 +425,7 @@ dcterms:available a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    mermaid:label "rdfs:Class -- Date Available --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:label "rdfs:Resource -- Date Available --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:bibliographicCitation a rdf:Property ;
@@ -437,7 +437,7 @@ dcterms:bibliographicCitation a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:identifier,
         dcterms:identifier ;
-    mermaid:label "rdfs:Class -- Bibliographic Citation --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:label "rdfs:Resource -- Bibliographic Citation --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:conformsTo a rdf:Property ;
@@ -448,7 +448,7 @@ dcterms:conformsTo a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    mermaid:label "rdfs:Class -- Conforms To --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Conforms To --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:created a rdf:Property ;
@@ -460,7 +460,7 @@ dcterms:created a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    mermaid:label "rdfs:Class -- Date Created --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:label "rdfs:Resource -- Date Created --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:creator a rdf:Property ;
@@ -473,7 +473,7 @@ dcterms:creator a rdf:Property ;
     rdfs:subPropertyOf dc:creator,
         dcterms:contributor ;
     owl:equivalentProperty foaf:maker ;
-    mermaid:label "rdfs:Class -- Creator --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Creator --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:dateAccepted a rdf:Property ;
@@ -485,7 +485,7 @@ dcterms:dateAccepted a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    mermaid:label "rdfs:Class -- Date Accepted --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:label "rdfs:Resource -- Date Accepted --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:dateCopyrighted a rdf:Property ;
@@ -497,7 +497,7 @@ dcterms:dateCopyrighted a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    mermaid:label "rdfs:Class -- Date Copyrighted --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:label "rdfs:Resource -- Date Copyrighted --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:dateSubmitted a rdf:Property ;
@@ -509,7 +509,7 @@ dcterms:dateSubmitted a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    mermaid:label "rdfs:Class -- Date Submitted --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:label "rdfs:Resource -- Date Submitted --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:educationLevel a rdf:Property ;
@@ -519,7 +519,7 @@ dcterms:educationLevel a rdf:Property ;
     rdfs:comment "A class of agents, defined in terms of progression through an educational or training context, for which the described resource is intended."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dcterms:audience ;
-    mermaid:label "rdfs:Class -- Audience Education Level --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Audience Education Level --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:extent a rdf:Property ;
@@ -531,7 +531,7 @@ dcterms:extent a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:format,
         dcterms:format ;
-    mermaid:label "rdfs:Class -- Extent --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Extent --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:hasFormat a rdf:Property ;
@@ -542,7 +542,7 @@ dcterms:hasFormat a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    mermaid:label "rdfs:Class -- Has Format --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Has Format --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:hasPart a rdf:Property ;
@@ -553,7 +553,7 @@ dcterms:hasPart a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    mermaid:label "rdfs:Class -- Has Part --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Has Part --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:hasVersion a rdf:Property ;
@@ -564,7 +564,7 @@ dcterms:hasVersion a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    mermaid:label "rdfs:Class -- Has Version --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Has Version --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:instructionalMethod a rdf:Property ;
@@ -574,7 +574,7 @@ dcterms:instructionalMethod a rdf:Property ;
     dcterms:issued "2005-06-13"^^xsd:date ;
     rdfs:comment "A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support."@en ;
     rdfs:isDefinedBy dcterms: ;
-    mermaid:label "rdfs:Class -- Instructional Method --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Instructional Method --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:isFormatOf a rdf:Property ;
@@ -585,7 +585,7 @@ dcterms:isFormatOf a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    mermaid:label "rdfs:Class -- Is Format Of --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Is Format Of --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:isPartOf a rdf:Property ;
@@ -596,7 +596,7 @@ dcterms:isPartOf a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    mermaid:label "rdfs:Class -- Is Part Of --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Is Part Of --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:isReferencedBy a rdf:Property ;
@@ -607,7 +607,7 @@ dcterms:isReferencedBy a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    mermaid:label "rdfs:Class -- Is Referenced By --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Is Referenced By --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:isReplacedBy a rdf:Property ;
@@ -618,7 +618,7 @@ dcterms:isReplacedBy a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    mermaid:label "rdfs:Class -- Is Replaced By --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Is Replaced By --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:isRequiredBy a rdf:Property ;
@@ -629,7 +629,7 @@ dcterms:isRequiredBy a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    mermaid:label "rdfs:Class -- Is Required By --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Is Required By --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:isVersionOf a rdf:Property ;
@@ -640,7 +640,7 @@ dcterms:isVersionOf a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    mermaid:label "rdfs:Class -- Is Version Of --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Is Version Of --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:issued a rdf:Property ;
@@ -652,7 +652,7 @@ dcterms:issued a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    mermaid:label "rdfs:Class -- Date Issued --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:label "rdfs:Resource -- Date Issued --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:language a rdf:Property ;
@@ -663,7 +663,7 @@ dcterms:language a rdf:Property ;
     rdfs:comment "A language of the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:language ;
-    mermaid:label "rdfs:Class -- Language --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Language --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:license a rdf:Property ;
@@ -675,7 +675,7 @@ dcterms:license a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:rights,
         dcterms:rights ;
-    mermaid:label "rdfs:Class -- License --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- License --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:mediator a rdf:Property ;
@@ -686,7 +686,7 @@ dcterms:mediator a rdf:Property ;
     rdfs:comment "An entity that mediates access to the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dcterms:audience ;
-    mermaid:label "rdfs:Class -- Mediator --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Mediator --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:medium a rdf:Property ;
@@ -698,7 +698,7 @@ dcterms:medium a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:format,
         dcterms:format ;
-    mermaid:label "rdfs:Class -- Medium --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Medium --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:modified a rdf:Property ;
@@ -710,7 +710,7 @@ dcterms:modified a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    mermaid:label "rdfs:Class -- Date Modified --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:label "rdfs:Resource -- Date Modified --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:provenance a rdf:Property ;
@@ -720,7 +720,7 @@ dcterms:provenance a rdf:Property ;
     dcterms:issued "2004-09-20"^^xsd:date ;
     rdfs:comment "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation."@en ;
     rdfs:isDefinedBy dcterms: ;
-    mermaid:label "rdfs:Class -- Provenance --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Provenance --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:publisher a rdf:Property ;
@@ -730,7 +730,7 @@ dcterms:publisher a rdf:Property ;
     rdfs:comment "An entity responsible for making the resource available."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:publisher ;
-    mermaid:label "rdfs:Class -- Publisher --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Publisher --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:references a rdf:Property ;
@@ -741,7 +741,7 @@ dcterms:references a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    mermaid:label "rdfs:Class -- References --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- References --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:replaces a rdf:Property ;
@@ -752,7 +752,7 @@ dcterms:replaces a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    mermaid:label "rdfs:Class -- Replaces --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Replaces --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:requires a rdf:Property ;
@@ -763,7 +763,7 @@ dcterms:requires a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    mermaid:label "rdfs:Class -- Requires --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Requires --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:rightsHolder a rdf:Property ;
@@ -773,7 +773,7 @@ dcterms:rightsHolder a rdf:Property ;
     dcterms:issued "2004-06-14"^^xsd:date ;
     rdfs:comment "A person or organization owning or managing rights over the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
-    mermaid:label "rdfs:Class -- Rights Holder --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Rights Holder --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:source a rdf:Property ;
@@ -784,7 +784,7 @@ dcterms:source a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:source,
         dcterms:relation ;
-    mermaid:label "rdfs:Class -- Source --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Source --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:spatial a rdf:Property ;
@@ -795,7 +795,7 @@ dcterms:spatial a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:coverage,
         dcterms:coverage ;
-    mermaid:label "rdfs:Class -- Spatial Coverage --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Spatial Coverage --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:subject a rdf:Property ;
@@ -805,7 +805,7 @@ dcterms:subject a rdf:Property ;
     rdfs:comment "A topic of the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:subject ;
-    mermaid:label "rdfs:Class -- Subject --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Subject --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:tableOfContents a rdf:Property ;
@@ -815,7 +815,7 @@ dcterms:tableOfContents a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:description,
         dcterms:description ;
-    mermaid:label "rdfs:Class -- Table Of Contents --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Table Of Contents --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:temporal a rdf:Property ;
@@ -826,7 +826,7 @@ dcterms:temporal a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:coverage,
         dcterms:coverage ;
-    mermaid:label "rdfs:Class -- Temporal Coverage --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Temporal Coverage --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:type a rdf:Property ;
@@ -836,7 +836,7 @@ dcterms:type a rdf:Property ;
     rdfs:comment "The nature or genre of the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:type ;
-    mermaid:label "rdfs:Class -- Type --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Type --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:valid a rdf:Property ;
@@ -848,7 +848,7 @@ dcterms:valid a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    mermaid:label "rdfs:Class -- Date Valid --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:label "rdfs:Resource -- Date Valid --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:Period a rdfs:Datatype ;
@@ -866,7 +866,7 @@ dcterms:contributor a rdf:Property ;
     rdfs:comment "An entity responsible for making contributions to the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:contributor ;
-    mermaid:label "rdfs:Class -- Contributor --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Contributor --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:identifier a rdf:Property ;
@@ -877,7 +877,7 @@ dcterms:identifier a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:identifier ;
-    mermaid:label "rdfs:Class -- Identifier --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:label "rdfs:Resource -- Identifier --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:title a rdf:Property ;
@@ -887,7 +887,7 @@ dcterms:title a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:title ;
-    mermaid:label "rdfs:Class -- Title --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:label "rdfs:Resource -- Title --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:audience a rdf:Property ;
@@ -897,7 +897,7 @@ dcterms:audience a rdf:Property ;
     dcterms:issued "2001-05-21"^^xsd:date ;
     rdfs:comment "A class of agents for whom the resource is intended or useful."@en ;
     rdfs:isDefinedBy dcterms: ;
-    mermaid:label "rdfs:Class -- Audience --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Audience --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:coverage a rdf:Property ;
@@ -910,7 +910,7 @@ dcterms:coverage a rdf:Property ;
     rdfs:comment "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:coverage ;
-    mermaid:label "rdfs:Class -- Coverage --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Coverage --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:description a rdf:Property ;
@@ -920,7 +920,7 @@ dcterms:description a rdf:Property ;
     rdfs:comment "An account of the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:description ;
-    mermaid:label "rdfs:Class -- Description --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Description --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:format a rdf:Property ;
@@ -932,7 +932,7 @@ dcterms:format a rdf:Property ;
     rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:format ;
-    mermaid:label "rdfs:Class -- Format --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Format --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:rights a rdf:Property ;
@@ -943,7 +943,7 @@ dcterms:rights a rdf:Property ;
     rdfs:comment "Information about rights held in and over the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:rights ;
-    mermaid:label "rdfs:Class -- Rights --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Rights --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:date a rdf:Property ;
@@ -954,7 +954,7 @@ dcterms:date a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date ;
-    mermaid:label "rdfs:Class -- Date --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:label "rdfs:Resource -- Date --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:relation a rdf:Property ;
@@ -964,7 +964,7 @@ dcterms:relation a rdf:Property ;
     rdfs:comment "A related resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation ;
-    mermaid:label "rdfs:Class -- Relation --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- Relation --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 dcterms: dcterms:modified "2012-06-14"^^xsd:date ;

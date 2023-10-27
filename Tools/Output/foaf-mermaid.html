@@ -5,125 +5,138 @@
                     </head>
                     <body>
                     <div><pre class="mermaid">
+                    %%{
+                    init: {
+                    "flowchart":{
+                    "useMaxWidth": 0
+                    }
+                    }
+                    }%%
                     graph TB
                     classDef DatatypeProperty fill:#9c6,stroke:#9c6;
-                    http://xmlns.com/foaf/0.1/Project((Project))
-http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing((SpatialThing))
-http://www.w3.org/2000/01/rdf-schema#Class((Class))
+                    
+                    
+                    
+                    
+                    http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing((SpatialThing))
 http://xmlns.com/foaf/0.1/LabelProperty((LabelProperty))
+http://www.w3.org/2000/01/rdf-schema#Class((Class))
+http://xmlns.com/foaf/0.1/Project((Project))
+http://xmlns.com/foaf/0.1/PersonalProfileDocument((PersonalProfileDocument)) -- subClassOf --> http://xmlns.com/foaf/0.1/Document
+
+http://xmlns.com/foaf/0.1/OnlineGamingAccount((OnlineGamingAccount)) -- subClassOf --> http://xmlns.com/foaf/0.1/OnlineAccount
+
+http://xmlns.com/foaf/0.1/Group((Group)) -- subClassOf --> http://xmlns.com/foaf/0.1/Agent
+
+http://xmlns.com/foaf/0.1/OnlineChatAccount((OnlineChatAccount)) -- subClassOf --> http://xmlns.com/foaf/0.1/OnlineAccount
+
+http://xmlns.com/foaf/0.1/Image((Image)) -- subClassOf --> http://xmlns.com/foaf/0.1/Document
+
+http://xmlns.com/foaf/0.1/OnlineEcommerceAccount((OnlineEcommerceAccount)) -- subClassOf --> http://xmlns.com/foaf/0.1/OnlineAccount
+
+http://xmlns.com/foaf/0.1/OnlineAccount((OnlineAccount)) -- subClassOf --> http://www.w3.org/2002/07/owl#Thing
+
 http://xmlns.com/foaf/0.1/Person((Person)) -- subClassOf --> http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing
 
 http://xmlns.com/foaf/0.1/Person((Person)) -- subClassOf --> http://xmlns.com/foaf/0.1/Agent
 
-http://xmlns.com/foaf/0.1/OnlineAccount((OnlineAccount)) -- subClassOf --> http://www.w3.org/2002/07/owl#Thing
-
-http://xmlns.com/foaf/0.1/Group((Group)) -- subClassOf --> http://xmlns.com/foaf/0.1/Agent
-
 http://xmlns.com/foaf/0.1/Organization((Organization)) -- subClassOf --> http://xmlns.com/foaf/0.1/Agent
 
-http://xmlns.com/foaf/0.1/Image((Image)) -- subClassOf --> http://xmlns.com/foaf/0.1/Document
+http://xmlns.com/foaf/0.1/Agent((Agent)) -- equivalentTo --> http://purl.org/dc/terms/Agent
 
-http://xmlns.com/foaf/0.1/OnlineChatAccount((OnlineChatAccount)) -- subClassOf --> http://xmlns.com/foaf/0.1/OnlineAccount
+http://xmlns.com/foaf/0.1/Document((Document)) -- equivalentTo --> http://schema.org/CreativeWork
 
-http://xmlns.com/foaf/0.1/OnlineEcommerceAccount((OnlineEcommerceAccount)) -- subClassOf --> http://xmlns.com/foaf/0.1/OnlineAccount
-
-http://xmlns.com/foaf/0.1/OnlineGamingAccount((OnlineGamingAccount)) -- subClassOf --> http://xmlns.com/foaf/0.1/OnlineAccount
-
-http://xmlns.com/foaf/0.1/PersonalProfileDocument((PersonalProfileDocument)) -- subClassOf --> http://xmlns.com/foaf/0.1/Document
+http://xmlns.com/foaf/0.1/Image((Image)) -- equivalentTo --> http://schema.org/ImageObject
 
 http://xmlns.com/foaf/0.1/Person((Person)) -- equivalentTo --> http://www.w3.org/2000/10/swap/pim/contact#Person
 
 http://xmlns.com/foaf/0.1/Person((Person)) -- equivalentTo --> http://schema.org/Person
 
-http://xmlns.com/foaf/0.1/Image((Image)) -- equivalentTo --> http://schema.org/ImageObject
-
-http://xmlns.com/foaf/0.1/Document((Document)) -- equivalentTo --> http://schema.org/CreativeWork
-
-http://xmlns.com/foaf/0.1/Agent((Agent)) -- equivalentTo --> http://purl.org/dc/terms/Agent
-
-http://xmlns.com/foaf/0.1/Document -- topic --> http://www.w3.org/2002/07/owl#Thing
-rdfs:Class -- givenName --> rdfs:Class
-http://xmlns.com/foaf/0.1/Document -- sha1 --> rdfs:Class
-http://xmlns.com/foaf/0.1/Person -- myersBriggs --> http://www.w3.org/2000/01/rdf-schema#Literal
-rdfs:Class -- nick --> rdfs:Class
-http://xmlns.com/foaf/0.1/Person -- lastName --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://xmlns.com/foaf/0.1/Agent -- yahooChatID --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://xmlns.com/foaf/0.1/Agent -- jabberID --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://www.w3.org/2002/07/owl#Thing -- depiction --> http://xmlns.com/foaf/0.1/Image
-http://xmlns.com/foaf/0.1/Person -- plan --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://xmlns.com/foaf/0.1/Person -- img --> http://xmlns.com/foaf/0.1/Image
-http://xmlns.com/foaf/0.1/Agent -- interest --> http://xmlns.com/foaf/0.1/Document
-http://www.w3.org/2002/07/owl#Thing -- homepage --> http://xmlns.com/foaf/0.1/Document
-http://www.w3.org/2002/07/owl#Thing -- maker --> http://xmlns.com/foaf/0.1/Agent
-http://xmlns.com/foaf/0.1/Agent -- mbox_sha1sum --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://www.w3.org/2002/07/owl#Thing -- theme --> http://www.w3.org/2002/07/owl#Thing
-http://www.w3.org/2002/07/owl#Thing -- logo --> http://www.w3.org/2002/07/owl#Thing
-http://xmlns.com/foaf/0.1/Agent -- age --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://xmlns.com/foaf/0.1/Person -- workplaceHomepage --> http://xmlns.com/foaf/0.1/Document
-rdfs:Class -- givenname --> rdfs:Class
-http://xmlns.com/foaf/0.1/Agent -- birthday --> http://www.w3.org/2000/01/rdf-schema#Literal
-rdfs:Class -- title --> rdfs:Class
-http://xmlns.com/foaf/0.1/Agent -- holdsAccount --> http://xmlns.com/foaf/0.1/OnlineAccount
-http://xmlns.com/foaf/0.1/OnlineAccount -- accountName --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://xmlns.com/foaf/0.1/Person -- workInfoHomepage --> http://xmlns.com/foaf/0.1/Document
-http://xmlns.com/foaf/0.1/Person -- currentProject --> http://www.w3.org/2002/07/owl#Thing
-http://xmlns.com/foaf/0.1/OnlineAccount -- accountServiceHomepage --> http://xmlns.com/foaf/0.1/Document
-http://xmlns.com/foaf/0.1/Agent -- account --> http://xmlns.com/foaf/0.1/OnlineAccount
-http://xmlns.com/foaf/0.1/Agent -- gender --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://xmlns.com/foaf/0.1/Agent -- made --> http://www.w3.org/2002/07/owl#Thing
-http://xmlns.com/foaf/0.1/Image -- depicts --> http://www.w3.org/2002/07/owl#Thing
-http://xmlns.com/foaf/0.1/Agent -- skypeID --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://xmlns.com/foaf/0.1/Agent -- status --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://www.w3.org/2004/02/skos/core#Concept -- focus --> http://www.w3.org/2002/07/owl#Thing
-http://www.w3.org/2002/07/owl#Thing -- isPrimaryTopicOf --> http://xmlns.com/foaf/0.1/Document
-http://xmlns.com/foaf/0.1/Person -- pastProject --> http://www.w3.org/2002/07/owl#Thing
-rdfs:Class -- dnaChecksum --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://xmlns.com/foaf/0.1/Agent -- tipjar --> http://xmlns.com/foaf/0.1/Document
-http://xmlns.com/foaf/0.1/Person -- surname --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://www.w3.org/2002/07/owl#Thing -- name --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://xmlns.com/foaf/0.1/Agent -- weblog --> http://xmlns.com/foaf/0.1/Document
-rdfs:Class -- membershipClass --> rdfs:Class
-http://xmlns.com/foaf/0.1/Agent -- openid --> http://xmlns.com/foaf/0.1/Document
-http://xmlns.com/foaf/0.1/Person -- geekcode --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://xmlns.com/foaf/0.1/Agent -- icqChatID --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://xmlns.com/foaf/0.1/Agent -- topic_interest --> http://www.w3.org/2002/07/owl#Thing
-http://www.w3.org/2002/07/owl#Thing -- fundedBy --> http://www.w3.org/2002/07/owl#Thing
 http://xmlns.com/foaf/0.1/Document -- primaryTopic --> http://www.w3.org/2002/07/owl#Thing
-http://xmlns.com/foaf/0.1/Agent -- msnChatID --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://xmlns.com/foaf/0.1/Group -- member --> http://xmlns.com/foaf/0.1/Agent
-http://xmlns.com/foaf/0.1/Person -- firstName --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://xmlns.com/foaf/0.1/Image -- thumbnail --> http://xmlns.com/foaf/0.1/Image
-http://xmlns.com/foaf/0.1/Person -- schoolHomepage --> http://xmlns.com/foaf/0.1/Document
-http://xmlns.com/foaf/0.1/Person -- family_name --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://xmlns.com/foaf/0.1/Person -- publications --> http://xmlns.com/foaf/0.1/Document
-http://xmlns.com/foaf/0.1/Agent -- mbox --> http://www.w3.org/2002/07/owl#Thing
-http://xmlns.com/foaf/0.1/Agent -- aimChatID --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/Agent -- birthday --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/Agent -- account --> http://xmlns.com/foaf/0.1/OnlineAccount
+http://www.w3.org/2002/07/owl#Thing -- depiction --> http://xmlns.com/foaf/0.1/Image
+http://xmlns.com/foaf/0.1/Agent -- openid --> http://xmlns.com/foaf/0.1/Document
+http://www.w3.org/2002/07/owl#Thing -- maker --> http://xmlns.com/foaf/0.1/Agent
+rdfs:Resource -- dnaChecksum --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- phone --> rdfs:Resource
+http://xmlns.com/foaf/0.1/Person -- workInfoHomepage --> http://xmlns.com/foaf/0.1/Document
+http://www.w3.org/2002/07/owl#Thing -- theme --> http://www.w3.org/2002/07/owl#Thing
 http://xmlns.com/foaf/0.1/Person -- familyName --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/Agent -- yahooChatID --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://www.w3.org/2002/07/owl#Thing -- isPrimaryTopicOf --> http://xmlns.com/foaf/0.1/Document
+http://xmlns.com/foaf/0.1/Agent -- status --> http://www.w3.org/2000/01/rdf-schema#Literal
 http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -- based_near --> http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing
-rdfs:Class -- phone --> rdfs:Class
-http://xmlns.com/foaf/0.1/Person -- knows --> http://xmlns.com/foaf/0.1/Person
+http://xmlns.com/foaf/0.1/Person -- img --> http://xmlns.com/foaf/0.1/Image
+http://xmlns.com/foaf/0.1/Image -- depicts --> http://www.w3.org/2002/07/owl#Thing
+http://www.w3.org/2004/02/skos/core#Concept -- focus --> http://www.w3.org/2002/07/owl#Thing
+http://xmlns.com/foaf/0.1/Agent -- tipjar --> http://xmlns.com/foaf/0.1/Document
+http://xmlns.com/foaf/0.1/Person -- publications --> http://xmlns.com/foaf/0.1/Document
+http://xmlns.com/foaf/0.1/Agent -- aimChatID --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/Person -- myersBriggs --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/Person -- currentProject --> http://www.w3.org/2002/07/owl#Thing
+http://xmlns.com/foaf/0.1/Agent -- skypeID --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/Person -- schoolHomepage --> http://xmlns.com/foaf/0.1/Document
+http://xmlns.com/foaf/0.1/Agent -- mbox --> http://www.w3.org/2002/07/owl#Thing
+http://xmlns.com/foaf/0.1/Image -- thumbnail --> http://xmlns.com/foaf/0.1/Image
+http://xmlns.com/foaf/0.1/Agent -- msnChatID --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/Agent -- made --> http://www.w3.org/2002/07/owl#Thing
+http://xmlns.com/foaf/0.1/Document -- sha1 --> rdfs:Resource
+http://xmlns.com/foaf/0.1/Person -- family_name --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- nick --> rdfs:Resource
+http://www.w3.org/2002/07/owl#Thing -- homepage --> http://xmlns.com/foaf/0.1/Document
+http://xmlns.com/foaf/0.1/Agent -- age --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/OnlineAccount -- accountServiceHomepage --> http://xmlns.com/foaf/0.1/Document
+http://xmlns.com/foaf/0.1/Agent -- topic_interest --> http://www.w3.org/2002/07/owl#Thing
+rdfs:Resource -- givenname --> rdfs:Resource
+http://xmlns.com/foaf/0.1/Person -- surname --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/Agent -- holdsAccount --> http://xmlns.com/foaf/0.1/OnlineAccount
+http://xmlns.com/foaf/0.1/Person -- lastName --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/Agent -- gender --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/Person -- pastProject --> http://www.w3.org/2002/07/owl#Thing
+http://xmlns.com/foaf/0.1/Agent -- interest --> http://xmlns.com/foaf/0.1/Document
+rdfs:Resource -- title --> rdfs:Resource
+http://xmlns.com/foaf/0.1/Group -- member --> http://xmlns.com/foaf/0.1/Agent
 http://www.w3.org/2002/07/owl#Thing -- page --> http://xmlns.com/foaf/0.1/Document
-http://xmlns.com/foaf/0.1/Person -- familyName --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/Person -- geekcode --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/Agent -- gender --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/Person -- family_name --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://www.w3.org/2002/07/owl#Thing -- name --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/Person -- myersBriggs --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/Agent -- birthday --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/Agent -- mbox_sha1sum --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Person -- workplaceHomepage --> http://xmlns.com/foaf/0.1/Document
+http://xmlns.com/foaf/0.1/Agent -- weblog --> http://xmlns.com/foaf/0.1/Document
+http://xmlns.com/foaf/0.1/Person -- geekcode --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- membershipClass --> rdfs:Resource
+http://xmlns.com/foaf/0.1/Agent -- icqChatID --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/Person -- firstName --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://www.w3.org/2002/07/owl#Thing -- logo --> http://www.w3.org/2002/07/owl#Thing
+http://www.w3.org/2002/07/owl#Thing -- fundedBy --> http://www.w3.org/2002/07/owl#Thing
+rdfs:Resource -- givenName --> rdfs:Resource
+http://www.w3.org/2002/07/owl#Thing -- name --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/Agent -- jabberID --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/OnlineAccount -- accountName --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/Agent -- mbox_sha1sum --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/Person -- plan --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://xmlns.com/foaf/0.1/Document -- topic --> http://www.w3.org/2002/07/owl#Thing
+http://xmlns.com/foaf/0.1/Person -- knows --> http://xmlns.com/foaf/0.1/Person
 http://xmlns.com/foaf/0.1/Agent -- skypeID --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/Person -- firstName --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/Agent -- jabberID --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/Person -- lastName --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/Person -- surname --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/Agent -- msnChatID --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/OnlineAccount -- accountName --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/Person -- plan --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/Agent -- icqChatID --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/Agent -- age --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
-http://xmlns.com/foaf/0.1/Agent -- aimChatID --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
 http://xmlns.com/foaf/0.1/Agent -- yahooChatID --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
 http://xmlns.com/foaf/0.1/Agent -- status --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Person -- myersBriggs --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Person -- familyName --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Agent -- aimChatID --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Person -- plan --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Person -- family_name --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Person -- geekcode --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Agent -- gender --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Person -- surname --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Agent -- msnChatID --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://www.w3.org/2002/07/owl#Thing -- name --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Person -- lastName --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/OnlineAccount -- accountName --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Agent -- icqChatID --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Person -- firstName --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Agent -- birthday --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Agent -- age --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Agent -- jabberID --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+http://xmlns.com/foaf/0.1/Agent -- mbox_sha1sum --> http://www.w3.org/2000/01/rdf-schema#Literal:::DatatypeProperty
+                    
+                    
                     </pre>
                     <script type="module">
                       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';

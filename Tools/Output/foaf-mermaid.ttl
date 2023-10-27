@@ -288,7 +288,7 @@ foaf:dnaChecksum a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "archaic" ;
-    mermaid:label "rdfs:Class -- dnaChecksum --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:label "rdfs:Resource -- dnaChecksum --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
     mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
@@ -388,7 +388,7 @@ foaf:givenName a rdf:Property,
     rdfs:comment "The given name of some person." ;
     rdfs:isDefinedBy foaf: ;
     ns0:term_status "testing" ;
-    mermaid:label "rdfs:Class -- givenName --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- givenName --> rdfs:Resource" ;
     mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
@@ -398,7 +398,7 @@ foaf:givenname a rdf:Property,
     rdfs:comment "The given name of some person." ;
     rdfs:isDefinedBy foaf: ;
     ns0:term_status "archaic" ;
-    mermaid:label "rdfs:Class -- givenname --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- givenname --> rdfs:Resource" ;
     mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
@@ -566,7 +566,7 @@ foaf:membershipClass a rdf:Property,
     rdfs:comment "Indicates the class of individuals that are a member of a Group" ;
     rdfs:isDefinedBy foaf: ;
     ns0:term_status "unstable" ;
-    mermaid:label "rdfs:Class -- membershipClass --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- membershipClass --> rdfs:Resource" ;
     mermaid:syntax "RDF_PROPERTY" .
 
 foaf:msnChatID a rdf:Property,
@@ -643,7 +643,7 @@ foaf:phone a rdf:Property,
     rdfs:comment "A phone,  specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel)." ;
     rdfs:isDefinedBy foaf: ;
     ns0:term_status "testing" ;
-    mermaid:label "rdfs:Class -- phone --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- phone --> rdfs:Resource" ;
     mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
@@ -691,7 +691,7 @@ foaf:sha1 a rdf:Property,
     rdfs:domain foaf:Document ;
     rdfs:isDefinedBy foaf: ;
     ns0:term_status "unstable" ;
-    mermaid:label "http://xmlns.com/foaf/0.1/Document -- sha1 --> rdfs:Class" ;
+    mermaid:label "http://xmlns.com/foaf/0.1/Document -- sha1 --> rdfs:Resource" ;
     mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
@@ -778,7 +778,7 @@ foaf:title a rdf:Property,
     rdfs:comment "Title (Mr, Mrs, Ms, Dr. etc)" ;
     rdfs:isDefinedBy foaf: ;
     ns0:term_status "testing" ;
-    mermaid:label "rdfs:Class -- title --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- title --> rdfs:Resource" ;
     mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
@@ -957,7 +957,7 @@ foaf:nick a rdf:Property,
     rdfs:comment "A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames)." ;
     rdfs:isDefinedBy foaf: ;
     ns0:term_status "testing" ;
-    mermaid:label "rdfs:Class -- nick --> rdfs:Class" ;
+    mermaid:label "rdfs:Resource -- nick --> rdfs:Resource" ;
     mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 

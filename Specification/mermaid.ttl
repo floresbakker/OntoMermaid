@@ -1330,19 +1330,27 @@ function:getLabel
     ] ;
     sh:returnType xsd:string ;
     sh:select """
-       SELECT ?result WHERE {
-  
-  BIND(REPLACE(STR($resource),'.*[/#]','') as ?implicitLabel)
-  
-  OPTIONAL
-  {$resource skos:prefLabel ?preferredLabel.
-  FILTER (lang(?preferredLabel) = 'en')}
-  
-  OPTIONAL 
-  {$resource rdfs:label ?alternativeLabel.
-  FILTER (lang(?alternativeLabel) = 'en')}
-      
-  # Establish label
-  BIND(COALESCE(?preferredLabel, ?alternativeLabel, ?implicitLabel) as ?result)
+    
+	prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    prefix skos: <http://www.w3.org/2004/02/skos/core#>
+    
+	SELECT ?result WHERE {
+    
+	BIND(REPLACE(STR($resource),'.*[/#]','') as ?implicitLabel)
+    OPTIONAL
+    {
+    $resource skos:prefLabel ?someLabel.
+    FILTER (lang(?someLabel) = 'en')
+    BIND(REPLACE(?someLabel, "(()+|())+|([)+|(])+|({)+|(})+|(<)+|(>)+", "", "q") AS ?preferredLabel)
+    }
+    OPTIONAL 
+    {
+    $resource rdfs:label ?otherLabel.
+    FILTER (lang(?otherLabel) = 'en')
+    BIND(REPLACE(?otherLabel, "(()+|())+|([)+|(])+|({)+|(})+|(<)+|(>)+", "", "q") AS ?alternativeLabel)
+    }
+    # Establish label
+    BIND(COALESCE(?preferredLabel, ?alternativeLabel, ?implicitLabel) as ?result)
 }
 """ .

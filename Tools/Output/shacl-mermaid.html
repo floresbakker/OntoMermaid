@@ -1,0 +1,242 @@
+
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                    </head>
+                    <body>
+                    <div><pre class="mermaid">
+                    %%{
+                    init: {
+                    "flowchart":{
+                    "useMaxWidth": 0
+                    }
+                    }
+                    }%%
+                    graph TB
+                    classDef DatatypeProperty fill:#9c6,stroke:#9c6;
+                    
+                    
+                    
+                    
+                    http://www.w3.org/ns/shacl#ConstraintComponent((Constraint component)) -- subClassOf --> http://www.w3.org/ns/shacl#Parameterizable
+
+http://www.w3.org/ns/shacl#SPARQLRule((SPARQL CONSTRUCT rule)) -- subClassOf --> http://www.w3.org/ns/shacl#SPARQLConstructExecutable
+
+http://www.w3.org/ns/shacl#SPARQLRule((SPARQL CONSTRUCT rule)) -- subClassOf --> http://www.w3.org/ns/shacl#Rule
+
+http://www.w3.org/ns/shacl#TargetType((Target type)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Class
+
+http://www.w3.org/ns/shacl#TargetType((Target type)) -- subClassOf --> http://www.w3.org/ns/shacl#Parameterizable
+
+http://www.w3.org/ns/shacl#SPARQLExecutable((SPARQL executable)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Resource
+
+http://www.w3.org/ns/shacl#JSTarget((JavaScript target)) -- subClassOf --> http://www.w3.org/ns/shacl#JSExecutable
+
+http://www.w3.org/ns/shacl#JSTarget((JavaScript target)) -- subClassOf --> http://www.w3.org/ns/shacl#Target
+
+http://www.w3.org/ns/shacl#JSLibrary((JavaScript library)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Resource
+
+http://www.w3.org/ns/shacl#JSFunction((JavaScript function)) -- subClassOf --> http://www.w3.org/ns/shacl#Function
+
+http://www.w3.org/ns/shacl#JSFunction((JavaScript function)) -- subClassOf --> http://www.w3.org/ns/shacl#JSExecutable
+
+http://www.w3.org/ns/shacl#SPARQLConstructExecutable((SPARQL CONSTRUCT executable)) -- subClassOf --> http://www.w3.org/ns/shacl#SPARQLExecutable
+
+http://www.w3.org/ns/shacl#SPARQLFunction((SPARQL function)) -- subClassOf --> http://www.w3.org/ns/shacl#Function
+
+http://www.w3.org/ns/shacl#SPARQLFunction((SPARQL function)) -- subClassOf --> http://www.w3.org/ns/shacl#SPARQLSelectExecutable
+
+http://www.w3.org/ns/shacl#SPARQLFunction((SPARQL function)) -- subClassOf --> http://www.w3.org/ns/shacl#SPARQLAskExecutable
+
+http://www.w3.org/ns/shacl#ValidationResult((Validation result)) -- subClassOf --> http://www.w3.org/ns/shacl#AbstractResult
+
+http://www.w3.org/ns/shacl#NodeShape((Node shape)) -- subClassOf --> http://www.w3.org/ns/shacl#Shape
+
+http://www.w3.org/ns/shacl#Validator((Validator)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Resource
+
+http://www.w3.org/ns/shacl#SPARQLTargetType((SPARQL target type)) -- subClassOf --> http://www.w3.org/ns/shacl#SPARQLSelectExecutable
+
+http://www.w3.org/ns/shacl#SPARQLTargetType((SPARQL target type)) -- subClassOf --> http://www.w3.org/ns/shacl#SPARQLAskExecutable
+
+http://www.w3.org/ns/shacl#SPARQLTargetType((SPARQL target type)) -- subClassOf --> http://www.w3.org/ns/shacl#TargetType
+
+http://www.w3.org/ns/shacl#SPARQLSelectExecutable((SPARQL SELECT executable)) -- subClassOf --> http://www.w3.org/ns/shacl#SPARQLExecutable
+
+http://www.w3.org/ns/shacl#PropertyGroup((Property group)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Resource
+
+http://www.w3.org/ns/shacl#TripleRule((A rule based on triple subject, predicate, object pattern.)) -- subClassOf --> http://www.w3.org/ns/shacl#Rule
+
+http://www.w3.org/ns/shacl#PropertyShape((Property shape)) -- subClassOf --> http://www.w3.org/ns/shacl#Shape
+
+http://www.w3.org/ns/shacl#SPARQLConstraint((SPARQL constraint)) -- subClassOf --> http://www.w3.org/ns/shacl#SPARQLSelectExecutable
+
+http://www.w3.org/ns/shacl#ValidationReport((Validation report)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Resource
+
+http://www.w3.org/ns/shacl#SPARQLSelectValidator((SPARQL SELECT validator)) -- subClassOf --> http://www.w3.org/ns/shacl#SPARQLSelectExecutable
+
+http://www.w3.org/ns/shacl#SPARQLSelectValidator((SPARQL SELECT validator)) -- subClassOf --> http://www.w3.org/ns/shacl#Validator
+
+http://www.w3.org/ns/shacl#JSTargetType((JavaScript target type)) -- subClassOf --> http://www.w3.org/ns/shacl#TargetType
+
+http://www.w3.org/ns/shacl#JSTargetType((JavaScript target type)) -- subClassOf --> http://www.w3.org/ns/shacl#JSExecutable
+
+http://www.w3.org/ns/shacl#Shape((Shape)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Resource
+
+http://www.w3.org/ns/shacl#Rule((Rule)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Resource
+
+http://www.w3.org/ns/shacl#JSConstraint((JavaScript-based constraint)) -- subClassOf --> http://www.w3.org/ns/shacl#JSExecutable
+
+http://www.w3.org/ns/shacl#JSExecutable((JavaScript executable)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Resource
+
+http://www.w3.org/ns/shacl#SPARQLAskExecutable((SPARQL ASK executable)) -- subClassOf --> http://www.w3.org/ns/shacl#SPARQLExecutable
+
+http://www.w3.org/ns/shacl#SPARQLAskValidator((SPARQL ASK validator)) -- subClassOf --> http://www.w3.org/ns/shacl#Validator
+
+http://www.w3.org/ns/shacl#SPARQLAskValidator((SPARQL ASK validator)) -- subClassOf --> http://www.w3.org/ns/shacl#SPARQLAskExecutable
+
+http://www.w3.org/ns/shacl#Parameterizable((Parameterizable)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Resource
+
+http://www.w3.org/ns/shacl#Function((Function)) -- subClassOf --> http://www.w3.org/ns/shacl#Parameterizable
+
+http://www.w3.org/ns/shacl#Severity((Severity)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Resource
+
+http://www.w3.org/ns/shacl#NodeKind((Node kind)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Resource
+
+http://www.w3.org/ns/shacl#SPARQLTarget((SPARQL target)) -- subClassOf --> http://www.w3.org/ns/shacl#SPARQLSelectExecutable
+
+http://www.w3.org/ns/shacl#SPARQLTarget((SPARQL target)) -- subClassOf --> http://www.w3.org/ns/shacl#SPARQLAskExecutable
+
+http://www.w3.org/ns/shacl#SPARQLTarget((SPARQL target)) -- subClassOf --> http://www.w3.org/ns/shacl#Target
+
+http://www.w3.org/ns/shacl#SPARQLUpdateExecutable((SPARQL UPDATE executable)) -- subClassOf --> http://www.w3.org/ns/shacl#SPARQLExecutable
+
+http://www.w3.org/ns/shacl#JSRule((JavaScript rule)) -- subClassOf --> http://www.w3.org/ns/shacl#JSExecutable
+
+http://www.w3.org/ns/shacl#JSRule((JavaScript rule)) -- subClassOf --> http://www.w3.org/ns/shacl#Rule
+
+http://www.w3.org/ns/shacl#PrefixDeclaration((Prefix declaration)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Resource
+
+http://www.w3.org/ns/shacl#ResultAnnotation((Result annotation)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Resource
+
+http://www.w3.org/ns/shacl#Target((Target)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Resource
+
+http://www.w3.org/ns/shacl#JSValidator((JavaScript validator)) -- subClassOf --> http://www.w3.org/ns/shacl#JSExecutable
+
+http://www.w3.org/ns/shacl#JSValidator((JavaScript validator)) -- subClassOf --> http://www.w3.org/ns/shacl#Validator
+
+http://www.w3.org/ns/shacl#Parameter((Parameter)) -- subClassOf --> http://www.w3.org/ns/shacl#PropertyShape
+
+http://www.w3.org/ns/shacl#AbstractResult((Abstract result)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Resource
+
+http://www.w3.org/ns/shacl#SPARQLAskExecutable -- ask --> http://www.w3.org/2001/XMLSchema#string
+rdfs:Resource -- nodes --> rdfs:Resource
+http://www.w3.org/ns/shacl#ResultAnnotation -- annotation property --> http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
+http://www.w3.org/ns/shacl#AbstractResult -- result message --> rdfs:Resource
+rdfs:Resource -- JavaScript library --> http://www.w3.org/ns/shacl#JSLibrary
+rdfs:Resource -- filter shape --> http://www.w3.org/ns/shacl#Shape
+http://www.w3.org/ns/shacl#SPARQLSelectValidator -- result annotation --> http://www.w3.org/ns/shacl#ResultAnnotation
+http://www.w3.org/ns/shacl#ValidationReport -- shapes graph well-formed --> http://www.w3.org/2001/XMLSchema#boolean
+rdfs:Resource -- deactivated --> http://www.w3.org/2001/XMLSchema#boolean
+http://www.w3.org/ns/shacl#Shape -- target node --> rdfs:Resource
+http://www.w3.org/ns/shacl#AbstractResult -- source constraint component --> http://www.w3.org/ns/shacl#ConstraintComponent
+http://www.w3.org/ns/shacl#Parameter -- optional --> http://www.w3.org/2001/XMLSchema#boolean
+rdfs:Resource -- pattern --> http://www.w3.org/2001/XMLSchema#string
+http://www.w3.org/2002/07/owl#Ontology -- suggested shapes graph --> http://www.w3.org/2002/07/owl#Ontology
+http://www.w3.org/ns/shacl#ValidationReport -- result --> http://www.w3.org/ns/shacl#ValidationResult
+http://www.w3.org/ns/shacl#ConstraintComponent -- shape validator --> http://www.w3.org/ns/shacl#Validator
+rdfs:Resource -- zero or one path --> http://www.w3.org/2000/01/rdf-schema#Resource
+http://www.w3.org/ns/shacl#PropertyShape -- default value --> rdfs:Resource
+http://www.w3.org/ns/shacl#SPARQLUpdateExecutable -- update --> http://www.w3.org/2001/XMLSchema#string
+http://www.w3.org/ns/shacl#SPARQLExecutable -- prefixes --> http://www.w3.org/2002/07/owl#Ontology
+rdfs:Resource -- inverse path --> http://www.w3.org/2000/01/rdf-schema#Resource
+http://www.w3.org/ns/shacl#PrefixDeclaration -- prefix --> http://www.w3.org/2001/XMLSchema#string
+rdfs:Resource -- alternative path --> http://www.w3.org/1999/02/22-rdf-syntax-ns#List
+http://www.w3.org/2002/07/owl#Ontology -- declare --> http://www.w3.org/ns/shacl#PrefixDeclaration
+http://www.w3.org/ns/shacl#ResultAnnotation -- annotation variable name --> http://www.w3.org/2001/XMLSchema#string
+http://www.w3.org/ns/shacl#Shape -- target subjects of --> http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
+rdfs:Resource -- disjoint --> http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
+rdfs:Resource -- qualified value shapes disjoint --> http://www.w3.org/2001/XMLSchema#boolean
+http://www.w3.org/ns/shacl#AbstractResult -- focus node --> rdfs:Resource
+rdfs:Resource -- qualified value shape --> http://www.w3.org/ns/shacl#Shape
+rdfs:Resource -- max exclusive --> rdfs:Resource
+rdfs:Resource -- class --> http://www.w3.org/2000/01/rdf-schema#Class
+http://www.w3.org/ns/shacl#PropertyShape -- group --> http://www.w3.org/ns/shacl#PropertyGroup
+http://www.w3.org/ns/shacl#ConstraintComponent -- property validator --> http://www.w3.org/ns/shacl#Validator
+rdfs:Resource -- max inclusive --> rdfs:Resource
+http://www.w3.org/ns/shacl#Shape -- target class --> http://www.w3.org/2000/01/rdf-schema#Class
+rdfs:Resource -- order --> rdfs:Resource
+rdfs:Resource -- one or more path --> http://www.w3.org/2000/01/rdf-schema#Resource
+rdfs:Resource -- flags --> http://www.w3.org/2001/XMLSchema#string
+http://www.w3.org/ns/shacl#TripleRule -- object --> rdfs:Resource
+http://www.w3.org/ns/shacl#TripleRule -- predicate --> rdfs:Resource
+http://www.w3.org/ns/shacl#Shape -- rule --> http://www.w3.org/ns/shacl#Rule
+http://www.w3.org/2002/07/owl#Ontology -- entailment --> http://www.w3.org/2000/01/rdf-schema#Resource
+rdfs:Resource -- union --> rdfs:Resource
+http://www.w3.org/ns/shacl#Shape -- severity --> http://www.w3.org/ns/shacl#Severity
+rdfs:Resource -- not --> http://www.w3.org/ns/shacl#Shape
+http://www.w3.org/ns/shacl#ResultAnnotation -- annotation value --> rdfs:Resource
+http://www.w3.org/ns/shacl#PropertyShape -- name --> rdfs:Resource
+rdfs:Resource -- in --> http://www.w3.org/1999/02/22-rdf-syntax-ns#List
+rdfs:Resource -- unique languages --> http://www.w3.org/2001/XMLSchema#boolean
+rdfs:Resource -- node kind --> http://www.w3.org/ns/shacl#NodeKind
+http://www.w3.org/ns/shacl#Shape -- constraint in SPARQL --> http://www.w3.org/ns/shacl#SPARQLConstraint
+http://www.w3.org/ns/shacl#AbstractResult -- source shape --> http://www.w3.org/ns/shacl#Shape
+rdfs:Resource -- min exclusive --> rdfs:Resource
+http://www.w3.org/ns/shacl#Shape -- property --> http://www.w3.org/ns/shacl#PropertyShape
+http://www.w3.org/ns/shacl#PrefixDeclaration -- namespace --> http://www.w3.org/2001/XMLSchema#anyURI
+rdfs:Resource -- or --> http://www.w3.org/1999/02/22-rdf-syntax-ns#List
+rdfs:Resource -- less than or equals --> http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
+rdfs:Resource -- has value --> rdfs:Resource
+rdfs:Resource -- qualified min count --> http://www.w3.org/2001/XMLSchema#integer
+http://www.w3.org/ns/shacl#Parameterizable -- parameter --> http://www.w3.org/ns/shacl#Parameter
+rdfs:Resource -- node --> http://www.w3.org/ns/shacl#NodeShape
+http://www.w3.org/ns/shacl#SPARQLSelectExecutable -- select --> http://www.w3.org/2001/XMLSchema#string
+rdfs:Resource -- JavaScript constraint --> http://www.w3.org/ns/shacl#JSConstraint
+rdfs:Resource -- min length --> http://www.w3.org/2001/XMLSchema#integer
+rdfs:Resource -- zero or more path --> http://www.w3.org/2000/01/rdf-schema#Resource
+rdfs:Resource -- equals --> http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
+http://www.w3.org/ns/shacl#Function -- return type --> http://www.w3.org/2000/01/rdf-schema#Class
+http://www.w3.org/ns/shacl#Shape -- target --> http://www.w3.org/ns/shacl#Target
+rdfs:Resource -- language in --> http://www.w3.org/1999/02/22-rdf-syntax-ns#List
+http://www.w3.org/ns/shacl#AbstractResult -- value --> rdfs:Resource
+http://www.w3.org/ns/shacl#Parameterizable -- label template --> rdfs:Resource
+http://www.w3.org/ns/shacl#Rule -- condition --> http://www.w3.org/ns/shacl#Shape
+rdfs:Resource -- message --> rdfs:Resource
+http://www.w3.org/ns/shacl#JSLibrary -- JavaScript library URL --> http://www.w3.org/2001/XMLSchema#anyURI
+http://www.w3.org/2002/07/owl#Ontology -- shapes graph --> http://www.w3.org/2002/07/owl#Ontology
+http://www.w3.org/ns/shacl#ConstraintComponent -- validator --> http://www.w3.org/ns/shacl#Validator
+http://www.w3.org/ns/shacl#TripleRule -- subject --> rdfs:Resource
+rdfs:Resource -- less than --> http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
+rdfs:Resource -- closed --> http://www.w3.org/2001/XMLSchema#boolean
+rdfs:Resource -- intersection --> rdfs:Resource
+http://www.w3.org/ns/shacl#AbstractResult -- result path --> http://www.w3.org/2000/01/rdf-schema#Resource
+rdfs:Resource -- and --> http://www.w3.org/1999/02/22-rdf-syntax-ns#List
+rdfs:Resource -- max length --> http://www.w3.org/2001/XMLSchema#integer
+http://www.w3.org/ns/shacl#SPARQLConstructExecutable -- construct --> http://www.w3.org/2001/XMLSchema#string
+http://www.w3.org/ns/shacl#ValidationReport -- conforms --> http://www.w3.org/2001/XMLSchema#boolean
+http://www.w3.org/ns/shacl#PropertyShape -- path --> http://www.w3.org/2000/01/rdf-schema#Resource
+rdfs:Resource -- min inclusive --> rdfs:Resource
+rdfs:Resource -- expression --> rdfs:Resource
+http://www.w3.org/ns/shacl#PropertyShape -- description --> rdfs:Resource
+http://www.w3.org/ns/shacl#JSExecutable -- JavaScript function name --> http://www.w3.org/2001/XMLSchema#string
+rdfs:Resource -- min count --> http://www.w3.org/2001/XMLSchema#integer
+rdfs:Resource -- qualified max count --> http://www.w3.org/2001/XMLSchema#integer
+rdfs:Resource -- exactly one --> http://www.w3.org/1999/02/22-rdf-syntax-ns#List
+rdfs:Resource -- datatype --> http://www.w3.org/2000/01/rdf-schema#Datatype
+http://www.w3.org/ns/shacl#AbstractResult -- source constraint --> rdfs:Resource
+http://www.w3.org/ns/shacl#Shape -- target objects of --> http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
+http://www.w3.org/ns/shacl#AbstractResult -- detail --> http://www.w3.org/ns/shacl#AbstractResult
+http://www.w3.org/ns/shacl#AbstractResult -- result severity --> http://www.w3.org/ns/shacl#Severity
+rdfs:Resource -- max count --> http://www.w3.org/2001/XMLSchema#integer
+rdfs:Resource -- ignored properties --> http://www.w3.org/1999/02/22-rdf-syntax-ns#List
+                    
+                    
+                    </pre>
+                    <script type="module">
+                      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+                      mermaid.initialize({ startOnLoad: true });
+                    </script>
+                    </div>
+                    </body>
+                    </html>
+                    
