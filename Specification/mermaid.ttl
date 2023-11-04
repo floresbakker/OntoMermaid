@@ -537,6 +537,214 @@ construct {
 }
 '''.
 
+shp:SerializableOwlRestriction_qualifiedCardinality
+    a sh:NodeShape;
+    sh:rule rule:SerializeOwlRestriction_qualifiedCardinality;
+    sh:target target:SerializableOwlRestriction_qualifiedCardinality;
+    skos:prefLabel 'Serializable owl restriction owl:qualifiedCardinality shape'@en.
+
+  target:SerializableOwlRestriction_qualifiedCardinality
+    a sh:SPARQLTarget;
+    sh:select '''
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+select $this {
+
+  # A OWL class restriction for which the underlying class expressions are already serialized to Mermaid diagram language
+  
+  $this a owl:Restriction;
+        owl:qualifiedCardinality [];
+		owl:onProperty ?someProperty.
+   
+  filter not exists {
+     $this mermaid:syntax 'EXACTLYQUALIFIED'
+  }
+}
+  '''.
+
+  rule:SerializeOwlRestriction_qualifiedCardinality
+    a sh:SPARQLRule;
+    rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for OWL Restriction owl:qualifiedCardinality.'@en;
+    skos:prefLabel 'Mermaid diagram language serialisation rule for owl restriction owl:qualifiedCardinality'@en;
+    sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+construct {
+
+  # create the Mermaid diagram language for the OWL class to be serialized.
+  
+  $this mermaid:syntax "EXACTLYQUALIFIED";
+        mermaid:label ?mermaidLabel.
+
+} where {
+
+  $this owl:qualifiedCardinality ?n;
+        owl:onProperty ?someProperty;
+		owl:onClass ?someClass.
+  
+  # Establish the label of the property to be serialized.
+  BIND(function:getLabel(?someProperty) as ?mermaidLabelProperty)
+  
+  # Establish the label of the qualifying class to be serialized.
+  BIND(IF(isBlank(?someClass), "Anonymous class", function:getLabel(?someClass)) as ?qualifyingClassLabel)
+  
+  # Establish the full label of the OWL restriction class to be serialized.
+  BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- exactly ", str(?n), " --> ", qualifyingClassLabel) as ?mermaidDefinition)
+  
+  # Establish the label based on certain preferred labels   
+  BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
+  BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction = N R]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction = N R]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+}
+
+'''.
+
+shp:SerializableOwlRestriction_maxQualifiedCardinality
+    a sh:NodeShape;
+    sh:rule rule:SerializeOwlRestriction_maxQualifiedCardinality;
+    sh:target target:SerializableOwlRestriction_maxQualifiedCardinality;
+    skos:prefLabel 'Serializable owl restriction owl:maxQualifiedCardinality shape'@en.
+
+  target:SerializableOwlRestriction_maxQualifiedCardinality
+    a sh:SPARQLTarget;
+    sh:select '''
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+select $this {
+
+  # A OWL class restriction for which the underlying class expressions are already serialized to Mermaid diagram language
+  
+  $this a owl:Restriction;
+        owl:maxQualifiedCardinality [];
+		owl:onProperty ?someProperty.
+   
+  filter not exists {
+    $this mermaid:syntax 'MAXQUALIFIED'
+  }
+}
+  '''.
+
+  rule:SerializeOwlRestriction_maxQualifiedCardinality
+    a sh:SPARQLRule;
+    rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for OWL Restriction owl:maxQualifiedCardinality.'@en;
+    skos:prefLabel 'Mermaid diagram language serialisation rule for owl restriction owl:maxQualifiedCardinality'@en;
+    sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+construct {
+
+  # create the Mermaid diagram language for the OWL class to be serialized.
+  
+  $this mermaid:syntax "MAXQUALIFIED";
+        mermaid:label ?mermaidLabel.
+
+} where {
+
+  $this owl:maxQualifiedCardinality ?n;
+        owl:onProperty ?someProperty;
+		owl:onClass ?someClass.
+  
+  # Establish the label of the property to be serialized.
+  BIND(function:getLabel(?someProperty) as ?mermaidLabelProperty)
+ 
+  # Establish the label of the qualifying class to be serialized.
+  BIND(IF(isBlank(?someClass), "Anonymous class", function:getLabel(?someClass)) as ?qualifyingClassLabel)
+  
+  # Establish the full label of the OWL restriction class to be serialized.
+  BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- max ", str(?n), " --> ", qualifyingClassLabel) as ?mermaidDefinition)
+  
+  # Establish the label based on certain preferred labels   
+  BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
+  BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction ≤ N R]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction ≤ N R]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+}
+'''.
+
+shp:SerializableOwlRestriction_minQualifiedCardinality
+    a sh:NodeShape;
+    sh:rule rule:SerializeOwlRestriction_minQualifiedCardinality;
+    sh:target target:SerializableOwlRestriction_minQualifiedCardinality;
+    skos:prefLabel 'Serializable owl restriction owl:minQualifiedCardinality shape'@en.
+
+  target:SerializableOwlRestriction_minQualifiedCardinality
+    a sh:SPARQLTarget;
+    sh:select '''
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+select $this {
+
+  # A OWL class restriction for which the underlying class expressions are already serialized to Mermaid diagram language
+  
+  $this a owl:Restriction;
+        owl:minQualifiedCardinality [].
+   
+  filter not exists {
+    $this mermaid:syntax 'MINQUALIFIED'
+  }
+}
+  '''.
+
+  rule:SerializeOwlRestriction_minQualifiedCardinality
+    a sh:SPARQLRule;
+    rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for OWL Restriction owl:minQualifiedCardinality.'@en;
+    skos:prefLabel 'Mermaid diagram language serialisation rule for owl restriction owl:minQualifiedCardinality'@en;
+    sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+construct {
+
+  # create the Mermaid diagram language for the OWL class to be serialized.
+  
+  $this mermaid:syntax "MINQUALIFIED";
+        mermaid:label ?mermaidLabel.
+
+} where {
+
+  $this owl:minQualifiedCardinality ?n;
+        owl:onProperty ?someProperty;
+		owl:onClass ?someClass.
+  
+  # Establish the label of the property to be serialized.
+  BIND(function:getLabel(?someProperty) as ?mermaidLabelProperty)
+
+  # Establish the label of the qualifying class to be serialized.
+  BIND(IF(isBlank(?someClass), "Anonymous class", function:getLabel(?someClass)) as ?qualifyingClassLabel)
+  
+  # Establish the full label of the OWL restriction class to be serialized.
+  BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- min ", str(?n), " --> ", qualifyingClassLabel) as ?mermaidDefinition)
+  
+  # Establish the label based on certain preferred labels   
+  BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
+  BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction ≥ N R]\\n", ?mermaidDefinition, "\\nend\\n"),
+                         CONCAT(STR($this),"((", ?classLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction ≥ N R]\\n", ?mermaidDefinition, "\\nend\\n")) as ?mermaidLabel)
+}
+'''.
+
+
 shp:Serializable_subClassOf
     a sh:NodeShape;
     sh:rule rule:Serialize_subClassOf;
@@ -846,7 +1054,7 @@ construct {
   {select (group_concat(str(?mermaidIndividual);separator=' --- ') as ?mermaidDefinition) where {
            $this owl:oneOf/rdf:rest*/rdf:first ?someIndividual.
 		   
-          BIND(function:getLabel(?someClass) as ?mermaidLabelIndividual)
+          BIND(function:getLabel(?someIndividual) as ?mermaidLabelIndividual)
 		  BIND(CONCAT(STR($this), STR(?someIndividual),"((",?mermaidLabelIndividual, "))") as ?mermaidIndividual)
 		  
     }	   
