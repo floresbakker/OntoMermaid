@@ -256,7 +256,7 @@ ORDER BY ?mermaid_code
                     }
                     }%%
                     graph TB
-                    classDef DatatypeProperty fill:#9c6,stroke:#9c6;
+                    classDef Datatype fill:#9c6,stroke:#9c6;
                     
                     
                     '''
