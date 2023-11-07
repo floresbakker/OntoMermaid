@@ -2,6 +2,10 @@
 
 A RDF-based vocabulary to express OWL ontologies into Mermaid diagram language.
 
+# Status
+
+Unstable, no release yet. Work in progress. First working version planned for Q1 2024.
+
 ## Abstract
 
 The RDF-based vocabulary OntoMermaid serves as a bridge between the expressive power of OWL (Web Ontology Language) and the visual clarity of Mermaid diagrams. This vocabulary enables the representation of OWL ontologies in a structured and visual manner using the Mermaid diagram language. By doing so, it facilitates the understanding and communication of complex ontological structures, making them more accessible to a wider audience. The RDF-based approach leverages the capabilities of the Semantic Web to enrich the diagrams with metadata, fostering data interoperability and semantic annotation. This readme outlines the development and application of this novel ontology, opening new possibilities for ontology representation and visualization.
@@ -15,7 +19,7 @@ Ontologies play a vital role in knowledge representation and reasoning within va
 The development of ontologies has grown in significance across diverse fields, from bioinformatics to the semantic web, due to their capacity to model and organize complex knowledge structures. OWL, as a semantic web standard, offers a robust framework for defining ontological concepts, relationships, and axioms. On the other hand, Mermaid is a versatile diagramming language renowned for its capacity to create visually engaging and easily interpretable diagrams. The fusion of these two paradigms aims to harness the formal power of OWL for ontology engineering while making it more user-friendly through visualization in Mermaid diagrams. This innovation stands at the intersection of knowledge representation, ontology engineering, and visual communication, promising to enhance the efficiency and accessibility of ontology development and application.
 
 ## Objective
-The primary objective of this RDF-based vocabulary is to facilitate the translation of OWL ontologies into Mermaid diagrams, resulting in a visually comprehensible representation of complex knowledge structures. By doing so, it aims to address the challenge of making ontological knowledge accessible to a broader audience, including domain experts, decision-makers, and non-experts. Furthermore, this vocabulary seeks to enhance the semantic richness of Mermaid diagrams by embedding RDF metadata, thus enabling semantic annotation and enabling the integration of ontological knowledge with the broader Semantic Web ecosystem. This research endeavors to promote efficient ontology representation, fostering knowledge sharing, and supporting various applications where ontologies play a crucial role.
+The primary objective of the RDF-based OntoMermaid vocabulary is to facilitate the translation of OWL ontologies into Mermaid diagrams, resulting in a visually comprehensible representation of complex knowledge structures. By doing so, it aims to address the challenge of making ontological knowledge accessible to a broader audience, including domain experts, decision-makers, and non-experts. Furthermore, this vocabulary seeks to enhance the semantic richness of Mermaid diagrams by embedding RDF metadata, thus enabling semantic annotation and enabling the integration of ontological knowledge with the broader Semantic Web ecosystem. This research endeavors to promote efficient ontology representation, fostering knowledge sharing, and supporting various applications where ontologies play a crucial role.
 
 ## Audience
 This work is intended for a diverse audience, encompassing ontology engineers, domain experts, data scientists, knowledge managers, and anyone interested in knowledge representation and visualization. Ontology engineers will find in this vocabulary a novel tool for translating complex ontological structures into visually intuitive diagrams. Domain experts and decision-makers will benefit from the enhanced accessibility and clarity of knowledge representations, aiding in informed decision-making. Data scientists and knowledge managers can use this approach to bridge the gap between domain-specific ontologies and data visualization, improving data integration and interpretation. In summary, this research addresses a wide range of stakeholders and contributes to the democratization of ontology usage and understanding across different fields.
@@ -46,16 +50,18 @@ It has NodeShapes for the following class constructs:
 18. A property that is a datatype property (owl:DatatypeProperty)
 19. A property that is a subPropertyOf another property (rdfs:subPropertyOf)
 20. A property that is an equivalentProperty to another property (owl:equivalentProperty)
+21. A datatype (rdfs:Datatype)
 
 ### To do:
 
-21. owl:AllDisjointProperties
-23. owl:FunctionalProperty
-24. owl:InverseFunctionalProperty
-25. AnnotationProperty
-26. owl:Axiom
-27. NodeShape
-28. PropertyShape
+22. A complex datatype restriction (owl:onDatatype / owl:withRestrictions)
+23. owl:AllDisjointProperties
+24. owl:FunctionalProperty
+25. owl:InverseFunctionalProperty
+26. AnnotationProperty
+27. owl:Axiom
+28. NodeShape
+29. PropertyShape
 
 And testing and solving the many expected issues when processing other ontologies. Work in progress.
 
