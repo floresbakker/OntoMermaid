@@ -38,7 +38,7 @@ def readGraphFromFile(file_path):
 
 # Function to write a graph to a file
 def writeGraph(graph):
-    graph.serialize(destination=directory_path+"mermaid/Tools/Output/"+filename_stem+"-mermaid.ttl", format="turtle")
+    graph.serialize(destination=directory_path+"OntoMermaid/Tools/Output/"+filename_stem+"-mermaid.ttl", format="turtle")
 
 # Function to call the PyShacl engine so that a RDF model of an HTML document can be serialized to HTML-code.
 def iteratePyShacl(mermaid_generator, serializable_graph):
@@ -202,6 +202,27 @@ WHERE {
   filter not exists {
     $this mermaid:syntax 'EQUIVALENTPROPERTY'.
   }
+  filter not exists {
+    $this mermaid:syntax 'OR-DATATYPE'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'AND-DATATYPE'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'NOT-DATATYPE'.
+  }
+  filter not exists {
+    $this mermaid:syntax '{}-DATATYPE'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'EXACTLYQUALIFIED'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'MAXQUALIFIED'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'MINQUALIFIED'.
+  }
 }
         ''')   
 
@@ -239,7 +260,7 @@ ORDER BY ?mermaid_code
         
                  for result in resultquery:
                     mermaid_code = result["mermaid_code"]
-                    output_file_path = "C:/Users/Administrator/Documents/Branches/mermaid/Tools/Output/"+filename_stem+"-mermaid.html"
+                    output_file_path = directory_path+"OntoMermaid/Tools/Output/"+filename_stem+"-mermaid.html"
                     # Create the HTML content with the Mermaid code
                     html_start =  '''
                     <!DOCTYPE html>
@@ -287,15 +308,15 @@ ORDER BY ?mermaid_code
 
                  
 # loop through any turtle files in the input directory
-for filename in os.listdir(directory_path+"mermaid/Tools/Input"):
+for filename in os.listdir(directory_path+"OntoMermaid/Tools/Input"):
     if filename.endswith(".ttl"):
-        file_path = os.path.join(directory_path+"mermaid/Tools/Input", filename)
+        file_path = os.path.join(directory_path+"OntoMermaid/Tools/Input", filename)
         
         # Establish the stem of the file name for reuse in newly created files
         filename_stem = os.path.splitext(filename)[0]
         
         # Get the manchester syntax vocabulary and place it in a string
-        mermaid_generator = readGraphFromFile(directory_path+"mermaid/Specification/mermaid.ttl")
+        mermaid_generator = readGraphFromFile(directory_path+"OntoMermaid/Specification/mermaid.ttl")
         
         # Get some ontology to be transformed from OWL to Manchester Syntax. The ontology needs to be placed in the input directory.
         ontology_graph = readGraphFromFile(file_path)   
