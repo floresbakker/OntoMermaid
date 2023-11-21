@@ -1912,6 +1912,7 @@ prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 construct {
 
@@ -1924,14 +1925,23 @@ construct {
 
   $this owl:onDatatype ?someDatatype.
   
-  # Establish the label of the restricting datatype to be serialized.
-  BIND(IF(isBlank(?someDatatype), "Anonymous datatype", function:getLabel(?someDatatype)) as ?restrictingDatatypeLabel)
-  
-  {select (group_concat(str(?mermaidDatatype);separator=' ') as ?mermaidDefinition) where {
-            $this owl:withRestrictions/rdf:rest*/rdf:first ?someDatatype.
+  {select (group_concat(str(?mermaidDatatype);separator='\\n') as ?mermaidDefinition) where {
+			
+    $this owl:withRestrictions/rdf:rest*/rdf:first ?someRestriction.
+			OPTIONAL
+			{?someRestriction xsd:minInclusive ?number.
+			 BIND(CONCAT(">=", STR(?number)) as ?restriction) }
+			OPTIONAL
+			{?someRestriction xsd:maxInclusive ?number.
+			 BIND(CONCAT("<=", STR(?number)) as ?restriction) }
+			OPTIONAL
+		    {?someRestriction xsd:minExclusive ?number.
+			 BIND(CONCAT(">", STR(?number)) as ?restriction) }
+			OPTIONAL
+			{?someRestriction xsd:maxExclusive ?number.
+			 BIND(CONCAT("<", STR(?number)) as ?restriction) }
 		   
-		  BIND(IF(isBlank(?someDatatype),STR(?someDatatype),CONCAT(STR($this), STR(?someDatatype),"((",function:getLabel(?someDatatype), ")):::Datatype")) as ?mermaidDatatype)
-		  
+	BIND(CONCAT(STR($this), STR(?someRestriction),"((",?restriction, ")):::Datatype") as ?mermaidDatatype)	  
     }		   
   }
   
