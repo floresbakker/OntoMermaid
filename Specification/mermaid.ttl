@@ -189,7 +189,7 @@ construct {
         owl:onProperty ?someProperty.
 		
   # Establish the label of the class to be serialized.
-  BIND(function:getLabel(?someClass) as ?mermaidLabelClass)
+  BIND(IF(isBlank(?someClass), str(?someClass), function:getLabel(?someClass)) as ?mermaidLabelClass)
   
   # Establish the label of the property to be serialized.
   BIND(function:getLabel(?someProperty) as ?mermaidLabelProperty)
@@ -258,7 +258,7 @@ construct {
         owl:onProperty ?someProperty.
   
   # Establish the label of the class to be serialized.
-  BIND(function:getLabel(?someClass) as ?mermaidLabelClass)
+  BIND(IF(isBlank(?someClass), str(?someClass), function:getLabel(?someClass)) as ?mermaidLabelClass)
   
   # Establish the label of the property to be serialized.
   BIND(function:getLabel(?someProperty) as ?mermaidLabelProperty)
