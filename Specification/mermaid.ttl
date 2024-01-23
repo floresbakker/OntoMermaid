@@ -331,7 +331,7 @@ construct {
   BIND(function:getLabel(?someProperty) as ?mermaidLabelProperty)
 
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- value --> ", CONCAT(str($this),str(?someIndividual), "((", ?mermaidLabelIndividual,"))\\n")) as ?mermaidDefinition)
+  BIND(CONCAT(STR($this),STR(?someProperty),"[",?mermaidLabelProperty, "] -- value --> ", CONCAT(STR($this),STR(?someIndividual), "((", ?mermaidLabelIndividual,"))\\n")) as ?mermaidDefinition)
     
   # Establish whether the restriction class has a label of its own or not.
   BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
@@ -397,7 +397,7 @@ construct {
   BIND(function:getLabel(?someProperty) as ?mermaidLabelProperty)
   
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- exactly --> ", str(?n)) as ?mermaidDefinition)
+  BIND(CONCAT(STR($this),STR(?someProperty),"[",?mermaidLabelProperty, "] -- exactly --> ", str(?n)) as ?mermaidDefinition)
   
   # Establish the label based on certain preferred labels   
   BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
@@ -463,7 +463,7 @@ construct {
   BIND(function:getLabel(?someProperty) as ?mermaidLabelProperty)
   
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- max --> ", str(?n)) as ?mermaidDefinition)
+  BIND(CONCAT(STR($this),STR(?someProperty),"[",?mermaidLabelProperty, "] -- max --> ", str(?n)) as ?mermaidDefinition)
   
   # Establish the label based on certain preferred labels   
   BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
@@ -527,7 +527,7 @@ construct {
   BIND(function:getLabel(?someProperty) as ?mermaidLabelProperty)
   
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- min --> ", str(?n)) as ?mermaidDefinition)
+  BIND(CONCAT(STR($this),STR(?someProperty),"[",?mermaidLabelProperty, "] -- min --> ", str(?n)) as ?mermaidDefinition)
   
   # Establish the label based on certain preferred labels   
   BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
@@ -596,7 +596,7 @@ construct {
   BIND(IF(isBlank(?someClass), "Anonymous class", function:getLabel(?someClass)) as ?qualifyingClassLabel)
   
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- exactly ", str(?n), " --> ", qualifyingClassLabel) as ?mermaidDefinition)
+  BIND(CONCAT(STR($this),STR(?someProperty),"[",?mermaidLabelProperty, "] -- exactly ", str(?n), " --> ", qualifyingClassLabel) as ?mermaidDefinition)
   
   # Establish the label based on certain preferred labels   
   BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
@@ -666,7 +666,7 @@ construct {
   BIND(IF(isBlank(?someClass), "Anonymous class", function:getLabel(?someClass)) as ?qualifyingClassLabel)
   
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- max ", str(?n), " --> ", qualifyingClassLabel) as ?mermaidDefinition)
+  BIND(CONCAT(STR($this),STR(?someProperty),"[",?mermaidLabelProperty, "] -- max ", str(?n), " --> ", qualifyingClassLabel) as ?mermaidDefinition)
   
   # Establish the label based on certain preferred labels   
   BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
@@ -734,7 +734,7 @@ construct {
   BIND(IF(isBlank(?someClass), "Anonymous class", function:getLabel(?someClass)) as ?qualifyingClassLabel)
   
   # Establish the full label of the OWL restriction class to be serialized.
-  BIND(CONCAT(STR(?someProperty),"[",?mermaidLabelProperty, "] -- min ", str(?n), " --> ", qualifyingClassLabel) as ?mermaidDefinition)
+  BIND(CONCAT(STR($this),STR(?someProperty),"[",?mermaidLabelProperty, "] -- min ", str(?n), " --> ", qualifyingClassLabel) as ?mermaidDefinition)
   
   # Establish the label based on certain preferred labels   
   BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?classLabel)
@@ -2142,13 +2142,139 @@ construct {
   BIND(CONCAT("subgraph ", SHA256(STR($this)),"[Node shape]\\n", str($this),"[[",?mermaidLabelNodeShape,"]] -- targetSubjectsOf --> ", SHA256(CONCAT(str($this),"subject")),"\\n style ", SHA256(str($this)), " fill:#e6f2ff,stroke:#006fe6\\n style ", str($this), " fill:#b3d7ff,stroke:#006fe6\\nend\\n") as ?mermaidNodeShapeSubgraph)
   
   # Establish the inner subgraph for the subjects-Of-target subgraph
-  BIND(CONCAT("subgraph ", SHA256(CONCAT(str($this),"subject")),"[ ]\\n subject{subject} -- ",?mermaidLabelTargetPath," --> object{object}\\nend\\n") as ?mermaidTargetSubgraph)
+  BIND(CONCAT("subgraph ", SHA256(CONCAT(str($this),"subject")),"[ ]\\n ", str($this), "subject{subject} -- ",?mermaidLabelTargetPath," --> ",str($this), "object{object}\\nend\\n") as ?mermaidTargetSubgraph)
   
   BIND (CONCAT(?mermaidNodeShapeSubgraph, ?mermaidTargetSubgraph) as ?mermaidLabel)
  
 }  '''.
 
+shp:SerializableSHACLNodeShape-ObjectsOfTarget
+    a sh:NodeShape;
+    sh:rule rule:SerializeSHACLNodeShape-ObjectsOfTarget;
+    sh:target target:SerializableSHACLNodeShape-ObjectsOfTarget;
+    skos:prefLabel 'Serializable SHACL NodeShape shape - ObjectsOfTarget'@en.
 
+  target:SerializableSHACLNodeShape-ObjectsOfTarget
+    a sh:SPARQLTarget;
+    sh:select '''
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+select $this {
+
+  # A NodeShape
+  
+  $this a sh:NodeShape;
+        sh:targetObjectsOf []
+		
+  filter not exists {
+    $this mermaid:syntax 'NODESHAPE-OBJECTSOFTARGET'
+	}
+}
+ '''.
+
+  rule:SerializeSHACLNodeShape-ObjectsOfTarget
+    a sh:SPARQLRule;
+    rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for a SHACL node shape with a Subjects-Of Target.'@en;
+    skos:prefLabel 'Mermaid diagram language serialisation rule for a SHACL node shape with a Subjects-Of Target.'@en;
+    sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix sh: <http://www.w3.org/ns/shacl#>
+
+construct {
+
+  # create the Mermaid diagram language for the NodeShape
+  
+  $this mermaid:syntax "NODESHAPE-OBJECTSOFTARGET";
+        mermaid:label ?mermaidLabel.
+
+} where {
+
+  $this rdf:type sh:NodeShape;
+        sh:targetObjectsOf ?targetPath.
+  
+  # Establish the label of the node shape to be serialized.
+  BIND(function:getLabel($this) as ?mermaidLabelNodeShape)
+	
+  # Establish the label of the target to be serialized.
+  BIND(function:getLabel(?targetPath) as ?mermaidLabelTargetPath)
+  
+  # Establish the outer subgraph for the NodeShape subgraph
+  BIND(CONCAT("subgraph ", SHA256(STR($this)),"[Node shape]\\n", str($this),"[[",?mermaidLabelNodeShape,"]] -- targetObjectsOf --> ", SHA256(CONCAT(str($this),"subject")),"\\n style ", SHA256(str($this)), " fill:#e6f2ff,stroke:#006fe6\\n style ", str($this), " fill:#b3d7ff,stroke:#006fe6\\nend\\n") as ?mermaidNodeShapeSubgraph)
+  
+  # Establish the inner subgraph for the subjects-Of-target subgraph
+  BIND(CONCAT("subgraph ", SHA256(CONCAT(str($this),"subject")),"[ ]\\n ", str($this),"subject{subject} -- ",?mermaidLabelTargetPath," --> ",str($this),"object{object}\\nend\\n") as ?mermaidTargetSubgraph)
+  
+  BIND (CONCAT(?mermaidNodeShapeSubgraph, ?mermaidTargetSubgraph) as ?mermaidLabel)
+ 
+}  '''.
+
+shp:SerializableSHACLPropertyShape
+    a sh:NodeShape;
+    sh:rule rule:SerializeSHACLPropertyShape;
+    sh:target target:SerializableSHACLPropertyShape;
+    skos:prefLabel 'Serializable SHACL PropertyShape Shape'@en.
+
+  target:SerializableSHACLPropertyShape
+    a sh:SPARQLTarget;
+    sh:select '''
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+select $this {
+
+  # A PropertyShape
+  
+  $this sh:path []
+		
+  filter not exists {
+    $this mermaid:syntax 'PROPERTYSHAPE'
+	}
+}
+ '''.
+
+  rule:SerializeSHACLPropertyShape
+    a sh:SPARQLRule;
+    rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for a SHACL property shape'@en;
+    skos:prefLabel 'Mermaid diagram language serialisation rule for a SHACL property shape'@en;
+    sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix sh: <http://www.w3.org/ns/shacl#>
+
+construct {
+
+  # create the Mermaid diagram language for the NodeShape
+  
+  $this mermaid:syntax "PROPERTYSHAPE";
+        mermaid:label ?mermaidLabel.
+
+} where {
+
+  $this sh:path ?path.
+  
+  # Establish the label of the property shape to be serialized.
+  BIND(function:getLabel($this) as ?mermaidLabelPropertyShape)
+	
+  # Establish the label of the path to be serialized.
+  BIND(function:getLabel(?path) as ?mermaidLabelTargetPath)
+  
+  # Establish the subgraph for the property shape
+  BIND(CONCAT("subgraph ", SHA256(CONCAT(str($this),"propertyshape")),"[Property Shape]\\n ",STR($this),"subject{subject} -- ",?mermaidLabelTargetPath," --> ",STR($this),"object{object}\\nend\\n") as ?mermaidLabel)
+ 
+}  
+'''.
 
 function:getPrefixedIRI
     a sh:SPARQLFunction ;
