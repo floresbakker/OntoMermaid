@@ -6,11 +6,11 @@ Created on Wed Jul  5 18:40:53 2023
 
 The Mermaid Vocabulary.
 
-With the script mermaid.py one can transform OWL into Mermaid diagrams.
+With the script OntoMermaid.py one can transform OWL into Mermaid diagrams.
 
 Usage: 
 
-1. Place an arbitrary ontology (as turtle file) in the input folder.
+1. Place an arbitrary ontology (as turtle file *.ttl) in the input folder.
 2. In the command prompt, run 'python mermaid.py'
 3. Go to the output folder and grab your enriched turtle file, now including Mermaid labels.
 4. Copypaste Mermaid labels in your html file and use the Mermaid javascript library (see documentation on the Mermaid site)
@@ -22,8 +22,11 @@ import pyshacl
 import rdflib 
 from rdflib import Namespace
 
+# Get the current working directory in which the OntoMermaid.py file is located.
+current_dir = os.getcwd()
+
 # Set the path to the desired standard directory. 
-directory_path = "H:/Mijn Documenten/Branches/"
+directory_path = os.path.abspath(os.path.join(current_dir, '..', '..', '..'))
 
 # namespace declaration
 mermaid = Namespace("https://data.rijksfinancien.nl/mermaid/model/def/")
@@ -38,7 +41,7 @@ def readGraphFromFile(file_path):
 
 # Function to write a graph to a file
 def writeGraph(graph):
-    graph.serialize(destination=directory_path+"OntoMermaid/Tools/Output/"+filename_stem+"-mermaid.ttl", format="turtle")
+    graph.serialize(destination=directory_path+"/OntoMermaid/Tools/Output/"+filename_stem+"-mermaid.ttl", format="turtle")
 
 # Function to call the PyShacl engine so that a RDF model of an HTML document can be serialized to HTML-code.
 def iteratePyShacl(mermaid_generator, serializable_graph):
@@ -260,7 +263,7 @@ ORDER BY ?mermaid_code
         
                  for result in resultquery:
                     mermaid_code = result["mermaid_code"]
-                    output_file_path = directory_path+"OntoMermaid/Tools/Output/"+filename_stem+"-mermaid.html"
+                    output_file_path = directory_path+"/OntoMermaid/Tools/Output/"+filename_stem+"-mermaid.html"
                     # Create the HTML content with the Mermaid code
                     html_start =  '''
                     <!DOCTYPE html>
@@ -292,7 +295,7 @@ ORDER BY ?mermaid_code
                     </pre>
                     <script type="module">
                       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-                      mermaid.initialize({ startOnLoad: true });
+                      mermaid.initialize({ startOnLoad: true, maxTextSize : 99999999 });
                     </script>
                     </div>
                     </body>
@@ -308,15 +311,15 @@ ORDER BY ?mermaid_code
 
                  
 # loop through any turtle files in the input directory
-for filename in os.listdir(directory_path+"OntoMermaid/Tools/Input"):
+for filename in os.listdir(directory_path+"/OntoMermaid/Tools/Input"):
     if filename.endswith(".ttl"):
-        file_path = os.path.join(directory_path+"OntoMermaid/Tools/Input", filename)
+        file_path = os.path.join(directory_path+"/OntoMermaid/Tools/Input", filename)
         
         # Establish the stem of the file name for reuse in newly created files
         filename_stem = os.path.splitext(filename)[0]
         
         # Get the manchester syntax vocabulary and place it in a string
-        mermaid_generator = readGraphFromFile(directory_path+"OntoMermaid/Specification/mermaid.ttl")
+        mermaid_generator = readGraphFromFile(directory_path+"/OntoMermaid/Specification/mermaid.ttl")
         
         # Get some ontology to be transformed from OWL to Manchester Syntax. The ontology needs to be placed in the input directory.
         ontology_graph = readGraphFromFile(file_path)   
