@@ -1,0 +1,201 @@
+prefix dcm: <http://purl.org/dc/dcmitype/>
+prefix dct: <http://purl.org/dc/terms/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix prov: <http://www.w3.org/ns/prov#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfa: <http://www.w3.org/ns/rdfa#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix sh: <http://www.w3.org/ns/shacl#>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix status: <http://purl.org/adms/status/>
+prefix vann: <http://purl.org/vocab/vann/>
+prefix void: <http://rdfs.org/ns/void#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+prefix documentType: <https://data.rijksfinancien.nl/dom/model/id/documentType/>
+prefix dom: <https://data.rijksfinancien.nl/dom/model/def/>
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
+prefix graph: <https://data.rijksfinancien.nl/html/graph/>
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix rule: <https://data.rijksfinancien.nl/html/model/rule/>
+prefix section: <https://data.rijksfinancien.nl/html/id/section/>
+prefix shp: <https://data.rijksfinancien.nl/html/model/shp/>
+prefix standard: <https://data.rijksfinancien.nl/html/id/standard/>
+prefix target: <https://data.rijksfinancien.nl/html/model/target/>
+
+  mermaid:
+    a
+      owl:Ontology,
+      void:Dataset;
+    dct:conformsTo 'https://mermaid.js.org/'^^xsd:anyURI;
+    dct:created '2023-07-19'^^xsd:date;
+    dct:creator
+      'Flores Bakker',
+      'Wouter Beek';
+    dct:description '''The OntoMermaid Vocabulary models OWL constructs into Mermaid. Mermaid itself is a JavaScript-based diagramming and charting tool that uses Markdown-inspired text definitions and a renderer to create and modify complex diagrams. The main purpose of Mermaid is to help documentation catch up with development. This ontology defines the elements and relationships used within Mermaid diagrams, allowing for a standardized way to describe and interact with Mermaid diagrams in the context of the Semantic Web.'''@en;
+    dct:abstract '''The OntoMermaid Vocabulary models OWL constructs into Mermaid. Mermaid itself is a JavaScript-based diagramming and charting tool that uses Markdown-inspired text definitions and a renderer to create and modify complex diagrams. The main purpose of Mermaid is to help documentation catch up with development. This ontology defines the elements and relationships used within Mermaid diagrams, allowing for a standardized way to describe and interact with Mermaid diagrams in the context of the Semantic Web.'''@en;
+    dct:language 'iso639-1:en';
+    dct:license 'http://creativecommons.org/licenses/by/4.0'^^xsd:anyURI;
+    dct:publisher <https://www.w3.org/community/mermaid/>;
+    dct:source <https://github.com/floresbakker/mermaid/>;
+    dct:subject 'Mermaid'@en;
+    dct:title 'OntoMermaid Vocabulary'@en;
+    foaf:homepage 'https://www.w3.org/community/mermaid/'^^xsd:anyURI;
+    owl:imports
+      dct:,
+      owl:,
+      prov:,
+      rdf:,
+      rdfs:,
+      sh:,
+      skos:;
+    owl:versionInfo '0.1.0';
+    owl:versionIRI <https://github.com/floresbakker/mermaid/tree/main>;
+    vann:preferredNamespacePrefix 'mermaid';
+    vann:preferredNamespaceUri 'https://data.rijksfinancien.nl/mermaid/model/def/';
+    void:subSet graph:model;
+    void:uriRegexPattern '^https://data.rijksfinancien.nl/mermaid/def/';
+    void:uriSpace 'https://data.rijksfinancien.nl/mermaid/model/def/'^^xsd:anyURI.
+
+  standard:mermaid
+    a dct:Standard;
+    dct:created '2023-07-19'^^xsd:date;
+    dct:source 'https://mermaid.js.org/'^^xsd:anyURI;
+    skos:prefLabel 'Mermaid diagram language'@en.
+
+### OWL Class
+
+ shp:SerializableOntology
+    a sh:NodeShape;
+    sh:rule rule:SerializeOntology;
+    sh:targetClass owl:Ontology;
+    skos:prefLabel 'Serializable Ontology shape'@en.
+
+  rule:SerializeOntology
+    a sh:SPARQLRule;
+    rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for an ontology.'@en;
+    skos:prefLabel 'Mermaid diagram language serialisation rule for an ontology'@en;
+    sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+construct {
+
+  # create the Mermaid diagram language for the OWL class to be serialized.
+  
+  $this mermaid:syntax 'ONTOLOGY';
+        mermaid:label ?mermaidLabel.
+} where {
+
+  BIND("""classDef scheme fill:#FFFF00,stroke:#FFFF00;\\n
+        classDef concept fill:#FFFFcc,stroke:#FFFFCC;\\n""" as ?mermaidLabel)
+}
+'''.
+
+ shp:SerializableScheme
+    a sh:NodeShape;
+    sh:rule rule:SerializeScheme;
+    sh:targetClass skos:ConceptScheme;
+    skos:prefLabel 'Serializable SKOS Scheme shape'@en.
+
+  rule:SerializeScheme
+    a sh:SPARQLRule;
+    rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for a SKOS scheme.'@en;
+    skos:prefLabel 'Mermaid diagram language serialisation rule for SKOS scheme'@en;
+    sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+construct {
+
+  # create the Mermaid diagram language for the OWL class to be serialized.
+  
+  $this mermaid:syntax 'SCHEME';
+        mermaid:label ?mermaidLabel.
+} where {
+
+  BIND(CONCAT(STR($this),"[",function:getLabel($this), "]:::scheme") as ?mermaidLabel)
+}
+'''.
+
+
+ shp:SerializableConcept
+    a sh:NodeShape;
+    sh:rule rule:SerializeConcept;
+    sh:targetClass skos:Concept;
+    skos:prefLabel 'Serializable SKOS Concept shape'@en.
+
+  rule:SerializeConcept
+    a sh:SPARQLRule;
+    rdfs:comment 'A rule that creates a Mermaid diagram language label and definition for a SKOS concept.'@en;
+    skos:prefLabel 'Mermaid diagram language serialisation rule for SKOS concept'@en;
+    sh:construct '''
+prefix function: <https://data.rijksfinancien.nl/html/model/function/>
+prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+
+construct {
+
+  # create the Mermaid diagram language for the OWL class to be serialized.
+  
+  $this mermaid:syntax 'CONCEPT';
+        mermaid:label ?mermaidLabel.
+} where {
+
+  {BIND(CONCAT(STR($this),"[",function:getLabel($this), "]:::concept") as ?mermaidLabel)}
+    
+  UNION
+  {$this ?someProperty ?someConcept.
+  ?someConcept rdf:type skos:Concept.  
+  BIND(function:getLabel(?someProperty) as ?propertyLabel)  
+  BIND(CONCAT(STR($this), " -- ", ?propertyLabel," --> ", STR(?someConcept)) as ?mermaidLabel)}
+  
+  UNION
+  {$this ?someProperty ?someConceptScheme.
+  ?someConceptScheme rdf:type skos:ConceptScheme.     
+  BIND(function:getLabel(?someProperty) as ?propertyLabel)
+  BIND(CONCAT(STR($this), " -- ", ?propertyLabel," --> ", STR(?someConceptScheme)) as ?mermaidLabel)}
+}
+'''.
+
+ 
+function:getLabel
+    a sh:SPARQLFunction ;
+    rdfs:comment "Gets a label for a RDF resource." ;
+    sh:parameter [
+        sh:path function:resource ;
+        sh:datatype xsd:anyURI ;
+        sh:description "The full IRI of a RDF resource as defined in an ontology." ;
+    ] ;
+    sh:returnType xsd:string ;
+    sh:select """
+    
+	prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    prefix skos: <http://www.w3.org/2004/02/skos/core#>
+    
+	SELECT ?result WHERE {
+    
+	BIND(REPLACE(STR($resource),'.*[/#]','') as ?implicitLabel)
+    OPTIONAL
+    {
+    $resource skos:prefLabel ?preferredLabel.
+    FILTER (lang(?preferredLabel) = 'en')
+    }
+    OPTIONAL 
+    {
+    $resource rdfs:label ?alternativeLabel.
+    FILTER (lang(?alternativeLabel) = 'en')
+    }
+    # Establish label and make sure there are no forbidden characters that could render the mermaid code invalid
+    BIND(COALESCE(?preferredLabel, ?alternativeLabel, ?implicitLabel) as ?rawResult)
+	BIND(REPLACE(?rawResult, "(()+|())+|([)+|(])+|({)+|(})+|(<)+|(>)+", "", "q") AS ?result)
+}
+""" .
