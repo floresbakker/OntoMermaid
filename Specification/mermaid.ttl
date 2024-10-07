@@ -896,7 +896,9 @@ construct {
   $this owl:equivalentClass ?superClass.
     
   BIND(IF(isBlank($this), "Anonymous class", function:getLabel($this)) as ?classLabel)
-  BIND(CONCAT(STR($this), "((",?classLabel,")) -- equivalentTo --> ", STR(?superClass), "\\n") as ?mermaidLabel)
+  BIND(IF(isBlank(?superClass), "Anonymous class", function:getLabel(?superClass)) as ?superClassLabel)
+  
+  BIND(CONCAT(STR($this), "((",?classLabel,")) -- equivalentTo --> ", str(?superClass), "((", ?superClassLabel, "))\\n") as ?mermaidLabel)
 
 }
 '''.
@@ -1573,7 +1575,7 @@ construct {
 
   # create the Mermaid diagram language for the OWL property to be serialized.
   
-  $this mermaid:syntax 'SUBPROPERTY';
+  $this mermaid:syntax 'EQUIVALENTPROPERTY';
         mermaid:label ?mermaidLabel.		
   
 } where {
@@ -1640,69 +1642,6 @@ construct {
 }  
 '''.
 
-shp:Serializable_external_property
-    a sh:NodeShape;
-    #sh:rule rule:Serialize_external_property;
-    sh:target target:Serialize_external_property;
-    skos:prefLabel 'Serializable external property shape'@en.
-
-  target:Serialize_external_property
-    a sh:SPARQLTarget;
-    sh:select '''
-prefix mermaid: <https://mermaid.org/ontomermaid/model/def/>
-prefix owl: <http://www.w3.org/2002/07/owl#>
-prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-
-select $this {
-
-  # Some property for which there exists some property, inverse property, subproperty or equivalent property relation.
-  
-  {[] owl:onProperty $this.}
-  UNION
-  {[] owl:inverseOf $this.}
-  UNION
-  {[] rdfs:subPropertyOf $this.}
-  UNION
-  {[] owl:equivalentProperty $this.}  
-  
-  # The property is not defined in this ontology
-  filter not exists {$this ?predicate ?object}
-  
-  # It is an IRI that is not yet processed
-  filter(isIRI($this))
-  filter not exists {
-    $this mermaid:syntax "PROPERTY".
-    }
-}
-
-'''.
-
-  rule:Serialize_external_property
-    a sh:SPARQLRule;
-    rdfs:comment 'A rule that creates a Mermaid diagram language for an external property.'@en;
-    skos:prefLabel 'Mermaid diagram language serialisation rule for an external property.'@en;
-    sh:construct '''
-prefix function: <https://mermaid.org/ontomermaid/model/function/>
-prefix mermaid: <https://mermaid.org/ontomermaid/model/def/>
-prefix owl: <http://www.w3.org/2002/07/owl#>
-prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-
-construct {
-
-  # create the Mermaid diagram language for the OWL property to be serialized.
-  
-  $this mermaid:syntax 'PROPERTY';
-        mermaid:label ?mermaidLabel.		
-  
-} where {
-
-  # Establish the label of the property to be serialized.
-  BIND(function:getLabel($this) as ?mermaidLabel)
-   
-}  
-'''.
 
 shp:Serializable_Datatype
     a sh:NodeShape;
@@ -2071,28 +2010,36 @@ construct {
     $this owl:withRestrictions/rdf:rest*/rdf:first ?someRestriction.
 			OPTIONAL
 			{?someRestriction xsd:minInclusive ?number.
-			 BIND(CONCAT(">=", STR(?number)) as ?restriction) }
+			 BIND(STR(?number) as ?restriction)
+             BIND(xsd:minInclusive as ?property)}
 			OPTIONAL
 			{?someRestriction xsd:maxInclusive ?number.
-			 BIND(CONCAT("<=", STR(?number)) as ?restriction) }
+			 BIND(STR(?number) as ?restriction)
+             BIND(xsd:maxInclusive as ?property)}
 			OPTIONAL
 		    {?someRestriction xsd:minExclusive ?number.
-			 BIND(CONCAT(">", STR(?number)) as ?restriction) }
+			 BIND(STR(?number) as ?restriction)
+             BIND(xsd:minExclusive as ?property)}
 			OPTIONAL
 			{?someRestriction xsd:maxExclusive ?number.
-			 BIND(CONCAT("<", STR(?number)) as ?restriction) }
+			 BIND(STR(?number) as ?restriction) 
+             BIND(xsd:maxExclusive as ?property)}
 			OPTIONAL
 			{?someRestriction xsd:pattern ?pattern.
-			 BIND(CONCAT("=", STR(?pattern)) as ?restriction) }             
-		   
-	BIND(CONCAT(STR($this), STR(?someRestriction),"((",?restriction, ")):::Datatype") as ?mermaidDatatype)	  
+			 BIND(STR(?pattern) as ?restriction) 
+             BIND(xsd:pattern as ?property)}             
+	
+    # Establish the inner OWL logic 	   
+	BIND(CONCAT(STR($this), STR(?someRestriction),'((thing)) --> ', function:getPrefixedIRI(?property), '\\n', function:getPrefixedIRI(?property), ' --> ', STR($this), STR(?someRestriction), '(("',?restriction, '")):::Datatype') as ?mermaidDatatype)
     }		   
   }
   
-  # Establish the label based on certain preferred labels   
+  # Establish the label & identifier for the outer OWL logic
   BIND(IF(isBlank($this), ?unboundDummy, function:getLabel($this)) as ?datatypeLabel)
   BIND(SHA256(?mermaidDefinition) as ?mermaidDefinition_SHA256)
-  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Restriction ≥ N R]\\n","style ", str($this), " fill:#d8f1b3,stroke:#9c6\\n", ?mermaidDefinition, "\\nend\\n"),
+  
+  # Establish the outer OWL logic
+  BIND(IF(isBlank($this),CONCAT("subgraph ",STR($this), " [Datatype Restriction]\\n","style ", str($this), " fill:#d8f1b3,stroke:#9c6\\n", ?mermaidDefinition, "\\nend\\n"),
                          CONCAT(STR($this),"((", ?datatypeLabel, ")) -- equivalentTo --> ",STR($this),?mermaidDefinition_SHA256,"\\n","subgraph ",STR($this),?mermaidDefinition_SHA256, "[Restriction ≥ N R]\\n", ?mermaidDefinition, "\\n style ", str($this), " fill:#d8f1b3,stroke:#9c6\\nend\\n")) as ?mermaidLabel)
 }
 '''.
