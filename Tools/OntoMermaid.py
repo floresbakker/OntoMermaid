@@ -26,7 +26,7 @@ from rdflib import Namespace
 current_dir = os.getcwd()
 
 # Set the path to the desired standard directory. 
-directory_path = os.path.abspath(os.path.join(current_dir, '..', '..', '..'))
+directory_path = os.path.abspath(os.path.join(current_dir, '..'))
 
 # namespace declaration
 mermaid = Namespace("https://data.rijksfinancien.nl/mermaid/model/def/")
@@ -62,7 +62,7 @@ def iteratePyShacl(mermaid_generator, serializable_graph):
        
         statusquery = serializable_graph.query('''
             
-prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix mermaid: <https://mermaid.org/ontomermaid/model/def/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -231,11 +231,11 @@ WHERE {
 
         resultquery = serializable_graph.query('''
             
-prefix owl: <http://www.w3.org/2002/07/owl#>
-prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix owl:  <http://www.w3.org/2002/07/owl#>
+prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix sh: <http://www.w3.org/ns/shacl#>
-prefix : <https://data.rijksfinancien.nl/mermaid/model/def/>
+prefix sh:   <http://www.w3.org/ns/shacl#>
+prefix :     <https://mermaid.org/ontomermaid/model/def/>
 
 SELECT (GROUP_CONCAT(?label; separator="\\n") AS ?mermaid_code)
 WHERE {
@@ -280,9 +280,7 @@ ORDER BY ?mermaid_code
                     }
                     }%%
                     graph TB
-                    classDef Datatype fill:#9c6,stroke:#9c6;
-                    
-                    
+                    classDef Datatype fill:#9c6,stroke:#9c6;                    
                     '''
                     
                     html_graph = f'''
@@ -295,7 +293,7 @@ ORDER BY ?mermaid_code
                     </pre>
                     <script type="module">
                       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-                      mermaid.initialize({ startOnLoad: true, maxTextSize : 99999999 });
+                      mermaid.initialize({ startOnLoad: true, maxTextSize : 99999999, maxElements : 99999999 });
                     </script>
                     </div>
                     </body>
