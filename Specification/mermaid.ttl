@@ -2030,7 +2030,7 @@ construct {
              BIND(xsd:pattern as ?property)}             
 	
     # Establish the inner OWL logic	   
-	BIND(CONCAT(STR($this), STR(?someRestriction),'thing((thing)) --> ', STR($this), STR(?someRestriction),function:getPrefixedIRI(?property), '\\n', STR($this), STR(?someRestriction),function:getPrefixedIRI(?property), ' --> ', STR($this), STR(?someRestriction), '(("',?restriction, '")):::Datatype') as ?mermaidDatatype)
+	BIND(CONCAT(STR($this), STR(?someRestriction),'thing((thing)) --> ', STR($this), STR(?someRestriction),function:getPrefixedIRI(?property), '\\n', STR($this), STR(?someRestriction),function:getPrefixedIRI(?property), '[',function:getPrefixedIRI(?property), '] --> ', STR($this), STR(?someRestriction), '(("',?restriction, '")):::Datatype') as ?mermaidDatatype)
     }		   
   }
   
