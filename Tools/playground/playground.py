@@ -73,6 +73,27 @@ def generateDiagram(mermaid_generator, serializable_graph):
                     <!DOCTYPE html>
                     <html>
                     <head>
+                    <style>
+                    html, body {
+                      margin: 0;
+                      padding: 0;
+                      height: 100%;
+                      width: 100%;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      overflow: auto; /* allows internal scroll when diagram is genuinely too big */
+                    }
+                    
+                    .mermaid {
+                      display: block;
+                      width: 100%;
+                      height: auto;
+                      max-width: none;
+                      transform: scale(1.05);  /* tiny boost to fill the initial space */
+                      transform-origin: center;
+                    }
+                    </style>
                     </head>
                     <body>
                     <div><pre class="mermaid">
@@ -214,7 +235,7 @@ def runOntoMermaid():
     
     src_filepath = url_for('static', filename='diagram.html')
     
-    return render_template('index.html', htmlOutput='<iframe src='+ src_filepath + ' width="100%" height="600"></iframe>',
+    return render_template('index.html', htmlOutput='<iframe src='+ src_filepath + ' class="diagram-frame"></iframe>',
                            ontology=ontology, 
                            conceptSchemes = conceptSchemes,
                            concepts = concepts,

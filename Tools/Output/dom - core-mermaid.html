@@ -18,56 +18,56 @@
                     
                     http://www.w3.org/DOM/model/def/Tree((dom:Tree))
 http://www.w3.org/DOM/model/def/Node((dom:Node))
-subgraph n638a79e9e0574f229967918ce2ab8e98b1[Restriction &forall; R C]
-n638a79e9e0574f229967918ce2ab8e98b1thing((thing)) --> n638a79e9e0574f229967918ce2ab8e98b1http://www.w3.org/2000/01/rdf-schema#member[http://www.w3.org/2000/01/rdf-schema#member]
+subgraph n1467b03b2dd64baea30458d6c618a5eab1[Restriction &forall; R C]
+n1467b03b2dd64baea30458d6c618a5eab1thing((thing)) --> n1467b03b2dd64baea30458d6c618a5eab1http://www.w3.org/2000/01/rdf-schema#member[http://www.w3.org/2000/01/rdf-schema#member]
 
-n638a79e9e0574f229967918ce2ab8e98b1http://www.w3.org/2000/01/rdf-schema#member[http://www.w3.org/2000/01/rdf-schema#member]
- -- only --> n638a79e9e0574f229967918ce2ab8e98b1http://www.w3.org/DOM/model/def/Node((dom:Node))
+n1467b03b2dd64baea30458d6c618a5eab1http://www.w3.org/2000/01/rdf-schema#member[http://www.w3.org/2000/01/rdf-schema#member]
+ -- only --> n1467b03b2dd64baea30458d6c618a5eab1http://www.w3.org/DOM/model/def/Node((dom:Node))
 
 end
 
-http://www.w3.org/DOM/model/def/Document((dom:Document)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode))
-
-http://www.w3.org/DOM/model/def/DocumentElement((dom:DocumentElement)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode))
-
-http://www.w3.org/DOM/model/def/Attribute((dom:Attribute)) -- subClassOf --> http://www.w3.org/DOM/model/def/Node((dom:Node))
-
-http://www.w3.org/DOM/model/def/Element((dom:Element)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode))
-
-http://www.w3.org/DOM/model/def/ProcessingInstruction((dom:ProcessingInstruction)) -- subClassOf --> http://www.w3.org/DOM/model/def/CharacterData((dom:CharacterData))
-
-http://www.w3.org/DOM/model/def/NodeTree((dom:NodeTree)) -- subClassOf --> http://www.w3.org/DOM/model/def/Tree((dom:Tree))
-
-http://www.w3.org/DOM/model/def/DocumentType((dom:DocumentType)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode))
+http://www.w3.org/DOM/model/def/Text((dom:Text)) -- subClassOf --> http://www.w3.org/DOM/model/def/CharacterData((dom:CharacterData))
 
 http://www.w3.org/DOM/model/def/ShadowRoot((dom:ShadowRoot)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentFragment((dom:DocumentFragment))
 
-http://www.w3.org/DOM/model/def/DocumentFragment((dom:DocumentFragment)) -- subClassOf --> http://www.w3.org/DOM/model/def/Node((dom:Node))
+http://www.w3.org/DOM/model/def/DocumentElement((dom:DocumentElement)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode))
 
-http://www.w3.org/DOM/model/def/Text((dom:Text)) -- subClassOf --> http://www.w3.org/DOM/model/def/CharacterData((dom:CharacterData))
+http://www.w3.org/DOM/model/def/NodeTree((dom:NodeTree)) -- subClassOf --> http://www.w3.org/DOM/model/def/Tree((dom:Tree))
 
-http://www.w3.org/DOM/model/def/CDATASection((dom:CDATASection)) -- subClassOf --> http://www.w3.org/DOM/model/def/Text((dom:Text))
+http://www.w3.org/DOM/model/def/Element((dom:Element)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode))
 
-http://www.w3.org/DOM/model/def/CharacterData((dom:CharacterData)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode))
+http://www.w3.org/DOM/model/def/Attribute((dom:Attribute)) -- subClassOf --> http://www.w3.org/DOM/model/def/Node((dom:Node))
 
 http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode)) -- subClassOf --> http://www.w3.org/DOM/model/def/Node((dom:Node))
 
+http://www.w3.org/DOM/model/def/Document((dom:Document)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode))
+
 http://www.w3.org/DOM/model/def/Comment((dom:Comment)) -- subClassOf --> http://www.w3.org/DOM/model/def/CharacterData((dom:CharacterData))
 
-http://www.w3.org/DOM/model/def/NodeTree((dom:NodeTree)) -- equivalentTo --> n638a79e9e0574f229967918ce2ab8e98b1((Anonymous class))
+http://www.w3.org/DOM/model/def/CDATASection((dom:CDATASection)) -- subClassOf --> http://www.w3.org/DOM/model/def/Text((dom:Text))
 
-http://www.w3.org/DOM/model/def/Element -- dom:namespace --> http://www.w3.org/2001/XMLSchema#anyUri:::Datatype
-http://www.w3.org/DOM/model/def/Element -- dom:id --> http://www.w3.org/2001/XMLSchema#string:::Datatype
-http://www.w3.org/DOM/model/def/Element -- dom:class --> http://www.w3.org/2001/XMLSchema#string:::Datatype
+http://www.w3.org/DOM/model/def/ProcessingInstruction((dom:ProcessingInstruction)) -- subClassOf --> http://www.w3.org/DOM/model/def/CharacterData((dom:CharacterData))
+
+http://www.w3.org/DOM/model/def/DocumentFragment((dom:DocumentFragment)) -- subClassOf --> http://www.w3.org/DOM/model/def/Node((dom:Node))
+
+http://www.w3.org/DOM/model/def/DocumentType((dom:DocumentType)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode))
+
+http://www.w3.org/DOM/model/def/CharacterData((dom:CharacterData)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode))
+
+http://www.w3.org/DOM/model/def/NodeTree((dom:NodeTree)) -- equivalentTo --> n1467b03b2dd64baea30458d6c618a5eab1((Anonymous class))
+
 http://www.w3.org/DOM/model/def/Element -- dom:namespacePrefix --> http://www.w3.org/2001/XMLSchema#string:::Datatype
-http://www.w3.org/DOM/model/def/Element -- dom:customElementDefinition --> http://www.w3.org/2001/XMLSchema#string:::Datatype
-http://www.w3.org/DOM/model/def/Node -- dom:nodeName --> http://www.w3.org/2001/XMLSchema#string:::Datatype
-http://www.w3.org/DOM/model/def/Element -- dom:isValue --> http://www.w3.org/2001/XMLSchema#string:::Datatype
+http://www.w3.org/DOM/model/def/Element -- dom:namespace --> http://www.w3.org/2001/XMLSchema#anyUri:::Datatype
+http://www.w3.org/DOM/model/def/Element -- dom:class --> http://www.w3.org/2001/XMLSchema#string:::Datatype
 http://www.w3.org/DOM/model/def/Element -- dom:localName --> http://www.w3.org/2001/XMLSchema#string:::Datatype
-http://www.w3.org/DOM/model/def/Document -- dom:documentBaseURL --> http://www.w3.org/2001/XMLSchema#string:::Datatype
-http://www.w3.org/DOM/model/def/Element -- dom:slot --> http://www.w3.org/2001/XMLSchema#string:::Datatype
-http://www.w3.org/DOM/model/def/Element -- dom:customElementState --> http://www.w3.org/2001/XMLSchema#string:::Datatype
 http://www.w3.org/DOM/model/def/Element -- dom:name --> http://www.w3.org/2001/XMLSchema#string:::Datatype
+http://www.w3.org/DOM/model/def/Element -- dom:slot --> http://www.w3.org/2001/XMLSchema#string:::Datatype
+http://www.w3.org/DOM/model/def/Node -- dom:nodeName --> http://www.w3.org/2001/XMLSchema#string:::Datatype
+http://www.w3.org/DOM/model/def/Element -- dom:id --> http://www.w3.org/2001/XMLSchema#string:::Datatype
+http://www.w3.org/DOM/model/def/Element -- dom:customElementState --> http://www.w3.org/2001/XMLSchema#string:::Datatype
+http://www.w3.org/DOM/model/def/Document -- dom:documentBaseURL --> http://www.w3.org/2001/XMLSchema#string:::Datatype
+http://www.w3.org/DOM/model/def/Element -- dom:customElementDefinition --> http://www.w3.org/2001/XMLSchema#string:::Datatype
+http://www.w3.org/DOM/model/def/Element -- dom:isValue --> http://www.w3.org/2001/XMLSchema#string:::Datatype
                     
                     
                     </pre>

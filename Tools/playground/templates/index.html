@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,142 +9,156 @@
         /* Style for the container holding form and output box */
         .container {
             display: flex;
-            align-items: stretch; /* Make container divs stretch to the height of the tallest content */
-            margin-bottom: 20px; /* Adjust as needed */
-        }
-        
-        /* Style for status field */
-        .status {
-            text-align: right;
-            margin-top: 10px;
-            color: #4CAF50; /* Green color for status */
-        }
-
-        /* Style for form */
-        .form {
-            flex: 1;
-            margin-right: 10px; /* Adjust as needed */
-        }
-
-        /* Style for output box */
-        .output-box {
-            flex: 1;
-            border: 1px solid #ccc;
-            padding: 10px;
-            overflow-y: auto; /* Add vertical scrollbar if content overflows */
-        }
-
-        /* Style for output container */
-        .output-container {
-            /* Optionally limit max-height to prevent excessive stretching */
-            max-height: 150%; /* Adjust as needed */
-        }
-
-        /* Style for download buttons */
-        .download-button {
-            width: 100%; /* Make buttons equally wide */
-            margin-bottom: 10px; /* Add margin between buttons */
-            background-color: #4CAF50; /* Green background */
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-        }
-
-        .download-button:hover {
-            background-color: #45a049; /* Darker green when hovering */
-        }
-
-        /* Style for the input/output sections */
-        .input-section, .output-section {
-            flex: 1;
-        }
-
-        /* Adjust spacing between sections */
-        .container > div {
-            margin-right: 10px;
-        }
-
-        /* Style for the bold text */
-        .section-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #4CAF50; /* Green color for titles */
-        }
-
-        /* Style for the h1 */
-        h1 {
-            font-family: 'Arial', sans-serif;
-            color: #4CAF50; /* Green color for titles */
-            border-bottom: 2px solid #4CAF50; /* Green border under title */
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        /* Style for textareas */
-        textarea {
-            width: calc(100% - 20px); /* Adjust textarea width */
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            margin-bottom: 10px;
-        }
-
-        /* Style for submit button */
-        button[type="submit"] {
-            background-color: #4CAF50; /* Green background */
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #45a049; /* Darker green when hovering */
-        }
-
-        /* Two-column layout for upper table body */
-        .upper-table {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
             margin-bottom: 20px; /* Adjust as needed */
         }
 
-        /* Two-column layout for lower table body */
+    /* Style for status field */
+    .status {
+        text-align: right;
+        margin-top: 10px;
+        color: #4CAF50; /* Green color for status */
+    }
+
+    /* Style for form */
+    .form {
+        flex: 1;
+        margin-right: 10px; /* Adjust as needed */
+    }
+
+    .output-box {
+      flex: 1;
+      border: 1px solid #ccc;
+      padding: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      resize: both;
+      min-height: 400px;     /* set a good initial height */
+      min-width: 400px;      /* prevent narrow squeeze */
+      position: relative;
+    }
+
+    .output-container {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .output-container iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      min-height: 400px;     /* ensures iframe starts at a visible size */
+      border: none;
+      display: block;
+    }
+
+    /* Style for download buttons */
+    .download-button {
+        width: 100%; /* Make buttons equally wide */
+        margin-bottom: 10px; /* Add margin between buttons */
+        background-color: #4CAF50; /* Green background */
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+
+    .download-button:hover {
+        background-color: #45a049; /* Darker green when hovering */
+    }
+
+    /* Style for the input/output sections */
+    .input-section, .output-section {
+        flex: 1;
+    }
+
+    /* Adjust spacing between sections */
+    .container > div {
+        margin-right: 10px;
+    }
+
+    /* Style for the bold text */
+    .section-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #4CAF50; /* Green color for titles */
+    }
+
+    /* Style for the h1 */
+    h1 {
+        font-family: 'Arial', sans-serif;
+        color: #4CAF50; /* Green color for titles */
+        border-bottom: 2px solid #4CAF50; /* Green border under title */
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Style for textareas */
+    textarea {
+        width: calc(100% - 20px); /* Adjust textarea width */
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+    /* Style for submit button */
+    button[type="submit"] {
+        background-color: #4CAF50; /* Green background */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #45a049; /* Darker green when hovering */
+    }
+
+    /* Two-column layout for upper table body */
+    .upper-table {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 20px; /* Adjust as needed */
+    }
+
+    /* Two-column layout for lower table body */
+    .lower-table {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* Column styling */
+    .column {
+        flex-basis: calc(50% - 10px); /* Adjust column width */
+    }
+
+    /* Media query for responsiveness */
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+        }
+        .upper-table,
         .lower-table {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            flex-direction: column;
         }
-
-        /* Column styling */
         .column {
-            flex-basis: calc(50% - 10px); /* Adjust column width */
+            flex-basis: 100%;
         }
+}
+</style>
 
-        /* Media query for responsiveness */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            .upper-table,
-            .lower-table {
-                flex-direction: column;
-            }
-            .column {
-                flex-basis: 100%;
-            }
-        }
-    </style>
 </head>
 <body>
     <h1>OntoMermaid</h1>
@@ -157,15 +172,14 @@
         <!-- Input section -->
         <div class="input-section">
             <div class="form">
-                <div class="section-title">Input</div> <!-- Bold 'Input' text -->
+                <div class="section-title">Input</div>
                 <br>
                 <form action="http://localhost:5000/runOntoMermaid" method="post">
                     <!-- Upper table body -->
                     <div class="upper-table">
                         <div class="column">
-                            <div><i>Ontology components:</i></div> <!-- Title for checkboxes -->
+                            <div><i>Ontology components:</i></div>
                             <br>
-                            <!-- Checkboxes for document options -->
                             <table>
                             <tr>
                                 <td><label for="conceptSchemeCheckbox">Concept schemes</label></td>
@@ -194,9 +208,8 @@
                             </table>
                         </div>
                         <div class="column">
-                            <div>&nbsp;</div> <!-- Placeholder for alignment -->
+                            <div>&nbsp;</div>
                             <br>
-                                <!-- Checkboxes for document options -->
                             <table>
                              <tr>
                                 <td><label for="subPropertyCheckbox">Subproperties</label></td>
@@ -224,13 +237,10 @@
                     <!-- Lower table body -->
                     <div class="lower-table">
                         <div class="column">
-                            <!-- Textareas -->
                             <label for="ontologyInput">Ontology</label><br>
                             <textarea id="ontologyInput" name="ontology" rows="5" cols="50">{{ontology}}</textarea><br>
-                            
                         </div>
                         <div class="column">
-                            <!-- Textareas -->
                             <label for="documentNamespaceInput">Document Namespace</label><br>
                             <textarea id="documentNamespaceInput" name="documentNamespace" rows="1" cols="30">https://example.org/doc/</textarea><br>
                         </div>
@@ -240,29 +250,26 @@
             </div>
         </div>
 
-        <!-- Output section -->
-        <div class="output-section">
-            <div class="output-box">
-                <div class="section-title">Output</div> <!-- Bold 'Output' text -->
-                <br>
-                <!-- HTML content -->
-                {% if htmlOutput %}
-                <div class="output-container">
-                    <!-- Use the safe filter to render HTML content without HTML escaping -->
-                    {{ htmlOutput | safe }}
-                </div>
-                {% else %}
-                <div class="output-container">
-                    Mermaid diagram is rendered here
-                </div>
-                {% endif %}
+    <!-- Output section -->
+    <div class="output-section">
+        <div class="output-box">
+            <div class="section-title">Output</div>
+            <br>
+            {% if htmlOutput %}
+            <div class="output-container">
+                {{ htmlOutput | safe }}
             </div>
-            <!-- Download buttons -->
-            <div>
-                <a href="/static/diagram.html" download="diagram.html"><button class="download-button">Download Diagram HTML</button></a><br>
-                <a href="/static/diagram.ttl" download="html.ttl"><button class="download-button">Download Diagram RDF</button></a>
+            {% else %}
+            <div class="mermaid">
+                Mermaid diagram is rendered here
             </div>
+            {% endif %}
+        </div>
+        <div>
+            <a href="/static/diagram.html" download="diagram.html"><button class="download-button">Download Diagram HTML</button></a><br>
+            <a href="/static/diagram.ttl" download="html.ttl"><button class="download-button">Download Diagram RDF</button></a>
         </div>
     </div>
+</div>
 </body>
 </html>

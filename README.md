@@ -152,6 +152,7 @@ Diagram of the [Provenance ontology](/Examples/prov-mermaid.html)
 This repository comes with a, fairly primitive, Python-based tool to transform OWL into Mermaid.
 
 1. OntoMermaid.py
+2. Playground.py
 
 ## OntoMermaid.py
 
@@ -165,7 +166,7 @@ A. Install all necessary libraries:
 	1. pip install pyshacl
 	2. pip install rdflib
 
-B. Place one or more OWL-ontologies in the input folder in \mermaid\Tools\Input. 
+B. Place one or more OWL-ontologies (as *.trig files) in the input folder in \mermaid\Tools\Input. 
 
 C. Run the script in the command prompt by typing: 
 
@@ -173,5 +174,5 @@ C. Run the script in the command prompt by typing:
 python OntoMermaid.py
 ```
 
-D. Go to the output folder in \mermaid\Tools\Output and grab your generated HTML (*.html) and Turtle-file(s) (*.ttl). 
+D. Go to the output folder in \mermaid\Tools\Output and grab your generated HTML (*.html) and Trig-file(s) (*.trig). 
 

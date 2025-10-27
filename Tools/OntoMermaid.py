@@ -237,12 +237,12 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix sh:   <http://www.w3.org/ns/shacl#>
 prefix :     <https://mermaid.org/ontomermaid/model/def/>
 
-SELECT (GROUP_CONCAT(?label; separator="\\n") AS ?mermaid_code)
+SELECT (GROUP_CONCAT(?fragment; separator="\\n") AS ?mermaidFragment)
 WHERE {
-  ?element :label ?label.
+  ?element :fragment ?fragment.
   
 }
-ORDER BY ?mermaid_code
+ORDER BY ?mermaidFragment
         ''')   
 
         # Check whether another iteration is needed. If every OWL and RDFS construct contains a mermaid:syntax statement, the processing is considered done.
@@ -255,7 +255,7 @@ ORDER BY ?mermaid_code
                  writeGraph(serializable_graph)
         
                  for result in resultquery:
-                    mermaid_code = result["mermaid_code"]
+                    mermaid_code = result["mermaidFragment"]
                     output_file_path = directory_path+"/tools/output/"+filename_stem+"-mermaid.html"
                     # Create the HTML content with the Mermaid code
                     html_start =  '''
