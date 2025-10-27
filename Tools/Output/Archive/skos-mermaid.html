@@ -1,0 +1,68 @@
+
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                    </head>
+                    <body>
+                    <div><pre class="mermaid">
+                    %%{
+                    init: {
+                    "flowchart":{
+                    "useMaxWidth": 0
+                    }
+                    }
+                    }%%
+                    graph TB
+                    classDef Datatype fill:#9c6,stroke:#9c6;
+                    
+                    
+                    
+                    
+                    http://www.w3.org/2004/02/skos/core#ConceptScheme((Concept Scheme))
+http://www.w3.org/2004/02/skos/core#Concept((Concept))
+http://www.w3.org/2004/02/skos/core#Collection((Collection))
+http://www.w3.org/2004/02/skos/core#OrderedCollection((Ordered Collection)) -- subClassOf --> http://www.w3.org/2004/02/skos/core#Collection
+
+subgraph nd7aa4314f5724af2a52aaf5c4251f4d9b1[Union C &cup; D]
+nd7aa4314f5724af2a52aaf5c4251f4d9b1http://www.w3.org/2004/02/skos/core#Concept((Concept)) -- or --- nd7aa4314f5724af2a52aaf5c4251f4d9b1http://www.w3.org/2004/02/skos/core#Collection((Collection))
+end
+
+rdfs:Resource -- has narrower transitive --> rdfs:Resource
+rdfs:Resource -- has narrower match --> rdfs:Resource
+rdfs:Resource -- scope note --> rdfs:Resource
+rdfs:Resource -- definition --> rdfs:Resource
+rdfs:Resource -- hidden label --> rdfs:Resource
+rdfs:Resource -- has broader --> rdfs:Resource
+http://www.w3.org/2004/02/skos/core#Concept -- is in semantic relation with --> http://www.w3.org/2004/02/skos/core#Concept
+http://www.w3.org/2004/02/skos/core#OrderedCollection -- has member list --> http://www.w3.org/1999/02/22-rdf-syntax-ns#List
+rdfs:Resource -- has related --> rdfs:Resource
+rdfs:Resource -- example --> rdfs:Resource
+http://www.w3.org/2004/02/skos/core#Concept -- is top concept in scheme --> http://www.w3.org/2004/02/skos/core#ConceptScheme
+rdfs:Resource -- preferred label --> rdfs:Resource
+rdfs:Resource -- has broader transitive --> rdfs:Resource
+rdfs:Resource -- change note --> rdfs:Resource
+rdfs:Resource -- has narrower --> rdfs:Resource
+rdfs:Resource -- editorial note --> rdfs:Resource
+rdfs:Resource -- notation --> rdfs:Resource
+rdfs:Resource -- alternative label --> rdfs:Resource
+rdfs:Resource -- note --> rdfs:Resource
+rdfs:Resource -- has broader match --> rdfs:Resource
+rdfs:Resource -- history note --> rdfs:Resource
+rdfs:Resource -- has exact match --> rdfs:Resource
+rdfs:Resource -- is in scheme --> http://www.w3.org/2004/02/skos/core#ConceptScheme
+rdfs:Resource -- has related match --> rdfs:Resource
+http://www.w3.org/2004/02/skos/core#ConceptScheme -- has top concept --> http://www.w3.org/2004/02/skos/core#Concept
+rdfs:Resource -- has close match --> rdfs:Resource
+http://www.w3.org/2004/02/skos/core#Collection -- has member --> nd7aa4314f5724af2a52aaf5c4251f4d9b1
+rdfs:Resource -- is in mapping relation with --> rdfs:Resource
+                    
+                    
+                    </pre>
+                    <script type="module">
+                      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+                      mermaid.initialize({ startOnLoad: true });
+                    </script>
+                    </div>
+                    </body>
+                    </html>
+                    

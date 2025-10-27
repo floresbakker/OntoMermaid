@@ -1,0 +1,1082 @@
+@prefix dcm: <http://purl.org/dc/dcmitype/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix decl: <https://www.w3.org/html/id/decl/> .
+@prefix dom: <http://www.w3.org/DOM/model/def/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix html: <https://www.w3.org/html/model/def/> .
+@prefix ns1: <https://mermaid.org/ontomermaid/model/def/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix respec: <https://respec.org/model/def/> .
+@prefix section: <https://www.w3.org/html/id/section/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix standard: <https://www.w3.org/html/id/standard/> .
+@prefix status: <http://purl.org/adms/status/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+section:13.1.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#elements-2"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 13.1.2 Elements"@en .
+
+section:13.1.2-EscapableRawTextElements a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#escapable-raw-text-elements"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 13.1.2 Escapable raw text elements"@en .
+
+section:13.1.2-ForeignElements a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#foreign-elements"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 13.1.2 Foreign elements"@en .
+
+section:13.1.2-NormalElements a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#normal-elements"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 13.1.2 Normal elements"@en .
+
+section:13.1.2-RawTextElements a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#raw-text-elements"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 13.1.2 Raw text elements"@en .
+
+section:13.1.2-VoidElements a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#void-elements"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 13.1.2 Void elements"@en .
+
+section:13.1.2.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#start-tags"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 13.1.2.1 Start tags"@en .
+
+section:13.1.2.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#end-tags"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 13.1.2.2 End tags"@en .
+
+section:13.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#serialising-html-fragments"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 13.3 Serializing HTML fragments"@en .
+
+section:3.2.5.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#kinds-of-content"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 3.2.5.2 Kinds of content"@en .
+
+section:3.2.5.2.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#metadata-content"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 3.2.5.2.1 Metadata content"@en .
+
+section:3.2.5.2.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#flow-content"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 3.2.5.2.2 Flow content"@en .
+
+section:3.2.5.2.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#sectioning-content"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 3.2.5.2.3 Sectioning content"@en .
+
+section:3.2.5.2.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#heading-content"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 3.2.5.2.4 Heading content"@en .
+
+section:3.2.5.2.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#phrasing-content"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 3.2.5.2.5 Phrasing content"@en .
+
+section:3.2.5.2.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#embedded-content-2"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 3.2.5.2.6 Metadata content"@en .
+
+section:3.2.5.2.7 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#interactive-content"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 3.2.5.2.7 Interactive content"@en .
+
+section:3.2.5.2.8 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#palpable-content"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 3.2.5.2.8 Palpable content"@en .
+
+section:3.2.5.2.9 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#script-supporting-elements"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 3.2.5.2.9 Script-supporting elements"@en .
+
+section:3.2.5.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#transparent-content-models"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 3.2.5.3 Transparant content models"@en .
+
+section:4.1.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-html-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.1.1 The html element"@en .
+
+section:4.10.10 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-option-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.10.10 The option element"@en .
+
+section:4.10.11 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-textarea-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.10.11 The textarea element"@en .
+
+section:4.10.12 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-output-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.10.12 The output element"@en .
+
+section:4.10.13 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-progress-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.10.13 The progress element"@en .
+
+section:4.10.14 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-meter-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.10.14 The meter element"@en .
+
+section:4.10.15 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-fieldset-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.10.15 The fieldset element"@en .
+
+section:4.10.16 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-legend-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.10.16 The legend element"@en .
+
+section:4.10.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#categories"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.10.2 Categories"@en .
+
+section:4.10.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-form-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.10.3 The form element"@en .
+
+section:4.10.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-label-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.10.4 The label element"@en .
+
+section:4.10.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-input-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.10.5 The input element"@en .
+
+section:4.10.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-button-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.10.6 The button element"@en .
+
+section:4.10.7 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-select-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.10.7 The select element"@en .
+
+section:4.10.8 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-datalist-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.10.8 The datalist element"@en .
+
+section:4.10.9 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-optgroup-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.10.9 The optgroup element"@en .
+
+section:4.11.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-details-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.11.1 The details element"@en .
+
+section:4.11.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-summary-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.11.2 The summary element"@en .
+
+section:4.11.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-dialog-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.11.4 The dialog element"@en .
+
+section:4.12.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-script-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.12.1 The script element"@en .
+
+section:4.12.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-noscript-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.12.2 The noscript element"@en .
+
+section:4.12.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-template-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.12.3 The template element"@en .
+
+section:4.12.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-slot-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.12.4 The slot element"@en .
+
+section:4.12.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-canvas-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.12.5 The canvas element"@en .
+
+section:4.13.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#custom-elements-core-concepts"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.13.3 Core concepts"@en .
+
+section:4.2.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-head-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.2.1 The head element"@en .
+
+section:4.2.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-title-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.2.2 The title element"@en .
+
+section:4.2.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-base-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.2.2 The base element"@en .
+
+section:4.2.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-link-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.2.4 The link element"@en .
+
+section:4.2.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-meta-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.2.5 The meta element"@en .
+
+section:4.2.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-style-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.2.6 The style element"@en .
+
+section:4.3.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-body-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.3.1 The body element"@en .
+
+section:4.3.10 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-address-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.3.10 The address element"@en .
+
+section:4.3.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-article-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.3.2 The article element"@en .
+
+section:4.3.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-section-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.3.3 The section element"@en .
+
+section:4.3.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-nav-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.3.4 The nav element"@en .
+
+section:4.3.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-aside-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.3.5 The aside element"@en .
+
+section:4.3.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.3.6 The h1, h2, h3, h4 and h6 elements"@en .
+
+section:4.3.7 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-hgroup-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.3.7 The hgroup element"@en .
+
+section:4.3.8 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-header-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.3.8 The header element"@en .
+
+section:4.3.9 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-footer-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.3.9 The footer element"@en .
+
+section:4.4.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-p-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.1 The p element"@en .
+
+section:4.4.10 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-dt-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.10 The dt element"@en .
+
+section:4.4.11 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-dd-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.11 The dd element"@en .
+
+section:4.4.12 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-figure-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.12 The figure element"@en .
+
+section:4.4.13 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-figcaption-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.13 The figcaption element"@en .
+
+section:4.4.14 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-main-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.14 The main element"@en .
+
+section:4.4.15 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-search-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.15 The search element"@en .
+
+section:4.4.16 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-div-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.16 The div element"@en .
+
+section:4.4.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-hr-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.2 The hr element"@en .
+
+section:4.4.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-pre-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.3 The pre element"@en .
+
+section:4.4.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-blockquote-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.4 The blockquote element"@en .
+
+section:4.4.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-ol-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.5 The ol element"@en .
+
+section:4.4.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-ul-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.6 The ul element"@en .
+
+section:4.4.7 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-menu-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.7 The menu element"@en .
+
+section:4.4.8 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-li-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.8 The li element"@en .
+
+section:4.4.9 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-dl-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.4.9 The dl element"@en .
+
+section:4.5.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-a-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.1 The a element"@en .
+
+section:4.5.10 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-ruby-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.10 The ruby element"@en .
+
+section:4.5.11 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-rt-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.11 The rt element"@en .
+
+section:4.5.12 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-rp-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.12 The rp element"@en .
+
+section:4.5.13 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-data-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.13 The data element"@en .
+
+section:4.5.14 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-time-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.14 The time element"@en .
+
+section:4.5.15 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-code-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.15 The code element"@en .
+
+section:4.5.16 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "hhttps://html.spec.whatwg.org/#the-var-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.16 The var element"@en .
+
+section:4.5.17 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-samp-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.17 The samp element"@en .
+
+section:4.5.18 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-kbd-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.18 The kbd element"@en .
+
+section:4.5.19 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-sub-and-sup-elements"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.19 The sub and sup elements"@en .
+
+section:4.5.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-em-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.2 The em element"@en .
+
+section:4.5.20 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-i-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.20 The i element"@en .
+
+section:4.5.21 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-b-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.21 The b element"@en .
+
+section:4.5.22 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-u-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.22 The u element"@en .
+
+section:4.5.23 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-mark-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.23 The mark element"@en .
+
+section:4.5.24 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-bdi-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.24 The bdi element"@en .
+
+section:4.5.25 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-bdo-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.25 The bdo element"@en .
+
+section:4.5.26 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-span-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.26 The span element"@en .
+
+section:4.5.27 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-br-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.27 The br element"@en .
+
+section:4.5.28 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-wbr-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.28 The wbr element"@en .
+
+section:4.5.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-strong-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.3 The strong element"@en .
+
+section:4.5.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-small-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.4 The small element"@en .
+
+section:4.5.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-s-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.5 The s element"@en .
+
+section:4.5.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-cite-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.6 The cite element"@en .
+
+section:4.5.7 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-q-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.7 The q element"@en .
+
+section:4.5.8 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-dfn-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.8 The dfn element"@en .
+
+section:4.5.9 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-abbr-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.5.9 The abbr element"@en .
+
+section:4.7.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-ins-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.7.1 The ins element"@en .
+
+section:4.7.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-del-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.7.2 The del element"@en .
+
+section:4.8.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-picture-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.8.1 The picture element"@en .
+
+section:4.8.10 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-track-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.8.10 The track element"@en .
+
+section:4.8.12 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-map-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.8.12 The map element"@en .
+
+section:4.8.13 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-area-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.8.13 The area element"@en .
+
+section:4.8.15 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#mathml" ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.8.15 MathML"@en .
+
+section:4.8.16 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#svg-0" ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.8.16 SVG"@en .
+
+section:4.8.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-source-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.8.2 The source element"@en .
+
+section:4.8.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-img-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.8.3 The img element"@en .
+
+section:4.8.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-iframe-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.8.5 The iframe element"@en .
+
+section:4.8.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-embed-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.8.6 The embed element"@en .
+
+section:4.8.7 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-object-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.8.7 The object element"@en .
+
+section:4.8.8 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-video-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.8.8 The video element"@en .
+
+section:4.8.9 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-audio-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.8.9 The audio element"@en .
+
+section:4.9.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-table-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.9.1 The table element"@en .
+
+section:4.9.10 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-th-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.9.10 The th element"@en .
+
+section:4.9.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-caption-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.9.2 The caption element"@en .
+
+section:4.9.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-colgroup-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.9.3 The colgroup element"@en .
+
+section:4.9.4 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-col-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.9.4. The col element"@en .
+
+section:4.9.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-tbody-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.9.5 The tbody element"@en .
+
+section:4.9.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-thead-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.9.6 The thead element"@en .
+
+section:4.9.7 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-tfoot-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.9.7 The tfoot element"@en .
+
+section:4.9.8 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-tr-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.9.8 The tr element"@en .
+
+section:4.9.9 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#the-td-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 4.9.9 The td element"@en .
+
+section:8.1.8 a dcm:Text ;
+    rdfs:label "§ 8.1.8 Events"@en ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#events"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: .
+
+section:8.1.8.1 a dcm:Text ;
+    rdfs:label "§ 8.1.8.1 Event handlers"@en ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#event-handler-attributes"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: .
+
+html:Attribute a owl:Class ;
+    dct:conformsTo section:13.1.2.3 ;
+    rdfs:isDefinedBy html: ;
+    rdfs:subClassOf dom:Attribute ;
+    skos:definition "An attribute is a name-value pair that is associated with an HTML element. Attributes provide additional information about an element and are specified within the start tag of an element. Attributes can modify the behavior or appearance of an element, define relationships between elements, or provide other metadata. The name of the attribute is followed by an equal sign (=) and the attribute's value, which is enclosed in double or single quotes. Some attributes affect the element simply by their presence in the start tag of the element, with the value implicitly being an empty string."@en ;
+    skos:prefLabel "attribute"@en ;
+    ns1:label """https://www.w3.org/html/model/def/Attribute((html:Attribute)) -- subClassOf --> http://www.w3.org/DOM/model/def/Attribute((dom:Attribute))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+html:CDATASection a owl:Class ;
+    dct:conformsTo section:13.1.5 ;
+    rdfs:isDefinedBy html: ;
+    rdfs:subClassOf dom:CDATASection ;
+    skos:definition "A DOM element with textual content that contain characters that would otherwise be treated as markup. A CDATA section is typically used to include code snippets, scripts, or other data within an HTML document without having to worry about escaping special characters. In HTML, a CDATA section is denoted by enclosing the block of text within <![CDATA[ and ]]> tags. Anything contained within these tags is treated as raw character data and is not parsed as markup."@en ;
+    skos:example """
+<p>You can add a string to a number, but this stringifies the number:</p>
+<math>
+ <ms><![CDATA[x<y]]></ms>
+ <mo>+</mo>
+ <mn>3</mn>
+ <mo>=</mo>
+ <ms><![CDATA[x<y3]]></ms>
+</math>"""@en ;
+    skos:prefLabel "CDATA section"@en ;
+    ns1:label """https://www.w3.org/html/model/def/CDATASection((html:CDATASection)) -- subClassOf --> http://www.w3.org/DOM/model/def/CDATASection((dom:CDATASection))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+html:Comment a owl:Class ;
+    dct:conformsTo section:13.1.6 ;
+    rdfs:isDefinedBy html: ;
+    rdfs:subClassOf dom:Comment ;
+    skos:definition "A comment is a markup construct used to insert comments within the HTML code. Comments are not displayed in the web browser, but they can be viewed in the HTML source code. Comments are typically used to add notes, descriptions, or explanations to the HTML code for the benefit of developers, without affecting the rendered output in the browser. Comments are denoted by enclosing the comment text within <!-- and --> tags. Anything contained within these tags is treated as a comment and is ignored by the web browser during rendering."@en ;
+    skos:example "<!-- Write here your comment -->"@en ;
+    skos:prefLabel "comment element"@en ;
+    ns1:label """https://www.w3.org/html/model/def/Comment((html:Comment)) -- subClassOf --> http://www.w3.org/DOM/model/def/Comment((dom:Comment))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+html:Document a owl:Class ;
+    dct:conformsTo section:13.1 ;
+    rdfs:isDefinedBy html: ;
+    rdfs:subClassOf dom:Document ;
+    skos:definition "An HTML document consists of a tree of elements and text. Each element is denoted in the source by a start tag, such as ‘<body>’, and an end tag, such as ‘</body>’. Tags have to be nested such that elements are all completely within each other, without overlapping. Elements can have attributes, which control how the elements work. The HTML Core Vocabulary defines a set of elements that can be used in a HTML document, along with rules about the ways in which the elements can be nested. HTML user agents (e.g., web browsers) parse a HTML document, turning it into a DOM (Document Object Model) tree. A DOM tree is an in-memory representation of a document. A HTML document represents a media-independent description of interactive content. A HTML document might be rendered to a screen, or through a speech synthesizer, or on a braille display. To influence exactly how such rendering takes place, authors can use a styling language such as CSS."@en ;
+    skos:prefLabel "html document"@en ;
+    ns1:label """https://www.w3.org/html/model/def/Document((html:Document)) -- subClassOf --> http://www.w3.org/DOM/model/def/Document((dom:Document))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+html:DocumentType a owl:Class ;
+    dct:conformsTo section:13.1.1 ;
+    rdfs:isDefinedBy html: ;
+    rdfs:subClassOf dom:DocumentType ;
+    skos:definition "A DOCTYPE is a required preamble. When omitted, browsers tend to use a different rendering mode that is incompatible with some specifications. Including the DOCTYPE in a document ensures that the browser makes a best-effort attempt at following the relevant specifications."@en ;
+    skos:example "<!DOCTYPE html>" ;
+    skos:prefLabel "the DOCTYPE"@en ;
+    ns1:label """https://www.w3.org/html/model/def/DocumentType((html:DocumentType)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentType((dom:DocumentType))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+html:Element a owl:Class ;
+    dct:conformsTo section:3.2 ;
+    rdfs:isDefinedBy html: ;
+    rdfs:subClassOf dom:Element ;
+    skos:definition "An HTML element in the Document Object Model (DOM) represents a thing; that is, it has intrinsic meaning, also known as semantics. An element consists of an HTML start tag and an HTML end tag and has value content. An HTML start tag consists of a \"smaller than\" character (\"<\") and a tag name, followed by a \"greater than\" character (\">\"). An HTML end tag consists of a \"smaller than\" character (\"<\"), a slash (\"/\") and a tag name, followed by a \"greater than\" character (\">\"). The value content of an element can be arbitrarily complex."@en ;
+    skos:prefLabel "HTML DOM element"@en ;
+    ns1:label """https://www.w3.org/html/model/def/Element((html:Element)) -- subClassOf --> http://www.w3.org/DOM/model/def/Element((dom:Element))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+html:Text a owl:Class ;
+    dct:conformsTo section:13.1.3 ;
+    rdfs:isDefinedBy html: ;
+    rdfs:subClassOf dom:Text ;
+    skos:definition "Textual content that does not contain any HTML Core Vocabulary."@en ;
+    skos:example "A natural language sentence that appears in a table caption."@en,
+        "A numeric value that appears in a table cell."@en ;
+    skos:prefLabel "text"@en ;
+    ns1:label """https://www.w3.org/html/model/def/Text((html:Text)) -- subClassOf --> http://www.w3.org/DOM/model/def/Text((dom:Text))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+decl:dom sh:namespace "http://www.w3.org/DOM/model/def/"^^xsd:anyURI ;
+    sh:prefix "dom" .
+
+decl:function sh:namespace "https://www.w3.org/html/model/function/"^^xsd:anyURI ;
+    sh:prefix "function" .
+
+decl:html sh:namespace "https://www.w3.org/html/model/def/"^^xsd:anyURI ;
+    sh:prefix "html" .
+
+decl:rdf sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+    sh:prefix "rdf" .
+
+decl:rdfs sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+    sh:prefix "rdfs" .
+
+decl:xsd sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+    sh:prefix "xsd" .
+
+section:13.1 a dcm:Text ;
+    rdfs:label "§ 13.1 Writing HTML documents"@en ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#writing"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: .
+
+section:13.1.1 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/multipage/syntax.html#the-doctype"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 13.1.1 The DOCTYPE"@en .
+
+section:13.1.2.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#attributes-2"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 13.1.2.3 Attributes"@en .
+
+section:13.1.3 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#text-2"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 13.1.3 Text"@en .
+
+section:13.1.5 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#cdata-sections"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 13.1.5 CDATA sections"@en .
+
+section:13.1.6 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#comments"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 13.1.6 Comments"@en .
+
+section:3.2 a dcm:Text ;
+    dct:isPartOf standard:html ;
+    dct:source "https://html.spec.whatwg.org/#elements"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "§ 3.2 Elements"@en .
+
+standard:html a dct:Standard ;
+    dct:created "2021-11-09"^^xsd:date ;
+    dct:source "https://html.spec.whatwg.org"^^xsd:anyURI ;
+    rdfs:isDefinedBy html: ;
+    skos:prefLabel "HTML Living Standard"@en .
+
+html: a void:Dataset,
+        owl:Ontology,
+        respec:Ontology ;
+    dct:abstract "This RDF-based vocabulary establishes a draft standard for semantically representing HTML documents, adhering to the HTML Living Standard. It includes classes for HTML elements, datatype properties for attributes, and SHACL shapes for code serialization. This enables the generation of HTML from RDF representations and the parsing of HTML into RDF, offering comprehensive control and detailed description of HTML content. This vocabulary enhances web content management and integration, bridging HTML and semantic technologies."@en ;
+    dct:conformsTo "https://datatracker.ietf.org/doc/html/rfc1942"^^xsd:anyURI ;
+    dct:created "2021-12-08"^^xsd:date ;
+    dct:creator "Flores Bakker",
+        "Rosaline de Haan",
+        "Thomas de Groot",
+        "Wouter Beek" ;
+    dct:description "The HTML Core Vocabulary establishes a draft standard that enables a semantic representation of any HTML document. The vocabulary is based on the Living Standard of HTML and offers classes to represent HTML elements, datatype properties to represent HTML attributes and a small number of SHACL shapes for the serialisation of HTML code. Center to this ontology is the class 'html:Element', which represents a HTML DOM element and is in fact a subclass of 'dom:Element', the latter being the class of all DOM elements. Any specific HTML element like 'html:A' (anchor element) or 'html:Body' (body element) is a subclass of the class 'html:Element'. Another fundamental building block of this ontology is the 'html:attribute' datatype property. Any attribute in HTML like 'html:class' or 'html:style' is a subproperty of 'html:attribute'. An HTML attribute can be an attribute as defined in the Living Standard of HTML or a custom defined attribute. In addition, there is the class of 'html:Text', where all instantiations contain a html:fragment property relation with an actual textual string, as for example in the triples 'doc:1.0 a html:Text; html:fragment \"Hello, World!\".'. Finally, there are the HTML void elements like 'html:Br' (line break), which are subclass of 'html:VoidElement'. Together, these classes and attributes can be used to represent any HTML document in RDF. In order to serialize this HTML document to actual HTML code, there are three SHACL node shapes to process the RDF-structure and transform this into HTML code, (1) shp:VoidElement, (2) shp:SerializableElement and (3) shp:Document. The logic behind these shapes is that the HTML code can be serialized from the leaves of the tree upwards up and till the top of the tree. It means that an arbitrary element in the DOM tree of an HTML document can only be serialized to HTML code, whenever the underlying child elements of that element have been serialized to HTML already, including the HTML code of possible attributes and their values. The outer edges of the tree are the void elements, that do not contain any child elements and thus can be transformed into HTML code immediately without the necessity of any context, together with HTML text elements, themselves already containing HTML fragments with textual strings. From the outer edges the node shape shp:SerializableElement works its way up the tree until the moment that all the HTML elements have received an HTML fragment and the HTML document can be created based on the html:fragment, as contained in the html:html root element of that document. The processing halts the moment the document itself has an html:fragment."@en ;
+    dct:language "iso639-1:en" ;
+    dct:license "http://creativecommons.org/licenses/by/4.0"^^xsd:anyURI ;
+    dct:publisher <https://rijksfinancien.nl> ;
+    dct:source <https://github.com/floresbakker/htmlvoc> ;
+    dct:status status:UnderDevelopment ;
+    dct:subject "HTML"@en ;
+    dct:title "Semantic HTML Core Ontology"@en ;
+    vann:preferredNamespacePrefix "html" ;
+    vann:preferredNamespaceUri "https://www.w3.org/html/model/def/" ;
+    void:uriRegexPattern "^https://www.w3.org/html/model/def/" ;
+    void:uriSpace "https://www.w3.org/html/model/def/"^^xsd:anyURI ;
+    owl:imports dct:,
+        rdf:,
+        rdfs:,
+        owl:,
+        skos:,
+        sh: ;
+    owl:versionInfo "0.2.0" ;
+    skos:example """
+An 'hello world' HTML document:
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>
+        An 'hello world' HTML page represented in RDF
+      </title>
+      <style>
+        .italic-text {font-style: italic;}
+      </style>
+      <meta http-equiv="Content-Type" charset="utf-8">
+    </head>
+    <body>
+      Hello, World!
+    </body>
+  </html>
+
+This can be rendered in RDF using the HTML Core Vocabulary as follows:
+
+  prefix doc: <http://www.example.org/document/>
+  prefix html: <https://www.w3.org/html/model/def/>
+  prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+  doc:1
+    a html:Document;
+    rdf:_1 doc:1.1;
+    rdf:_2 doc:1.2.
+
+  doc:1.1
+    a html:DocumentType;
+    html:documentTypeName 'html'.
+
+  doc:1.2
+    a html:Html;
+    rdf:_1 doc:1.21;
+    rdf:_2 doc:1.218.
+
+  doc:1.163
+    a html:Meta;
+    html:charset "utf-8";
+    html:http-equiv "Content-Type".
+
+  doc:1.21
+    a html:Head;
+    rdf:_1 doc:1.27;
+    rdf:_2 doc:1.93;
+    rdf:_3 doc:1.163.
+
+  doc:1.218
+    a html:Body;
+    rdf:_1 doc:1.218.1.
+
+  doc:1.218.1
+    a html:Text;
+    html:fragment "Hello, World!".
+
+  doc:1.27
+    a html:Title;
+    rdf:_1 doc:1.27.1.
+
+  doc:1.27.1
+    a html:Text;
+    html:fragment "An 'hello world' HTML page represented in RDF".
+
+  doc:1.93
+    a html:StyleSheet;
+    rdf:_1 doc:1.93.1.
+
+  doc:1.93.1
+    a html:Text;
+    html:fragment ".italic-text {font-style: italic;}".""" ;
+    sh:declare decl:dom,
+        decl:function,
+        decl:html,
+        decl:rdf,
+        decl:rdfs,
+        decl:xsd ;
+    foaf:depiction "https://www.rijksfinancien.nl/themes/custom/indicia_theme/files/logo-rijksoverheid.svg"^^xsd:anyURI ;
+    foaf:homepage "https://www.rijksfinancien.nl/"^^xsd:anyURI ;
+    respec:acknowledgements "This standard has been developed through collaborative efforts and contributions from a diverse community of experts and stakeholders. Their dedication and expertise have been instrumental in bringing this vocabulary to life."@en ;
+    respec:audience "This document is intended for a diverse audience of web developers, content managers, semantic web enthusiasts, and anyone seeking to enhance the sustainability of information management, information processing and information technology."@en ;
+    respec:background "In an era where information is akin to a constantly flowing stream, organizations must grapple with several pressing challenges in aspects like velocity, variety, the insightfulness, adaptability and validity. The speed at which information is generated, transformed, and consumed is unparalleled. Keeping pace with this velocity is essential for timely decision-making. Information comes in diverse formats, from structured data to unstructured text, images, and multimedia. Effective management necessitates the ability to handle this rich variety seamlessly. Information is not merely data; it embodies insights, functionality, and knowledge. Extracting meaningful insights and practical functionality is vital for organizational success. Organizations must be agile in adapting information products to address new crises and opportunities swiftly. Finally, ensuring the correctness, compliance and reliability of information is fundamental to trustworthy decision-making and operations."@en ;
+    respec:introduction """
+In today's fast-paced business landscape, organizations grapple with the formidable challenge of information management. The demand for robust information products and agile information processing is relentless, constantly evolving with each passing moment, transcending industry boundaries. In this dynamic environment, the creation, validation, and utilization of information products are paramount, serving as the bedrock for informed decision-making and organizational effectiveness. The ability to swiftly respond to unforeseen crises or seize emerging opportunities hinges on having the right answers to previously unasked questions.
+
+So, how can organizations effectively navigate this information-intensive terrain? A key part of the solution lies in the capability to exercise complete control over the generation, modification, validation, and reuse of information products. This entails the profound ability to construct and deconstruct any arbitrary information product, dissecting it from its foundational elements to its broader, strategic significance.
+
+To address this need, we have pioneered the development of the RDF-based Semantic HTML Core Vocabulary - a transformative framework designed to facilitate the management of an array of information artifacts built upon HTML."""@en ;
+    respec:objective "In response to these challenges, we introduce the RDF-based semantic HTML Core Vocabulary - a paradigm-shifting framework that empowers organizations to conquer the intricacies of information management. With this vocabulary, organizations gain the capacity to (1) construct and deconstruct, (2) generate and validate and (3) adapt and reuse. Constructing and deconstructing means that one can craft and dismantle information products at will, from their fundamental building blocks to their overarching significance. Generating and validating comes down to creating new information products and rigorously validating their accuracy and completeness. Finally, adapting and reusing is about adapting existing information products to swiftly respond to evolving scenarios and reusing valuable components across a spectrum of contexts. This innovative vocabulary forms the cornerstone of an information management ecosystem that harmonizes the power of RDF with the ubiquity of HTML. It revolutionizes how organizations handle information artifacts, enabling them to seamlessly transition from raw data to strategic insights and practical solutions. In the following sections, we delve deeper into the RDF-based Semantic HTML Core Vocabulary, providing comprehensive insights, implementation guidelines, and real-world examples to empower organizations in their quest for information mastery."@en .
+

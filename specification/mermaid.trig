@@ -21,6 +21,7 @@ prefix shp:        <https://mermaid.org/ontomermaid/model/shp/>
 prefix standard:   <https://mermaid.org/ontomermaid/id/standard/>
 prefix target:     <https://mermaid.org/ontomermaid/model/target/>
 
+mermaid: {
   mermaid:
     a
       owl:Ontology,
@@ -2206,3 +2207,4 @@ function:getLabel
 	BIND(REPLACE(?rawResult, "(()+|())+|([)+|(])+|({)+|(})+|(<)+|(>)+", "", "q") AS ?result)
 }
 """ .
+}

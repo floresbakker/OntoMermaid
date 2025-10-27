@@ -1,0 +1,61 @@
+
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                    </head>
+                    <body>
+                    <div><pre class="mermaid">
+                    %%{
+                    init: {
+                    "flowchart":{
+                    "useMaxWidth": 0
+                    }
+                    }
+                    }%%
+                    graph TB
+                    classDef Datatype fill:#9c6,stroke:#9c6;
+                    
+                    
+                    
+                    
+                    subgraph nfb248304bd8242058b2d609284e9f85fb4[Restriction &forall; R C]
+nfb248304bd8242058b2d609284e9f85fb4thing((thing)) -- object only --> nfb248304bd8242058b2d609284e9f85fb4http://example.org/Address((Address))
+
+end
+
+subgraph nfb248304bd8242058b2d609284e9f85fb1[Restriction &forall; R C]
+nfb248304bd8242058b2d609284e9f85fb1thing((thing)) -- subject only --> nfb248304bd8242058b2d609284e9f85fb1http://example.org/Person((Person))
+
+end
+
+subgraph nfb248304bd8242058b2d609284e9f85fb5[Restriction &exist; R C]
+nfb248304bd8242058b2d609284e9f85fb5thing((thing)) -- object some --> nfb248304bd8242058b2d609284e9f85fb5http://example.org/Address((Address))
+
+end
+
+subgraph nfb248304bd8242058b2d609284e9f85fb2[Restriction &exist; R C]
+nfb248304bd8242058b2d609284e9f85fb2thing((thing)) -- subject some --> nfb248304bd8242058b2d609284e9f85fb2http://example.org/Person((Person))
+
+end
+
+subgraph nfb248304bd8242058b2d609284e9f85fb3 [Restriction &exist; R x]
+nfb248304bd8242058b2d609284e9f85fb3http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate[predicate] -- value --> nfb248304bd8242058b2d609284e9f85fb3http://example.org/livesAt((livesAt))
+
+end
+
+http://example.org/Class((Class)) -- equivalentTo --> http://example.org/Classa9fa2a07088eab0fdeba87a700649c83efcb5d8acc81595ce19d326bf7936a57
+subgraph http://example.org/Classa9fa2a07088eab0fdeba87a700649c83efcb5d8acc81595ce19d326bf7936a57 [Intersection C &cap; D]
+nfb248304bd8242058b2d609284e9f85fb1 -- and --- nfb248304bd8242058b2d609284e9f85fb2 -- and --- nfb248304bd8242058b2d609284e9f85fb3 -- and --- nfb248304bd8242058b2d609284e9f85fb4 -- and --- nfb248304bd8242058b2d609284e9f85fb5
+end
+
+                    
+                    
+                    </pre>
+                    <script type="module">
+                      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+                      mermaid.initialize({ startOnLoad: true });
+                    </script>
+                    </div>
+                    </body>
+                    </html>
+                    

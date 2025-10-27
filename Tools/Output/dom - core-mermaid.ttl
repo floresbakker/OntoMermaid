@@ -1,0 +1,460 @@
+@prefix dcm: <http://purl.org/dc/dcmitype/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dom: <http://www.w3.org/DOM/model/def/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns1: <https://mermaid.org/ontomermaid/model/def/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix section: <http://www.w3.org/DOM/id/section/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix standard: <http://www.w3.org/DOM/id/standard/> .
+@prefix status: <http://purl.org/adms/status/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+section:DOMImplementation a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#interface-domimplementation"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.5.1. Interface DOMImplementation"@en .
+
+section:NamedNodeMap a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#interface-namednodemap"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.9.1. Interface NamedNodeMap"@en .
+
+dom:CDATASection a owl:Class ;
+    dct:conformsTo section:CDATASection ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:subClassOf dom:Text ;
+    skos:definition "A CDATA section in a DOM document is used to include blocks of text that should not be interpreted as markup by a processor."@en ;
+    skos:prefLabel "CDATA Section"@en ;
+    ns1:label """http://www.w3.org/DOM/model/def/CDATASection((dom:CDATASection)) -- subClassOf --> http://www.w3.org/DOM/model/def/Text((dom:Text))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+dom:Comment a owl:Class ;
+    dct:conformsTo section:Comment ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:subClassOf dom:CharacterData ;
+    skos:definition "Represents a comment in the HTML or XML document. Comments are not rendered but are included in the DOM for developers' reference."@en ;
+    skos:prefLabel "Comment"@en ;
+    ns1:label """http://www.w3.org/DOM/model/def/Comment((dom:Comment)) -- subClassOf --> http://www.w3.org/DOM/model/def/CharacterData((dom:CharacterData))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+dom:DocumentElement a owl:Class ;
+    dct:conformsTo section:DocumentElement ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:subClassOf dom:DocumentTreeNode ;
+    skos:definition "The document element of a document is the element whose parent is that document."@en ;
+    skos:prefLabel "Document element"@en ;
+    ns1:label """http://www.w3.org/DOM/model/def/DocumentElement((dom:DocumentElement)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+dom:DocumentType a owl:Class ;
+    dct:conformsTo section:DocumentType ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:subClassOf dom:DocumentTreeNode ;
+    skos:definition "Represents the document type declaration (<!DOCTYPE>) of a DOM-document. It specifies the document type to which the document conforms."@en ;
+    skos:prefLabel "Doctype"@en ;
+    ns1:label """http://www.w3.org/DOM/model/def/DocumentType((dom:DocumentType)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+dom:NodeTree a owl:Class ;
+    dct:conformsTo section:NodeTree ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:subClassOf dom:Tree ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:allValuesFrom dom:Node ;
+            owl:onProperty rdfs:member ;
+            ns1:label """subgraph n638a79e9e0574f229967918ce2ab8e98b1[Restriction &forall; R C]
+n638a79e9e0574f229967918ce2ab8e98b1thing((thing)) --> n638a79e9e0574f229967918ce2ab8e98b1http://www.w3.org/2000/01/rdf-schema#member[http://www.w3.org/2000/01/rdf-schema#member]
+
+n638a79e9e0574f229967918ce2ab8e98b1http://www.w3.org/2000/01/rdf-schema#member[http://www.w3.org/2000/01/rdf-schema#member]
+ -- only --> n638a79e9e0574f229967918ce2ab8e98b1http://www.w3.org/DOM/model/def/Node((dom:Node))
+
+end
+""" ;
+            ns1:syntax "ONLY" ] ;
+    skos:definition "A node tree consists of an ordered set of nodes."@en ;
+    skos:prefLabel "Node tree"@en ;
+    ns1:label """http://www.w3.org/DOM/model/def/NodeTree((dom:NodeTree)) -- equivalentTo --> n638a79e9e0574f229967918ce2ab8e98b1((Anonymous class))
+""",
+        """http://www.w3.org/DOM/model/def/NodeTree((dom:NodeTree)) -- subClassOf --> http://www.w3.org/DOM/model/def/Tree((dom:Tree))
+""" ;
+    ns1:syntax "EQUIVALENTTO",
+        "SUBCLASSOF" .
+
+dom:ProcessingInstruction a owl:Class ;
+    dct:conformsTo section:ProcessingInstruction ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:subClassOf dom:CharacterData ;
+    skos:definition "Represents a processing instruction in the DOM document. Processing instructions provide instructions to the application for processing the document."@en ;
+    skos:prefLabel "Processing Instruction"@en ;
+    ns1:label """http://www.w3.org/DOM/model/def/ProcessingInstruction((dom:ProcessingInstruction)) -- subClassOf --> http://www.w3.org/DOM/model/def/CharacterData((dom:CharacterData))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+dom:ShadowRoot a owl:Class ;
+    dct:conformsTo section:ShadowRoot ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:subClassOf dom:DocumentFragment ;
+    skos:definition "Represents a separate subtree of the document tree that can be associated with a particular element, effectively creating a 'shadow DOM' within the element."@en ;
+    skos:prefLabel "Shadow Root"@en ;
+    ns1:label """http://www.w3.org/DOM/model/def/ShadowRoot((dom:ShadowRoot)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentFragment((dom:DocumentFragment))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+dom:class a owl:DatatypeProperty,
+        dom:Attribute ;
+    dct:conformsTo section:Class ;
+    rdfs:domain dom:Element ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:range xsd:string ;
+    skos:definition "Specifies a class for a DOM element."@en ;
+    skos:prefLabel "the class attribute"@en ;
+    dom:key "class" ;
+    ns1:label "http://www.w3.org/DOM/model/def/Element -- dom:class --> http://www.w3.org/2001/XMLSchema#string:::Datatype" ;
+    ns1:syntax "DATATYPEPROPERTY" .
+
+dom:customElementDefinition a owl:DatatypeProperty ;
+    dct:conformsTo section:Element ;
+    rdfs:domain dom:Element ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:range xsd:string ;
+    skos:definition "Specifies a custom element definition for a DOM element."@en ;
+    skos:prefLabel "custom element definition"@en ;
+    ns1:label "http://www.w3.org/DOM/model/def/Element -- dom:customElementDefinition --> http://www.w3.org/2001/XMLSchema#string:::Datatype" ;
+    ns1:syntax "DATATYPEPROPERTY" .
+
+dom:customElementState a owl:DatatypeProperty ;
+    dct:conformsTo section:Element ;
+    rdfs:domain dom:Element ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:range xsd:string ;
+    skos:definition "Specifies a custom element state for a DOM element."@en ;
+    skos:prefLabel "custom element state"@en ;
+    ns1:label "http://www.w3.org/DOM/model/def/Element -- dom:customElementState --> http://www.w3.org/2001/XMLSchema#string:::Datatype" ;
+    ns1:syntax "DATATYPEPROPERTY" .
+
+dom:documentBaseURL a owl:DatatypeProperty ;
+    dct:conformsTo section:Node ;
+    rdfs:domain dom:Document ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:range xsd:string ;
+    skos:definition "Specifies the node document's document base URL."@en ;
+    skos:prefLabel "document base URL"@en ;
+    ns1:label "http://www.w3.org/DOM/model/def/Document -- dom:documentBaseURL --> http://www.w3.org/2001/XMLSchema#string:::Datatype" ;
+    ns1:syntax "DATATYPEPROPERTY" .
+
+dom:id a owl:DatatypeProperty,
+        dom:Attribute ;
+    dct:conformsTo section:ID ;
+    rdfs:domain dom:Element ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:range xsd:string ;
+    skos:definition "Specifies an associated unique identifier (ID) for a DOM element."@en ;
+    skos:prefLabel "the id attribute"@en ;
+    dom:key "id" ;
+    ns1:label "http://www.w3.org/DOM/model/def/Element -- dom:id --> http://www.w3.org/2001/XMLSchema#string:::Datatype" ;
+    ns1:syntax "DATATYPEPROPERTY" .
+
+dom:isValue a owl:DatatypeProperty ;
+    dct:conformsTo section:Element ;
+    rdfs:domain dom:Element ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:range xsd:string ;
+    skos:definition "Specifies an is value for a DOM element."@en ;
+    skos:prefLabel "is value"@en ;
+    ns1:label "http://www.w3.org/DOM/model/def/Element -- dom:isValue --> http://www.w3.org/2001/XMLSchema#string:::Datatype" ;
+    ns1:syntax "DATATYPEPROPERTY" .
+
+dom:localName a owl:DatatypeProperty ;
+    dct:conformsTo section:Element ;
+    rdfs:domain dom:Element ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:range xsd:string ;
+    skos:definition "Specifies the local name for a DOM element."@en ;
+    skos:prefLabel "local name"@en ;
+    ns1:label "http://www.w3.org/DOM/model/def/Element -- dom:localName --> http://www.w3.org/2001/XMLSchema#string:::Datatype" ;
+    ns1:syntax "DATATYPEPROPERTY" .
+
+dom:name a owl:DatatypeProperty,
+        dom:Attribute ;
+    dct:conformsTo section:Name ;
+    rdfs:domain dom:Element ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:range xsd:string ;
+    skos:definition "Specifies a name for a DOM element."@en ;
+    skos:prefLabel "the name attribute"@en ;
+    ns1:label "http://www.w3.org/DOM/model/def/Element -- dom:name --> http://www.w3.org/2001/XMLSchema#string:::Datatype" ;
+    ns1:syntax "DATATYPEPROPERTY" .
+
+dom:namespace a owl:DatatypeProperty ;
+    dct:conformsTo section:Element ;
+    rdfs:domain dom:Element ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:range xsd:anyUri ;
+    skos:definition "Specifies the namespace for a DOM element."@en ;
+    skos:prefLabel "namespace"@en ;
+    ns1:label "http://www.w3.org/DOM/model/def/Element -- dom:namespace --> http://www.w3.org/2001/XMLSchema#anyUri:::Datatype" ;
+    ns1:syntax "DATATYPEPROPERTY" .
+
+dom:namespacePrefix a owl:DatatypeProperty ;
+    dct:conformsTo section:Element ;
+    rdfs:domain dom:Element ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:range xsd:string ;
+    skos:definition "Specifies the namespace prefix for a DOM element."@en ;
+    skos:prefLabel "namespace prefix"@en ;
+    ns1:label "http://www.w3.org/DOM/model/def/Element -- dom:namespacePrefix --> http://www.w3.org/2001/XMLSchema#string:::Datatype" ;
+    ns1:syntax "DATATYPEPROPERTY" .
+
+dom:nodeName a owl:DatatypeProperty ;
+    dct:conformsTo section:Node ;
+    rdfs:domain dom:Node ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:range xsd:string ;
+    skos:definition "Specifies a name for a DOM node."@en ;
+    skos:prefLabel "node name"@en ;
+    ns1:label "http://www.w3.org/DOM/model/def/Node -- dom:nodeName --> http://www.w3.org/2001/XMLSchema#string:::Datatype" ;
+    ns1:syntax "DATATYPEPROPERTY" .
+
+dom:slot a owl:DatatypeProperty,
+        dom:Attribute ;
+    dct:conformsTo section:Slot ;
+    rdfs:domain dom:Element ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:range xsd:string ;
+    skos:definition "Specifies a slot for a DOM element."@en ;
+    skos:prefLabel "the slot attribute"@en ;
+    dom:key "slot" ;
+    ns1:label "http://www.w3.org/DOM/model/def/Element -- dom:slot --> http://www.w3.org/2001/XMLSchema#string:::Datatype" ;
+    ns1:syntax "DATATYPEPROPERTY" .
+
+section:Attribute a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#interface-attr"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.9.2. Interface Attr"@en .
+
+section:CDATASection a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#interface-cdatasection"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.12. Interface CDATASection"@en .
+
+section:CharacterData a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#interface-characterdata"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.10. Interface CharacterData"@en .
+
+section:Class a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#concept-class"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.9. Interface Element - Class"@en .
+
+section:Comment a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#interface-comment"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.14. Interface Comment"@en .
+
+section:Document a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#interface-document"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.5. Interface Document"@en .
+
+section:DocumentElement a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#document-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.2. Node tree - document element"@en .
+
+section:DocumentFragment a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#interface-documentfragment"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.7. Interface DocumentFragment"@en .
+
+section:DocumentType a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#interface-documenttype"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.6. Interface DocumentType"@en .
+
+section:ID a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#concept-id"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.9. Interface Element - Unique Identifier (ID)"@en .
+
+section:NodeTree a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#node-trees"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.2. Node tree"@en .
+
+section:ProcessingInstruction a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#interface-processinginstruction"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.13. Interface ProcessingInstruction"@en .
+
+section:ShadowRoot a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#interface-shadowroot"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.8. Interface ShadowRoot"@en .
+
+section:Slot a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#concept-slot"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.2.2.1. Slots"@en .
+
+section:Text a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#interface-text"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.11. Interface Text"@en .
+
+dom:Document a owl:Class ;
+    dct:conformsTo section:Document ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:subClassOf dom:DocumentTreeNode ;
+    skos:definition "In the DOM specification, the term 'document' is used for any markup-based resource, ranging from short static documents to long essays or reports with rich multimedia, as well as to fully-fledged interactive applications. Each such document is represented as a node tree, whose root is a document. Some of the nodes in a tree can have children, while others are always leaves. "@en ;
+    skos:prefLabel "Document"@en ;
+    ns1:label """http://www.w3.org/DOM/model/def/Document((dom:Document)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+dom:DocumentFragment a owl:Class ;
+    dct:conformsTo section:DocumentFragment ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:subClassOf dom:Node ;
+    skos:definition "Represents a minimal document object that has no parent. It can be used to hold a group of nodes for processing purposes before adding them to the main document."@en ;
+    skos:prefLabel "Document Fragment"@en ;
+    ns1:label """http://www.w3.org/DOM/model/def/DocumentFragment((dom:DocumentFragment)) -- subClassOf --> http://www.w3.org/DOM/model/def/Node((dom:Node))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+dom:Text a owl:Class ;
+    dct:conformsTo section:Text ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:subClassOf dom:CharacterData ;
+    skos:definition "Represents textual content within a DOM document. It's used to represent plain text nodes that are not part of markup elements. Text nodes can occur within elements, between elements, or as the content of attributes."@en ;
+    skos:prefLabel "Text"@en ;
+    ns1:label """http://www.w3.org/DOM/model/def/Text((dom:Text)) -- subClassOf --> http://www.w3.org/DOM/model/def/CharacterData((dom:CharacterData))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+dom:Tree a owl:Class ;
+    dct:conformsTo section:Tree ;
+    rdfs:isDefinedBy dom: ;
+    skos:definition "A tree is a finite hierarchical tree structure. In tree order is preorder, depth-first traversal of a tree. An object that participates in a tree has a parent, which is either null or an object, and has children, which is an ordered set of objects."@en ;
+    skos:prefLabel "Tree"@en ;
+    ns1:label "http://www.w3.org/DOM/model/def/Tree((dom:Tree))" ;
+    ns1:syntax "CLASS" .
+
+section:Node a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#interface-node"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.4. Interface Node"@en .
+
+dom:CharacterData a owl:Class ;
+    dct:conformsTo section:CharacterData ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:subClassOf dom:DocumentTreeNode ;
+    skos:definition "Represents textual data nodes within a DOM document. It is a common superclass for specific types of nodes that contain text, including elements, comments, and CDATA sections."@en ;
+    skos:prefLabel "Character Data"@en ;
+    ns1:label """http://www.w3.org/DOM/model/def/CharacterData((dom:CharacterData)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+dom:Attribute a owl:Class ;
+    dct:conformsTo section:Attribute ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:subClassOf dom:Node ;
+    skos:definition "An attribute is a name-value pair associated with a DOM element. An attributes has a namespace (null or a non-empty string), namespace prefix (null or a non-empty string), local name (a non-empty string), value (a string), and element (null or an element)."@en ;
+    skos:prefLabel "Attribute"@en ;
+    ns1:label """http://www.w3.org/DOM/model/def/Attribute((dom:Attribute)) -- subClassOf --> http://www.w3.org/DOM/model/def/Node((dom:Node))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+dom:DocumentTreeNode a owl:Class ;
+    dct:conformsTo section:DocumentTree ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:subClassOf dom:Node ;
+    skos:definition "A document tree node is any node within a node tree whose root is a document node. These nodes form the hierarchical representation of the document, including document, documenttype, elements, comments, and text nodes, that contribute to the document's structure and content."@en ;
+    skos:prefLabel "Document tree node"@en ;
+    ns1:label """http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode)) -- subClassOf --> http://www.w3.org/DOM/model/def/Node((dom:Node))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+dom:Node a owl:Class ;
+    dct:conformsTo section:Node ;
+    rdfs:isDefinedBy dom: ;
+    skos:definition "A node is an object that implements Node. A node participates in a tree, which is known as the node tree."@en ;
+    skos:prefLabel "Node"@en ;
+    ns1:label "http://www.w3.org/DOM/model/def/Node((dom:Node))" ;
+    ns1:syntax "CLASS" .
+
+section:Element a dcm:Text ;
+    dct:isPartOf standard:dom ;
+    dct:source "https://dom.spec.whatwg.org/#interface-element"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "4.9. Interface Element"@en .
+
+dom:Element a owl:Class ;
+    dct:conformsTo section:Element ;
+    rdfs:isDefinedBy dom: ;
+    rdfs:subClassOf dom:DocumentTreeNode ;
+    skos:definition "Represents an element in the document. Each element may contain other elements, attributes, or text nodes."@en ;
+    skos:prefLabel "Element"@en ;
+    ns1:label """http://www.w3.org/DOM/model/def/Element((dom:Element)) -- subClassOf --> http://www.w3.org/DOM/model/def/DocumentTreeNode((dom:DocumentTreeNode))
+""" ;
+    ns1:syntax "SUBCLASSOF" .
+
+standard:dom a dct:Standard ;
+    dct:created "2024-04-07"^^xsd:date ;
+    dct:source "https://dom.spec.whatwg.org/"^^xsd:anyURI ;
+    rdfs:isDefinedBy dom: ;
+    skos:prefLabel "Document Object Model (DOM) - Living Standard"@en .
+
+dom: a void:Dataset,
+        owl:Ontology ;
+    dct:abstract "The DOM Core Ontology provides a formal representation of the Document Object Model (DOM) as specified in the W3C Living Standard of DOM at https://dom.spec.whatwg.org/. It defines classes and properties to describe the structure and semantics of DOM documents, elements, attributes, comments, processing instructions, CDATA sections, and text elements."@en ;
+    dct:created "2023-10-29"^^xsd:date ;
+    dct:creator "Flores Bakker" ;
+    dct:description "The DOM Ontology formalizes the Document Object Model (DOM) as specified at https://dom.spec.whatwg.org/, offering a structured representation of its components and features. It includes definitions for essential concepts such as DOM documents, elements, attributes, comments, processing instructions, CDATA sections, and text elements. The ontology serves as a reference for understanding and working with DOM within the context of RDF-based applications."@en ;
+    dct:language "iso639-1:en" ;
+    dct:license "http://creativecommons.org/licenses/by/4.0"^^xsd:anyURI ;
+    dct:publisher <https://rijksfinancien.nl> ;
+    dct:source <https://github.com/floresbakker/domvoc> ;
+    dct:status status:UnderDevelopment ;
+    dct:subject "dom"@en ;
+    dct:title "DOM Ontology"@en ;
+    vann:preferredNamespacePrefix "dom" ;
+    vann:preferredNamespaceUri "http://www.w3.org/DOM/model/def/" ;
+    void:uriRegexPattern "^http://www.w3.org/DOM/model/def/" ;
+    void:uriSpace "http://www.w3.org/DOM/model/def/"^^xsd:anyURI ;
+    owl:imports dct:,
+        rdf:,
+        rdfs:,
+        owl:,
+        skos: ;
+    owl:versionInfo "0.1.0" ;
+    foaf:depiction "https://www.rijksfinancien.nl/themes/custom/indicia_theme/files/logo-rijksoverheid.svg"^^xsd:anyURI ;
+    foaf:homepage "https://www.rijksfinancien.nl/"^^xsd:anyURI .
+

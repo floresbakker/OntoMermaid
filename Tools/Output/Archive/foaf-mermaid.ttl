@@ -2,8 +2,8 @@
 @prefix dc11: <http://purl.org/dc/elements/1.1/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo1: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/> .
 @prefix ns0: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
-@prefix ns1: <https://mermaid.org/ontomermaid/model/def/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -17,9 +17,9 @@ foaf:Agent a rdfs:Class,
     rdfs:comment "An agent (eg. person, group, software or physical artifact)." ;
     owl:equivalentClass dc:Agent ;
     ns0:term_status "stable" ;
-    ns1:label """http://xmlns.com/foaf/0.1/Agent((http://xmlns.com/foaf/0.1/Agent)) -- equivalentTo --> http://purl.org/dc/terms/Agent((http://purl.org/dc/terms/Agent))
+    mermaid:label """http://xmlns.com/foaf/0.1/Agent((Agent)) -- equivalentTo --> http://purl.org/dc/terms/Agent
 """ ;
-    ns1:syntax "EQUIVALENTTO" .
+    mermaid:syntax "EQUIVALENTTO" .
 
 foaf:Document a rdfs:Class,
         owl:Class ;
@@ -30,9 +30,9 @@ foaf:Document a rdfs:Class,
         foaf:Project ;
     owl:equivalentClass schema1:CreativeWork ;
     ns0:term_status "stable" ;
-    ns1:label """http://xmlns.com/foaf/0.1/Document((http://xmlns.com/foaf/0.1/Document)) -- equivalentTo --> http://schema.org/CreativeWork((http://schema.org/CreativeWork))
+    mermaid:label """http://xmlns.com/foaf/0.1/Document((Document)) -- equivalentTo --> http://schema.org/CreativeWork
 """ ;
-    ns1:syntax "EQUIVALENTTO" .
+    mermaid:syntax "EQUIVALENTTO" .
 
 foaf:Group a rdfs:Class,
         owl:Class ;
@@ -40,9 +40,9 @@ foaf:Group a rdfs:Class,
     rdfs:comment "A class of Agents." ;
     rdfs:subClassOf foaf:Agent ;
     ns0:term_status "stable" ;
-    ns1:label """http://xmlns.com/foaf/0.1/Group((http://xmlns.com/foaf/0.1/Group)) -- subClassOf --> http://xmlns.com/foaf/0.1/Agent((http://xmlns.com/foaf/0.1/Agent))
+    mermaid:label """http://xmlns.com/foaf/0.1/Group((Group)) -- subClassOf --> http://xmlns.com/foaf/0.1/Agent
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 foaf:Image a rdfs:Class,
         owl:Class ;
@@ -52,11 +52,11 @@ foaf:Image a rdfs:Class,
     rdfs:subClassOf foaf:Document ;
     owl:equivalentClass schema1:ImageObject ;
     ns0:term_status "stable" ;
-    ns1:label """http://xmlns.com/foaf/0.1/Image((http://xmlns.com/foaf/0.1/Image)) -- equivalentTo --> http://schema.org/ImageObject((http://schema.org/ImageObject))
+    mermaid:label """http://xmlns.com/foaf/0.1/Image((Image)) -- equivalentTo --> http://schema.org/ImageObject
 """,
-        """http://xmlns.com/foaf/0.1/Image((http://xmlns.com/foaf/0.1/Image)) -- subClassOf --> http://xmlns.com/foaf/0.1/Document((http://xmlns.com/foaf/0.1/Document))
+        """http://xmlns.com/foaf/0.1/Image((Image)) -- subClassOf --> http://xmlns.com/foaf/0.1/Document
 """ ;
-    ns1:syntax "EQUIVALENTTO",
+    mermaid:syntax "EQUIVALENTTO",
         "SUBCLASSOF" .
 
 foaf:LabelProperty a rdfs:Class,
@@ -65,8 +65,8 @@ foaf:LabelProperty a rdfs:Class,
     rdfs:comment "A foaf:LabelProperty is any RDF property with texual values that serve as labels." ;
     rdfs:isDefinedBy foaf: ;
     ns0:term_status "unstable" ;
-    ns1:label "http://xmlns.com/foaf/0.1/LabelProperty((http://xmlns.com/foaf/0.1/LabelProperty))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://xmlns.com/foaf/0.1/LabelProperty((LabelProperty))" ;
+    mermaid:syntax "CLASS" .
 
 foaf:OnlineAccount a rdfs:Class,
         owl:Class ;
@@ -75,9 +75,9 @@ foaf:OnlineAccount a rdfs:Class,
     rdfs:isDefinedBy foaf: ;
     rdfs:subClassOf owl:Thing ;
     ns0:term_status "testing" ;
-    ns1:label """http://xmlns.com/foaf/0.1/OnlineAccount((http://xmlns.com/foaf/0.1/OnlineAccount)) -- subClassOf --> http://www.w3.org/2002/07/owl#Thing((http://www.w3.org/2002/07/owl#Thing))
+    mermaid:label """http://xmlns.com/foaf/0.1/OnlineAccount((OnlineAccount)) -- subClassOf --> http://www.w3.org/2002/07/owl#Thing
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 foaf:OnlineChatAccount a rdfs:Class,
         owl:Class ;
@@ -86,9 +86,9 @@ foaf:OnlineChatAccount a rdfs:Class,
     rdfs:isDefinedBy foaf: ;
     rdfs:subClassOf foaf:OnlineAccount ;
     ns0:term_status "unstable" ;
-    ns1:label """http://xmlns.com/foaf/0.1/OnlineChatAccount((http://xmlns.com/foaf/0.1/OnlineChatAccount)) -- subClassOf --> http://xmlns.com/foaf/0.1/OnlineAccount((http://xmlns.com/foaf/0.1/OnlineAccount))
+    mermaid:label """http://xmlns.com/foaf/0.1/OnlineChatAccount((OnlineChatAccount)) -- subClassOf --> http://xmlns.com/foaf/0.1/OnlineAccount
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 foaf:OnlineEcommerceAccount a rdfs:Class,
         owl:Class ;
@@ -97,9 +97,9 @@ foaf:OnlineEcommerceAccount a rdfs:Class,
     rdfs:isDefinedBy foaf: ;
     rdfs:subClassOf foaf:OnlineAccount ;
     ns0:term_status "unstable" ;
-    ns1:label """http://xmlns.com/foaf/0.1/OnlineEcommerceAccount((http://xmlns.com/foaf/0.1/OnlineEcommerceAccount)) -- subClassOf --> http://xmlns.com/foaf/0.1/OnlineAccount((http://xmlns.com/foaf/0.1/OnlineAccount))
+    mermaid:label """http://xmlns.com/foaf/0.1/OnlineEcommerceAccount((OnlineEcommerceAccount)) -- subClassOf --> http://xmlns.com/foaf/0.1/OnlineAccount
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 foaf:OnlineGamingAccount a rdfs:Class,
         owl:Class ;
@@ -108,9 +108,9 @@ foaf:OnlineGamingAccount a rdfs:Class,
     rdfs:isDefinedBy foaf: ;
     rdfs:subClassOf foaf:OnlineAccount ;
     ns0:term_status "unstable" ;
-    ns1:label """http://xmlns.com/foaf/0.1/OnlineGamingAccount((http://xmlns.com/foaf/0.1/OnlineGamingAccount)) -- subClassOf --> http://xmlns.com/foaf/0.1/OnlineAccount((http://xmlns.com/foaf/0.1/OnlineAccount))
+    mermaid:label """http://xmlns.com/foaf/0.1/OnlineGamingAccount((OnlineGamingAccount)) -- subClassOf --> http://xmlns.com/foaf/0.1/OnlineAccount
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 foaf:Organization a rdfs:Class,
         owl:Class ;
@@ -121,9 +121,9 @@ foaf:Organization a rdfs:Class,
     owl:disjointWith foaf:Document,
         foaf:Person ;
     ns0:term_status "stable" ;
-    ns1:label """http://xmlns.com/foaf/0.1/Organization((http://xmlns.com/foaf/0.1/Organization)) -- subClassOf --> http://xmlns.com/foaf/0.1/Agent((http://xmlns.com/foaf/0.1/Agent))
+    mermaid:label """http://xmlns.com/foaf/0.1/Organization((Organization)) -- subClassOf --> http://xmlns.com/foaf/0.1/Agent
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 foaf:Person a rdfs:Class,
         owl:Class ;
@@ -137,15 +137,15 @@ foaf:Person a rdfs:Class,
     owl:equivalentClass schema1:Person,
         <http://www.w3.org/2000/10/swap/pim/contact#Person> ;
     ns0:term_status "stable" ;
-    ns1:label """http://xmlns.com/foaf/0.1/Person((http://xmlns.com/foaf/0.1/Person)) -- equivalentTo --> http://schema.org/Person((http://schema.org/Person))
+    mermaid:label """http://xmlns.com/foaf/0.1/Person((Person)) -- equivalentTo --> http://schema.org/Person
 """,
-        """http://xmlns.com/foaf/0.1/Person((http://xmlns.com/foaf/0.1/Person)) -- equivalentTo --> http://www.w3.org/2000/10/swap/pim/contact#Person((http://www.w3.org/2000/10/swap/pim/contact#Person))
+        """http://xmlns.com/foaf/0.1/Person((Person)) -- equivalentTo --> http://www.w3.org/2000/10/swap/pim/contact#Person
 """,
-        """http://xmlns.com/foaf/0.1/Person((http://xmlns.com/foaf/0.1/Person)) -- subClassOf --> http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing((http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing))
+        """http://xmlns.com/foaf/0.1/Person((Person)) -- subClassOf --> http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing
 """,
-        """http://xmlns.com/foaf/0.1/Person((http://xmlns.com/foaf/0.1/Person)) -- subClassOf --> http://xmlns.com/foaf/0.1/Agent((http://xmlns.com/foaf/0.1/Agent))
+        """http://xmlns.com/foaf/0.1/Person((Person)) -- subClassOf --> http://xmlns.com/foaf/0.1/Agent
 """ ;
-    ns1:syntax "EQUIVALENTTO",
+    mermaid:syntax "EQUIVALENTTO",
         "SUBCLASSOF" .
 
 foaf:PersonalProfileDocument a rdfs:Class,
@@ -154,9 +154,9 @@ foaf:PersonalProfileDocument a rdfs:Class,
     rdfs:comment "A personal profile RDF document." ;
     rdfs:subClassOf foaf:Document ;
     ns0:term_status "testing" ;
-    ns1:label """http://xmlns.com/foaf/0.1/PersonalProfileDocument((http://xmlns.com/foaf/0.1/PersonalProfileDocument)) -- subClassOf --> http://xmlns.com/foaf/0.1/Document((http://xmlns.com/foaf/0.1/Document))
+    mermaid:label """http://xmlns.com/foaf/0.1/PersonalProfileDocument((PersonalProfileDocument)) -- subClassOf --> http://xmlns.com/foaf/0.1/Document
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 foaf:Project a rdfs:Class,
         owl:Class ;
@@ -166,8 +166,8 @@ foaf:Project a rdfs:Class,
     owl:disjointWith foaf:Document,
         foaf:Person ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Project((http://xmlns.com/foaf/0.1/Project))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://xmlns.com/foaf/0.1/Project((Project))" ;
+    mermaid:syntax "CLASS" .
 
 dc11:date a owl:AnnotationProperty .
 
@@ -185,8 +185,8 @@ foaf:account a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range foaf:OnlineAccount ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/account --> http://xmlns.com/foaf/0.1/OnlineAccount" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- account --> http://xmlns.com/foaf/0.1/OnlineAccount" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:accountName a rdf:Property,
@@ -197,9 +197,9 @@ foaf:accountName a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/OnlineAccount -- http://xmlns.com/foaf/0.1/accountName --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/OnlineAccount -- http://xmlns.com/foaf/0.1/accountName --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/OnlineAccount -- accountName --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/OnlineAccount -- accountName --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:accountServiceHomepage a rdf:Property,
@@ -210,8 +210,8 @@ foaf:accountServiceHomepage a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range foaf:Document ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/OnlineAccount -- http://xmlns.com/foaf/0.1/accountServiceHomepage --> http://xmlns.com/foaf/0.1/Document" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/OnlineAccount -- accountServiceHomepage --> http://xmlns.com/foaf/0.1/Document" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:age a rdf:Property,
@@ -223,9 +223,9 @@ foaf:age a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "unstable" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/age --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/age --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- age --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Agent -- age --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:aimChatID a rdf:Property,
@@ -238,9 +238,9 @@ foaf:aimChatID a rdf:Property,
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf foaf:nick ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/aimChatID --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/aimChatID --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- aimChatID --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Agent -- aimChatID --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:based_near a rdf:Property,
@@ -251,8 +251,8 @@ foaf:based_near a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range geo1:SpatialThing ;
     ns0:term_status "testing" ;
-    ns1:label "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -- http://xmlns.com/foaf/0.1/based_near --> http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -- based_near --> http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:birthday a rdf:Property,
@@ -264,9 +264,9 @@ foaf:birthday a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "unstable" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/birthday --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/birthday --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- birthday --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Agent -- birthday --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:currentProject a rdf:Property,
@@ -277,8 +277,8 @@ foaf:currentProject a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range owl:Thing ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/currentProject --> http://www.w3.org/2002/07/owl#Thing" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- currentProject --> http://www.w3.org/2002/07/owl#Thing" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:dnaChecksum a rdf:Property,
@@ -288,8 +288,8 @@ foaf:dnaChecksum a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "archaic" ;
-    ns1:label "rdfs:Resource -- http://xmlns.com/foaf/0.1/dnaChecksum --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "rdfs:Resource -- dnaChecksum --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:familyName a rdf:Property,
@@ -300,9 +300,9 @@ foaf:familyName a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/familyName --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/familyName --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- familyName --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Person -- familyName --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:family_name a rdf:Property,
@@ -313,9 +313,9 @@ foaf:family_name a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "archaic" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/family_name --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/family_name --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- family_name --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Person -- family_name --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:firstName a rdf:Property,
@@ -326,9 +326,9 @@ foaf:firstName a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/firstName --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/firstName --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- firstName --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Person -- firstName --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:focus a rdf:Property,
@@ -339,8 +339,8 @@ foaf:focus a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range owl:Thing ;
     ns0:term_status "testing" ;
-    ns1:label "http://www.w3.org/2004/02/skos/core#Concept -- http://xmlns.com/foaf/0.1/focus --> http://www.w3.org/2002/07/owl#Thing" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://www.w3.org/2004/02/skos/core#Concept -- focus --> http://www.w3.org/2002/07/owl#Thing" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:fundedBy a rdf:Property,
@@ -351,8 +351,8 @@ foaf:fundedBy a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range owl:Thing ;
     ns0:term_status "archaic" ;
-    ns1:label "http://www.w3.org/2002/07/owl#Thing -- http://xmlns.com/foaf/0.1/fundedBy --> http://www.w3.org/2002/07/owl#Thing" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://www.w3.org/2002/07/owl#Thing -- fundedBy --> http://www.w3.org/2002/07/owl#Thing" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:geekcode a rdf:Property,
@@ -363,9 +363,9 @@ foaf:geekcode a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "archaic" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/geekcode --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/geekcode --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- geekcode --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Person -- geekcode --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:gender a rdf:Property,
@@ -377,9 +377,9 @@ foaf:gender a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/gender --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/gender --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- gender --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Agent -- gender --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:givenName a rdf:Property,
@@ -388,8 +388,8 @@ foaf:givenName a rdf:Property,
     rdfs:comment "The given name of some person." ;
     rdfs:isDefinedBy foaf: ;
     ns0:term_status "testing" ;
-    ns1:label "rdfs:Resource -- http://xmlns.com/foaf/0.1/givenName --> rdfs:Resource" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "rdfs:Resource -- givenName --> rdfs:Resource" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:givenname a rdf:Property,
@@ -398,8 +398,8 @@ foaf:givenname a rdf:Property,
     rdfs:comment "The given name of some person." ;
     rdfs:isDefinedBy foaf: ;
     ns0:term_status "archaic" ;
-    ns1:label "rdfs:Resource -- http://xmlns.com/foaf/0.1/givenname --> rdfs:Resource" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "rdfs:Resource -- givenname --> rdfs:Resource" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:holdsAccount a rdf:Property,
@@ -410,8 +410,8 @@ foaf:holdsAccount a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range foaf:OnlineAccount ;
     ns0:term_status "archaic" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/holdsAccount --> http://xmlns.com/foaf/0.1/OnlineAccount" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- holdsAccount --> http://xmlns.com/foaf/0.1/OnlineAccount" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:homepage a rdf:Property,
@@ -425,8 +425,8 @@ foaf:homepage a rdf:Property,
     rdfs:subPropertyOf foaf:isPrimaryTopicOf,
         foaf:page ;
     ns0:term_status "stable" ;
-    ns1:label "http://www.w3.org/2002/07/owl#Thing -- http://xmlns.com/foaf/0.1/homepage --> http://xmlns.com/foaf/0.1/Document" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://www.w3.org/2002/07/owl#Thing -- homepage --> http://xmlns.com/foaf/0.1/Document" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:icqChatID a rdf:Property,
@@ -439,9 +439,9 @@ foaf:icqChatID a rdf:Property,
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf foaf:nick ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/icqChatID --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/icqChatID --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- icqChatID --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Agent -- icqChatID --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:img a rdf:Property,
@@ -453,8 +453,8 @@ foaf:img a rdf:Property,
     rdfs:range foaf:Image ;
     rdfs:subPropertyOf foaf:depiction ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/img --> http://xmlns.com/foaf/0.1/Image" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- img --> http://xmlns.com/foaf/0.1/Image" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:interest a rdf:Property,
@@ -465,8 +465,8 @@ foaf:interest a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range foaf:Document ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/interest --> http://xmlns.com/foaf/0.1/Document" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- interest --> http://xmlns.com/foaf/0.1/Document" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:jabberID a rdf:Property,
@@ -478,9 +478,9 @@ foaf:jabberID a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/jabberID --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/jabberID --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- jabberID --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Agent -- jabberID --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:knows a rdf:Property,
@@ -491,8 +491,8 @@ foaf:knows a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range foaf:Person ;
     ns0:term_status "stable" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/knows --> http://xmlns.com/foaf/0.1/Person" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- knows --> http://xmlns.com/foaf/0.1/Person" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:lastName a rdf:Property,
@@ -503,9 +503,9 @@ foaf:lastName a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/lastName --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/lastName --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- lastName --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Person -- lastName --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:logo a rdf:Property,
@@ -517,8 +517,8 @@ foaf:logo a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range owl:Thing ;
     ns0:term_status "testing" ;
-    ns1:label "http://www.w3.org/2002/07/owl#Thing -- http://xmlns.com/foaf/0.1/logo --> http://www.w3.org/2002/07/owl#Thing" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://www.w3.org/2002/07/owl#Thing -- logo --> http://www.w3.org/2002/07/owl#Thing" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:mbox a rdf:Property,
@@ -530,8 +530,8 @@ foaf:mbox a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range owl:Thing ;
     ns0:term_status "stable" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/mbox --> http://www.w3.org/2002/07/owl#Thing" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- mbox --> http://www.w3.org/2002/07/owl#Thing" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:mbox_sha1sum a rdf:Property,
@@ -543,9 +543,9 @@ foaf:mbox_sha1sum a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/mbox_sha1sum --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/mbox_sha1sum --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- mbox_sha1sum --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Agent -- mbox_sha1sum --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:member a rdf:Property,
@@ -556,8 +556,8 @@ foaf:member a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range foaf:Agent ;
     ns0:term_status "stable" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Group -- http://xmlns.com/foaf/0.1/member --> http://xmlns.com/foaf/0.1/Agent" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Group -- member --> http://xmlns.com/foaf/0.1/Agent" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:membershipClass a rdf:Property,
@@ -566,8 +566,8 @@ foaf:membershipClass a rdf:Property,
     rdfs:comment "Indicates the class of individuals that are a member of a Group" ;
     rdfs:isDefinedBy foaf: ;
     ns0:term_status "unstable" ;
-    ns1:label "rdfs:Resource -- http://xmlns.com/foaf/0.1/membershipClass --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- membershipClass --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 foaf:msnChatID a rdf:Property,
         owl:DatatypeProperty,
@@ -579,9 +579,9 @@ foaf:msnChatID a rdf:Property,
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf foaf:nick ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/msnChatID --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/msnChatID --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- msnChatID --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Agent -- msnChatID --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:myersBriggs a rdf:Property,
@@ -592,9 +592,9 @@ foaf:myersBriggs a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/myersBriggs --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/myersBriggs --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- myersBriggs --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Person -- myersBriggs --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:name a rdf:Property,
@@ -606,9 +606,9 @@ foaf:name a rdf:Property,
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf rdfs:label ;
     ns0:term_status "testing" ;
-    ns1:label "http://www.w3.org/2002/07/owl#Thing -- http://xmlns.com/foaf/0.1/name --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://www.w3.org/2002/07/owl#Thing -- http://xmlns.com/foaf/0.1/name --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://www.w3.org/2002/07/owl#Thing -- name --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://www.w3.org/2002/07/owl#Thing -- name --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:openid a rdf:Property,
@@ -621,8 +621,8 @@ foaf:openid a rdf:Property,
     rdfs:range foaf:Document ;
     rdfs:subPropertyOf foaf:isPrimaryTopicOf ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/openid --> http://xmlns.com/foaf/0.1/Document" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- openid --> http://xmlns.com/foaf/0.1/Document" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:pastProject a rdf:Property,
@@ -633,8 +633,8 @@ foaf:pastProject a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range owl:Thing ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/pastProject --> http://www.w3.org/2002/07/owl#Thing" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- pastProject --> http://www.w3.org/2002/07/owl#Thing" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:phone a rdf:Property,
@@ -643,8 +643,8 @@ foaf:phone a rdf:Property,
     rdfs:comment "A phone,  specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel)." ;
     rdfs:isDefinedBy foaf: ;
     ns0:term_status "testing" ;
-    ns1:label "rdfs:Resource -- http://xmlns.com/foaf/0.1/phone --> rdfs:Resource" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "rdfs:Resource -- phone --> rdfs:Resource" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:plan a rdf:Property,
@@ -655,9 +655,9 @@ foaf:plan a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/plan --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/plan --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- plan --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Person -- plan --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:publications a rdf:Property,
@@ -668,8 +668,8 @@ foaf:publications a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range foaf:Document ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/publications --> http://xmlns.com/foaf/0.1/Document" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- publications --> http://xmlns.com/foaf/0.1/Document" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:schoolHomepage a rdf:Property,
@@ -680,8 +680,8 @@ foaf:schoolHomepage a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range foaf:Document ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/schoolHomepage --> http://xmlns.com/foaf/0.1/Document" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- schoolHomepage --> http://xmlns.com/foaf/0.1/Document" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:sha1 a rdf:Property,
@@ -691,8 +691,8 @@ foaf:sha1 a rdf:Property,
     rdfs:domain foaf:Document ;
     rdfs:isDefinedBy foaf: ;
     ns0:term_status "unstable" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Document -- http://xmlns.com/foaf/0.1/sha1 --> rdfs:Resource" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Document -- sha1 --> rdfs:Resource" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:skypeID a rdf:Property,
@@ -704,9 +704,9 @@ foaf:skypeID a rdf:Property,
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf foaf:nick ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/skypeID --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/skypeID --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- skypeID --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Agent -- skypeID --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:status a rdf:Property,
@@ -717,9 +717,9 @@ foaf:status a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "unstable" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/status --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/status --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- status --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Agent -- status --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:surname a rdf:Property,
@@ -730,9 +730,9 @@ foaf:surname a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range rdfs:Literal ;
     ns0:term_status "archaic" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/surname --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/surname --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- surname --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Person -- surname --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:theme a rdf:Property,
@@ -743,8 +743,8 @@ foaf:theme a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range owl:Thing ;
     ns0:term_status "archaic" ;
-    ns1:label "http://www.w3.org/2002/07/owl#Thing -- http://xmlns.com/foaf/0.1/theme --> http://www.w3.org/2002/07/owl#Thing" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://www.w3.org/2002/07/owl#Thing -- theme --> http://www.w3.org/2002/07/owl#Thing" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:thumbnail a rdf:Property,
@@ -755,8 +755,8 @@ foaf:thumbnail a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range foaf:Image ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Image -- http://xmlns.com/foaf/0.1/thumbnail --> http://xmlns.com/foaf/0.1/Image" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Image -- thumbnail --> http://xmlns.com/foaf/0.1/Image" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:tipjar a rdf:Property,
@@ -768,8 +768,8 @@ foaf:tipjar a rdf:Property,
     rdfs:range foaf:Document ;
     rdfs:subPropertyOf foaf:page ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/tipjar --> http://xmlns.com/foaf/0.1/Document" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- tipjar --> http://xmlns.com/foaf/0.1/Document" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:title a rdf:Property,
@@ -778,8 +778,8 @@ foaf:title a rdf:Property,
     rdfs:comment "Title (Mr, Mrs, Ms, Dr. etc)" ;
     rdfs:isDefinedBy foaf: ;
     ns0:term_status "testing" ;
-    ns1:label "rdfs:Resource -- http://xmlns.com/foaf/0.1/title --> rdfs:Resource" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "rdfs:Resource -- title --> rdfs:Resource" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:topic_interest a rdf:Property,
@@ -790,8 +790,8 @@ foaf:topic_interest a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range owl:Thing ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/topic_interest --> http://www.w3.org/2002/07/owl#Thing" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- topic_interest --> http://www.w3.org/2002/07/owl#Thing" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:weblog a rdf:Property,
@@ -804,8 +804,8 @@ foaf:weblog a rdf:Property,
     rdfs:range foaf:Document ;
     rdfs:subPropertyOf foaf:page ;
     ns0:term_status "stable" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/weblog --> http://xmlns.com/foaf/0.1/Document" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- weblog --> http://xmlns.com/foaf/0.1/Document" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:workInfoHomepage a rdf:Property,
@@ -816,8 +816,8 @@ foaf:workInfoHomepage a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range foaf:Document ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/workInfoHomepage --> http://xmlns.com/foaf/0.1/Document" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- workInfoHomepage --> http://xmlns.com/foaf/0.1/Document" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:workplaceHomepage a rdf:Property,
@@ -828,8 +828,8 @@ foaf:workplaceHomepage a rdf:Property,
     rdfs:isDefinedBy foaf: ;
     rdfs:range foaf:Document ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Person -- http://xmlns.com/foaf/0.1/workplaceHomepage --> http://xmlns.com/foaf/0.1/Document" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Person -- workplaceHomepage --> http://xmlns.com/foaf/0.1/Document" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:yahooChatID a rdf:Property,
@@ -842,9 +842,9 @@ foaf:yahooChatID a rdf:Property,
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf foaf:nick ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/yahooChatID --> http://www.w3.org/2000/01/rdf-schema#Literal",
-        "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/yahooChatID --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- yahooChatID --> http://www.w3.org/2000/01/rdf-schema#Literal",
+        "http://xmlns.com/foaf/0.1/Agent -- yahooChatID --> http://www.w3.org/2000/01/rdf-schema#Literal:::Datatype" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 wot:assurance a owl:AnnotationProperty .
@@ -862,8 +862,8 @@ foaf:depicts a rdf:Property,
     rdfs:range owl:Thing ;
     owl:inverseOf foaf:depiction ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Image -- http://xmlns.com/foaf/0.1/depicts --> http://www.w3.org/2002/07/owl#Thing" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Image -- depicts --> http://www.w3.org/2002/07/owl#Thing" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:made a rdf:Property,
@@ -875,8 +875,8 @@ foaf:made a rdf:Property,
     rdfs:range owl:Thing ;
     owl:inverseOf foaf:maker ;
     ns0:term_status "stable" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Agent -- http://xmlns.com/foaf/0.1/made --> http://www.w3.org/2002/07/owl#Thing" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Agent -- made --> http://www.w3.org/2002/07/owl#Thing" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:maker a rdf:Property,
@@ -889,8 +889,8 @@ foaf:maker a rdf:Property,
     owl:equivalentProperty dc:creator ;
     owl:inverseOf foaf:made ;
     ns0:term_status "stable" ;
-    ns1:label "http://www.w3.org/2002/07/owl#Thing -- http://xmlns.com/foaf/0.1/maker --> http://xmlns.com/foaf/0.1/Agent" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://www.w3.org/2002/07/owl#Thing -- maker --> http://xmlns.com/foaf/0.1/Agent" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:primaryTopic a rdf:Property,
@@ -903,8 +903,8 @@ foaf:primaryTopic a rdf:Property,
     rdfs:range owl:Thing ;
     owl:inverseOf foaf:isPrimaryTopicOf ;
     ns0:term_status "stable" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Document -- http://xmlns.com/foaf/0.1/primaryTopic --> http://www.w3.org/2002/07/owl#Thing" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Document -- primaryTopic --> http://www.w3.org/2002/07/owl#Thing" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:topic a rdf:Property,
@@ -916,8 +916,8 @@ foaf:topic a rdf:Property,
     rdfs:range owl:Thing ;
     owl:inverseOf foaf:page ;
     ns0:term_status "testing" ;
-    ns1:label "http://xmlns.com/foaf/0.1/Document -- http://xmlns.com/foaf/0.1/topic --> http://www.w3.org/2002/07/owl#Thing" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://xmlns.com/foaf/0.1/Document -- topic --> http://www.w3.org/2002/07/owl#Thing" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:depiction a rdf:Property,
@@ -929,14 +929,14 @@ foaf:depiction a rdf:Property,
     rdfs:range foaf:Image ;
     owl:inverseOf foaf:depicts ;
     ns0:term_status "testing" ;
-    ns1:label "http://www.w3.org/2002/07/owl#Thing -- http://xmlns.com/foaf/0.1/depiction --> http://xmlns.com/foaf/0.1/Image" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://www.w3.org/2002/07/owl#Thing -- depiction --> http://xmlns.com/foaf/0.1/Image" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 geo1:SpatialThing a owl:Class ;
     rdfs:label "Spatial Thing" ;
-    ns1:label "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing((http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing((SpatialThing))" ;
+    mermaid:syntax "CLASS" .
 
 foaf:isPrimaryTopicOf a rdf:Property,
         owl:InverseFunctionalProperty ;
@@ -948,8 +948,8 @@ foaf:isPrimaryTopicOf a rdf:Property,
     rdfs:subPropertyOf foaf:page ;
     owl:inverseOf foaf:primaryTopic ;
     ns0:term_status "stable" ;
-    ns1:label "http://www.w3.org/2002/07/owl#Thing -- http://xmlns.com/foaf/0.1/isPrimaryTopicOf --> http://xmlns.com/foaf/0.1/Document" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "http://www.w3.org/2002/07/owl#Thing -- isPrimaryTopicOf --> http://xmlns.com/foaf/0.1/Document" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 foaf:nick a rdf:Property,
         owl:DatatypeProperty ;
@@ -957,8 +957,8 @@ foaf:nick a rdf:Property,
     rdfs:comment "A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames)." ;
     rdfs:isDefinedBy foaf: ;
     ns0:term_status "testing" ;
-    ns1:label "rdfs:Resource -- http://xmlns.com/foaf/0.1/nick --> rdfs:Resource" ;
-    ns1:syntax "DATATYPEPROPERTY",
+    mermaid:label "rdfs:Resource -- nick --> rdfs:Resource" ;
+    mermaid:syntax "DATATYPEPROPERTY",
         "RDF_PROPERTY" .
 
 foaf:page a rdf:Property,
@@ -970,13 +970,13 @@ foaf:page a rdf:Property,
     rdfs:range foaf:Document ;
     owl:inverseOf foaf:topic ;
     ns0:term_status "stable" ;
-    ns1:label "http://www.w3.org/2002/07/owl#Thing -- http://xmlns.com/foaf/0.1/page --> http://xmlns.com/foaf/0.1/Document" ;
-    ns1:syntax "OBJECTPROPERTY",
+    mermaid:label "http://www.w3.org/2002/07/owl#Thing -- page --> http://xmlns.com/foaf/0.1/Document" ;
+    mermaid:syntax "OBJECTPROPERTY",
         "RDF_PROPERTY" .
 
 rdfs:Class a owl:Class ;
-    ns1:label "http://www.w3.org/2000/01/rdf-schema#Class((http://www.w3.org/2000/01/rdf-schema#Class))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://www.w3.org/2000/01/rdf-schema#Class((Class))" ;
+    mermaid:syntax "CLASS" .
 
 owl:Thing rdfs:label "Thing" .
 

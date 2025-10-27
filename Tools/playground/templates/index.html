@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OntoMermaid</title>
+    <style>
+        /* Style for the container holding form and output box */
+        .container {
+            display: flex;
+            align-items: stretch; /* Make container divs stretch to the height of the tallest content */
+            margin-bottom: 20px; /* Adjust as needed */
+        }
+        
+        /* Style for status field */
+        .status {
+            text-align: right;
+            margin-top: 10px;
+            color: #4CAF50; /* Green color for status */
+        }
+
+        /* Style for form */
+        .form {
+            flex: 1;
+            margin-right: 10px; /* Adjust as needed */
+        }
+
+        /* Style for output box */
+        .output-box {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: auto; /* Add vertical scrollbar if content overflows */
+        }
+
+        /* Style for output container */
+        .output-container {
+            /* Optionally limit max-height to prevent excessive stretching */
+            max-height: 150%; /* Adjust as needed */
+        }
+
+        /* Style for download buttons */
+        .download-button {
+            width: 100%; /* Make buttons equally wide */
+            margin-bottom: 10px; /* Add margin between buttons */
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .download-button:hover {
+            background-color: #45a049; /* Darker green when hovering */
+        }
+
+        /* Style for the input/output sections */
+        .input-section, .output-section {
+            flex: 1;
+        }
+
+        /* Adjust spacing between sections */
+        .container > div {
+            margin-right: 10px;
+        }
+
+        /* Style for the bold text */
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #4CAF50; /* Green color for titles */
+        }
+
+        /* Style for the h1 */
+        h1 {
+            font-family: 'Arial', sans-serif;
+            color: #4CAF50; /* Green color for titles */
+            border-bottom: 2px solid #4CAF50; /* Green border under title */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Style for textareas */
+        textarea {
+            width: calc(100% - 20px); /* Adjust textarea width */
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        /* Style for submit button */
+        button[type="submit"] {
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049; /* Darker green when hovering */
+        }
+
+        /* Two-column layout for upper table body */
+        .upper-table {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 20px; /* Adjust as needed */
+        }
+
+        /* Two-column layout for lower table body */
+        .lower-table {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        /* Column styling */
+        .column {
+            flex-basis: calc(50% - 10px); /* Adjust column width */
+        }
+
+        /* Media query for responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .upper-table,
+            .lower-table {
+                flex-direction: column;
+            }
+            .column {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>OntoMermaid</h1>
+    <div class="status">
+        {% if status %}
+            {{ status }}
+        {% endif %}
+    </div>
+    <!-- Container for the form and its output box -->
+    <div class="container">
+        <!-- Input section -->
+        <div class="input-section">
+            <div class="form">
+                <div class="section-title">Input</div> <!-- Bold 'Input' text -->
+                <br>
+                <form action="http://localhost:5000/runOntoMermaid" method="post">
+                    <!-- Upper table body -->
+                    <div class="upper-table">
+                        <div class="column">
+                            <div><i>Ontology components:</i></div> <!-- Title for checkboxes -->
+                            <br>
+                            <!-- Checkboxes for document options -->
+                            <table>
+                            <tr>
+                                <td><label for="conceptSchemeCheckbox">Concept schemes</label></td>
+                                <td><input type="checkbox" id="conceptSchemeCheckbox" name="conceptSchemes" value="true" {% if conceptSchemes %}checked{% endif %}></td>
+                            </tr>
+                            <tr>
+                                <td><label for="conceptCheckbox">Concepts</label></td>
+                                <td><input type="checkbox" id="conceptCheckbox" name="concepts" value="true" {% if concepts %}checked{% endif %}></td>
+                            </tr>
+                            <tr>
+                                <td><label for="classCheckbox">Classes</label></td>
+                                <td><input type="checkbox" id="classCheckbox" name="classes" value="true" {% if classes %}checked{% endif %}></td>
+                            </tr>                        
+                            <tr>
+                                <td><label for="objectPropertyCheckbox">Object properties</label></td>
+                                <td><input type="checkbox" id="objectPropertyCheckbox" name="objectProperties" value="true" {% if objectProperties %}checked{% endif %}></td>
+                            </tr>  
+                            <tr>
+                                <td><label for="datatypePropertyCheckbox">Datatype properties</label></td>
+                                <td><input type="checkbox" id="datatypePropertyCheckbox" name="datatypeProperties" value="true" {% if datatypeProperties %}checked{% endif %}></td>
+                            </tr>
+                            <tr>
+                                <td><label for="rdfPropertyCheckbox">RDF properties</label></td>
+                                <td><input type="checkbox" id="rdfPropertyCheckbox" name="rdfProperties" value="true" {% if rdfProperties %}checked{% endif %}></td>
+                            </tr> 
+                            </table>
+                        </div>
+                        <div class="column">
+                            <div>&nbsp;</div> <!-- Placeholder for alignment -->
+                            <br>
+                                <!-- Checkboxes for document options -->
+                            <table>
+                             <tr>
+                                <td><label for="subPropertyCheckbox">Subproperties</label></td>
+                                <td><input type="checkbox" id="subPropertyCheckbox" name="subProperties" value="true" {% if subProperties %}checked{% endif %}></td>
+                            </tr>
+                            <tr>
+                                <td><label for="equivalentPropertyCheckbox">Equivalent properties</label></td>
+                                <td><input type="checkbox" id="equivalentPropertyCheckbox" name="equivalentProperties" value="true" {% if equivalentProperties %}checked{% endif %}></td>
+                            </tr>
+                            <tr>
+                                <td><label for="datatypeCheckbox">Datatypes</label></td>
+                                <td><input type="checkbox" id="datatypeCheckbox" name="datatypes" value="true" {% if datatypes %}checked{% endif %}></td>
+                            </tr>
+                            <tr>
+                                <td><label for="nodeshapeCheckbox">Nodeshapes</label></td>
+                                <td><input type="checkbox" id="nodeshapeCheckbox" name="nodeshapes" value="true" {% if nodeshapes %}checked{% endif %}></td>
+                            </tr>
+                            <tr>
+                                <td><label for="namedIndividualCheckbox">Named individuals</label></td>
+                                <td><input type="checkbox" id="namedIndividualCheckbox" name="namedIndividuals" value="true" {% if namedIndividuals %}checked{% endif %}></td>
+                            </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Lower table body -->
+                    <div class="lower-table">
+                        <div class="column">
+                            <!-- Textareas -->
+                            <label for="ontologyInput">Ontology</label><br>
+                            <textarea id="ontologyInput" name="ontology" rows="5" cols="50">{{ontology}}</textarea><br>
+                            
+                        </div>
+                        <div class="column">
+                            <!-- Textareas -->
+                            <label for="documentNamespaceInput">Document Namespace</label><br>
+                            <textarea id="documentNamespaceInput" name="documentNamespace" rows="1" cols="30">https://example.org/doc/</textarea><br>
+                        </div>
+                    </div>
+                    <button type="submit">Generate Mermaid Diagram</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Output section -->
+        <div class="output-section">
+            <div class="output-box">
+                <div class="section-title">Output</div> <!-- Bold 'Output' text -->
+                <br>
+                <!-- HTML content -->
+                {% if htmlOutput %}
+                <div class="output-container">
+                    <!-- Use the safe filter to render HTML content without HTML escaping -->
+                    {{ htmlOutput | safe }}
+                </div>
+                {% else %}
+                <div class="output-container">
+                    Mermaid diagram is rendered here
+                </div>
+                {% endif %}
+            </div>
+            <!-- Download buttons -->
+            <div>
+                <a href="/static/diagram.html" download="diagram.html"><button class="download-button">Download Diagram HTML</button></a><br>
+                <a href="/static/diagram.ttl" download="html.ttl"><button class="download-button">Download Diagram RDF</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

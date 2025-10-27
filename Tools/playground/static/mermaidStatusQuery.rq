@@ -1,0 +1,162 @@
+prefix mermaid: <https://mermaid.org/ontomermaid/model/def/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix sh: <http://www.w3.org/ns/shacl#>
+ASK
+WHERE {
+  # Any OWL or RDFS entity that is not yet described in terms of the manchester syntax
+  {
+    $this a owl:Class.
+  }  
+  UNION
+  {
+    $this a rdfs:Class.
+  }
+  UNION
+  {
+    $this rdfs:subClassOf []
+  }
+  UNION
+  {
+    $this owl:equivalentClass []
+  }
+  UNION
+  {
+    $this owl:unionOf []
+  }
+  UNION
+  {
+    $this owl:intersectionOf []
+  }
+  UNION
+  {
+    $this owl:complementOf []
+  }
+  UNION
+  {
+    $this owl:oneOf []
+  }
+  UNION
+  {
+    $this owl:allValuesFrom []
+  }
+  UNION
+  {
+    $this owl:someValuesFrom []
+  }
+  UNION
+  {
+    $this owl:hasValue []
+  }
+  UNION
+  {
+    $this owl:cardinality []
+  }
+  UNION
+  {
+    $this owl:maxCardinality []
+  }
+  UNION
+  {
+    $this owl:minCardinality []
+  }  
+  UNION
+  {
+   $this rdf:type rdf:Property
+  }
+  UNION
+  {
+    $this rdf:type owl:DatatypeProperty.
+  }
+  UNION
+  {
+    $this rdf:type owl:ObjectProperty.
+  }
+  UNION
+  {
+    $this rdfs:subPropertyOf []
+    FILTER NOT EXISTS {$this rdf:type owl:AnnotationProperty}.
+    FILTER NOT EXISTS {$this rdf:type owl:InverseFunctionalProperty}
+    FILTER NOT EXISTS {$this rdf:type owl:FunctionalProperty}
+  }
+  UNION
+  {
+    $this owl:equivalentProperty [].
+  }
+  filter not exists {
+    $this mermaid:syntax 'CLASS'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'SUBCLASSOF'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'EQUIVALENTTO'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'OR'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'AND'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'NOT'.
+  }
+  filter not exists {
+    $this mermaid:syntax '{}'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'ONLY'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'SOME'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'VALUE'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'EXACTLY'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'MAX'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'MIN'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'RDF_PROPERTY'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'DATATYPEPROPERTY'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'OBJECTPROPERTY'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'SUBPROPERTYOF'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'EQUIVALENTPROPERTY'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'OR-DATATYPE'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'AND-DATATYPE'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'NOT-DATATYPE'.
+  }
+  filter not exists {
+    $this mermaid:syntax '{}-DATATYPE'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'EXACTLYQUALIFIED'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'MAXQUALIFIED'.
+  }
+  filter not exists {
+    $this mermaid:syntax 'MINQUALIFIED'.
+  }
+}

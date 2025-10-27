@@ -26,7 +26,7 @@ from rdflib import Namespace
 current_dir = os.getcwd()
 
 # Set the path to the desired standard directory. 
-directory_path = os.path.abspath(os.path.join(current_dir, '..'))
+directory_path = os.path.abspath(os.path.join(current_dir))
 
 # namespace declaration
 mermaid = Namespace("https://data.rijksfinancien.nl/mermaid/model/def/")
@@ -41,7 +41,7 @@ def readGraphFromFile(file_path):
 
 # Function to write a graph to a file
 def writeGraph(graph):
-    graph.serialize(destination=directory_path+"/OntoMermaid/Tools/Output/"+filename_stem+"-mermaid.ttl", format="turtle")
+    graph.serialize(destination=directory_path+"/tools/output/"+filename_stem+"-mermaid.trig", format="trig")
 
 # Function to call the PyShacl engine so that a RDF model of an HTML document can be serialized to HTML-code.
 def iteratePyShacl(mermaid_generator, serializable_graph):
@@ -50,8 +50,8 @@ def iteratePyShacl(mermaid_generator, serializable_graph):
         pyshacl.validate(
         data_graph=serializable_graph,
         shacl_graph=mermaid_generator,
-        data_graph_format="turtle",
-        shacl_graph_format="turtle",
+        data_graph_format="trig",
+        shacl_graph_format="trig",
         advanced=True,
         inplace=True,
         inference=None,
@@ -241,13 +241,6 @@ SELECT (GROUP_CONCAT(?label; separator="\\n") AS ?mermaid_code)
 WHERE {
   ?element :label ?label.
   
-  minus {
-      ?this owl:annotatedTarget ?target.
-      ?target (:|!:)* ?element.
-      ?element :label ?label
-      FILTER isBlank(?target)
-      FILTER isBlank(?element)}
-  
 }
 ORDER BY ?mermaid_code
         ''')   
@@ -258,12 +251,12 @@ ORDER BY ?mermaid_code
                 writeGraph(serializable_graph)
                 iteratePyShacl(mermaid_generator, serializable_graph)
             else: 
-                 print ("File " + filename_stem+"-mermaid.ttl" + " created in output folder.")
+                 print ("File " + filename_stem+"-mermaid.trig" + " created in output folder.")
                  writeGraph(serializable_graph)
         
                  for result in resultquery:
                     mermaid_code = result["mermaid_code"]
-                    output_file_path = directory_path+"/OntoMermaid/Tools/Output/"+filename_stem+"-mermaid.html"
+                    output_file_path = directory_path+"/tools/output/"+filename_stem+"-mermaid.html"
                     # Create the HTML content with the Mermaid code
                     html_start =  '''
                     <!DOCTYPE html>
@@ -309,15 +302,15 @@ ORDER BY ?mermaid_code
 
                  
 # loop through any turtle files in the input directory
-for filename in os.listdir(directory_path+"/OntoMermaid/Tools/Input"):
-    if filename.endswith(".ttl"):
-        file_path = os.path.join(directory_path+"/OntoMermaid/Tools/Input", filename)
+for filename in os.listdir(directory_path+"/tools/input"):
+    if filename.endswith(".trig" or ".ttl" ):
+        file_path = os.path.join(directory_path+"/tools/input", filename)
         
         # Establish the stem of the file name for reuse in newly created files
         filename_stem = os.path.splitext(filename)[0]
         
         # Get the manchester syntax vocabulary and place it in a string
-        mermaid_generator = readGraphFromFile(directory_path+"/OntoMermaid/Specification/mermaid.ttl")
+        mermaid_generator = readGraphFromFile(directory_path+"/specification/mermaid.trig")
         
         # Get some ontology to be transformed from OWL to Manchester Syntax. The ontology needs to be placed in the input directory.
         ontology_graph = readGraphFromFile(file_path)   
@@ -327,7 +320,7 @@ for filename in os.listdir(directory_path+"/OntoMermaid/Tools/Input"):
         serializable_graph_string = ontology_graph
         
         # Create a graph of the string consisting of the manchester syntax and the ontology to be transformed 
-        serializable_graph = rdflib.Graph().parse(data=serializable_graph_string , format="ttl")
+        serializable_graph = rdflib.Graph().parse(data=serializable_graph_string , format="trig")
         serializable_graph.bind("mermaid", mermaid)
         
         # Inform user

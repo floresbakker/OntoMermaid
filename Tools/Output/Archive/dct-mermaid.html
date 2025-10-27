@@ -1,0 +1,184 @@
+
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                    </head>
+                    <body>
+                    <div><pre class="mermaid">
+                    %%{
+                    init: {
+                    "flowchart":{
+                    "useMaxWidth": 0
+                    }
+                    }
+                    }%%
+                    graph TB
+                    classDef Datatype fill:#9c6,stroke:#9c6;
+                    
+                    
+                    
+                    
+                    http://purl.org/dc/terms/MethodOfInstruction((Method of Instruction))
+http://purl.org/dc/terms/Frequency((Frequency))
+http://purl.org/dc/terms/PhysicalResource((Physical Resource))
+http://purl.org/dc/terms/MethodOfAccrual((Method of Accrual))
+http://purl.org/dc/terms/Standard((Standard))
+http://purl.org/dc/terms/MediaTypeOrExtent((Media Type or Extent))
+http://purl.org/dc/terms/LinguisticSystem((Linguistic System))
+http://purl.org/dc/terms/Agent((Agent))
+http://purl.org/dc/terms/RightsStatement((Rights Statement))
+http://purl.org/dc/terms/LocationPeriodOrJurisdiction((Location, Period, or Jurisdiction))
+http://purl.org/dc/terms/ProvenanceStatement((Provenance Statement))
+http://purl.org/dc/terms/BibliographicResource((Bibliographic Resource))
+http://purl.org/dc/terms/Policy((Policy))
+subgraph n56f6ca5baf6a459f8acbaec1f3db4265b14[Restriction &forall; R C]
+n56f6ca5baf6a459f8acbaec1f3db4265b14thing((thing)) -- hasHealth only --> n56f6ca5baf6a459f8acbaec1f3db4265b14http://purl.org/dc/terms/Good((Good))
+
+end
+
+subgraph n56f6ca5baf6a459f8acbaec1f3db4265b13[Restriction &exist; R C]
+n56f6ca5baf6a459f8acbaec1f3db4265b13thing((thing)) -- hasAge some --> n56f6ca5baf6a459f8acbaec1f3db4265b14
+
+end
+
+subgraph n56f6ca5baf6a459f8acbaec1f3db4265b15[Restriction &exist; R C]
+n56f6ca5baf6a459f8acbaec1f3db4265b15thing((thing)) -- hasAge some --> n56f6ca5baf6a459f8acbaec1f3db4265b16
+
+end
+
+http://purl.org/dc/terms/Jurisdiction((Jurisdiction)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction
+
+http://purl.org/dc/terms/PhysicalMedium((Physical Medium)) -- subClassOf --> http://purl.org/dc/terms/MediaType
+
+http://purl.org/dc/terms/LicenseDocument((License Document)) -- subClassOf --> http://purl.org/dc/terms/RightsStatement
+
+http://purl.org/dc/terms/SizeOrDuration((Size or Duration)) -- subClassOf --> http://purl.org/dc/terms/MediaTypeOrExtent
+
+http://purl.org/dc/terms/Teenager((Teenager)) -- subClassOf --> n56f6ca5baf6a459f8acbaec1f3db4265b15
+
+http://purl.org/dc/terms/MediaType((Media Type)) -- subClassOf --> http://purl.org/dc/terms/MediaTypeOrExtent
+
+http://purl.org/dc/terms/FileFormat((File Format)) -- subClassOf --> http://purl.org/dc/terms/MediaType
+
+http://purl.org/dc/terms/Adolescent((Adolescent)) -- subClassOf --> n56f6ca5baf6a459f8acbaec1f3db4265b13
+
+http://purl.org/dc/terms/AgentClass((Agent Class)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Class
+
+http://purl.org/dc/terms/Location((Location)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction
+
+http://purl.org/dc/terms/PeriodOfTime((Period of Time)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction
+
+http://purl.org/dc/terms/majorAge((majorAge)) -- equivalentTo --> n56f6ca5baf6a459f8acbaec1f3db4265b1
+
+http://purl.org/dc/terms/toddlerAge((toddlerAge)) -- equivalentTo --> n56f6ca5baf6a459f8acbaec1f3db4265b5
+
+http://purl.org/dc/terms/personAge((personAge)) -- equivalentTo --> n56f6ca5baf6a459f8acbaec1f3db4265b8
+
+rdfs:Resource -- Instructional Method --> rdfs:Resource
+rdfs:Resource -- Language --> rdfs:Resource
+rdfs:Resource -- Table Of Contents --> rdfs:Resource
+rdfs:Resource -- Is Required By --> rdfs:Resource
+rdfs:Resource -- Is Version Of --> rdfs:Resource
+rdfs:Resource -- Is Referenced By --> rdfs:Resource
+rdfs:Resource -- Rights --> rdfs:Resource
+rdfs:Resource -- Relation --> rdfs:Resource
+rdfs:Resource -- Mediator --> rdfs:Resource
+rdfs:Resource -- Rights Holder --> rdfs:Resource
+rdfs:Resource -- Description --> rdfs:Resource
+rdfs:Resource -- Date --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- Is Part Of --> rdfs:Resource
+rdfs:Resource -- Format --> rdfs:Resource
+rdfs:Resource -- Abstract --> rdfs:Resource
+rdfs:Resource -- Access Rights --> rdfs:Resource
+rdfs:Resource -- Bibliographic Citation --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- Provenance --> rdfs:Resource
+http://purl.org/dc/dcmitype/Collection -- Accrual Periodicity --> rdfs:Resource
+rdfs:Resource -- Replaces --> rdfs:Resource
+rdfs:Resource -- Spatial Coverage --> rdfs:Resource
+rdfs:Resource -- Extent --> rdfs:Resource
+rdfs:Resource -- Coverage --> rdfs:Resource
+rdfs:Resource -- Date Created --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- Has Version --> rdfs:Resource
+rdfs:Resource -- Audience Education Level --> rdfs:Resource
+rdfs:Resource -- Has Format --> rdfs:Resource
+rdfs:Resource -- Date Submitted --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- Date Valid --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- Medium --> rdfs:Resource
+rdfs:Resource -- Contributor --> rdfs:Resource
+rdfs:Resource -- Requires --> rdfs:Resource
+rdfs:Resource -- Subject --> rdfs:Resource
+http://purl.org/dc/dcmitype/Collection -- Accrual Method --> rdfs:Resource
+rdfs:Resource -- Audience --> rdfs:Resource
+rdfs:Resource -- Is Format Of --> rdfs:Resource
+rdfs:Resource -- Identifier --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- Type --> rdfs:Resource
+rdfs:Resource -- References --> rdfs:Resource
+rdfs:Resource -- Date Copyrighted --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- Alternative Title --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- Conforms To --> rdfs:Resource
+rdfs:Resource -- Creator --> rdfs:Resource
+rdfs:Resource -- Date Modified --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- Date Issued --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- Date Accepted --> http://www.w3.org/2000/01/rdf-schema#Literal
+http://purl.org/dc/dcmitype/Collection -- Accrual Policy --> rdfs:Resource
+rdfs:Resource -- Date Available --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- License --> rdfs:Resource
+rdfs:Resource -- Source --> rdfs:Resource
+rdfs:Resource -- Publisher --> rdfs:Resource
+rdfs:Resource -- Is Replaced By --> rdfs:Resource
+rdfs:Resource -- Temporal Coverage --> rdfs:Resource
+rdfs:Resource -- Title --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- Has Part --> rdfs:Resource
+http://purl.org/dc/terms/ISO3166[ISO 3166]:::Datatype
+http://purl.org/dc/terms/W3CDTF[W3C-DTF]:::Datatype
+http://purl.org/dc/terms/RFC5646[RFC 5646]:::Datatype
+http://purl.org/dc/terms/Period[DCMI Period]:::Datatype
+http://purl.org/dc/terms/RFC3066[RFC 3066]:::Datatype
+http://purl.org/dc/terms/RFC1766[RFC 1766]:::Datatype
+n56f6ca5baf6a459f8acbaec1f3db4265b8
+http://purl.org/dc/terms/ISO639-2[ISO 639-2]:::Datatype
+n56f6ca5baf6a459f8acbaec1f3db4265b16
+http://purl.org/dc/terms/ISO639-3[ISO 639-3]:::Datatype
+http://purl.org/dc/terms/Point[DCMI Point]:::Datatype
+http://purl.org/dc/terms/RFC4646[RFC 4646]:::Datatype
+http://purl.org/dc/terms/Box[DCMI Box]:::Datatype
+http://purl.org/dc/terms/URI[URI]:::Datatype
+subgraph n56f6ca5baf6a459f8acbaec1f3db4265b1[Intersection C &cap; D]
+style n56f6ca5baf6a459f8acbaec1f3db4265b1 fill:#d8f1b3,stroke:#9c6
+n56f6ca5baf6a459f8acbaec1f3db4265b1http://purl.org/dc/terms/personAge((personAge)):::Datatype -- and --- n56f6ca5baf6a459f8acbaec1f3db4265b2
+end
+
+subgraph n56f6ca5baf6a459f8acbaec1f3db4265b5[Enumeration x &cap; y]
+style n56f6ca5baf6a459f8acbaec1f3db4265b5 fill:#d8f1b3,stroke:#9c6
+n56f6ca5baf6a459f8acbaec1f3db4265b51((1)):::Datatype
+n56f6ca5baf6a459f8acbaec1f3db4265b52((2)):::Datatype
+end
+
+subgraph n56f6ca5baf6a459f8acbaec1f3db4265b2[Negation &not; C]
+style n56f6ca5baf6a459f8acbaec1f3db4265b2 fill:#d8f1b3,stroke:#9c6
+n56f6ca5baf6a459f8acbaec1f3db4265b2http://purl.org/dc/terms/minorAge((minorAge)):::Datatype
+end
+
+subgraph n56f6ca5baf6a459f8acbaec1f3db4265b8 [Restriction ≥ N R]
+style n56f6ca5baf6a459f8acbaec1f3db4265b8 fill:#d8f1b3,stroke:#9c6
+n56f6ca5baf6a459f8acbaec1f3db4265b8n56f6ca5baf6a459f8acbaec1f3db4265b9((>=0)):::Datatype
+n56f6ca5baf6a459f8acbaec1f3db4265b8n56f6ca5baf6a459f8acbaec1f3db4265b10((<=150)):::Datatype
+end
+
+subgraph n56f6ca5baf6a459f8acbaec1f3db4265b16 [Restriction ≥ N R]
+style n56f6ca5baf6a459f8acbaec1f3db4265b16 fill:#d8f1b3,stroke:#9c6
+n56f6ca5baf6a459f8acbaec1f3db4265b16n56f6ca5baf6a459f8acbaec1f3db4265b17((>12)):::Datatype
+n56f6ca5baf6a459f8acbaec1f3db4265b16n56f6ca5baf6a459f8acbaec1f3db4265b18((<=19)):::Datatype
+end
+
+                    
+                    
+                    </pre>
+                    <script type="module">
+                      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+                      mermaid.initialize({ startOnLoad: true });
+                    </script>
+                    </div>
+                    </body>
+                    </html>
+                    

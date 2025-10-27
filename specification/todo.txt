@@ -1,0 +1,5 @@
+- mermaid should be able to create simple diagrams based on atomic OWL classes and hierachies of atomic OWL classes using subclassof and equivalentof
+
+- mermaid should be able to create complex diagrams based on restrictions and set properties.
+
+- mermaid should be able to facilitate mermaid diagrams of semantic parts of the ontology using skos:concepts.

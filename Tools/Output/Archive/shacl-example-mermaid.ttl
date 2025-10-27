@@ -1,0 +1,21 @@
+@prefix ex: <http://example.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:PersonClassShape a sh:NodeShape ;
+    sh:targetClass ex:Person .
+
+ex:PersonShape a sh:NodeShape ;
+    sh:targetNode ex:Alice .
+
+ex:PersonShape-name a sh:PropertyShape ;
+    sh:deactivated true ;
+    sh:minCount 1 ;
+    sh:path ex:name .
+
+ex:TargetObjectsOfExampleShape a sh:NodeShape ;
+    sh:targetObjectsOf ex:says .
+
+ex:TargetSubjectsOfExampleShape a sh:NodeShape ;
+    sh:targetSubjectsOf ex:knows .
+

@@ -1,0 +1,38 @@
+prefix : <http://purl.org/dc/dcmitype/>
+prefix dcm: <http://purl.org/dc/dcmitype/>
+prefix dct: <http://purl.org/dc/terms/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfa: <http://www.w3.org/ns/rdfa#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix sh: <http://www.w3.org/ns/shacl#>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix status: <http://purl.org/adms/status/>
+prefix vann: <http://purl.org/vocab/vann/>
+prefix void: <http://rdfs.org/ns/void#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+prefix aria: <http://www.w3.org/ns/wai-aria/>
+prefix decl: <https://data.rijksfinancien.nl/html/id/decl/>
+prefix dom: <https://data.rijksfinancien.nl/dom/model/def/>
+prefix html: <https://data.rijksfinancien.nl/html/model/def/>
+prefix respec: <https://respec.org/model/def/>
+prefix rule: <https://data.rijksfinancien.nl/html/model/rule/>
+prefix section: <https://data.rijksfinancien.nl/html/id/section/>
+prefix shp: <https://data.rijksfinancien.nl/html/model/shp/>
+prefix standard: <https://data.rijksfinancien.nl/html/id/standard/>
+prefix target: <https://data.rijksfinancien.nl/html/model/target/>
+
+ :Orphan  owl:equivalentClass  [
+   rdf:type           owl:Restriction ;
+   owl:onProperty     :hasParent ;
+   owl:allValuesFrom  :Dead 
+ ] ;
+rdfs:isDefinedBy :onto.
+
+# :Orphan  owl:equivalentClass  [
+#   rdf:type           owl:Restriction ;
+#   owl:onProperty     [ owl:inverseOf  :hasChild ] ;
+#   owl:allValuesFrom  :Dead 
+# ] .

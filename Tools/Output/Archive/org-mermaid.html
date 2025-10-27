@@ -1,0 +1,111 @@
+
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                    </head>
+                    <body>
+                    <div><pre class="mermaid">
+                    %%{
+                    init: {
+                    "flowchart":{
+                    "useMaxWidth": 0
+                    }
+                    }
+                    }%%
+                    graph TB
+                    classDef Datatype fill:#9c6,stroke:#9c6;
+                    
+                    
+                    
+                    
+                    http://www.w3.org/ns/org#Site((Site))
+http://www.w3.org/ns/org#Post((Post))
+http://www.w3.org/ns/org#Membership((Membership))
+subgraph n4894d1bff9a047f395d3f83110d68c5fb21[Restriction &forall; R C]
+n4894d1bff9a047f395d3f83110d68c5fb21thing((thing)) -- has member only --> n4894d1bff9a047f395d3f83110d68c5fb21http://www.w3.org/ns/org#Organization((Organization))
+
+end
+
+http://www.w3.org/ns/org#OrganizationalCollaboration((Endeavour)) -- subClassOf --> http://www.w3.org/ns/org#Organization
+
+http://purl.org/goodrelations/v1#BusinessEntity((BusinessEntity)) -- subClassOf --> http://www.w3.org/ns/org#FormalOrganization
+
+http://www.w3.org/ns/org#Role((Role)) -- subClassOf --> http://www.w3.org/2004/02/skos/core#Concept
+
+http://www.w3.org/ns/org#Organization((Organization)) -- subClassOf --> http://xmlns.com/foaf/0.1/Agent
+
+http://www.w3.org/ns/org#ChangeEvent((Change Event)) -- subClassOf --> http://www.w3.org/ns/prov#Activity
+
+http://www.w3.org/ns/org#FormalOrganization((Formal Organization)) -- subClassOf --> http://xmlns.com/foaf/0.1/Organization
+
+http://www.w3.org/ns/org#FormalOrganization((Formal Organization)) -- subClassOf --> http://www.w3.org/ns/org#Organization
+
+http://www.w3.org/ns/org#OrganizationalUnit((OrganizationalUnit)) -- subClassOf --> http://www.w3.org/ns/org#Organization
+
+http://www.w3.org/ns/org#OrganizationalCollaboration((Endeavour)) -- equivalentTo --> n4894d1bff9a047f395d3f83110d68c5fb20
+
+http://www.w3.org/ns/org#Organization((Organization)) -- equivalentTo --> http://xmlns.com/foaf/0.1/Organization
+
+subgraph n4894d1bff9a047f395d3f83110d68c5fb14[Union C &cup; D]
+n4894d1bff9a047f395d3f83110d68c5fb14http://xmlns.com/foaf/0.1/Agent((Agent)) -- or --- n4894d1bff9a047f395d3f83110d68c5fb14http://www.w3.org/ns/org#Post((Post))
+end
+
+subgraph n4894d1bff9a047f395d3f83110d68c5fb11[Union C &cup; D]
+n4894d1bff9a047f395d3f83110d68c5fb11http://xmlns.com/foaf/0.1/Agent((Agent)) -- or --- n4894d1bff9a047f395d3f83110d68c5fb11http://www.w3.org/ns/org#Post((Post))
+end
+
+subgraph n4894d1bff9a047f395d3f83110d68c5fb17[Union C &cup; D]
+n4894d1bff9a047f395d3f83110d68c5fb17http://www.w3.org/ns/org#Membership((Membership)) -- or --- n4894d1bff9a047f395d3f83110d68c5fb17http://www.w3.org/ns/org#Post((Post))
+end
+
+subgraph n4894d1bff9a047f395d3f83110d68c5fb20[Intersection C &cap; D]
+n4894d1bff9a047f395d3f83110d68c5fb20http://www.w3.org/ns/org#Organization((Organization)) -- and --- n4894d1bff9a047f395d3f83110d68c5fb21
+end
+
+http://www.w3.org/ns/org#Role -- remuneration --> rdfs:Resource
+http://www.w3.org/ns/org#Organization -- resulted from --> http://www.w3.org/ns/org#ChangeEvent
+http://www.w3.org/ns/org#FormalOrganization -- has Unit --> http://www.w3.org/ns/org#OrganizationalUnit
+http://www.w3.org/ns/org#Organization -- primary Site --> http://www.w3.org/ns/org#Site
+http://www.w3.org/ns/org#ChangeEvent -- resulted in --> http://www.w3.org/ns/org#Organization
+http://www.w3.org/ns/org#ChangeEvent -- original organization --> http://www.w3.org/ns/org#Organization
+n4894d1bff9a047f395d3f83110d68c5fb17 -- role --> http://www.w3.org/ns/org#Role
+http://xmlns.com/foaf/0.1/Agent -- member of --> http://www.w3.org/ns/org#Organization
+http://www.w3.org/ns/org#FormalOrganization -- registered Site --> http://www.w3.org/ns/org#Site
+http://xmlns.com/foaf/0.1/Agent -- holds --> http://www.w3.org/ns/org#Post
+http://www.w3.org/ns/org#Organization -- has site --> http://www.w3.org/ns/org#Site
+http://www.w3.org/ns/org#Post -- post in --> http://www.w3.org/ns/org#Organization
+http://xmlns.com/foaf/0.1/Agent -- membership --> http://www.w3.org/ns/org#Membership
+http://www.w3.org/ns/org#Membership -- organization --> http://www.w3.org/ns/org#Organization
+http://www.w3.org/ns/org#Membership -- member --> http://xmlns.com/foaf/0.1/Agent
+http://www.w3.org/ns/org#Organization -- post --> http://www.w3.org/ns/org#Post
+http://www.w3.org/ns/org#Organization -- purpose --> rdfs:Resource
+http://www.w3.org/ns/org#Organization -- has member --> http://xmlns.com/foaf/0.1/Agent
+http://www.w3.org/ns/org#Organization -- has SubOrganization --> http://www.w3.org/ns/org#Organization
+http://www.w3.org/ns/org#Organization -- subOrganization of --> http://www.w3.org/ns/org#Organization
+http://xmlns.com/foaf/0.1/Agent -- head of --> http://www.w3.org/ns/org#Organization
+http://xmlns.com/foaf/0.1/Person -- location --> http://www.w3.org/2001/XMLSchema#string
+http://www.w3.org/ns/org#Organization -- identifier --> rdfs:Resource
+http://www.w3.org/ns/org#OrganizationalUnit -- unit Of --> http://www.w3.org/ns/org#FormalOrganization
+http://www.w3.org/ns/org#Site -- site Address --> rdfs:Resource
+http://www.w3.org/ns/org#Role -- role property --> http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
+http://xmlns.com/foaf/0.1/Person -- based At --> http://www.w3.org/ns/org#Site
+n4894d1bff9a047f395d3f83110d68c5fb11 -- reports to --> n4894d1bff9a047f395d3f83110d68c5fb14
+http://www.w3.org/ns/org#Membership -- member During --> rdfs:Resource
+http://www.w3.org/ns/org#Organization -- changed by --> http://www.w3.org/ns/org#ChangeEvent
+http://www.w3.org/ns/org#Organization -- classification --> http://www.w3.org/2004/02/skos/core#Concept
+http://www.w3.org/ns/org#Organization -- transitive sub-organization --> http://www.w3.org/ns/org#Organization
+http://www.w3.org/ns/org#Post -- held by --> http://xmlns.com/foaf/0.1/Agent
+http://www.w3.org/ns/org#Organization -- linked to --> http://www.w3.org/ns/org#Organization
+http://www.w3.org/ns/org#Site -- site Of --> http://www.w3.org/ns/org#Organization
+http://xmlns.com/foaf/0.1/Person -- location --> http://www.w3.org/2001/XMLSchema#string:::Datatype
+                    
+                    
+                    </pre>
+                    <script type="module">
+                      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+                      mermaid.initialize({ startOnLoad: true });
+                    </script>
+                    </div>
+                    </body>
+                    </html>
+                    

@@ -3,7 +3,7 @@
 @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix ns1: <https://mermaid.org/ontomermaid/model/def/> .
+@prefix mermaid: <https://data.rijksfinancien.nl/mermaid/model/def/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -15,8 +15,8 @@ dcterms:Agent a dcterms:AgentClass,
     dcterms:issued "2008-01-14"^^xsd:date ;
     rdfs:comment "A resource that acts or has the power to act."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/terms/Agent((http://purl.org/dc/terms/Agent))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://purl.org/dc/terms/Agent((Agent))" ;
+    mermaid:syntax "CLASS" .
 
 dcterms:AgentClass a rdfs:Class ;
     rdfs:label "Agent Class"@en ;
@@ -24,17 +24,17 @@ dcterms:AgentClass a rdfs:Class ;
     rdfs:comment "A group of agents."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subClassOf rdfs:Class ;
-    ns1:label """http://purl.org/dc/terms/AgentClass((http://purl.org/dc/terms/AgentClass)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Class((http://www.w3.org/2000/01/rdf-schema#Class))
+    mermaid:label """http://purl.org/dc/terms/AgentClass((Agent Class)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Class
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 dcterms:BibliographicResource a rdfs:Class ;
     rdfs:label "Bibliographic Resource"@en ;
     dcterms:issued "2008-01-14"^^xsd:date ;
     rdfs:comment "A book, article, or other documentary resource."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/terms/BibliographicResource((http://purl.org/dc/terms/BibliographicResource))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://purl.org/dc/terms/BibliographicResource((Bibliographic Resource))" ;
+    mermaid:syntax "CLASS" .
 
 dcterms:FileFormat a rdfs:Class ;
     rdfs:label "File Format"@en ;
@@ -42,17 +42,17 @@ dcterms:FileFormat a rdfs:Class ;
     rdfs:comment "A digital resource format."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subClassOf dcterms:MediaType ;
-    ns1:label """http://purl.org/dc/terms/FileFormat((http://purl.org/dc/terms/FileFormat)) -- subClassOf --> http://purl.org/dc/terms/MediaType((http://purl.org/dc/terms/MediaType))
+    mermaid:label """http://purl.org/dc/terms/FileFormat((File Format)) -- subClassOf --> http://purl.org/dc/terms/MediaType
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 dcterms:Frequency a rdfs:Class ;
     rdfs:label "Frequency"@en ;
     dcterms:issued "2008-01-14"^^xsd:date ;
     rdfs:comment "A rate at which something recurs."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/terms/Frequency((http://purl.org/dc/terms/Frequency))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://purl.org/dc/terms/Frequency((Frequency))" ;
+    mermaid:syntax "CLASS" .
 
 dcterms:Jurisdiction a rdfs:Class ;
     rdfs:label "Jurisdiction"@en ;
@@ -60,9 +60,9 @@ dcterms:Jurisdiction a rdfs:Class ;
     rdfs:comment "The extent or range of judicial, law enforcement, or other authority."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subClassOf dcterms:LocationPeriodOrJurisdiction ;
-    ns1:label """http://purl.org/dc/terms/Jurisdiction((http://purl.org/dc/terms/Jurisdiction)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction((http://purl.org/dc/terms/LocationPeriodOrJurisdiction))
+    mermaid:label """http://purl.org/dc/terms/Jurisdiction((Jurisdiction)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 dcterms:LicenseDocument a rdfs:Class ;
     rdfs:label "License Document"@en ;
@@ -70,9 +70,9 @@ dcterms:LicenseDocument a rdfs:Class ;
     rdfs:comment "A legal document giving official permission to do something with a resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subClassOf dcterms:RightsStatement ;
-    ns1:label """http://purl.org/dc/terms/LicenseDocument((http://purl.org/dc/terms/LicenseDocument)) -- subClassOf --> http://purl.org/dc/terms/RightsStatement((http://purl.org/dc/terms/RightsStatement))
+    mermaid:label """http://purl.org/dc/terms/LicenseDocument((License Document)) -- subClassOf --> http://purl.org/dc/terms/RightsStatement
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 dcterms:LinguisticSystem a rdfs:Class ;
     rdfs:label "Linguistic System"@en ;
@@ -80,8 +80,8 @@ dcterms:LinguisticSystem a rdfs:Class ;
     dcterms:issued "2008-01-14"^^xsd:date ;
     rdfs:comment "A system of signs, symbols, sounds, gestures, or rules used in communication."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/terms/LinguisticSystem((http://purl.org/dc/terms/LinguisticSystem))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://purl.org/dc/terms/LinguisticSystem((Linguistic System))" ;
+    mermaid:syntax "CLASS" .
 
 dcterms:Location a rdfs:Class ;
     rdfs:label "Location"@en ;
@@ -89,17 +89,17 @@ dcterms:Location a rdfs:Class ;
     rdfs:comment "A spatial region or named place."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subClassOf dcterms:LocationPeriodOrJurisdiction ;
-    ns1:label """http://purl.org/dc/terms/Location((http://purl.org/dc/terms/Location)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction((http://purl.org/dc/terms/LocationPeriodOrJurisdiction))
+    mermaid:label """http://purl.org/dc/terms/Location((Location)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 dcterms:LocationPeriodOrJurisdiction a rdfs:Class ;
     rdfs:label "Location, Period, or Jurisdiction"@en ;
     dcterms:issued "2008-01-14"^^xsd:date ;
     rdfs:comment "A location, period of time, or jurisdiction."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/terms/LocationPeriodOrJurisdiction((http://purl.org/dc/terms/LocationPeriodOrJurisdiction))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://purl.org/dc/terms/LocationPeriodOrJurisdiction((Location, Period, or Jurisdiction))" ;
+    mermaid:syntax "CLASS" .
 
 dcterms:MediaType a rdfs:Class ;
     rdfs:label "Media Type"@en ;
@@ -107,33 +107,33 @@ dcterms:MediaType a rdfs:Class ;
     rdfs:comment "A file format or physical medium."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subClassOf dcterms:MediaTypeOrExtent ;
-    ns1:label """http://purl.org/dc/terms/MediaType((http://purl.org/dc/terms/MediaType)) -- subClassOf --> http://purl.org/dc/terms/MediaTypeOrExtent((http://purl.org/dc/terms/MediaTypeOrExtent))
+    mermaid:label """http://purl.org/dc/terms/MediaType((Media Type)) -- subClassOf --> http://purl.org/dc/terms/MediaTypeOrExtent
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 dcterms:MediaTypeOrExtent a rdfs:Class ;
     rdfs:label "Media Type or Extent"@en ;
     dcterms:issued "2008-01-14"^^xsd:date ;
     rdfs:comment "A media type or extent."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/terms/MediaTypeOrExtent((http://purl.org/dc/terms/MediaTypeOrExtent))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://purl.org/dc/terms/MediaTypeOrExtent((Media Type or Extent))" ;
+    mermaid:syntax "CLASS" .
 
 dcterms:MethodOfAccrual a rdfs:Class ;
     rdfs:label "Method of Accrual"@en ;
     dcterms:issued "2008-01-14"^^xsd:date ;
     rdfs:comment "A method by which resources are added to a collection."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/terms/MethodOfAccrual((http://purl.org/dc/terms/MethodOfAccrual))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://purl.org/dc/terms/MethodOfAccrual((Method of Accrual))" ;
+    mermaid:syntax "CLASS" .
 
 dcterms:MethodOfInstruction a rdfs:Class ;
     rdfs:label "Method of Instruction"@en ;
     dcterms:issued "2008-01-14"^^xsd:date ;
     rdfs:comment "A process that is used to engender knowledge, attitudes, and skills."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/terms/MethodOfInstruction((http://purl.org/dc/terms/MethodOfInstruction))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://purl.org/dc/terms/MethodOfInstruction((Method of Instruction))" ;
+    mermaid:syntax "CLASS" .
 
 dcterms:PeriodOfTime a rdfs:Class ;
     rdfs:label "Period of Time"@en ;
@@ -141,9 +141,9 @@ dcterms:PeriodOfTime a rdfs:Class ;
     rdfs:comment "An interval of time that is named or defined by its start and end dates."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subClassOf dcterms:LocationPeriodOrJurisdiction ;
-    ns1:label """http://purl.org/dc/terms/PeriodOfTime((http://purl.org/dc/terms/PeriodOfTime)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction((http://purl.org/dc/terms/LocationPeriodOrJurisdiction))
+    mermaid:label """http://purl.org/dc/terms/PeriodOfTime((Period of Time)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 dcterms:PhysicalMedium a rdfs:Class ;
     rdfs:label "Physical Medium"@en ;
@@ -152,41 +152,41 @@ dcterms:PhysicalMedium a rdfs:Class ;
     rdfs:comment "A physical material or carrier."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subClassOf dcterms:MediaType ;
-    ns1:label """http://purl.org/dc/terms/PhysicalMedium((http://purl.org/dc/terms/PhysicalMedium)) -- subClassOf --> http://purl.org/dc/terms/MediaType((http://purl.org/dc/terms/MediaType))
+    mermaid:label """http://purl.org/dc/terms/PhysicalMedium((Physical Medium)) -- subClassOf --> http://purl.org/dc/terms/MediaType
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 dcterms:PhysicalResource a rdfs:Class ;
     rdfs:label "Physical Resource"@en ;
     dcterms:issued "2008-01-14"^^xsd:date ;
     rdfs:comment "A material thing."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/terms/PhysicalResource((http://purl.org/dc/terms/PhysicalResource))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://purl.org/dc/terms/PhysicalResource((Physical Resource))" ;
+    mermaid:syntax "CLASS" .
 
 dcterms:Policy a rdfs:Class ;
     rdfs:label "Policy"@en ;
     dcterms:issued "2008-01-14"^^xsd:date ;
     rdfs:comment "A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/terms/Policy((http://purl.org/dc/terms/Policy))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://purl.org/dc/terms/Policy((Policy))" ;
+    mermaid:syntax "CLASS" .
 
 dcterms:ProvenanceStatement a rdfs:Class ;
     rdfs:label "Provenance Statement"@en ;
     dcterms:issued "2008-01-14"^^xsd:date ;
     rdfs:comment "Any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/terms/ProvenanceStatement((http://purl.org/dc/terms/ProvenanceStatement))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://purl.org/dc/terms/ProvenanceStatement((Provenance Statement))" ;
+    mermaid:syntax "CLASS" .
 
 dcterms:RightsStatement a rdfs:Class ;
     rdfs:label "Rights Statement"@en ;
     dcterms:issued "2008-01-14"^^xsd:date ;
     rdfs:comment "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/terms/RightsStatement((http://purl.org/dc/terms/RightsStatement))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://purl.org/dc/terms/RightsStatement((Rights Statement))" ;
+    mermaid:syntax "CLASS" .
 
 dcterms:SizeOrDuration a rdfs:Class ;
     rdfs:label "Size or Duration"@en ;
@@ -195,17 +195,38 @@ dcterms:SizeOrDuration a rdfs:Class ;
     rdfs:comment "A dimension or extent, or a time taken to play or execute."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subClassOf dcterms:MediaTypeOrExtent ;
-    ns1:label """http://purl.org/dc/terms/SizeOrDuration((http://purl.org/dc/terms/SizeOrDuration)) -- subClassOf --> http://purl.org/dc/terms/MediaTypeOrExtent((http://purl.org/dc/terms/MediaTypeOrExtent))
+    mermaid:label """http://purl.org/dc/terms/SizeOrDuration((Size or Duration)) -- subClassOf --> http://purl.org/dc/terms/MediaTypeOrExtent
 """ ;
-    ns1:syntax "SUBCLASSOF" .
+    mermaid:syntax "SUBCLASSOF" .
 
 dcterms:Standard a rdfs:Class ;
     rdfs:label "Standard"@en ;
     dcterms:issued "2008-01-14"^^xsd:date ;
     rdfs:comment "A reference point against which other things can be evaluated or compared."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/terms/Standard((http://purl.org/dc/terms/Standard))" ;
-    ns1:syntax "CLASS" .
+    mermaid:label "http://purl.org/dc/terms/Standard((Standard))" ;
+    mermaid:syntax "CLASS" .
+
+dcterms:Adolescent rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty dcterms:hasAge ;
+            owl:someValuesFrom [ a owl:Restriction ;
+                    owl:allValuesFrom dcterms:Good ;
+                    owl:onProperty dcterms:hasHealth ;
+                    mermaid:label """subgraph n56f6ca5baf6a459f8acbaec1f3db4265b14[Restriction &forall; R C]
+n56f6ca5baf6a459f8acbaec1f3db4265b14thing((thing)) -- hasHealth only --> n56f6ca5baf6a459f8acbaec1f3db4265b14http://purl.org/dc/terms/Good((Good))
+
+end
+""" ;
+                    mermaid:syntax "ONLY" ] ;
+            mermaid:label """subgraph n56f6ca5baf6a459f8acbaec1f3db4265b13[Restriction &exist; R C]
+n56f6ca5baf6a459f8acbaec1f3db4265b13thing((thing)) -- hasAge some --> n56f6ca5baf6a459f8acbaec1f3db4265b14
+
+end
+""" ;
+            mermaid:syntax "SOME" ] ;
+    mermaid:label """http://purl.org/dc/terms/Adolescent((Adolescent)) -- subClassOf --> n56f6ca5baf6a459f8acbaec1f3db4265b13
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
 
 dcterms:Box a rdfs:Datatype ;
     rdfs:label "DCMI Box"@en ;
@@ -213,8 +234,8 @@ dcterms:Box a rdfs:Datatype ;
     rdfs:comment "The set of regions in space defined by their geographic coordinates according to the DCMI Box Encoding Scheme."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:seeAlso <https://www.dublincore.org/specifications/dublin-core/dcmi-box/> ;
-    ns1:label "http://purl.org/dc/terms/Box[http://purl.org/dc/terms/Box]:::Datatype" ;
-    ns1:syntax "DATATYPE" .
+    mermaid:label "http://purl.org/dc/terms/Box[DCMI Box]:::Datatype" ;
+    mermaid:syntax "DATATYPE" .
 
 dcterms:DCMIType a dcam:VocabularyEncodingScheme ;
     rdfs:label "DCMI Type Vocabulary"@en ;
@@ -243,8 +264,8 @@ dcterms:ISO3166 a rdfs:Datatype ;
     rdfs:comment "The set of codes listed in ISO 3166-1 for the representation of names of countries."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:seeAlso <https://www.iso.org/obp/ui/#search> ;
-    ns1:label "http://purl.org/dc/terms/ISO3166[http://purl.org/dc/terms/ISO3166]:::Datatype" ;
-    ns1:syntax "DATATYPE" .
+    mermaid:label "http://purl.org/dc/terms/ISO3166[ISO 3166]:::Datatype" ;
+    mermaid:syntax "DATATYPE" .
 
 dcterms:ISO639-2 a rdfs:Datatype ;
     rdfs:label "ISO 639-2"@en ;
@@ -252,8 +273,8 @@ dcterms:ISO639-2 a rdfs:Datatype ;
     rdfs:comment "The three-letter alphabetic codes listed in ISO639-2 for the representation of names of languages."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:seeAlso <http://lcweb.loc.gov/standards/iso639-2/langhome.html> ;
-    ns1:label "http://purl.org/dc/terms/ISO639-2[http://purl.org/dc/terms/ISO639-2]:::Datatype" ;
-    ns1:syntax "DATATYPE" .
+    mermaid:label "http://purl.org/dc/terms/ISO639-2[ISO 639-2]:::Datatype" ;
+    mermaid:syntax "DATATYPE" .
 
 dcterms:ISO639-3 a rdfs:Datatype ;
     rdfs:label "ISO 639-3"@en ;
@@ -261,8 +282,8 @@ dcterms:ISO639-3 a rdfs:Datatype ;
     rdfs:comment "The set of three-letter codes listed in ISO 639-3 for the representation of names of languages."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:seeAlso <http://www.sil.org/iso639-3/> ;
-    ns1:label "http://purl.org/dc/terms/ISO639-3[http://purl.org/dc/terms/ISO639-3]:::Datatype" ;
-    ns1:syntax "DATATYPE" .
+    mermaid:label "http://purl.org/dc/terms/ISO639-3[ISO 639-3]:::Datatype" ;
+    mermaid:syntax "DATATYPE" .
 
 dcterms:LCC a dcam:VocabularyEncodingScheme ;
     rdfs:label "LCC"@en ;
@@ -297,8 +318,8 @@ dcterms:Point a rdfs:Datatype ;
     rdfs:comment "The set of points in space defined by their geographic coordinates according to the DCMI Point Encoding Scheme."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:seeAlso <https://www.dublincore.org/specifications/dublin-core/dcmi-point/> ;
-    ns1:label "http://purl.org/dc/terms/Point[http://purl.org/dc/terms/Point]:::Datatype" ;
-    ns1:syntax "DATATYPE" .
+    mermaid:label "http://purl.org/dc/terms/Point[DCMI Point]:::Datatype" ;
+    mermaid:syntax "DATATYPE" .
 
 dcterms:RFC1766 a rdfs:Datatype ;
     rdfs:label "RFC 1766"@en ;
@@ -306,8 +327,8 @@ dcterms:RFC1766 a rdfs:Datatype ;
     rdfs:comment "The set of tags, constructed according to RFC 1766, for the identification of languages."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:seeAlso <http://www.ietf.org/rfc/rfc1766.txt> ;
-    ns1:label "http://purl.org/dc/terms/RFC1766[http://purl.org/dc/terms/RFC1766]:::Datatype" ;
-    ns1:syntax "DATATYPE" .
+    mermaid:label "http://purl.org/dc/terms/RFC1766[RFC 1766]:::Datatype" ;
+    mermaid:syntax "DATATYPE" .
 
 dcterms:RFC3066 a rdfs:Datatype ;
     rdfs:label "RFC 3066"@en ;
@@ -316,8 +337,8 @@ dcterms:RFC3066 a rdfs:Datatype ;
     rdfs:comment "The set of tags constructed according to RFC 3066 for the identification of languages."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:seeAlso <http://www.ietf.org/rfc/rfc3066.txt> ;
-    ns1:label "http://purl.org/dc/terms/RFC3066[http://purl.org/dc/terms/RFC3066]:::Datatype" ;
-    ns1:syntax "DATATYPE" .
+    mermaid:label "http://purl.org/dc/terms/RFC3066[RFC 3066]:::Datatype" ;
+    mermaid:syntax "DATATYPE" .
 
 dcterms:RFC4646 a rdfs:Datatype ;
     rdfs:label "RFC 4646"@en ;
@@ -326,8 +347,8 @@ dcterms:RFC4646 a rdfs:Datatype ;
     rdfs:comment "The set of tags constructed according to RFC 4646 for the identification of languages."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:seeAlso <http://www.ietf.org/rfc/rfc4646.txt> ;
-    ns1:label "http://purl.org/dc/terms/RFC4646[http://purl.org/dc/terms/RFC4646]:::Datatype" ;
-    ns1:syntax "DATATYPE" .
+    mermaid:label "http://purl.org/dc/terms/RFC4646[RFC 4646]:::Datatype" ;
+    mermaid:syntax "DATATYPE" .
 
 dcterms:RFC5646 a rdfs:Datatype ;
     rdfs:label "RFC 5646"@en ;
@@ -336,8 +357,8 @@ dcterms:RFC5646 a rdfs:Datatype ;
     rdfs:comment "The set of tags constructed according to RFC 5646 for the identification of languages."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:seeAlso <http://www.ietf.org/rfc/rfc5646.txt> ;
-    ns1:label "http://purl.org/dc/terms/RFC5646[http://purl.org/dc/terms/RFC5646]:::Datatype" ;
-    ns1:syntax "DATATYPE" .
+    mermaid:label "http://purl.org/dc/terms/RFC5646[RFC 5646]:::Datatype" ;
+    mermaid:syntax "DATATYPE" .
 
 dcterms:TGN a dcam:VocabularyEncodingScheme ;
     rdfs:label "TGN"@en ;
@@ -345,6 +366,30 @@ dcterms:TGN a dcam:VocabularyEncodingScheme ;
     rdfs:comment "The set of places specified by the Getty Thesaurus of Geographic Names."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:seeAlso <http://www.getty.edu/research/tools/vocabulary/tgn/index.html> .
+
+dcterms:Teenager rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty dcterms:hasAge ;
+            owl:someValuesFrom [ a rdfs:Datatype ;
+                    owl:onDatatype xsd:integer ;
+                    owl:withRestrictions ( [ xsd:minExclusive 12 ] [ xsd:maxInclusive 19 ] ) ;
+                    mermaid:label "n56f6ca5baf6a459f8acbaec1f3db4265b16",
+                        """subgraph n56f6ca5baf6a459f8acbaec1f3db4265b16 [Restriction ≥ N R]
+style n56f6ca5baf6a459f8acbaec1f3db4265b16 fill:#d8f1b3,stroke:#9c6
+n56f6ca5baf6a459f8acbaec1f3db4265b16n56f6ca5baf6a459f8acbaec1f3db4265b17((>12)):::Datatype
+n56f6ca5baf6a459f8acbaec1f3db4265b16n56f6ca5baf6a459f8acbaec1f3db4265b18((<=19)):::Datatype
+end
+""" ;
+                    mermaid:syntax "DATATYPE",
+                        "DATATYPERESTRICTION" ] ;
+            mermaid:label """subgraph n56f6ca5baf6a459f8acbaec1f3db4265b15[Restriction &exist; R C]
+n56f6ca5baf6a459f8acbaec1f3db4265b15thing((thing)) -- hasAge some --> n56f6ca5baf6a459f8acbaec1f3db4265b16
+
+end
+""" ;
+            mermaid:syntax "SOME" ] ;
+    mermaid:label """http://purl.org/dc/terms/Teenager((Teenager)) -- subClassOf --> n56f6ca5baf6a459f8acbaec1f3db4265b15
+""" ;
+    mermaid:syntax "SUBCLASSOF" .
 
 dcterms:UDC a dcam:VocabularyEncodingScheme ;
     rdfs:label "UDC"@en ;
@@ -359,8 +404,8 @@ dcterms:URI a rdfs:Datatype ;
     rdfs:comment "The set of identifiers constructed according to the generic syntax for Uniform Resource Identifiers as specified by the Internet Engineering Task Force."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:seeAlso <http://www.ietf.org/rfc/rfc3986.txt> ;
-    ns1:label "http://purl.org/dc/terms/URI[http://purl.org/dc/terms/URI]:::Datatype" ;
-    ns1:syntax "DATATYPE" .
+    mermaid:label "http://purl.org/dc/terms/URI[URI]:::Datatype" ;
+    mermaid:syntax "DATATYPE" .
 
 dcterms:W3CDTF a rdfs:Datatype ;
     rdfs:label "W3C-DTF"@en ;
@@ -368,8 +413,8 @@ dcterms:W3CDTF a rdfs:Datatype ;
     rdfs:comment "The set of dates and times constructed according to the W3C Date and Time Formats Specification."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:seeAlso <http://www.w3.org/TR/NOTE-datetime> ;
-    ns1:label "http://purl.org/dc/terms/W3CDTF[http://purl.org/dc/terms/W3CDTF]:::Datatype" ;
-    ns1:syntax "DATATYPE" .
+    mermaid:label "http://purl.org/dc/terms/W3CDTF[W3C-DTF]:::Datatype" ;
+    mermaid:syntax "DATATYPE" .
 
 dcterms:abstract a rdf:Property ;
     rdfs:label "Abstract"@en ;
@@ -378,8 +423,8 @@ dcterms:abstract a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:description,
         dcterms:description ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/abstract --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Abstract --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:accessRights a rdf:Property ;
     rdfs:label "Access Rights"@en ;
@@ -390,8 +435,8 @@ dcterms:accessRights a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:rights,
         dcterms:rights ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/accessRights --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Access Rights --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:accrualMethod a rdf:Property ;
     rdfs:label "Accrual Method"@en ;
@@ -401,8 +446,8 @@ dcterms:accrualMethod a rdf:Property ;
     rdfs:comment "The method by which items are added to a collection."@en ;
     rdfs:domain dcmitype:Collection ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/dcmitype/Collection -- http://purl.org/dc/terms/accrualMethod --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "http://purl.org/dc/dcmitype/Collection -- Accrual Method --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:accrualPeriodicity a rdf:Property ;
     rdfs:label "Accrual Periodicity"@en ;
@@ -412,8 +457,8 @@ dcterms:accrualPeriodicity a rdf:Property ;
     rdfs:comment "The frequency with which items are added to a collection."@en ;
     rdfs:domain dcmitype:Collection ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/dcmitype/Collection -- http://purl.org/dc/terms/accrualPeriodicity --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "http://purl.org/dc/dcmitype/Collection -- Accrual Periodicity --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:accrualPolicy a rdf:Property ;
     rdfs:label "Accrual Policy"@en ;
@@ -423,8 +468,8 @@ dcterms:accrualPolicy a rdf:Property ;
     rdfs:comment "The policy governing the addition of items to a collection."@en ;
     rdfs:domain dcmitype:Collection ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "http://purl.org/dc/dcmitype/Collection -- http://purl.org/dc/terms/accrualPolicy --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "http://purl.org/dc/dcmitype/Collection -- Accrual Policy --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:alternative a rdf:Property ;
     rdfs:label "Alternative Title"@en ;
@@ -435,8 +480,8 @@ dcterms:alternative a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:title,
         dcterms:title ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/alternative --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Alternative Title --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:available a rdf:Property ;
     rdfs:label "Date Available"@en ;
@@ -447,8 +492,8 @@ dcterms:available a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/available --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Date Available --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:bibliographicCitation a rdf:Property ;
     rdfs:label "Bibliographic Citation"@en ;
@@ -459,8 +504,8 @@ dcterms:bibliographicCitation a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:identifier,
         dcterms:identifier ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/bibliographicCitation --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Bibliographic Citation --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:conformsTo a rdf:Property ;
     rdfs:label "Conforms To"@en ;
@@ -470,8 +515,8 @@ dcterms:conformsTo a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/conformsTo --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Conforms To --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:created a rdf:Property ;
     rdfs:label "Date Created"@en ;
@@ -482,8 +527,8 @@ dcterms:created a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/created --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Date Created --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:creator a rdf:Property ;
     rdfs:label "Creator"@en ;
@@ -495,8 +540,8 @@ dcterms:creator a rdf:Property ;
     rdfs:subPropertyOf dc:creator,
         dcterms:contributor ;
     owl:equivalentProperty foaf:maker ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/creator --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Creator --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:dateAccepted a rdf:Property ;
     rdfs:label "Date Accepted"@en ;
@@ -507,8 +552,8 @@ dcterms:dateAccepted a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/dateAccepted --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Date Accepted --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:dateCopyrighted a rdf:Property ;
     rdfs:label "Date Copyrighted"@en ;
@@ -519,8 +564,8 @@ dcterms:dateCopyrighted a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/dateCopyrighted --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Date Copyrighted --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:dateSubmitted a rdf:Property ;
     rdfs:label "Date Submitted"@en ;
@@ -531,8 +576,8 @@ dcterms:dateSubmitted a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/dateSubmitted --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Date Submitted --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:educationLevel a rdf:Property ;
     rdfs:label "Audience Education Level"@en ;
@@ -541,8 +586,8 @@ dcterms:educationLevel a rdf:Property ;
     rdfs:comment "A class of agents, defined in terms of progression through an educational or training context, for which the described resource is intended."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dcterms:audience ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/educationLevel --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Audience Education Level --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:extent a rdf:Property ;
     rdfs:label "Extent"@en ;
@@ -553,8 +598,8 @@ dcterms:extent a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:format,
         dcterms:format ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/extent --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Extent --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:hasFormat a rdf:Property ;
     rdfs:label "Has Format"@en ;
@@ -564,8 +609,8 @@ dcterms:hasFormat a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/hasFormat --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Has Format --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:hasPart a rdf:Property ;
     rdfs:label "Has Part"@en ;
@@ -575,8 +620,8 @@ dcterms:hasPart a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/hasPart --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Has Part --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:hasVersion a rdf:Property ;
     rdfs:label "Has Version"@en ;
@@ -586,8 +631,8 @@ dcterms:hasVersion a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/hasVersion --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Has Version --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:instructionalMethod a rdf:Property ;
     rdfs:label "Instructional Method"@en ;
@@ -596,8 +641,8 @@ dcterms:instructionalMethod a rdf:Property ;
     dcterms:issued "2005-06-13"^^xsd:date ;
     rdfs:comment "A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/instructionalMethod --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Instructional Method --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:isFormatOf a rdf:Property ;
     rdfs:label "Is Format Of"@en ;
@@ -607,8 +652,8 @@ dcterms:isFormatOf a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/isFormatOf --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Is Format Of --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:isPartOf a rdf:Property ;
     rdfs:label "Is Part Of"@en ;
@@ -618,8 +663,8 @@ dcterms:isPartOf a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/isPartOf --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Is Part Of --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:isReferencedBy a rdf:Property ;
     rdfs:label "Is Referenced By"@en ;
@@ -629,8 +674,8 @@ dcterms:isReferencedBy a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/isReferencedBy --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Is Referenced By --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:isReplacedBy a rdf:Property ;
     rdfs:label "Is Replaced By"@en ;
@@ -640,8 +685,8 @@ dcterms:isReplacedBy a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/isReplacedBy --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Is Replaced By --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:isRequiredBy a rdf:Property ;
     rdfs:label "Is Required By"@en ;
@@ -651,8 +696,8 @@ dcterms:isRequiredBy a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/isRequiredBy --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Is Required By --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:isVersionOf a rdf:Property ;
     rdfs:label "Is Version Of"@en ;
@@ -662,8 +707,8 @@ dcterms:isVersionOf a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/isVersionOf --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Is Version Of --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:issued a rdf:Property ;
     rdfs:label "Date Issued"@en ;
@@ -674,8 +719,8 @@ dcterms:issued a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/issued --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Date Issued --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:language a rdf:Property ;
     rdfs:label "Language"@en ;
@@ -685,8 +730,8 @@ dcterms:language a rdf:Property ;
     rdfs:comment "A language of the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:language ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/language --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Language --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:license a rdf:Property ;
     rdfs:label "License"@en ;
@@ -697,8 +742,27 @@ dcterms:license a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:rights,
         dcterms:rights ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/license --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- License --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
+
+dcterms:majorAge owl:equivalentClass [ a rdfs:Datatype ;
+            owl:intersectionOf ( dcterms:personAge [ a rdfs:Datatype ;
+                        owl:datatypeComplementOf dcterms:minorAge ;
+                        mermaid:label """subgraph n56f6ca5baf6a459f8acbaec1f3db4265b2[Negation &not; C]
+style n56f6ca5baf6a459f8acbaec1f3db4265b2 fill:#d8f1b3,stroke:#9c6
+n56f6ca5baf6a459f8acbaec1f3db4265b2http://purl.org/dc/terms/minorAge((minorAge)):::Datatype
+end
+""" ;
+                        mermaid:syntax "NOT-DATATYPE" ] ) ;
+            mermaid:label """subgraph n56f6ca5baf6a459f8acbaec1f3db4265b1[Intersection C &cap; D]
+style n56f6ca5baf6a459f8acbaec1f3db4265b1 fill:#d8f1b3,stroke:#9c6
+n56f6ca5baf6a459f8acbaec1f3db4265b1http://purl.org/dc/terms/personAge((personAge)):::Datatype -- and --- n56f6ca5baf6a459f8acbaec1f3db4265b2
+end
+""" ;
+            mermaid:syntax "AND-DATATYPE" ] ;
+    mermaid:label """http://purl.org/dc/terms/majorAge((majorAge)) -- equivalentTo --> n56f6ca5baf6a459f8acbaec1f3db4265b1
+""" ;
+    mermaid:syntax "EQUIVALENTTO" .
 
 dcterms:mediator a rdf:Property ;
     rdfs:label "Mediator"@en ;
@@ -708,8 +772,8 @@ dcterms:mediator a rdf:Property ;
     rdfs:comment "An entity that mediates access to the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dcterms:audience ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/mediator --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Mediator --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:medium a rdf:Property ;
     rdfs:label "Medium"@en ;
@@ -720,8 +784,8 @@ dcterms:medium a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:format,
         dcterms:format ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/medium --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Medium --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:modified a rdf:Property ;
     rdfs:label "Date Modified"@en ;
@@ -732,8 +796,8 @@ dcterms:modified a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/modified --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Date Modified --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:provenance a rdf:Property ;
     rdfs:label "Provenance"@en ;
@@ -742,8 +806,8 @@ dcterms:provenance a rdf:Property ;
     dcterms:issued "2004-09-20"^^xsd:date ;
     rdfs:comment "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/provenance --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Provenance --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:publisher a rdf:Property ;
     rdfs:label "Publisher"@en ;
@@ -752,8 +816,8 @@ dcterms:publisher a rdf:Property ;
     rdfs:comment "An entity responsible for making the resource available."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:publisher ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/publisher --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Publisher --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:references a rdf:Property ;
     rdfs:label "References"@en ;
@@ -763,8 +827,8 @@ dcterms:references a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/references --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- References --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:replaces a rdf:Property ;
     rdfs:label "Replaces"@en ;
@@ -774,8 +838,8 @@ dcterms:replaces a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/replaces --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Replaces --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:requires a rdf:Property ;
     rdfs:label "Requires"@en ;
@@ -785,8 +849,8 @@ dcterms:requires a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation,
         dcterms:relation ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/requires --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Requires --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:rightsHolder a rdf:Property ;
     rdfs:label "Rights Holder"@en ;
@@ -795,8 +859,8 @@ dcterms:rightsHolder a rdf:Property ;
     dcterms:issued "2004-06-14"^^xsd:date ;
     rdfs:comment "A person or organization owning or managing rights over the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/rightsHolder --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Rights Holder --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:source a rdf:Property ;
     rdfs:label "Source"@en ;
@@ -806,8 +870,8 @@ dcterms:source a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:source,
         dcterms:relation ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/source --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Source --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:spatial a rdf:Property ;
     rdfs:label "Spatial Coverage"@en ;
@@ -817,8 +881,8 @@ dcterms:spatial a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:coverage,
         dcterms:coverage ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/spatial --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Spatial Coverage --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:subject a rdf:Property ;
     rdfs:label "Subject"@en ;
@@ -827,8 +891,8 @@ dcterms:subject a rdf:Property ;
     rdfs:comment "A topic of the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:subject ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/subject --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Subject --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:tableOfContents a rdf:Property ;
     rdfs:label "Table Of Contents"@en ;
@@ -837,8 +901,8 @@ dcterms:tableOfContents a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:description,
         dcterms:description ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/tableOfContents --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Table Of Contents --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:temporal a rdf:Property ;
     rdfs:label "Temporal Coverage"@en ;
@@ -848,8 +912,21 @@ dcterms:temporal a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:coverage,
         dcterms:coverage ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/temporal --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Temporal Coverage --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
+
+dcterms:toddlerAge owl:equivalentClass [ a rdfs:Datatype ;
+            owl:oneOf ( 1 2 ) ;
+            mermaid:label """subgraph n56f6ca5baf6a459f8acbaec1f3db4265b5[Enumeration x &cap; y]
+style n56f6ca5baf6a459f8acbaec1f3db4265b5 fill:#d8f1b3,stroke:#9c6
+n56f6ca5baf6a459f8acbaec1f3db4265b51((1)):::Datatype
+n56f6ca5baf6a459f8acbaec1f3db4265b52((2)):::Datatype
+end
+""" ;
+            mermaid:syntax "{}-DATATYPE" ] ;
+    mermaid:label """http://purl.org/dc/terms/toddlerAge((toddlerAge)) -- equivalentTo --> n56f6ca5baf6a459f8acbaec1f3db4265b5
+""" ;
+    mermaid:syntax "EQUIVALENTTO" .
 
 dcterms:type a rdf:Property ;
     rdfs:label "Type"@en ;
@@ -858,8 +935,8 @@ dcterms:type a rdf:Property ;
     rdfs:comment "The nature or genre of the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:type ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/type --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Type --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:valid a rdf:Property ;
     rdfs:label "Date Valid"@en ;
@@ -870,8 +947,8 @@ dcterms:valid a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date,
         dcterms:date ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/valid --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Date Valid --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:Period a rdfs:Datatype ;
     rdfs:label "DCMI Period"@en ;
@@ -879,8 +956,8 @@ dcterms:Period a rdfs:Datatype ;
     rdfs:comment "The set of time intervals defined by their limits according to the DCMI Period Encoding Scheme."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:seeAlso <https://www.dublincore.org/specifications/dublin-core/dcmi-period/> ;
-    ns1:label "http://purl.org/dc/terms/Period[http://purl.org/dc/terms/Period]:::Datatype" ;
-    ns1:syntax "DATATYPE" .
+    mermaid:label "http://purl.org/dc/terms/Period[DCMI Period]:::Datatype" ;
+    mermaid:syntax "DATATYPE" .
 
 dcterms:contributor a rdf:Property ;
     rdfs:label "Contributor"@en ;
@@ -890,8 +967,8 @@ dcterms:contributor a rdf:Property ;
     rdfs:comment "An entity responsible for making contributions to the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:contributor ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/contributor --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Contributor --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:identifier a rdf:Property ;
     rdfs:label "Identifier"@en ;
@@ -901,8 +978,24 @@ dcterms:identifier a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:identifier ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/identifier --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Identifier --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:syntax "RDF_PROPERTY" .
+
+dcterms:personAge owl:equivalentClass [ a rdfs:Datatype ;
+            owl:onDatatype xsd:integer ;
+            owl:withRestrictions ( [ xsd:minInclusive 0 ] [ xsd:maxInclusive 150 ] ) ;
+            mermaid:label "n56f6ca5baf6a459f8acbaec1f3db4265b8",
+                """subgraph n56f6ca5baf6a459f8acbaec1f3db4265b8 [Restriction ≥ N R]
+style n56f6ca5baf6a459f8acbaec1f3db4265b8 fill:#d8f1b3,stroke:#9c6
+n56f6ca5baf6a459f8acbaec1f3db4265b8n56f6ca5baf6a459f8acbaec1f3db4265b9((>=0)):::Datatype
+n56f6ca5baf6a459f8acbaec1f3db4265b8n56f6ca5baf6a459f8acbaec1f3db4265b10((<=150)):::Datatype
+end
+""" ;
+            mermaid:syntax "DATATYPE",
+                "DATATYPERESTRICTION" ] ;
+    mermaid:label """http://purl.org/dc/terms/personAge((personAge)) -- equivalentTo --> n56f6ca5baf6a459f8acbaec1f3db4265b8
+""" ;
+    mermaid:syntax "EQUIVALENTTO" .
 
 dcterms:title a rdf:Property ;
     rdfs:label "Title"@en ;
@@ -911,8 +1004,8 @@ dcterms:title a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:title ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/title --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Title --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:audience a rdf:Property ;
     rdfs:label "Audience"@en ;
@@ -921,8 +1014,8 @@ dcterms:audience a rdf:Property ;
     dcterms:issued "2001-05-21"^^xsd:date ;
     rdfs:comment "A class of agents for whom the resource is intended or useful."@en ;
     rdfs:isDefinedBy dcterms: ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/audience --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Audience --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:coverage a rdf:Property ;
     rdfs:label "Coverage"@en ;
@@ -934,8 +1027,8 @@ dcterms:coverage a rdf:Property ;
     rdfs:comment "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:coverage ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/coverage --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Coverage --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:description a rdf:Property ;
     rdfs:label "Description"@en ;
@@ -944,8 +1037,8 @@ dcterms:description a rdf:Property ;
     rdfs:comment "An account of the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:description ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/description --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Description --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:format a rdf:Property ;
     rdfs:label "Format"@en ;
@@ -956,8 +1049,8 @@ dcterms:format a rdf:Property ;
     rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:format ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/format --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Format --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:rights a rdf:Property ;
     rdfs:label "Rights"@en ;
@@ -967,8 +1060,8 @@ dcterms:rights a rdf:Property ;
     rdfs:comment "Information about rights held in and over the resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:rights ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/rights --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Rights --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:date a rdf:Property ;
     rdfs:label "Date"@en ;
@@ -978,8 +1071,8 @@ dcterms:date a rdf:Property ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf dc:date ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/date --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Date --> http://www.w3.org/2000/01/rdf-schema#Literal" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms:relation a rdf:Property ;
     rdfs:label "Relation"@en ;
@@ -988,8 +1081,8 @@ dcterms:relation a rdf:Property ;
     rdfs:comment "A related resource."@en ;
     rdfs:isDefinedBy dcterms: ;
     rdfs:subPropertyOf dc:relation ;
-    ns1:label "rdfs:Resource -- http://purl.org/dc/terms/relation --> rdfs:Resource" ;
-    ns1:syntax "RDF_PROPERTY" .
+    mermaid:label "rdfs:Resource -- Relation --> rdfs:Resource" ;
+    mermaid:syntax "RDF_PROPERTY" .
 
 dcterms: dcterms:modified "2012-06-14"^^xsd:date ;
     dcterms:publisher <http://purl.org/dc/aboutdcmi#DCMI> ;
