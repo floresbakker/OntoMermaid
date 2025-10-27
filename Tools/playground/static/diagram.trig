@@ -84,7 +84,7 @@
             :Role,
             :Site ;
         owl:equivalentClass foaf:Organization ;
-        owl:hasKey _:n5b5e06da6bbe459e9c6f38bb736458f0b10 ;
+        owl:hasKey _:n35f6a7199b1940d28b469e5a1cae5129b10 ;
         mermaid:fragment """http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization)) -- equivalentTo --> http://xmlns.com/foaf/0.1/Organization((http://xmlns.com/foaf/0.1/Organization))
 """,
             """http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization)) -- subClassOf --> http://xmlns.com/foaf/0.1/Agent((http://xmlns.com/foaf/0.1/Agent))
@@ -105,8 +105,8 @@
             "ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆãªã©ã®2ã¤ä»¥ä¸Šã®çµ„ç¹”é–“ã®ã‚³ãƒ©ãƒœãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã€‚ãã‚Œã¯ã€ã‚¢ã‚¤ãƒ‡ãƒ³ãƒ†ã‚£ãƒ†ã‚£ã‚’æœ‰ã—ã€ãã®ç‰¹å®šã®ãƒ¡ãƒ³ãƒãƒ¼ã¨ã¯ç„¡é–¢ä¿‚ã«ç›®çš„ã‚’å®šã‚ã¦ã„ã‚‹ã¨ã„ã†ç‚¹ã§ã€çµ„ç¹”ã¨ã—ã¦ã®åŸºæº–ã‚’æº€ãŸã—ã¾ã™ãŒã€æ­£å¼ã«èªè­˜ã•ã‚ŒãŸæ³•çš„å®Ÿä½“ã§ã‚‚ã€ã‚ã‚‹ã‚ˆã‚Šå¤§ããªçµ„ç¹”å†…ã®ã‚µãƒ–ãƒ¦ãƒ‹ãƒƒãƒˆã§ã‚‚ã‚ã‚Šã¾ã›ã‚“ã€‚ä¸€èˆ¬çš„ã«ã¯ã€ãã®å†…éƒ¨ã®çµ„ç¹”ã‚ˆã‚Šã‚‚å­˜ç¶šæœŸé–“ãŒçŸ­ã„ã‹ã‚‚ã—ã‚Œã¾ã›ã‚“ãŒã€å¿…ãšã—ã‚‚ãã†ã¨ã¯é™ã‚Šã¾ã›ã‚“ã€‚"@ja ;
         rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
         rdfs:subClassOf :Organization ;
-        owl:equivalentClass _:n5b5e06da6bbe459e9c6f38bb736458f0b20 ;
-        mermaid:fragment """http://www.w3.org/ns/org#OrganizationalCollaboration((http://www.w3.org/ns/org#OrganizationalCollaboration)) -- equivalentTo --> n5b5e06da6bbe459e9c6f38bb736458f0b20((Anonymous class))
+        owl:equivalentClass _:n35f6a7199b1940d28b469e5a1cae5129b20 ;
+        mermaid:fragment """http://www.w3.org/ns/org#OrganizationalCollaboration((http://www.w3.org/ns/org#OrganizationalCollaboration)) -- equivalentTo --> n35f6a7199b1940d28b469e5a1cae5129b20((Anonymous class))
 """,
             """http://www.w3.org/ns/org#OrganizationalCollaboration((http://www.w3.org/ns/org#OrganizationalCollaboration)) -- subClassOf --> http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization))
 """ ;
@@ -416,10 +416,10 @@
             "Indique une relation de subordination comme elle pourrait figurer dans un organigramme. La sÃ©mantique prÃ©cise de cette subordination pourra varier selon l'Organisation mais vise Ã  englober aussi bien les relations hiÃ©rarchiques directes (dÃ©finition d'objectifs, montant du salaire) que des relations plus gÃ©nÃ©rales ou organisationnelles (les liens en pointillÃ©s dans les organigrammes)."@fr,
             "Indica una relazione di subordinazione all'interno dell'organigramma. La semantica precisa puÃ² variare a seconda dell'organizzazione, per esempio puÃ² essere usata per rappresentare la proprietÃ  di supervisione oppure per le relazioni di rendicontazione."@it,
             "çµ„ç¹”å›³ã§æã‹ã‚Œã‚‹ã‹ã‚‚ã—ã‚Œãªã„ã‚ˆã†ãªä¸Šä¸‹é–¢ä¿‚ã‚’ç¤ºã—ã¾ã™ã€‚ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆé–“ã¾ãŸã¯ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆãŒå°±ãã“ã¨ãŒã§ãã‚‹ãƒã‚¹ãƒˆé–“ã®ä¸Šä¸‹é–¢ä¿‚ã‚’ç›´æŽ¥çš„ã«ç¤ºã™ãŸã‚ã«ä½¿ç”¨ã§ãã¾ã™ã€‚"@ja ;
-        rdfs:domain _:n5b5e06da6bbe459e9c6f38bb736458f0b11 ;
+        rdfs:domain _:n35f6a7199b1940d28b469e5a1cae5129b11 ;
         rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
-        rdfs:range _:n5b5e06da6bbe459e9c6f38bb736458f0b14 ;
-        mermaid:fragment "n5b5e06da6bbe459e9c6f38bb736458f0b11 -- http://www.w3.org/ns/org#reportsTo --> n5b5e06da6bbe459e9c6f38bb736458f0b14" ;
+        rdfs:range _:n35f6a7199b1940d28b469e5a1cae5129b14 ;
+        mermaid:fragment "n35f6a7199b1940d28b469e5a1cae5129b11 -- http://www.w3.org/ns/org#reportsTo --> n35f6a7199b1940d28b469e5a1cae5129b14" ;
         mermaid:syntax "OBJECTPROPERTY",
             "RDF_PROPERTY" .
 
@@ -434,10 +434,10 @@
             "Indique le RÃ´le de l'Agent dans son Engagement avec l'Organisation."@fr,
             "Indica il Role che un Agent ricopre in una relazione di Membership con una Organization"@it,
             "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆãŒçµ„ç¹”ã¨ã®æ§‹æˆå“¡é–¢ä¿‚ã«ãŠã„ã¦æ‹…ã†å½¹å‰²ã‚’ç¤ºã—ã¾ã™ã€‚ãƒã‚¹ãƒˆã®ä¿æŒè€…ãŒæ‹…ã†å½¹å‰²ã‚’ç¤ºã™ãŸã‚ã«org:Postã§ç”¨ã„ã‚‹ã“ã¨ã‚‚ã§ãã¾ã™ã€‚"@ja ;
-        rdfs:domain _:n5b5e06da6bbe459e9c6f38bb736458f0b17 ;
+        rdfs:domain _:n35f6a7199b1940d28b469e5a1cae5129b17 ;
         rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
         rdfs:range :Role ;
-        mermaid:fragment "n5b5e06da6bbe459e9c6f38bb736458f0b17 -- http://www.w3.org/ns/org#role --> http://www.w3.org/ns/org#Role" ;
+        mermaid:fragment "n35f6a7199b1940d28b469e5a1cae5129b17 -- http://www.w3.org/ns/org#role --> http://www.w3.org/ns/org#Role" ;
         mermaid:syntax "OBJECTPROPERTY",
             "RDF_PROPERTY" .
 
@@ -475,7 +475,7 @@
         mermaid:syntax "OBJECTPROPERTY",
             "RDF_PROPERTY" .
 
-    prov:wasDerivedFrom owl:propertyChainAxiom _:n5b5e06da6bbe459e9c6f38bb736458f0b24 .
+    prov:wasDerivedFrom owl:propertyChainAxiom _:n35f6a7199b1940d28b469e5a1cae5129b24 .
 
     doc: a mermaid:Generation ;
         dct:subject : ;
@@ -496,15 +496,15 @@
             "OntologÃ­a de organizaciones"@es,
             "Ontologie des organisations"@fr,
             "Ontologia delle organizzazioni"@it ;
-        dct:contributor _:n5b5e06da6bbe459e9c6f38bb736458f0b1,
-            _:n5b5e06da6bbe459e9c6f38bb736458f0b2,
-            _:n5b5e06da6bbe459e9c6f38bb736458f0b3,
-            _:n5b5e06da6bbe459e9c6f38bb736458f0b4,
-            _:n5b5e06da6bbe459e9c6f38bb736458f0b5,
-            _:n5b5e06da6bbe459e9c6f38bb736458f0b6,
-            _:n5b5e06da6bbe459e9c6f38bb736458f0b7,
-            _:n5b5e06da6bbe459e9c6f38bb736458f0b8,
-            _:n5b5e06da6bbe459e9c6f38bb736458f0b9 ;
+        dct:contributor _:n35f6a7199b1940d28b469e5a1cae5129b1,
+            _:n35f6a7199b1940d28b469e5a1cae5129b2,
+            _:n35f6a7199b1940d28b469e5a1cae5129b3,
+            _:n35f6a7199b1940d28b469e5a1cae5129b4,
+            _:n35f6a7199b1940d28b469e5a1cae5129b5,
+            _:n35f6a7199b1940d28b469e5a1cae5129b6,
+            _:n35f6a7199b1940d28b469e5a1cae5129b7,
+            _:n35f6a7199b1940d28b469e5a1cae5129b8,
+            _:n35f6a7199b1940d28b469e5a1cae5129b9 ;
         dct:created "2010-05-28"^^xsd:date ;
         dct:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ;
         dct:modified "2010-06-09"^^xsd:date,
@@ -914,109 +914,109 @@
         mermaid:syntax "OBJECTPROPERTY",
             "RDF_PROPERTY" .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b1 foaf:mbox "dave@epimorphics.com" ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b1 foaf:mbox "dave@epimorphics.com" ;
         foaf:name "Dave Reynolds" .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b10 rdf:first :identifier ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b10 rdf:first :identifier ;
         rdf:rest () .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b11 a owl:Class ;
-        owl:unionOf _:n5b5e06da6bbe459e9c6f38bb736458f0b12 ;
-        mermaid:fragment """subgraph n5b5e06da6bbe459e9c6f38bb736458f0b11[Union C &cup; D]
-n5b5e06da6bbe459e9c6f38bb736458f0b11http://xmlns.com/foaf/0.1/Agent((http://xmlns.com/foaf/0.1/Agent)) -- or --- n5b5e06da6bbe459e9c6f38bb736458f0b11http://www.w3.org/ns/org#Post((http://www.w3.org/ns/org#Post))
+    _:n35f6a7199b1940d28b469e5a1cae5129b11 a owl:Class ;
+        owl:unionOf _:n35f6a7199b1940d28b469e5a1cae5129b12 ;
+        mermaid:fragment """subgraph n35f6a7199b1940d28b469e5a1cae5129b11[Union C &cup; D]
+n35f6a7199b1940d28b469e5a1cae5129b11http://xmlns.com/foaf/0.1/Agent((http://xmlns.com/foaf/0.1/Agent)) -- or --- n35f6a7199b1940d28b469e5a1cae5129b11http://www.w3.org/ns/org#Post((http://www.w3.org/ns/org#Post))
 end
 """ ;
         mermaid:syntax "OR" .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b12 rdf:first foaf:Agent ;
-        rdf:rest _:n5b5e06da6bbe459e9c6f38bb736458f0b13 .
+    _:n35f6a7199b1940d28b469e5a1cae5129b12 rdf:first foaf:Agent ;
+        rdf:rest _:n35f6a7199b1940d28b469e5a1cae5129b13 .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b13 rdf:first :Post ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b13 rdf:first :Post ;
         rdf:rest () .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b14 a owl:Class ;
-        owl:unionOf _:n5b5e06da6bbe459e9c6f38bb736458f0b15 ;
-        mermaid:fragment """subgraph n5b5e06da6bbe459e9c6f38bb736458f0b14[Union C &cup; D]
-n5b5e06da6bbe459e9c6f38bb736458f0b14http://xmlns.com/foaf/0.1/Agent((http://xmlns.com/foaf/0.1/Agent)) -- or --- n5b5e06da6bbe459e9c6f38bb736458f0b14http://www.w3.org/ns/org#Post((http://www.w3.org/ns/org#Post))
+    _:n35f6a7199b1940d28b469e5a1cae5129b14 a owl:Class ;
+        owl:unionOf _:n35f6a7199b1940d28b469e5a1cae5129b15 ;
+        mermaid:fragment """subgraph n35f6a7199b1940d28b469e5a1cae5129b14[Union C &cup; D]
+n35f6a7199b1940d28b469e5a1cae5129b14http://xmlns.com/foaf/0.1/Agent((http://xmlns.com/foaf/0.1/Agent)) -- or --- n35f6a7199b1940d28b469e5a1cae5129b14http://www.w3.org/ns/org#Post((http://www.w3.org/ns/org#Post))
 end
 """ ;
         mermaid:syntax "OR" .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b15 rdf:first foaf:Agent ;
-        rdf:rest _:n5b5e06da6bbe459e9c6f38bb736458f0b16 .
+    _:n35f6a7199b1940d28b469e5a1cae5129b15 rdf:first foaf:Agent ;
+        rdf:rest _:n35f6a7199b1940d28b469e5a1cae5129b16 .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b16 rdf:first :Post ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b16 rdf:first :Post ;
         rdf:rest () .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b17 a owl:Class ;
-        owl:unionOf _:n5b5e06da6bbe459e9c6f38bb736458f0b18 ;
-        mermaid:fragment """subgraph n5b5e06da6bbe459e9c6f38bb736458f0b17[Union C &cup; D]
-n5b5e06da6bbe459e9c6f38bb736458f0b17http://www.w3.org/ns/org#Membership((http://www.w3.org/ns/org#Membership)) -- or --- n5b5e06da6bbe459e9c6f38bb736458f0b17http://www.w3.org/ns/org#Post((http://www.w3.org/ns/org#Post))
+    _:n35f6a7199b1940d28b469e5a1cae5129b17 a owl:Class ;
+        owl:unionOf _:n35f6a7199b1940d28b469e5a1cae5129b18 ;
+        mermaid:fragment """subgraph n35f6a7199b1940d28b469e5a1cae5129b17[Union C &cup; D]
+n35f6a7199b1940d28b469e5a1cae5129b17http://www.w3.org/ns/org#Membership((http://www.w3.org/ns/org#Membership)) -- or --- n35f6a7199b1940d28b469e5a1cae5129b17http://www.w3.org/ns/org#Post((http://www.w3.org/ns/org#Post))
 end
 """ ;
         mermaid:syntax "OR" .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b18 rdf:first :Membership ;
-        rdf:rest _:n5b5e06da6bbe459e9c6f38bb736458f0b19 .
+    _:n35f6a7199b1940d28b469e5a1cae5129b18 rdf:first :Membership ;
+        rdf:rest _:n35f6a7199b1940d28b469e5a1cae5129b19 .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b19 rdf:first :Post ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b19 rdf:first :Post ;
         rdf:rest () .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b2 foaf:mbox "dguardiola@quinode.fr" ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b2 foaf:mbox "dguardiola@quinode.fr" ;
         foaf:name "Dominique Guardiola" .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b20 a owl:Class ;
-        owl:intersectionOf _:n5b5e06da6bbe459e9c6f38bb736458f0b22 ;
-        mermaid:fragment """subgraph n5b5e06da6bbe459e9c6f38bb736458f0b20[Intersection C &cap; D]
-n5b5e06da6bbe459e9c6f38bb736458f0b20http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization)) -- and --- n5b5e06da6bbe459e9c6f38bb736458f0b21
+    _:n35f6a7199b1940d28b469e5a1cae5129b20 a owl:Class ;
+        owl:intersectionOf _:n35f6a7199b1940d28b469e5a1cae5129b22 ;
+        mermaid:fragment """subgraph n35f6a7199b1940d28b469e5a1cae5129b20[Intersection C &cap; D]
+n35f6a7199b1940d28b469e5a1cae5129b20http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization)) -- and --- n35f6a7199b1940d28b469e5a1cae5129b21
 end
 """ ;
         mermaid:syntax "AND" .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b21 a owl:Restriction ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b21 a owl:Restriction ;
         owl:allValuesFrom :Organization ;
         owl:onProperty :hasMember ;
-        mermaid:fragment """subgraph n5b5e06da6bbe459e9c6f38bb736458f0b21[Restriction &forall; R C]
-n5b5e06da6bbe459e9c6f38bb736458f0b21thing((thing)) --> n5b5e06da6bbe459e9c6f38bb736458f0b21http://www.w3.org/ns/org#hasMember[http://www.w3.org/ns/org#hasMember]
+        mermaid:fragment """subgraph n35f6a7199b1940d28b469e5a1cae5129b21[Restriction &forall; R C]
+n35f6a7199b1940d28b469e5a1cae5129b21thing((thing)) --> n35f6a7199b1940d28b469e5a1cae5129b21http://www.w3.org/ns/org#hasMember[http://www.w3.org/ns/org#hasMember]
 
-n5b5e06da6bbe459e9c6f38bb736458f0b21http://www.w3.org/ns/org#hasMember[http://www.w3.org/ns/org#hasMember]
- -- only --> n5b5e06da6bbe459e9c6f38bb736458f0b21http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization))
+n35f6a7199b1940d28b469e5a1cae5129b21http://www.w3.org/ns/org#hasMember[http://www.w3.org/ns/org#hasMember]
+ -- only --> n35f6a7199b1940d28b469e5a1cae5129b21http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization))
 
 end
 """ ;
         mermaid:syntax "ONLY" .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b22 rdf:first :Organization ;
-        rdf:rest _:n5b5e06da6bbe459e9c6f38bb736458f0b23 .
+    _:n35f6a7199b1940d28b469e5a1cae5129b22 rdf:first :Organization ;
+        rdf:rest _:n35f6a7199b1940d28b469e5a1cae5129b23 .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b23 rdf:first _:n5b5e06da6bbe459e9c6f38bb736458f0b21 ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b23 rdf:first _:n35f6a7199b1940d28b469e5a1cae5129b21 ;
         rdf:rest () .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b24 rdf:first :resultedFrom ;
-        rdf:rest _:n5b5e06da6bbe459e9c6f38bb736458f0b25 .
+    _:n35f6a7199b1940d28b469e5a1cae5129b24 rdf:first :resultedFrom ;
+        rdf:rest _:n35f6a7199b1940d28b469e5a1cae5129b25 .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b25 rdf:first :originalOrganization ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b25 rdf:first :originalOrganization ;
         rdf:rest () .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b3 foaf:mbox "antonio.maccioni@agid.gov.it" ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b3 foaf:mbox "antonio.maccioni@agid.gov.it" ;
         foaf:name "Antonio Maccioni" .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b4 foaf:mbox "giorgia.lodi@agid.gov.it" ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b4 foaf:mbox "giorgia.lodi@agid.gov.it" ;
         foaf:name "Giorgia Lodi" .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b5 foaf:homepage <http://www.asahi-net.or.jp/~ax2s-kmtn/> ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b5 foaf:homepage <http://www.asahi-net.or.jp/~ax2s-kmtn/> ;
         foaf:name "Shuji Kamitsuna" .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b6 foaf:mbox "lupe@fi.upm.es" ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b6 foaf:mbox "lupe@fi.upm.es" ;
         foaf:name "Guadalupe Aguado de Cea" .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b7 foaf:mbox "emontiel@fi.upm.es" ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b7 foaf:mbox "emontiel@fi.upm.es" ;
         foaf:name "Elena Montiel Ponsoda" .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b8 foaf:mbox "ogiraldo@fi.upm.es" ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b8 foaf:mbox "ogiraldo@fi.upm.es" ;
         foaf:name "Olga Ximena Giraldo" .
 
-    _:n5b5e06da6bbe459e9c6f38bb736458f0b9 foaf:mbox "mpoveda@fi.upm.es" ;
+    _:n35f6a7199b1940d28b469e5a1cae5129b9 foaf:mbox "mpoveda@fi.upm.es" ;
         foaf:name "MarÃ­a Poveda VillalÃ³n" .
 }
 
