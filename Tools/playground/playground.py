@@ -66,7 +66,7 @@ def generateDiagram(mermaid_generator, serializable_graph):
                 generateDiagram(mermaid_generator, serializable_graph)
             else:     
                  for result in resultquery:
-                    mermaid_code = result["mermaid_code"]
+                    mermaidFragment = result["mermaidFragment"]
                     output_file_path = directory_path+"/tools/playground/static/diagram.html"
                     # Create the HTML content with the Mermaid code
                     html_start =  '''
@@ -92,7 +92,7 @@ def generateDiagram(mermaid_generator, serializable_graph):
                     
                     html_graph = f'''
                   
-                    {mermaid_code}
+                    {mermaidFragment}
                     
                     ''' 
                     

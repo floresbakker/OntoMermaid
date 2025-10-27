@@ -4,12 +4,12 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix sh: <http://www.w3.org/ns/shacl#>
 prefix : <https://mermaid.org/ontomermaid/model/def/>
 
-SELECT (GROUP_CONCAT(?label; separator="\n") AS ?mermaid_code)
+SELECT (GROUP_CONCAT(?fragment; separator="\n") AS ?mermaidFragment)
 WHERE {
   
  ?element :* ?childElement.
- ?childElement :label ?label
+ ?childElement :fragment ?fragment
 }
-ORDER BY ?mermaid_code
+ORDER BY ?mermaidFragment
 
 

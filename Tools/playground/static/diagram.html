@@ -19,14 +19,14 @@
                     
                     
                     
-                    http://www.w3.org/ns/org#Site((http://www.w3.org/ns/org#Site))
+                    http://www.w3.org/ns/org#Membership((http://www.w3.org/ns/org#Membership))
 http://www.w3.org/ns/org#Post((http://www.w3.org/ns/org#Post))
-http://www.w3.org/ns/org#Membership((http://www.w3.org/ns/org#Membership))
-subgraph n207b83efca7f4df4b8c4739bf7883ea4b21[Restriction &forall; R C]
-n207b83efca7f4df4b8c4739bf7883ea4b21thing((thing)) --> n207b83efca7f4df4b8c4739bf7883ea4b21http://www.w3.org/ns/org#hasMember[http://www.w3.org/ns/org#hasMember]
+http://www.w3.org/ns/org#Site((http://www.w3.org/ns/org#Site))
+subgraph na1753ac5ae424dfa8011034b36799ea6b21[Restriction &forall; R C]
+na1753ac5ae424dfa8011034b36799ea6b21thing((thing)) --> na1753ac5ae424dfa8011034b36799ea6b21http://www.w3.org/ns/org#hasMember[http://www.w3.org/ns/org#hasMember]
 
-n207b83efca7f4df4b8c4739bf7883ea4b21http://www.w3.org/ns/org#hasMember[http://www.w3.org/ns/org#hasMember]
- -- only --> n207b83efca7f4df4b8c4739bf7883ea4b21http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization))
+na1753ac5ae424dfa8011034b36799ea6b21http://www.w3.org/ns/org#hasMember[http://www.w3.org/ns/org#hasMember]
+ -- only --> na1753ac5ae424dfa8011034b36799ea6b21http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization))
 
 end
 
@@ -34,73 +34,74 @@ http://purl.org/goodrelations/v1#BusinessEntity((http://purl.org/goodrelations/v
 
 http://www.w3.org/ns/org#OrganizationalCollaboration((http://www.w3.org/ns/org#OrganizationalCollaboration)) -- subClassOf --> http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization))
 
-http://www.w3.org/ns/org#Role((http://www.w3.org/ns/org#Role)) -- subClassOf --> http://www.w3.org/2004/02/skos/core#Concept((http://www.w3.org/2004/02/skos/core#Concept))
-
 http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization)) -- subClassOf --> http://xmlns.com/foaf/0.1/Agent((http://xmlns.com/foaf/0.1/Agent))
-
-http://www.w3.org/ns/org#OrganizationalUnit((http://www.w3.org/ns/org#OrganizationalUnit)) -- subClassOf --> http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization))
 
 http://www.w3.org/ns/org#ChangeEvent((http://www.w3.org/ns/org#ChangeEvent)) -- subClassOf --> http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity))
 
-http://www.w3.org/ns/org#FormalOrganization((http://www.w3.org/ns/org#FormalOrganization)) -- subClassOf --> http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization))
-
 http://www.w3.org/ns/org#FormalOrganization((http://www.w3.org/ns/org#FormalOrganization)) -- subClassOf --> http://xmlns.com/foaf/0.1/Organization((http://xmlns.com/foaf/0.1/Organization))
 
-http://www.w3.org/ns/org#OrganizationalCollaboration((http://www.w3.org/ns/org#OrganizationalCollaboration)) -- equivalentTo --> n207b83efca7f4df4b8c4739bf7883ea4b20((Anonymous class))
+http://www.w3.org/ns/org#FormalOrganization((http://www.w3.org/ns/org#FormalOrganization)) -- subClassOf --> http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization))
+
+http://www.w3.org/ns/org#Role((http://www.w3.org/ns/org#Role)) -- subClassOf --> http://www.w3.org/2004/02/skos/core#Concept((http://www.w3.org/2004/02/skos/core#Concept))
+
+http://www.w3.org/ns/org#OrganizationalUnit((http://www.w3.org/ns/org#OrganizationalUnit)) -- subClassOf --> http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization))
 
 http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization)) -- equivalentTo --> http://xmlns.com/foaf/0.1/Organization((http://xmlns.com/foaf/0.1/Organization))
 
-subgraph n207b83efca7f4df4b8c4739bf7883ea4b14[Union C &cup; D]
-n207b83efca7f4df4b8c4739bf7883ea4b14http://xmlns.com/foaf/0.1/Agent((http://xmlns.com/foaf/0.1/Agent)) -- or --- n207b83efca7f4df4b8c4739bf7883ea4b14http://www.w3.org/ns/org#Post((http://www.w3.org/ns/org#Post))
+http://www.w3.org/ns/org#OrganizationalCollaboration((http://www.w3.org/ns/org#OrganizationalCollaboration)) -- equivalentTo --> na1753ac5ae424dfa8011034b36799ea6b20((Anonymous class))
+
+subgraph na1753ac5ae424dfa8011034b36799ea6b11[Union C &cup; D]
+na1753ac5ae424dfa8011034b36799ea6b11http://xmlns.com/foaf/0.1/Agent((http://xmlns.com/foaf/0.1/Agent)) -- or --- na1753ac5ae424dfa8011034b36799ea6b11http://www.w3.org/ns/org#Post((http://www.w3.org/ns/org#Post))
 end
 
-subgraph n207b83efca7f4df4b8c4739bf7883ea4b17[Union C &cup; D]
-n207b83efca7f4df4b8c4739bf7883ea4b17http://www.w3.org/ns/org#Membership((http://www.w3.org/ns/org#Membership)) -- or --- n207b83efca7f4df4b8c4739bf7883ea4b17http://www.w3.org/ns/org#Post((http://www.w3.org/ns/org#Post))
+subgraph na1753ac5ae424dfa8011034b36799ea6b17[Union C &cup; D]
+na1753ac5ae424dfa8011034b36799ea6b17http://www.w3.org/ns/org#Membership((http://www.w3.org/ns/org#Membership)) -- or --- na1753ac5ae424dfa8011034b36799ea6b17http://www.w3.org/ns/org#Post((http://www.w3.org/ns/org#Post))
 end
 
-subgraph n207b83efca7f4df4b8c4739bf7883ea4b11[Union C &cup; D]
-n207b83efca7f4df4b8c4739bf7883ea4b11http://xmlns.com/foaf/0.1/Agent((http://xmlns.com/foaf/0.1/Agent)) -- or --- n207b83efca7f4df4b8c4739bf7883ea4b11http://www.w3.org/ns/org#Post((http://www.w3.org/ns/org#Post))
+subgraph na1753ac5ae424dfa8011034b36799ea6b14[Union C &cup; D]
+na1753ac5ae424dfa8011034b36799ea6b14http://xmlns.com/foaf/0.1/Agent((http://xmlns.com/foaf/0.1/Agent)) -- or --- na1753ac5ae424dfa8011034b36799ea6b14http://www.w3.org/ns/org#Post((http://www.w3.org/ns/org#Post))
 end
 
-subgraph n207b83efca7f4df4b8c4739bf7883ea4b20[Intersection C &cap; D]
-n207b83efca7f4df4b8c4739bf7883ea4b20http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization)) -- and --- n207b83efca7f4df4b8c4739bf7883ea4b21
+subgraph na1753ac5ae424dfa8011034b36799ea6b20[Intersection C &cap; D]
+na1753ac5ae424dfa8011034b36799ea6b20http://www.w3.org/ns/org#Organization((http://www.w3.org/ns/org#Organization)) -- and --- na1753ac5ae424dfa8011034b36799ea6b21
 end
 
-http://xmlns.com/foaf/0.1/Person -- http://www.w3.org/ns/org#location --> http://www.w3.org/2001/XMLSchema#string
-http://www.w3.org/ns/org#Site -- http://www.w3.org/ns/org#siteOf --> http://www.w3.org/ns/org#Organization
-http://www.w3.org/ns/org#Role -- http://www.w3.org/ns/org#roleProperty --> http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
-http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#hasMember --> http://xmlns.com/foaf/0.1/Agent
-http://xmlns.com/foaf/0.1/Person -- http://www.w3.org/ns/org#basedAt --> http://www.w3.org/ns/org#Site
-http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#hasSite --> http://www.w3.org/ns/org#Site
-http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#purpose --> rdfs:Resource
-http://www.w3.org/ns/org#Membership -- http://www.w3.org/ns/org#memberDuring --> rdfs:Resource
-n207b83efca7f4df4b8c4739bf7883ea4b11 -- http://www.w3.org/ns/org#reportsTo --> n207b83efca7f4df4b8c4739bf7883ea4b14
-http://www.w3.org/ns/org#FormalOrganization -- http://www.w3.org/ns/org#hasRegisteredSite --> http://www.w3.org/ns/org#Site
-http://www.w3.org/ns/org#Post -- http://www.w3.org/ns/org#heldBy --> http://xmlns.com/foaf/0.1/Agent
-http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#changedBy --> http://www.w3.org/ns/org#ChangeEvent
 http://xmlns.com/foaf/0.1/Agent -- http://www.w3.org/ns/org#hasMembership --> http://www.w3.org/ns/org#Membership
-http://www.w3.org/ns/org#ChangeEvent -- http://www.w3.org/ns/org#originalOrganization --> http://www.w3.org/ns/org#Organization
-http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#transitiveSubOrganizationOf --> http://www.w3.org/ns/org#Organization
-http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#hasSubOrganization --> http://www.w3.org/ns/org#Organization
-http://www.w3.org/ns/org#Role -- http://www.w3.org/ns/org#remuneration --> rdfs:Resource
-http://xmlns.com/foaf/0.1/Agent -- http://www.w3.org/ns/org#holds --> http://www.w3.org/ns/org#Post
-http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#resultedFrom --> http://www.w3.org/ns/org#ChangeEvent
-n207b83efca7f4df4b8c4739bf7883ea4b17 -- http://www.w3.org/ns/org#role --> http://www.w3.org/ns/org#Role
-http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#identifier --> rdfs:Resource
-http://www.w3.org/ns/org#FormalOrganization -- http://www.w3.org/ns/org#hasUnit --> http://www.w3.org/ns/org#OrganizationalUnit
-http://xmlns.com/foaf/0.1/Agent -- http://www.w3.org/ns/org#headOf --> http://www.w3.org/ns/org#Organization
-http://www.w3.org/ns/org#ChangeEvent -- http://www.w3.org/ns/org#resultingOrganization --> http://www.w3.org/ns/org#Organization
-http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#linkedTo --> http://www.w3.org/ns/org#Organization
-http://www.w3.org/ns/org#Membership -- http://www.w3.org/ns/org#member --> http://xmlns.com/foaf/0.1/Agent
 http://www.w3.org/ns/org#Membership -- http://www.w3.org/ns/org#organization --> http://www.w3.org/ns/org#Organization
-http://www.w3.org/ns/org#Post -- http://www.w3.org/ns/org#postIn --> http://www.w3.org/ns/org#Organization
-http://www.w3.org/ns/org#OrganizationalUnit -- http://www.w3.org/ns/org#unitOf --> http://www.w3.org/ns/org#FormalOrganization
-http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#classification --> http://www.w3.org/2004/02/skos/core#Concept
-http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#hasPrimarySite --> http://www.w3.org/ns/org#Site
-http://xmlns.com/foaf/0.1/Agent -- http://www.w3.org/ns/org#memberOf --> http://www.w3.org/ns/org#Organization
-http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#subOrganizationOf --> http://www.w3.org/ns/org#Organization
+http://xmlns.com/foaf/0.1/Agent -- http://www.w3.org/ns/org#holds --> http://www.w3.org/ns/org#Post
+http://www.w3.org/ns/org#ChangeEvent -- http://www.w3.org/ns/org#originalOrganization --> http://www.w3.org/ns/org#Organization
+http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#linkedTo --> http://www.w3.org/ns/org#Organization
+http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#identifier --> rdfs:Resource
+http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#changedBy --> http://www.w3.org/ns/org#ChangeEvent
+http://www.w3.org/ns/org#Post -- http://www.w3.org/ns/org#heldBy --> http://xmlns.com/foaf/0.1/Agent
+na1753ac5ae424dfa8011034b36799ea6b17 -- http://www.w3.org/ns/org#role --> http://www.w3.org/ns/org#Role
+http://www.w3.org/ns/org#Role -- http://www.w3.org/ns/org#roleProperty --> http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
 http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#hasPost --> http://www.w3.org/ns/org#Post
+http://xmlns.com/foaf/0.1/Person -- http://www.w3.org/ns/org#basedAt --> http://www.w3.org/ns/org#Site
+http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#resultedFrom --> http://www.w3.org/ns/org#ChangeEvent
+http://www.w3.org/ns/org#Role -- http://www.w3.org/ns/org#remuneration --> rdfs:Resource
+http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#hasPrimarySite --> http://www.w3.org/ns/org#Site
+http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#classification --> http://www.w3.org/2004/02/skos/core#Concept
+http://www.w3.org/ns/org#Membership -- http://www.w3.org/ns/org#member --> http://xmlns.com/foaf/0.1/Agent
+http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#hasSubOrganization --> http://www.w3.org/ns/org#Organization
+http://www.w3.org/ns/org#FormalOrganization -- http://www.w3.org/ns/org#hasRegisteredSite --> http://www.w3.org/ns/org#Site
+http://xmlns.com/foaf/0.1/Agent -- http://www.w3.org/ns/org#headOf --> http://www.w3.org/ns/org#Organization
+http://www.w3.org/ns/org#Site -- http://www.w3.org/ns/org#siteOf --> http://www.w3.org/ns/org#Organization
+http://www.w3.org/ns/org#FormalOrganization -- http://www.w3.org/ns/org#hasUnit --> http://www.w3.org/ns/org#OrganizationalUnit
+http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#transitiveSubOrganizationOf --> http://www.w3.org/ns/org#Organization
+http://www.w3.org/ns/org#Membership -- http://www.w3.org/ns/org#memberDuring --> rdfs:Resource
+http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#hasMember --> http://xmlns.com/foaf/0.1/Agent
+http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#subOrganizationOf --> http://www.w3.org/ns/org#Organization
+http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#hasSite --> http://www.w3.org/ns/org#Site
+http://www.w3.org/ns/org#OrganizationalUnit -- http://www.w3.org/ns/org#unitOf --> http://www.w3.org/ns/org#FormalOrganization
 http://www.w3.org/ns/org#Site -- http://www.w3.org/ns/org#siteAddress --> rdfs:Resource
+http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#purpose --> rdfs:Resource
+http://www.w3.org/ns/org#Post -- http://www.w3.org/ns/org#postIn --> http://www.w3.org/ns/org#Organization
+http://xmlns.com/foaf/0.1/Person -- http://www.w3.org/ns/org#location --> http://www.w3.org/2001/XMLSchema#string
+http://www.w3.org/ns/org#ChangeEvent -- http://www.w3.org/ns/org#resultingOrganization --> http://www.w3.org/ns/org#Organization
+na1753ac5ae424dfa8011034b36799ea6b11 -- http://www.w3.org/ns/org#reportsTo --> na1753ac5ae424dfa8011034b36799ea6b14
+http://xmlns.com/foaf/0.1/Agent -- http://www.w3.org/ns/org#memberOf --> http://www.w3.org/ns/org#Organization
+http://www.w3.org/ns/org#Organization -- http://www.w3.org/ns/org#identifier --> rdfs:Resource:::Datatype
 http://xmlns.com/foaf/0.1/Person -- http://www.w3.org/ns/org#location --> http://www.w3.org/2001/XMLSchema#string:::Datatype
 http://www.w3.org/ns/org#Head[http://www.w3.org/ns/org#Head]:::Concept
                     
