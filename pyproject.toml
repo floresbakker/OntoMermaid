@@ -1,0 +1,13 @@
+[project]
+authors = [{ name = "floresbakker", email = "f.bakker@minfin.nl" }]
+name = "ontomermaid"
+version = "0.1.0"
+description = "A RDF-based vocabulary to express OWL ontologies into Mermaid diagram language"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "datetime>=5.5",
+  "flask>=3.1.2",
+  "pyshacl>=0.30.1",
+  "rdflib>=7.4.0",
+]
