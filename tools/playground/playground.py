@@ -4,13 +4,21 @@ import pyshacl
 import datetime
 import os
 
-app = Flask(__name__, template_folder='tools/playground/templates', static_folder='tools/playground/static')
 
-# Get the current working directory in which the Playground.py file is located.
-current_dir = os.getcwd()
+try:
+    # Real execution: __file__ exists
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+except NameError:
+    # Spyder / Jupyter / IPython: __file__ does NOT exist
+    current_dir = os.getcwd()
 
 # Set the path to the desired standard directory. 
-directory_path = os.path.abspath(os.path.join(current_dir))
+directory_path = os.path.abspath(os.path.join(current_dir, '..', '..'))
+
+app = Flask(__name__, template_folder='templates', static_folder='static')
+
+print ('current dir = ', current_dir)
+print ('directory_path = ', directory_path)
 
 # namespace declaration
 rdf      = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
