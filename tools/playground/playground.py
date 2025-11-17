@@ -4,21 +4,22 @@ import pyshacl
 import datetime
 import os
 
-
 try:
-    # Real execution: __file__ exists
+    # Command prompt execution: current directory is based on location of playground.py file
     current_dir = os.path.dirname(os.path.abspath(__file__))
+    directory_path = os.path.abspath(os.path.join(current_dir, '..', '..'))
+    template_folder = 'templates' 
+    static_folder   = 'static' 
+
 except NameError:
-    # Spyder / Jupyter / IPython: __file__ does NOT exist
+    # Python IDE exectution: current directory is based on the IDE working directory in Spyder, Jupyter or iPython.
+    # PLEASE NOTE: Set working directory in IDE to OntoMermaid root dir.
     current_dir = os.getcwd()
+    directory_path  = os.path.abspath(os.path.join(current_dir))
+    template_folder = 'tools/playground/templates' 
+    static_folder   = 'tools/playground/static' 
 
-# Set the path to the desired standard directory. 
-directory_path = os.path.abspath(os.path.join(current_dir, '..', '..'))
-
-app = Flask(__name__, template_folder='templates', static_folder='static')
-
-print ('current dir = ', current_dir)
-print ('directory_path = ', directory_path)
+app = Flask(__name__, template_folder=template_folder, static_folder=static_folder)
 
 # namespace declaration
 rdf      = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
