@@ -14,7 +14,7 @@
 
 
 # -- Meta data -----------------------------------------------------------
-
+org: {
 
 <http://www.w3.org/ns/org#>
 
@@ -1057,3 +1057,5 @@ org:Membership owl:disjointWith org:ChangeEvent .
 
 
 org:Site owl:disjointWith org:ChangeEvent .    
+
+}
