@@ -1323,7 +1323,7 @@
 
     sh:NodeKindConstraintComponent-nodeKind a sh:Parameter ;
         rdfs:isDefinedBy sh: ;
-        sh:in _:n2eedc27909834c5bacee6fb28f7afd8eb2 ;
+        sh:in _:ndd13e42c16004a868fcc56a95792b361b2 ;
         sh:maxCount 1 ;
         sh:path sh:nodeKind .
 
@@ -1691,28 +1691,28 @@
     sh: a owl:Ontology ;
         rdfs:label "W3C Shapes Constraint Language (SHACL) Vocabulary"@en ;
         rdfs:comment "This vocabulary defines terms used in SHACL, the W3C Shapes Constraint Language."@en ;
-        sh:declare _:n2eedc27909834c5bacee6fb28f7afd8eb1 ;
+        sh:declare _:ndd13e42c16004a868fcc56a95792b361b1 ;
         sh:suggestedShapesGraph <http://www.w3.org/ns/shacl-shacl#> .
 
-    _:n2eedc27909834c5bacee6fb28f7afd8eb1 sh:namespace "http://www.w3.org/ns/shacl#" ;
+    _:ndd13e42c16004a868fcc56a95792b361b1 sh:namespace "http://www.w3.org/ns/shacl#" ;
         sh:prefix "sh" .
 
-    _:n2eedc27909834c5bacee6fb28f7afd8eb2 rdf:first sh:BlankNode ;
-        rdf:rest _:n2eedc27909834c5bacee6fb28f7afd8eb3 .
+    _:ndd13e42c16004a868fcc56a95792b361b2 rdf:first sh:BlankNode ;
+        rdf:rest _:ndd13e42c16004a868fcc56a95792b361b3 .
 
-    _:n2eedc27909834c5bacee6fb28f7afd8eb3 rdf:first sh:IRI ;
-        rdf:rest _:n2eedc27909834c5bacee6fb28f7afd8eb4 .
+    _:ndd13e42c16004a868fcc56a95792b361b3 rdf:first sh:IRI ;
+        rdf:rest _:ndd13e42c16004a868fcc56a95792b361b4 .
 
-    _:n2eedc27909834c5bacee6fb28f7afd8eb4 rdf:first sh:Literal ;
-        rdf:rest _:n2eedc27909834c5bacee6fb28f7afd8eb5 .
+    _:ndd13e42c16004a868fcc56a95792b361b4 rdf:first sh:Literal ;
+        rdf:rest _:ndd13e42c16004a868fcc56a95792b361b5 .
 
-    _:n2eedc27909834c5bacee6fb28f7afd8eb5 rdf:first sh:BlankNodeOrIRI ;
-        rdf:rest _:n2eedc27909834c5bacee6fb28f7afd8eb6 .
+    _:ndd13e42c16004a868fcc56a95792b361b5 rdf:first sh:BlankNodeOrIRI ;
+        rdf:rest _:ndd13e42c16004a868fcc56a95792b361b6 .
 
-    _:n2eedc27909834c5bacee6fb28f7afd8eb6 rdf:first sh:BlankNodeOrLiteral ;
-        rdf:rest _:n2eedc27909834c5bacee6fb28f7afd8eb7 .
+    _:ndd13e42c16004a868fcc56a95792b361b6 rdf:first sh:BlankNodeOrLiteral ;
+        rdf:rest _:ndd13e42c16004a868fcc56a95792b361b7 .
 
-    _:n2eedc27909834c5bacee6fb28f7afd8eb7 rdf:first sh:IRIOrLiteral ;
+    _:ndd13e42c16004a868fcc56a95792b361b7 rdf:first sh:IRIOrLiteral ;
         rdf:rest () .
 }
 

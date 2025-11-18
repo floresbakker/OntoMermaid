@@ -15,44 +15,44 @@
                     graph TB
                     classDef Datatype fill:#9c6,stroke:#9c6;                    
                     
-                  
-                    http://www.w3.org/2004/02/skos/core#Collection((http://www.w3.org/2004/02/skos/core#Collection))
+                    
+                    http://www.w3.org/2004/02/skos/core#ConceptScheme((http://www.w3.org/2004/02/skos/core#ConceptScheme))
 http://www.w3.org/2004/02/skos/core#Concept((http://www.w3.org/2004/02/skos/core#Concept))
-http://www.w3.org/2004/02/skos/core#ConceptScheme((http://www.w3.org/2004/02/skos/core#ConceptScheme))
+http://www.w3.org/2004/02/skos/core#Collection((http://www.w3.org/2004/02/skos/core#Collection))
 http://www.w3.org/2004/02/skos/core#OrderedCollection((http://www.w3.org/2004/02/skos/core#OrderedCollection)) -- subClassOf --> http://www.w3.org/2004/02/skos/core#Collection((http://www.w3.org/2004/02/skos/core#Collection))
 
-subgraph n8fd05b855ca84c8e99a5774bb29423deb1[Union C &cup; D]
-n8fd05b855ca84c8e99a5774bb29423deb1http://www.w3.org/2004/02/skos/core#Concept((http://www.w3.org/2004/02/skos/core#Concept)) -- or --- n8fd05b855ca84c8e99a5774bb29423deb1http://www.w3.org/2004/02/skos/core#Collection((http://www.w3.org/2004/02/skos/core#Collection))
+subgraph nc3a44a74b3cc4d3ca302c5e9dd221b5fb1[Union C &cup; D]
+nc3a44a74b3cc4d3ca302c5e9dd221b5fb1http://www.w3.org/2004/02/skos/core#Concept((http://www.w3.org/2004/02/skos/core#Concept)) -- or --- nc3a44a74b3cc4d3ca302c5e9dd221b5fb1http://www.w3.org/2004/02/skos/core#Collection((http://www.w3.org/2004/02/skos/core#Collection))
 end
 
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#hiddenLabel --> rdfs:Resource
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#exactMatch --> rdfs:Resource
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#historyNote --> rdfs:Resource
-http://www.w3.org/2004/02/skos/core#OrderedCollection -- http://www.w3.org/2004/02/skos/core#memberList --> http://www.w3.org/1999/02/22-rdf-syntax-ns#List
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#altLabel --> rdfs:Resource
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#example --> rdfs:Resource
-http://www.w3.org/2004/02/skos/core#Concept -- http://www.w3.org/2004/02/skos/core#semanticRelation --> http://www.w3.org/2004/02/skos/core#Concept
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#inScheme --> http://www.w3.org/2004/02/skos/core#ConceptScheme
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#narrower --> rdfs:Resource
-http://www.w3.org/2004/02/skos/core#Concept -- http://www.w3.org/2004/02/skos/core#topConceptOf --> http://www.w3.org/2004/02/skos/core#ConceptScheme
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#relatedMatch --> rdfs:Resource
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#definition --> rdfs:Resource
-http://www.w3.org/2004/02/skos/core#ConceptScheme -- http://www.w3.org/2004/02/skos/core#hasTopConcept --> http://www.w3.org/2004/02/skos/core#Concept
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#note --> rdfs:Resource
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#closeMatch --> rdfs:Resource
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#narrowMatch --> rdfs:Resource
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#broaderTransitive --> rdfs:Resource
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#mappingRelation --> rdfs:Resource
 rdfs:Resource -- http://www.w3.org/2004/02/skos/core#broader --> rdfs:Resource
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#notation --> rdfs:Resource
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#broadMatch --> rdfs:Resource
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#narrowerTransitive --> rdfs:Resource
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#scopeNote --> rdfs:Resource
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#changeNote --> rdfs:Resource
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#related --> rdfs:Resource
-rdfs:Resource -- http://www.w3.org/2004/02/skos/core#prefLabel --> rdfs:Resource
 rdfs:Resource -- http://www.w3.org/2004/02/skos/core#editorialNote --> rdfs:Resource
-http://www.w3.org/2004/02/skos/core#Collection -- http://www.w3.org/2004/02/skos/core#member --> n8fd05b855ca84c8e99a5774bb29423deb1
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#mappingRelation --> rdfs:Resource
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#inScheme --> http://www.w3.org/2004/02/skos/core#ConceptScheme
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#exactMatch --> rdfs:Resource
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#note --> rdfs:Resource
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#relatedMatch --> rdfs:Resource
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#altLabel --> rdfs:Resource
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#changeNote --> rdfs:Resource
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#narrowMatch --> rdfs:Resource
+http://www.w3.org/2004/02/skos/core#ConceptScheme -- http://www.w3.org/2004/02/skos/core#hasTopConcept --> http://www.w3.org/2004/02/skos/core#Concept
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#notation --> rdfs:Resource
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#historyNote --> rdfs:Resource
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#prefLabel --> rdfs:Resource
+http://www.w3.org/2004/02/skos/core#Concept -- http://www.w3.org/2004/02/skos/core#semanticRelation --> http://www.w3.org/2004/02/skos/core#Concept
+http://www.w3.org/2004/02/skos/core#Concept -- http://www.w3.org/2004/02/skos/core#topConceptOf --> http://www.w3.org/2004/02/skos/core#ConceptScheme
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#narrowerTransitive --> rdfs:Resource
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#hiddenLabel --> rdfs:Resource
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#definition --> rdfs:Resource
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#example --> rdfs:Resource
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#related --> rdfs:Resource
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#narrower --> rdfs:Resource
+http://www.w3.org/2004/02/skos/core#Collection -- http://www.w3.org/2004/02/skos/core#member --> nc3a44a74b3cc4d3ca302c5e9dd221b5fb1
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#scopeNote --> rdfs:Resource
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#closeMatch --> rdfs:Resource
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#broaderTransitive --> rdfs:Resource
+http://www.w3.org/2004/02/skos/core#OrderedCollection -- http://www.w3.org/2004/02/skos/core#memberList --> http://www.w3.org/1999/02/22-rdf-syntax-ns#List
+rdfs:Resource -- http://www.w3.org/2004/02/skos/core#broadMatch --> rdfs:Resource
 rdfs:Resource -- http://www.w3.org/2004/02/skos/core#notation --> rdfs:Resource:::Datatype
                     
                     

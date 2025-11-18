@@ -253,7 +253,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
         rdfs:label "atLocation" ;
         rdfs:comment "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>.",
             "The Location of any resource."@en ;
-        rdfs:domain _:n0a28b21e0fc04186bda04a2fbb6ea762b4 ;
+        rdfs:domain _:n00655dc89c7f4597b812adc3eb88cdb8b4 ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Location ;
         prov:category "expanded" ;
@@ -261,7 +261,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
             "This property is not functional because the many values could be at a variety of granularies (In this building, in this room, in that chair)."@en ;
         prov:inverse "locationOf" ;
         prov:sharesDefinitionWith prov:Location ;
-        mermaid:fragment "n0a28b21e0fc04186bda04a2fbb6ea762b4 -- http://www.w3.org/ns/prov#atLocation --> http://www.w3.org/ns/prov#Location" ;
+        mermaid:fragment "n00655dc89c7f4597b812adc3eb88cdb8b4 -- http://www.w3.org/ns/prov#atLocation --> http://www.w3.org/ns/prov#Location" ;
         mermaid:syntax "OBJECTPROPERTY" .
 
     prov:definition a owl:AnnotationProperty ;
@@ -300,7 +300,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
         rdfs:label "hadActivity" ;
         rdfs:comment "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>.",
             "The _optional_ Activity of an Influence, which used, generated, invalidated, or was the responsibility of some Entity. This property is _not_ used by ActivityInfluence (use prov:activity instead)."@en ;
-        rdfs:domain _:n0a28b21e0fc04186bda04a2fbb6ea762b9,
+        rdfs:domain _:n00655dc89c7f4597b812adc3eb88cdb8b9,
             prov:Influence ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Activity ;
@@ -310,7 +310,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
         prov:inverse "wasActivityOfInfluence" ;
         prov:sharesDefinitionWith prov:Activity ;
         mermaid:fragment "http://www.w3.org/ns/prov#Influence -- http://www.w3.org/ns/prov#hadActivity --> http://www.w3.org/ns/prov#Activity",
-            "n0a28b21e0fc04186bda04a2fbb6ea762b9 -- http://www.w3.org/ns/prov#hadActivity --> http://www.w3.org/ns/prov#Activity" ;
+            "n00655dc89c7f4597b812adc3eb88cdb8b9 -- http://www.w3.org/ns/prov#hadActivity --> http://www.w3.org/ns/prov#Activity" ;
         mermaid:syntax "OBJECTPROPERTY" .
 
     prov:hadMember a owl:ObjectProperty ;
@@ -330,7 +330,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
         rdfs:label "hadRole" ;
         rdfs:comment "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>.",
             "The _optional_ Role that an Entity assumed in the context of an Activity. For example, :baking prov:used :spoon; prov:qualified [ a prov:Usage; prov:entity :spoon; prov:hadRole roles:mixing_implement ]."@en ;
-        rdfs:domain _:n0a28b21e0fc04186bda04a2fbb6ea762b16,
+        rdfs:domain _:n00655dc89c7f4597b812adc3eb88cdb8b16,
             prov:Influence ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Role ;
@@ -340,7 +340,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
         prov:inverse "wasRoleIn" ;
         prov:sharesDefinitionWith prov:Role ;
         mermaid:fragment "http://www.w3.org/ns/prov#Influence -- http://www.w3.org/ns/prov#hadRole --> http://www.w3.org/ns/prov#Role",
-            "n0a28b21e0fc04186bda04a2fbb6ea762b16 -- http://www.w3.org/ns/prov#hadRole --> http://www.w3.org/ns/prov#Role" ;
+            "n00655dc89c7f4597b812adc3eb88cdb8b16 -- http://www.w3.org/ns/prov#hadRole --> http://www.w3.org/ns/prov#Role" ;
         mermaid:syntax "OBJECTPROPERTY" .
 
     prov:invalidatedAtTime a owl:DatatypeProperty ;
@@ -396,7 +396,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Activity ;
         rdfs:subPropertyOf prov:wasInfluencedBy ;
-        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b43 ;
+        owl:propertyChainAxiom _:n00655dc89c7f4597b812adc3eb88cdb8b43 ;
         prov:category "starting-point" ;
         prov:component "entities-activities" ;
         prov:inverse "informed" ;
@@ -450,7 +450,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Agent ;
         rdfs:subPropertyOf prov:wasInfluencedBy ;
-        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b2 ;
+        owl:propertyChainAxiom _:n00655dc89c7f4597b812adc3eb88cdb8b2 ;
         prov:category "starting-point" ;
         prov:component "agents-responsibility" ;
         prov:inverse "hadDelegate" ;
@@ -688,7 +688,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Entity ;
         rdfs:subPropertyOf prov:wasInfluencedBy ;
-        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b23 ;
+        owl:propertyChainAxiom _:n00655dc89c7f4597b812adc3eb88cdb8b23 ;
         prov:category "starting-point" ;
         prov:component "entities-activities" ;
         prov:inverse "wasUsedBy" ;
@@ -704,7 +704,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Agent ;
         rdfs:subPropertyOf prov:wasInfluencedBy ;
-        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b25 ;
+        owl:propertyChainAxiom _:n00655dc89c7f4597b812adc3eb88cdb8b25 ;
         prov:category "starting-point" ;
         prov:component "agents-responsibility" ;
         prov:inverse "wasAssociateFor" ;
@@ -720,7 +720,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Entity ;
         rdfs:subPropertyOf prov:wasInfluencedBy ;
-        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b31 ;
+        owl:propertyChainAxiom _:n00655dc89c7f4597b812adc3eb88cdb8b31 ;
         prov:category "expanded" ;
         prov:component "entities-activities" ;
         prov:inverse "ended" ;
@@ -736,7 +736,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Entity ;
         rdfs:subPropertyOf prov:wasInfluencedBy ;
-        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b51 ;
+        owl:propertyChainAxiom _:n00655dc89c7f4597b812adc3eb88cdb8b51 ;
         prov:category "expanded" ;
         prov:component "entities-activities" ;
         prov:inverse "started" ;
@@ -830,7 +830,7 @@ A primary source relation is a particular case of derivation of secondary materi
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Entity ;
         rdfs:subPropertyOf prov:wasDerivedFrom ;
-        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b14 ;
+        owl:propertyChainAxiom _:n00655dc89c7f4597b812adc3eb88cdb8b14 ;
         prov:category "expanded" ;
         prov:component "derivations" ;
         prov:inverse "wasPrimarySourceOf" ;
@@ -860,7 +860,7 @@ A primary source relation is a particular case of derivation of secondary materi
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Agent ;
         rdfs:subPropertyOf prov:wasInfluencedBy ;
-        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b27 ;
+        owl:propertyChainAxiom _:n00655dc89c7f4597b812adc3eb88cdb8b27 ;
         prov:category "starting-point" ;
         prov:component "agents-responsibility" ;
         prov:definition "Attribution is the ascribing of an entity to an agent."@en ;
@@ -876,7 +876,7 @@ A primary source relation is a particular case of derivation of secondary materi
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Activity ;
         rdfs:subPropertyOf prov:wasInfluencedBy ;
-        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b33 ;
+        owl:propertyChainAxiom _:n00655dc89c7f4597b812adc3eb88cdb8b33 ;
         prov:category "starting-point" ;
         prov:component "entities-activities" ;
         prov:inverse "generated" ;
@@ -891,7 +891,7 @@ A primary source relation is a particular case of derivation of secondary materi
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Activity ;
         rdfs:subPropertyOf prov:wasInfluencedBy ;
-        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b45 ;
+        owl:propertyChainAxiom _:n00655dc89c7f4597b812adc3eb88cdb8b45 ;
         prov:category "expanded" ;
         prov:component "entities-activities" ;
         prov:inverse "invalidated" ;
@@ -907,7 +907,7 @@ A primary source relation is a particular case of derivation of secondary materi
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Entity ;
         rdfs:subPropertyOf prov:wasDerivedFrom ;
-        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b47 ;
+        owl:propertyChainAxiom _:n00655dc89c7f4597b812adc3eb88cdb8b47 ;
         prov:category "expanded" ;
         prov:component "derivations" ;
         prov:inverse "quotedAs" ;
@@ -924,7 +924,7 @@ A primary source relation is a particular case of derivation of secondary materi
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Entity ;
         rdfs:subPropertyOf prov:wasDerivedFrom ;
-        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b49 ;
+        owl:propertyChainAxiom _:n00655dc89c7f4597b812adc3eb88cdb8b49 ;
         prov:category "expanded" ;
         prov:component "derivations" ;
         prov:inverse "hadRevision" ;
@@ -939,14 +939,14 @@ A primary source relation is a particular case of derivation of secondary materi
             "It is not recommended that the type ActivityInfluence be asserted without also asserting one of its more specific subclasses."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:seeAlso prov:activity ;
-        rdfs:subClassOf _:n0a28b21e0fc04186bda04a2fbb6ea762b1,
+        rdfs:subClassOf _:n00655dc89c7f4597b812adc3eb88cdb8b1,
             prov:Influence ;
         owl:disjointWith prov:EntityInfluence ;
         prov:category "qualified" ;
         prov:editorsDefinition "ActivitiyInfluence is the capacity of an activity to have an effect on the character, development, or behavior of another by means of generation, invalidation, communication, or other."@en ;
         mermaid:fragment """http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence)) -- subClassOf --> http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))
 """,
-            """http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence)) -- subClassOf --> n0a28b21e0fc04186bda04a2fbb6ea762b1((Anonymous class))
+            """http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence)) -- subClassOf --> n00655dc89c7f4597b812adc3eb88cdb8b1((Anonymous class))
 """ ;
         mermaid:syntax "SUBCLASSOF" .
 
@@ -1201,7 +1201,7 @@ For example, a student acted on behalf of his supervisor, who acted on behalf of
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Entity ;
         rdfs:subPropertyOf prov:wasInfluencedBy ;
-        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b29 ;
+        owl:propertyChainAxiom _:n00655dc89c7f4597b812adc3eb88cdb8b29 ;
         prov:category "starting-point" ;
         prov:component "derivations" ;
         prov:definition "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en ;
@@ -1239,7 +1239,7 @@ For example, a student acted on behalf of his supervisor, who acted on behalf of
     prov:qualifiedInfluence a owl:ObjectProperty ;
         rdfs:label "qualifiedInfluence" ;
         rdfs:comment "Because prov:qualifiedInfluence is a broad relation, the more specific relations (qualifiedCommunication, qualifiedDelegation, qualifiedEnd, etc.) should be used when applicable."@en ;
-        rdfs:domain _:n0a28b21e0fc04186bda04a2fbb6ea762b19 ;
+        rdfs:domain _:n00655dc89c7f4597b812adc3eb88cdb8b19 ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range prov:Influence ;
         prov:category "qualified" ;
@@ -1247,7 +1247,7 @@ For example, a student acted on behalf of his supervisor, who acted on behalf of
         prov:inverse "qualifiedInfluenceOf" ;
         prov:sharesDefinitionWith prov:Influence ;
         prov:unqualifiedForm prov:wasInfluencedBy ;
-        mermaid:fragment "n0a28b21e0fc04186bda04a2fbb6ea762b19 -- http://www.w3.org/ns/prov#qualifiedInfluence --> http://www.w3.org/ns/prov#Influence" ;
+        mermaid:fragment "n00655dc89c7f4597b812adc3eb88cdb8b19 -- http://www.w3.org/ns/prov#qualifiedInfluence --> http://www.w3.org/ns/prov#Influence" ;
         mermaid:syntax "OBJECTPROPERTY" .
 
     prov:Agent a owl:Class ;
@@ -1266,9 +1266,9 @@ For example, a student acted on behalf of his supervisor, who acted on behalf of
         rdfs:label "wasInfluencedBy" ;
         rdfs:comment "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>.",
             "Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable."@en ;
-        rdfs:domain _:n0a28b21e0fc04186bda04a2fbb6ea762b35 ;
+        rdfs:domain _:n00655dc89c7f4597b812adc3eb88cdb8b35 ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range _:n0a28b21e0fc04186bda04a2fbb6ea762b39 ;
+        rdfs:range _:n00655dc89c7f4597b812adc3eb88cdb8b39 ;
         prov:category "qualified" ;
         prov:component "agents-responsibility" ;
         prov:editorialNote """The sub-properties of prov:wasInfluencedBy can be elaborated in more detail using the Qualification Pattern. For example, the binary relation :baking prov:used :spoon can be qualified by asserting :baking prov:qualifiedUsage [ a prov:Usage; prov:entity :spoon; prov:atLocation :kitchen ] .
@@ -1281,7 +1281,7 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
         prov:qualifiedForm prov:Influence,
             prov:qualifiedInfluence ;
         prov:sharesDefinitionWith prov:Influence ;
-        mermaid:fragment "n0a28b21e0fc04186bda04a2fbb6ea762b35 -- http://www.w3.org/ns/prov#wasInfluencedBy --> n0a28b21e0fc04186bda04a2fbb6ea762b39" ;
+        mermaid:fragment "n00655dc89c7f4597b812adc3eb88cdb8b35 -- http://www.w3.org/ns/prov#wasInfluencedBy --> n00655dc89c7f4597b812adc3eb88cdb8b39" ;
         mermaid:syntax "OBJECTPROPERTY" .
 
     prov:Activity a owl:Class ;
@@ -1322,284 +1322,284 @@ If you wish to make comments regarding this document, please send them to public
         prov:specializationOf <http://www.w3.org/ns/prov-o> ;
         prov:wasRevisionOf <http://www.w3.org/ns/prov-o-20130312> .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b54 a owl:Axiom ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b54 a owl:Axiom ;
         rdfs:comment "A collection is an entity that provides a structure to some constituents, which are themselves entities. These constituents are said to be member of the collections."@en ;
         owl:annotatedProperty rdfs:range ;
         owl:annotatedSource prov:hadMember ;
         owl:annotatedTarget prov:Entity ;
         prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-collection" .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b56 a owl:Axiom ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b56 a owl:Axiom ;
         rdfs:comment "hadPrimarySource property is a particular case of wasDerivedFrom (see http://www.w3.org/TR/prov-dm/#term-original-source) that aims to give credit to the source that originated some information." ;
         owl:annotatedProperty rdfs:subPropertyOf ;
         owl:annotatedSource prov:hadPrimarySource ;
         owl:annotatedTarget prov:wasDerivedFrom .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b58 a owl:Axiom ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b58 a owl:Axiom ;
         rdfs:comment "Attribution is a particular case of trace (see http://www.w3.org/TR/prov-dm/#concept-trace), in the sense that it links an entity to the agent that ascribed it." ;
         owl:annotatedProperty rdfs:subPropertyOf ;
         owl:annotatedSource prov:wasAttributedTo ;
         owl:annotatedTarget prov:wasInfluencedBy ;
         prov:definition "IF wasAttributedTo(e2,ag1,aAttr) holds, THEN wasInfluencedBy(e2,ag1) also holds. " .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b60 a owl:Axiom ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b60 a owl:Axiom ;
         rdfs:comment "Derivation is a particular case of trace (see http://www.w3.org/TR/prov-dm/#term-trace), since it links an entity to another entity that contributed to its existence." ;
         owl:annotatedProperty rdfs:subPropertyOf ;
         owl:annotatedSource prov:wasDerivedFrom ;
         owl:annotatedTarget prov:wasInfluencedBy .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b62 a owl:Axiom ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b62 a owl:Axiom ;
         owl:annotatedProperty rdfs:range ;
         owl:annotatedSource prov:wasInfluencedBy ;
-        owl:annotatedTarget _:n0a28b21e0fc04186bda04a2fbb6ea762b63 ;
+        owl:annotatedTarget _:n00655dc89c7f4597b812adc3eb88cdb8b63 ;
         prov:definition "influencer: an identifier (o1) for an ancestor entity, activity, or agent that the former depends on;" ;
         prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-influence" .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b68 a owl:Axiom ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b68 a owl:Axiom ;
         owl:annotatedProperty rdfs:domain ;
         owl:annotatedSource prov:wasInfluencedBy ;
-        owl:annotatedTarget _:n0a28b21e0fc04186bda04a2fbb6ea762b69 ;
+        owl:annotatedTarget _:n00655dc89c7f4597b812adc3eb88cdb8b69 ;
         prov:definition "influencee: an identifier (o2) for an entity, activity, or agent; " ;
         prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-influence" .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b74 a owl:Axiom ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b74 a owl:Axiom ;
         rdfs:comment "Quotation is a particular case of derivation (see http://www.w3.org/TR/prov-dm/#term-quotation) in which an entity is derived from an original entity by copying, or \"quoting\", some or all of it. " ;
         owl:annotatedProperty rdfs:subPropertyOf ;
         owl:annotatedSource prov:wasQuotedFrom ;
         owl:annotatedTarget prov:wasDerivedFrom .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b76 a owl:Axiom ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b76 a owl:Axiom ;
         rdfs:comment """Revision is a derivation (see http://www.w3.org/TR/prov-dm/#term-Revision). Moreover, according to 
 http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#term-Revision 23 April 2012 'wasRevisionOf is a strict sub-relation of wasDerivedFrom since two entities e2 and e1 may satisfy wasDerivedFrom(e2,e1) without being a variant of each other.'""" ;
         owl:annotatedProperty rdfs:subPropertyOf ;
         owl:annotatedSource prov:wasRevisionOf ;
         owl:annotatedTarget prov:wasDerivedFrom .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b1 a owl:Restriction ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b1 a owl:Restriction ;
         owl:maxCardinality "0"^^xsd:nonNegativeInteger ;
         owl:onProperty prov:hadActivity ;
-        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b1 [Restriction ≤ N R]
-n0a28b21e0fc04186bda04a2fbb6ea762b1thing((thing)) --> n0a28b21e0fc04186bda04a2fbb6ea762b1http://www.w3.org/ns/prov#hadActivity[http://www.w3.org/ns/prov#hadActivity]
+        mermaid:fragment """subgraph n00655dc89c7f4597b812adc3eb88cdb8b1 [Restriction ≤ N R]
+n00655dc89c7f4597b812adc3eb88cdb8b1thing((thing)) --> n00655dc89c7f4597b812adc3eb88cdb8b1http://www.w3.org/ns/prov#hadActivity[http://www.w3.org/ns/prov#hadActivity]
 
-n0a28b21e0fc04186bda04a2fbb6ea762b1http://www.w3.org/ns/prov#hadActivity[http://www.w3.org/ns/prov#hadActivity]
+n00655dc89c7f4597b812adc3eb88cdb8b1http://www.w3.org/ns/prov#hadActivity[http://www.w3.org/ns/prov#hadActivity]
  -- max --> 0
 end
 """ ;
         mermaid:syntax "MAX" .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b10 rdf:first prov:Delegation ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b11 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b10 rdf:first prov:Delegation ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b11 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b11 rdf:first prov:Derivation ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b12 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b11 rdf:first prov:Derivation ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b12 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b12 rdf:first prov:End ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b13 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b12 rdf:first prov:End ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b13 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b13 rdf:first prov:Start ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b13 rdf:first prov:Start ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b14 rdf:first prov:qualifiedPrimarySource ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b15 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b14 rdf:first prov:qualifiedPrimarySource ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b15 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b15 rdf:first prov:entity ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b15 rdf:first prov:entity ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b16 a owl:Class ;
-        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b17 ;
-        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b16[Union C &cup; D]
-n0a28b21e0fc04186bda04a2fbb6ea762b16http://www.w3.org/ns/prov#Association((http://www.w3.org/ns/prov#Association)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b16http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
+    _:n00655dc89c7f4597b812adc3eb88cdb8b16 a owl:Class ;
+        owl:unionOf _:n00655dc89c7f4597b812adc3eb88cdb8b17 ;
+        mermaid:fragment """subgraph n00655dc89c7f4597b812adc3eb88cdb8b16[Union C &cup; D]
+n00655dc89c7f4597b812adc3eb88cdb8b16http://www.w3.org/ns/prov#Association((http://www.w3.org/ns/prov#Association)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b16http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
 end
 """ ;
         mermaid:syntax "OR" .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b17 rdf:first prov:Association ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b18 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b17 rdf:first prov:Association ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b18 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b18 rdf:first prov:InstantaneousEvent ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b18 rdf:first prov:InstantaneousEvent ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b19 a owl:Class ;
-        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b20 ;
-        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b19[Union C &cup; D]
-n0a28b21e0fc04186bda04a2fbb6ea762b19http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b19http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b19http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+    _:n00655dc89c7f4597b812adc3eb88cdb8b19 a owl:Class ;
+        owl:unionOf _:n00655dc89c7f4597b812adc3eb88cdb8b20 ;
+        mermaid:fragment """subgraph n00655dc89c7f4597b812adc3eb88cdb8b19[Union C &cup; D]
+n00655dc89c7f4597b812adc3eb88cdb8b19http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b19http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b19http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 end
 """ ;
         mermaid:syntax "OR" .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b2 rdf:first prov:qualifiedDelegation ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b3 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b2 rdf:first prov:qualifiedDelegation ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b3 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b20 rdf:first prov:Activity ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b21 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b20 rdf:first prov:Activity ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b21 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b21 rdf:first prov:Agent ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b22 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b21 rdf:first prov:Agent ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b22 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b22 rdf:first prov:Entity ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b22 rdf:first prov:Entity ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b23 rdf:first prov:qualifiedUsage ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b24 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b23 rdf:first prov:qualifiedUsage ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b24 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b24 rdf:first prov:entity ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b24 rdf:first prov:entity ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b25 rdf:first prov:qualifiedAssociation ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b26 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b25 rdf:first prov:qualifiedAssociation ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b26 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b26 rdf:first prov:agent ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b26 rdf:first prov:agent ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b27 rdf:first prov:qualifiedAttribution ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b28 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b27 rdf:first prov:qualifiedAttribution ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b28 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b28 rdf:first prov:agent ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b28 rdf:first prov:agent ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b29 rdf:first prov:qualifiedDerivation ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b30 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b29 rdf:first prov:qualifiedDerivation ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b30 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b3 rdf:first prov:agent ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b3 rdf:first prov:agent ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b30 rdf:first prov:entity ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b30 rdf:first prov:entity ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b31 rdf:first prov:qualifiedEnd ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b32 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b31 rdf:first prov:qualifiedEnd ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b32 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b32 rdf:first prov:entity ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b32 rdf:first prov:entity ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b33 rdf:first prov:qualifiedGeneration ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b34 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b33 rdf:first prov:qualifiedGeneration ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b34 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b34 rdf:first prov:activity ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b34 rdf:first prov:activity ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b35 a owl:Class ;
-        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b36 ;
-        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b35[Union C &cup; D]
-n0a28b21e0fc04186bda04a2fbb6ea762b35http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b35http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b35http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+    _:n00655dc89c7f4597b812adc3eb88cdb8b35 a owl:Class ;
+        owl:unionOf _:n00655dc89c7f4597b812adc3eb88cdb8b36 ;
+        mermaid:fragment """subgraph n00655dc89c7f4597b812adc3eb88cdb8b35[Union C &cup; D]
+n00655dc89c7f4597b812adc3eb88cdb8b35http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b35http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b35http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 end
 """ ;
         mermaid:syntax "OR" .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b36 rdf:first prov:Activity ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b37 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b36 rdf:first prov:Activity ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b37 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b37 rdf:first prov:Agent ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b38 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b37 rdf:first prov:Agent ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b38 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b38 rdf:first prov:Entity ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b38 rdf:first prov:Entity ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b39 a owl:Class ;
-        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b40 ;
-        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b39[Union C &cup; D]
-n0a28b21e0fc04186bda04a2fbb6ea762b39http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b39http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b39http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+    _:n00655dc89c7f4597b812adc3eb88cdb8b39 a owl:Class ;
+        owl:unionOf _:n00655dc89c7f4597b812adc3eb88cdb8b40 ;
+        mermaid:fragment """subgraph n00655dc89c7f4597b812adc3eb88cdb8b39[Union C &cup; D]
+n00655dc89c7f4597b812adc3eb88cdb8b39http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b39http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b39http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 end
 """ ;
         mermaid:syntax "OR" .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b4 a owl:Class ;
-        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b5 ;
-        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b4[Union C &cup; D]
-n0a28b21e0fc04186bda04a2fbb6ea762b4http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b4http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b4http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b4http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
+    _:n00655dc89c7f4597b812adc3eb88cdb8b4 a owl:Class ;
+        owl:unionOf _:n00655dc89c7f4597b812adc3eb88cdb8b5 ;
+        mermaid:fragment """subgraph n00655dc89c7f4597b812adc3eb88cdb8b4[Union C &cup; D]
+n00655dc89c7f4597b812adc3eb88cdb8b4http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b4http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b4http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b4http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
 end
 """ ;
         mermaid:syntax "OR" .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b40 rdf:first prov:Activity ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b41 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b40 rdf:first prov:Activity ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b41 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b41 rdf:first prov:Agent ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b42 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b41 rdf:first prov:Agent ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b42 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b42 rdf:first prov:Entity ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b42 rdf:first prov:Entity ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b43 rdf:first prov:qualifiedCommunication ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b44 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b43 rdf:first prov:qualifiedCommunication ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b44 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b44 rdf:first prov:activity ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b44 rdf:first prov:activity ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b45 rdf:first prov:qualifiedInvalidation ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b46 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b45 rdf:first prov:qualifiedInvalidation ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b46 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b46 rdf:first prov:activity ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b46 rdf:first prov:activity ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b47 rdf:first prov:qualifiedQuotation ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b48 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b47 rdf:first prov:qualifiedQuotation ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b48 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b48 rdf:first prov:entity ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b48 rdf:first prov:entity ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b49 rdf:first prov:qualifiedRevision ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b50 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b49 rdf:first prov:qualifiedRevision ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b50 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b5 rdf:first prov:Activity ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b6 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b5 rdf:first prov:Activity ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b6 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b50 rdf:first prov:entity ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b50 rdf:first prov:entity ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b51 rdf:first prov:qualifiedStart ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b52 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b51 rdf:first prov:qualifiedStart ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b52 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b52 rdf:first prov:entity ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b52 rdf:first prov:entity ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b6 rdf:first prov:Agent ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b7 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b6 rdf:first prov:Agent ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b7 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b63 a owl:Class ;
-        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b64 ;
-        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b63[Union C &cup; D]
-n0a28b21e0fc04186bda04a2fbb6ea762b63http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b63http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b63http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+    _:n00655dc89c7f4597b812adc3eb88cdb8b63 a owl:Class ;
+        owl:unionOf _:n00655dc89c7f4597b812adc3eb88cdb8b64 ;
+        mermaid:fragment """subgraph n00655dc89c7f4597b812adc3eb88cdb8b63[Union C &cup; D]
+n00655dc89c7f4597b812adc3eb88cdb8b63http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b63http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b63http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 end
 """ ;
         mermaid:syntax "OR" .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b64 rdf:first prov:Activity ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b65 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b64 rdf:first prov:Activity ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b65 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b65 rdf:first prov:Agent ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b66 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b65 rdf:first prov:Agent ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b66 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b66 rdf:first prov:Entity ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b66 rdf:first prov:Entity ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b69 a owl:Class ;
-        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b70 ;
-        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b69[Union C &cup; D]
-n0a28b21e0fc04186bda04a2fbb6ea762b69http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b69http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b69http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+    _:n00655dc89c7f4597b812adc3eb88cdb8b69 a owl:Class ;
+        owl:unionOf _:n00655dc89c7f4597b812adc3eb88cdb8b70 ;
+        mermaid:fragment """subgraph n00655dc89c7f4597b812adc3eb88cdb8b69[Union C &cup; D]
+n00655dc89c7f4597b812adc3eb88cdb8b69http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b69http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b69http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 end
 """ ;
         mermaid:syntax "OR" .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b7 rdf:first prov:Entity ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b8 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b7 rdf:first prov:Entity ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b8 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b70 rdf:first prov:Activity ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b71 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b70 rdf:first prov:Activity ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b71 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b71 rdf:first prov:Agent ;
-        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b72 .
+    _:n00655dc89c7f4597b812adc3eb88cdb8b71 rdf:first prov:Agent ;
+        rdf:rest _:n00655dc89c7f4597b812adc3eb88cdb8b72 .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b72 rdf:first prov:Entity ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b72 rdf:first prov:Entity ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b8 rdf:first prov:InstantaneousEvent ;
+    _:n00655dc89c7f4597b812adc3eb88cdb8b8 rdf:first prov:InstantaneousEvent ;
         rdf:rest () .
 
-    _:n0a28b21e0fc04186bda04a2fbb6ea762b9 a owl:Class ;
-        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b10 ;
-        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b9[Union C &cup; D]
-n0a28b21e0fc04186bda04a2fbb6ea762b9http://www.w3.org/ns/prov#Delegation((http://www.w3.org/ns/prov#Delegation)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b9http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b9http://www.w3.org/ns/prov#End((http://www.w3.org/ns/prov#End)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b9http://www.w3.org/ns/prov#Start((http://www.w3.org/ns/prov#Start))
+    _:n00655dc89c7f4597b812adc3eb88cdb8b9 a owl:Class ;
+        owl:unionOf _:n00655dc89c7f4597b812adc3eb88cdb8b10 ;
+        mermaid:fragment """subgraph n00655dc89c7f4597b812adc3eb88cdb8b9[Union C &cup; D]
+n00655dc89c7f4597b812adc3eb88cdb8b9http://www.w3.org/ns/prov#Delegation((http://www.w3.org/ns/prov#Delegation)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b9http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b9http://www.w3.org/ns/prov#End((http://www.w3.org/ns/prov#End)) -- or --- n00655dc89c7f4597b812adc3eb88cdb8b9http://www.w3.org/ns/prov#Start((http://www.w3.org/ns/prov#Start))
 end
 """ ;
         mermaid:syntax "OR" .

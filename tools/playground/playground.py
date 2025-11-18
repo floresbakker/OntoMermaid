@@ -4,7 +4,6 @@ import pyshacl
 import datetime
 import os
 
-
 try:
     # Command prompt execution: current directory is based on location of playground.py file
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -28,8 +27,6 @@ rdfs     = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 dct      = Namespace("http://purl.org/dc/terms/")
 mermaid  = Namespace('https://mermaid.org/ontomermaid/model/def/')
 
-
-
 # Function to read a graph (as a string) from a file 
 def readStringFromFile(file_path):
     # Open each file in read mode
@@ -38,14 +35,11 @@ def readStringFromFile(file_path):
             file_content = file.read()
     return file_content
 
-
 # Function to write a graph to a file
 def writeGraph(graph, name):
     graph.serialize(destination=directory_path + "/tools/playground/static/" + name + ".trig", format="trig")
 
-
 # Get the ReSpec vocabulary and place it in a string
-
 mermaid_vocabulary    = readStringFromFile(directory_path + "/specification/mermaid.trig")
 mermaid_status_query  = readStringFromFile(directory_path + "/tools/playground/static/mermaidStatusQuery.rq")
 mermaid_result_query  = readStringFromFile(directory_path + "/tools/playground/static/mermaidResultQuery.rq")

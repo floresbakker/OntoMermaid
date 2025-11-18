@@ -92,9 +92,9 @@
         rdfs:label "has member"@en ;
         rdfs:domain skos:Collection ;
         rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
-        rdfs:range _:n8fd05b855ca84c8e99a5774bb29423deb1 ;
+        rdfs:range _:nc3a44a74b3cc4d3ca302c5e9dd221b5fb1 ;
         skos:definition "Relates a collection to one of its members."@en ;
-        mermaid:fragment "http://www.w3.org/2004/02/skos/core#Collection -- http://www.w3.org/2004/02/skos/core#member --> n8fd05b855ca84c8e99a5774bb29423deb1" ;
+        mermaid:fragment "http://www.w3.org/2004/02/skos/core#Collection -- http://www.w3.org/2004/02/skos/core#member --> nc3a44a74b3cc4d3ca302c5e9dd221b5fb1" ;
         mermaid:syntax "OBJECTPROPERTY",
             "RDF_PROPERTY" .
 
@@ -371,18 +371,18 @@
         dcterms:title "SKOS Vocabulary"@en ;
         rdfs:seeAlso <http://www.w3.org/TR/skos-reference/> .
 
-    _:n8fd05b855ca84c8e99a5774bb29423deb1 a owl:Class ;
-        owl:unionOf _:n8fd05b855ca84c8e99a5774bb29423deb2 ;
-        mermaid:fragment """subgraph n8fd05b855ca84c8e99a5774bb29423deb1[Union C &cup; D]
-n8fd05b855ca84c8e99a5774bb29423deb1http://www.w3.org/2004/02/skos/core#Concept((http://www.w3.org/2004/02/skos/core#Concept)) -- or --- n8fd05b855ca84c8e99a5774bb29423deb1http://www.w3.org/2004/02/skos/core#Collection((http://www.w3.org/2004/02/skos/core#Collection))
+    _:nc3a44a74b3cc4d3ca302c5e9dd221b5fb1 a owl:Class ;
+        owl:unionOf _:nc3a44a74b3cc4d3ca302c5e9dd221b5fb2 ;
+        mermaid:fragment """subgraph nc3a44a74b3cc4d3ca302c5e9dd221b5fb1[Union C &cup; D]
+nc3a44a74b3cc4d3ca302c5e9dd221b5fb1http://www.w3.org/2004/02/skos/core#Concept((http://www.w3.org/2004/02/skos/core#Concept)) -- or --- nc3a44a74b3cc4d3ca302c5e9dd221b5fb1http://www.w3.org/2004/02/skos/core#Collection((http://www.w3.org/2004/02/skos/core#Collection))
 end
 """ ;
         mermaid:syntax "OR" .
 
-    _:n8fd05b855ca84c8e99a5774bb29423deb2 rdf:first skos:Concept ;
-        rdf:rest _:n8fd05b855ca84c8e99a5774bb29423deb3 .
+    _:nc3a44a74b3cc4d3ca302c5e9dd221b5fb2 rdf:first skos:Concept ;
+        rdf:rest _:nc3a44a74b3cc4d3ca302c5e9dd221b5fb3 .
 
-    _:n8fd05b855ca84c8e99a5774bb29423deb3 rdf:first skos:Collection ;
+    _:nc3a44a74b3cc4d3ca302c5e9dd221b5fb3 rdf:first skos:Collection ;
         rdf:rest () .
 }
 

@@ -71,10 +71,10 @@
         dcterms:conformsTo section:NodeTree ;
         rdfs:isDefinedBy dom: ;
         rdfs:subClassOf dom:Tree ;
-        owl:equivalentClass _:ne38f53b631de4217a3af90f90c949511b1 ;
+        owl:equivalentClass _:n5e4b24f6711e4b7ba6aeccfcbe2b78dbb1 ;
         skos:definition "A node tree consists of an ordered set of nodes."@en ;
         skos:prefLabel "Node tree"@en ;
-        mermaid:fragment """http://www.w3.org/DOM/model/def/NodeTree((dom:NodeTree)) -- equivalentTo --> ne38f53b631de4217a3af90f90c949511b1((Anonymous class))
+        mermaid:fragment """http://www.w3.org/DOM/model/def/NodeTree((dom:NodeTree)) -- equivalentTo --> n5e4b24f6711e4b7ba6aeccfcbe2b78dbb1((Anonymous class))
 """,
             """http://www.w3.org/DOM/model/def/NodeTree((dom:NodeTree)) -- subClassOf --> http://www.w3.org/DOM/model/def/Tree((dom:Tree))
 """ ;
@@ -448,14 +448,14 @@
         foaf:depiction "https://www.rijksfinancien.nl/themes/custom/indicia_theme/files/logo-rijksoverheid.svg"^^xsd:anyURI ;
         foaf:homepage "https://www.rijksfinancien.nl/"^^xsd:anyURI .
 
-    _:ne38f53b631de4217a3af90f90c949511b1 a owl:Restriction ;
+    _:n5e4b24f6711e4b7ba6aeccfcbe2b78dbb1 a owl:Restriction ;
         owl:allValuesFrom dom:Node ;
         owl:onProperty rdfs:member ;
-        mermaid:fragment """subgraph ne38f53b631de4217a3af90f90c949511b1[Restriction &forall; R C]
-ne38f53b631de4217a3af90f90c949511b1thing((thing)) --> ne38f53b631de4217a3af90f90c949511b1http://www.w3.org/2000/01/rdf-schema#member[http://www.w3.org/2000/01/rdf-schema#member]
+        mermaid:fragment """subgraph n5e4b24f6711e4b7ba6aeccfcbe2b78dbb1[Restriction &forall; R C]
+n5e4b24f6711e4b7ba6aeccfcbe2b78dbb1thing((thing)) --> n5e4b24f6711e4b7ba6aeccfcbe2b78dbb1http://www.w3.org/2000/01/rdf-schema#member[http://www.w3.org/2000/01/rdf-schema#member]
 
-ne38f53b631de4217a3af90f90c949511b1http://www.w3.org/2000/01/rdf-schema#member[http://www.w3.org/2000/01/rdf-schema#member]
- -- only --> ne38f53b631de4217a3af90f90c949511b1http://www.w3.org/DOM/model/def/Node((dom:Node))
+n5e4b24f6711e4b7ba6aeccfcbe2b78dbb1http://www.w3.org/2000/01/rdf-schema#member[http://www.w3.org/2000/01/rdf-schema#member]
+ -- only --> n5e4b24f6711e4b7ba6aeccfcbe2b78dbb1http://www.w3.org/DOM/model/def/Node((dom:Node))
 
 end
 """ ;

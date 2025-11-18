@@ -10,11 +10,9 @@ With the script OntoMermaid.py one can transform OWL into Mermaid diagrams.
 
 Usage: 
 
-1. Place an arbitrary ontology (as turtle file *.ttl) in the input folder.
-2. In the command prompt, run 'python mermaid.py'
-3. Go to the output folder and grab your enriched turtle file, now including Mermaid labels.
-4. Copypaste Mermaid labels in your html file and use the Mermaid javascript library (see documentation on the Mermaid site)
-
+1. Place an arbitrary ontology (as trig file *.trig or turtle file *.ttl) in the input folder.
+2. In the command prompt, run 'python OntoMermaid.py'
+3. Go to the output folder and grab your enriched trig file, now including Mermaid labels. You can also grab the resulting HTML file.
 
 """
 import os
