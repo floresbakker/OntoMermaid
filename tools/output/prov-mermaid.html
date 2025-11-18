@@ -15,164 +15,164 @@
                     graph TB
                     classDef Datatype fill:#9c6,stroke:#9c6;                    
                     
-                    
+                  
                     http://www.w3.org/ns/prov#Location((http://www.w3.org/ns/prov#Location))
-http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity))
-http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
-http://www.w3.org/ns/prov#Role((http://www.w3.org/ns/prov#Role))
 http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
-http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))
+http://www.w3.org/ns/prov#Role((http://www.w3.org/ns/prov#Role))
+http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity))
 http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent))
+http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))
+http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
 http://www.w3.org/2002/07/owl#Thing((http://www.w3.org/2002/07/owl#Thing))
-subgraph n3e87e734f5f446588dccb2147f3e61f1b1 [Restriction ≤ N R]
-n3e87e734f5f446588dccb2147f3e61f1b1thing((thing)) --> n3e87e734f5f446588dccb2147f3e61f1b1http://www.w3.org/ns/prov#hadActivity[http://www.w3.org/ns/prov#hadActivity]
+subgraph n0a28b21e0fc04186bda04a2fbb6ea762b1 [Restriction ≤ N R]
+n0a28b21e0fc04186bda04a2fbb6ea762b1thing((thing)) --> n0a28b21e0fc04186bda04a2fbb6ea762b1http://www.w3.org/ns/prov#hadActivity[http://www.w3.org/ns/prov#hadActivity]
 
-n3e87e734f5f446588dccb2147f3e61f1b1http://www.w3.org/ns/prov#hadActivity[http://www.w3.org/ns/prov#hadActivity]
+n0a28b21e0fc04186bda04a2fbb6ea762b1http://www.w3.org/ns/prov#hadActivity[http://www.w3.org/ns/prov#hadActivity]
  -- max --> 0
 end
 
-http://www.w3.org/ns/prov#Communication((http://www.w3.org/ns/prov#Communication)) -- subClassOf --> http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence))
+http://www.w3.org/ns/prov#Revision((http://www.w3.org/ns/prov#Revision)) -- subClassOf --> http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation))
 
-http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence)) -- subClassOf --> n3e87e734f5f446588dccb2147f3e61f1b1((Anonymous class))
+http://www.w3.org/ns/prov#Usage((http://www.w3.org/ns/prov#Usage)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
 
-http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence)) -- subClassOf --> http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))
+http://www.w3.org/ns/prov#Usage((http://www.w3.org/ns/prov#Usage)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence))
+
+http://www.w3.org/ns/prov#Person((http://www.w3.org/ns/prov#Person)) -- subClassOf --> http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent))
+
+http://www.w3.org/ns/prov#Plan((http://www.w3.org/ns/prov#Plan)) -- subClassOf --> http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+
+http://www.w3.org/ns/prov#Delegation((http://www.w3.org/ns/prov#Delegation)) -- subClassOf --> http://www.w3.org/ns/prov#AgentInfluence((http://www.w3.org/ns/prov#AgentInfluence))
+
+http://www.w3.org/ns/prov#Collection((http://www.w3.org/ns/prov#Collection)) -- subClassOf --> http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+
+http://www.w3.org/ns/prov#Attribution((http://www.w3.org/ns/prov#Attribution)) -- subClassOf --> http://www.w3.org/ns/prov#AgentInfluence((http://www.w3.org/ns/prov#AgentInfluence))
 
 http://www.w3.org/ns/prov#Invalidation((http://www.w3.org/ns/prov#Invalidation)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
 
 http://www.w3.org/ns/prov#Invalidation((http://www.w3.org/ns/prov#Invalidation)) -- subClassOf --> http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence))
 
-http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence)) -- subClassOf --> http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))
-
-http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence))
-
-http://www.w3.org/ns/prov#Bundle((http://www.w3.org/ns/prov#Bundle)) -- subClassOf --> http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
-
-http://www.w3.org/ns/prov#Revision((http://www.w3.org/ns/prov#Revision)) -- subClassOf --> http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation))
-
-http://www.w3.org/ns/prov#Usage((http://www.w3.org/ns/prov#Usage)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence))
-
-http://www.w3.org/ns/prov#Usage((http://www.w3.org/ns/prov#Usage)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
-
-http://www.w3.org/ns/prov#Attribution((http://www.w3.org/ns/prov#Attribution)) -- subClassOf --> http://www.w3.org/ns/prov#AgentInfluence((http://www.w3.org/ns/prov#AgentInfluence))
-
-http://www.w3.org/ns/prov#Association((http://www.w3.org/ns/prov#Association)) -- subClassOf --> http://www.w3.org/ns/prov#AgentInfluence((http://www.w3.org/ns/prov#AgentInfluence))
-
-http://www.w3.org/ns/prov#EmptyCollection((http://www.w3.org/ns/prov#EmptyCollection)) -- subClassOf --> http://www.w3.org/ns/prov#Collection((http://www.w3.org/ns/prov#Collection))
-
-http://www.w3.org/ns/prov#SoftwareAgent((http://www.w3.org/ns/prov#SoftwareAgent)) -- subClassOf --> http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent))
-
 http://www.w3.org/ns/prov#Quotation((http://www.w3.org/ns/prov#Quotation)) -- subClassOf --> http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation))
 
-http://www.w3.org/ns/prov#Collection((http://www.w3.org/ns/prov#Collection)) -- subClassOf --> http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+http://www.w3.org/ns/prov#Organization((http://www.w3.org/ns/prov#Organization)) -- subClassOf --> http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent))
+
+http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence)) -- subClassOf --> http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))
 
 http://www.w3.org/ns/prov#AgentInfluence((http://www.w3.org/ns/prov#AgentInfluence)) -- subClassOf --> http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))
 
+http://www.w3.org/ns/prov#Communication((http://www.w3.org/ns/prov#Communication)) -- subClassOf --> http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence))
+
+http://www.w3.org/ns/prov#Association((http://www.w3.org/ns/prov#Association)) -- subClassOf --> http://www.w3.org/ns/prov#AgentInfluence((http://www.w3.org/ns/prov#AgentInfluence))
+
 http://www.w3.org/ns/prov#PrimarySource((http://www.w3.org/ns/prov#PrimarySource)) -- subClassOf --> http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation))
 
-http://www.w3.org/ns/prov#Generation((http://www.w3.org/ns/prov#Generation)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
+http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence))
 
-http://www.w3.org/ns/prov#Generation((http://www.w3.org/ns/prov#Generation)) -- subClassOf --> http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence))
+http://www.w3.org/ns/prov#SoftwareAgent((http://www.w3.org/ns/prov#SoftwareAgent)) -- subClassOf --> http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent))
 
-http://www.w3.org/ns/prov#Plan((http://www.w3.org/ns/prov#Plan)) -- subClassOf --> http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
-
-http://www.w3.org/ns/prov#Start((http://www.w3.org/ns/prov#Start)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
-
-http://www.w3.org/ns/prov#Start((http://www.w3.org/ns/prov#Start)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence))
-
-http://www.w3.org/ns/prov#Delegation((http://www.w3.org/ns/prov#Delegation)) -- subClassOf --> http://www.w3.org/ns/prov#AgentInfluence((http://www.w3.org/ns/prov#AgentInfluence))
-
-http://www.w3.org/ns/prov#Person((http://www.w3.org/ns/prov#Person)) -- subClassOf --> http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent))
+http://www.w3.org/ns/prov#EmptyCollection((http://www.w3.org/ns/prov#EmptyCollection)) -- subClassOf --> http://www.w3.org/ns/prov#Collection((http://www.w3.org/ns/prov#Collection))
 
 http://www.w3.org/ns/prov#End((http://www.w3.org/ns/prov#End)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence))
 
 http://www.w3.org/ns/prov#End((http://www.w3.org/ns/prov#End)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
 
-http://www.w3.org/ns/prov#Organization((http://www.w3.org/ns/prov#Organization)) -- subClassOf --> http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent))
+http://www.w3.org/ns/prov#Bundle((http://www.w3.org/ns/prov#Bundle)) -- subClassOf --> http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 
-subgraph n3e87e734f5f446588dccb2147f3e61f1b19[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b19http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b19http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b19http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+http://www.w3.org/ns/prov#Generation((http://www.w3.org/ns/prov#Generation)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
+
+http://www.w3.org/ns/prov#Generation((http://www.w3.org/ns/prov#Generation)) -- subClassOf --> http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence))
+
+http://www.w3.org/ns/prov#Start((http://www.w3.org/ns/prov#Start)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence))
+
+http://www.w3.org/ns/prov#Start((http://www.w3.org/ns/prov#Start)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
+
+http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence)) -- subClassOf --> n0a28b21e0fc04186bda04a2fbb6ea762b1((Anonymous class))
+
+http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence)) -- subClassOf --> http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))
+
+subgraph n0a28b21e0fc04186bda04a2fbb6ea762b39[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b39http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b39http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b39http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 end
 
-subgraph n3e87e734f5f446588dccb2147f3e61f1b16[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b16http://www.w3.org/ns/prov#Association((http://www.w3.org/ns/prov#Association)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b16http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
+subgraph n0a28b21e0fc04186bda04a2fbb6ea762b9[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b9http://www.w3.org/ns/prov#Delegation((http://www.w3.org/ns/prov#Delegation)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b9http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b9http://www.w3.org/ns/prov#End((http://www.w3.org/ns/prov#End)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b9http://www.w3.org/ns/prov#Start((http://www.w3.org/ns/prov#Start))
 end
 
-subgraph n3e87e734f5f446588dccb2147f3e61f1b63[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b63http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b63http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b63http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+subgraph n0a28b21e0fc04186bda04a2fbb6ea762b69[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b69http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b69http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b69http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 end
 
-subgraph n3e87e734f5f446588dccb2147f3e61f1b4[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b4http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b4http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b4http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b4http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
+subgraph n0a28b21e0fc04186bda04a2fbb6ea762b63[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b63http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b63http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b63http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 end
 
-subgraph n3e87e734f5f446588dccb2147f3e61f1b35[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b35http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b35http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b35http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+subgraph n0a28b21e0fc04186bda04a2fbb6ea762b16[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b16http://www.w3.org/ns/prov#Association((http://www.w3.org/ns/prov#Association)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b16http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
 end
 
-subgraph n3e87e734f5f446588dccb2147f3e61f1b9[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b9http://www.w3.org/ns/prov#Delegation((http://www.w3.org/ns/prov#Delegation)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b9http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b9http://www.w3.org/ns/prov#End((http://www.w3.org/ns/prov#End)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b9http://www.w3.org/ns/prov#Start((http://www.w3.org/ns/prov#Start))
+subgraph n0a28b21e0fc04186bda04a2fbb6ea762b4[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b4http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b4http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b4http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b4http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
 end
 
-subgraph n3e87e734f5f446588dccb2147f3e61f1b69[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b69http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b69http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b69http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+subgraph n0a28b21e0fc04186bda04a2fbb6ea762b35[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b35http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b35http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b35http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 end
 
-subgraph n3e87e734f5f446588dccb2147f3e61f1b39[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b39http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b39http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b39http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+subgraph n0a28b21e0fc04186bda04a2fbb6ea762b19[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b19http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b19http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b19http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 end
 
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#invalidatedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype
 http://www.w3.org/ns/prov#InstantaneousEvent -- http://www.w3.org/ns/prov#atTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype
-http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#startedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#value --> rdfs:Resource:::Datatype
 http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#generatedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#value --> rdfs:Resource:::Datatype
 http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#endedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedDerivation --> http://www.w3.org/ns/prov#Derivation
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedPrimarySource --> http://www.w3.org/ns/prov#PrimarySource
-http://www.w3.org/ns/prov#Agent -- http://www.w3.org/ns/prov#actedOnBehalfOf --> http://www.w3.org/ns/prov#Agent
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedInvalidation --> http://www.w3.org/ns/prov#Invalidation
-http://www.w3.org/ns/prov#AgentInfluence -- http://www.w3.org/ns/prov#agent --> http://www.w3.org/ns/prov#Agent
-http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedEnd --> http://www.w3.org/ns/prov#End
-http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasInformedBy --> http://www.w3.org/ns/prov#Activity
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedAttribution --> http://www.w3.org/ns/prov#Attribution
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#hadPrimarySource --> http://www.w3.org/ns/prov#Entity
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#specializationOf --> http://www.w3.org/ns/prov#Entity
-http://www.w3.org/ns/prov#Collection -- http://www.w3.org/ns/prov#hadMember --> http://www.w3.org/ns/prov#Entity
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasQuotedFrom --> http://www.w3.org/ns/prov#Entity
-http://www.w3.org/ns/prov#Influence -- http://www.w3.org/ns/prov#influencer --> http://www.w3.org/2002/07/owl#Thing
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#alternateOf --> http://www.w3.org/ns/prov#Entity
-http://www.w3.org/ns/prov#Association -- http://www.w3.org/ns/prov#hadPlan --> http://www.w3.org/ns/prov#Plan
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasRevisionOf --> http://www.w3.org/ns/prov#Entity
-http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedStart --> http://www.w3.org/ns/prov#Start
-n3e87e734f5f446588dccb2147f3e61f1b19 -- http://www.w3.org/ns/prov#qualifiedInfluence --> http://www.w3.org/ns/prov#Influence
-http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedCommunication --> http://www.w3.org/ns/prov#Communication
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasGeneratedBy --> http://www.w3.org/ns/prov#Activity
-http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#invalidated --> http://www.w3.org/ns/prov#Entity
-http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#used --> http://www.w3.org/ns/prov#Entity
-http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasEndedBy --> http://www.w3.org/ns/prov#Entity
-http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedAssociation --> http://www.w3.org/ns/prov#Association
-rdfs:Resource -- http://www.w3.org/ns/prov#influenced --> rdfs:Resource
-http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasAssociatedWith --> http://www.w3.org/ns/prov#Agent
-http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasStartedBy --> http://www.w3.org/ns/prov#Entity
-n3e87e734f5f446588dccb2147f3e61f1b4 -- http://www.w3.org/ns/prov#atLocation --> http://www.w3.org/ns/prov#Location
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasAttributedTo --> http://www.w3.org/ns/prov#Agent
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#invalidatedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype
+http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#startedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype
 http://www.w3.org/ns/prov#EntityInfluence -- http://www.w3.org/ns/prov#entity --> http://www.w3.org/ns/prov#Entity
-http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedUsage --> http://www.w3.org/ns/prov#Usage
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasInvalidatedBy --> http://www.w3.org/ns/prov#Activity
-http://www.w3.org/ns/prov#Derivation -- http://www.w3.org/ns/prov#hadGeneration --> http://www.w3.org/ns/prov#Generation
 http://www.w3.org/ns/prov#Derivation -- http://www.w3.org/ns/prov#hadUsage --> http://www.w3.org/ns/prov#Usage
-http://www.w3.org/ns/prov#Influence -- http://www.w3.org/ns/prov#hadActivity --> http://www.w3.org/ns/prov#Activity
-n3e87e734f5f446588dccb2147f3e61f1b9 -- http://www.w3.org/ns/prov#hadActivity --> http://www.w3.org/ns/prov#Activity
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedGeneration --> http://www.w3.org/ns/prov#Generation
-http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedRevision --> http://www.w3.org/ns/prov#Revision
+http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedAssociation --> http://www.w3.org/ns/prov#Association
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#hadPrimarySource --> http://www.w3.org/ns/prov#Entity
+n0a28b21e0fc04186bda04a2fbb6ea762b4 -- http://www.w3.org/ns/prov#atLocation --> http://www.w3.org/ns/prov#Location
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedInvalidation --> http://www.w3.org/ns/prov#Invalidation
 http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedQuotation --> http://www.w3.org/ns/prov#Quotation
-http://www.w3.org/ns/prov#Agent -- http://www.w3.org/ns/prov#qualifiedDelegation --> http://www.w3.org/ns/prov#Delegation
+n0a28b21e0fc04186bda04a2fbb6ea762b9 -- http://www.w3.org/ns/prov#hadActivity --> http://www.w3.org/ns/prov#Activity
+http://www.w3.org/ns/prov#Influence -- http://www.w3.org/ns/prov#hadActivity --> http://www.w3.org/ns/prov#Activity
+n0a28b21e0fc04186bda04a2fbb6ea762b35 -- http://www.w3.org/ns/prov#wasInfluencedBy --> n0a28b21e0fc04186bda04a2fbb6ea762b39
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedRevision --> http://www.w3.org/ns/prov#Revision
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#specializationOf --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedUsage --> http://www.w3.org/ns/prov#Usage
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasRevisionOf --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#used --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedPrimarySource --> http://www.w3.org/ns/prov#PrimarySource
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedAttribution --> http://www.w3.org/ns/prov#Attribution
 http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#generated --> http://www.w3.org/ns/prov#Entity
-http://www.w3.org/ns/prov#Influence -- http://www.w3.org/ns/prov#hadRole --> http://www.w3.org/ns/prov#Role
-n3e87e734f5f446588dccb2147f3e61f1b16 -- http://www.w3.org/ns/prov#hadRole --> http://www.w3.org/ns/prov#Role
+http://www.w3.org/ns/prov#Agent -- http://www.w3.org/ns/prov#qualifiedDelegation --> http://www.w3.org/ns/prov#Delegation
+http://www.w3.org/ns/prov#Association -- http://www.w3.org/ns/prov#hadPlan --> http://www.w3.org/ns/prov#Plan
 http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasDerivedFrom --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasInvalidatedBy --> http://www.w3.org/ns/prov#Activity
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasAttributedTo --> http://www.w3.org/ns/prov#Agent
+rdfs:Resource -- http://www.w3.org/ns/prov#influenced --> rdfs:Resource
+http://www.w3.org/ns/prov#Influence -- http://www.w3.org/ns/prov#influencer --> http://www.w3.org/2002/07/owl#Thing
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasQuotedFrom --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedCommunication --> http://www.w3.org/ns/prov#Communication
+http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasStartedBy --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedEnd --> http://www.w3.org/ns/prov#End
+http://www.w3.org/ns/prov#AgentInfluence -- http://www.w3.org/ns/prov#agent --> http://www.w3.org/ns/prov#Agent
+http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasInformedBy --> http://www.w3.org/ns/prov#Activity
+n0a28b21e0fc04186bda04a2fbb6ea762b16 -- http://www.w3.org/ns/prov#hadRole --> http://www.w3.org/ns/prov#Role
+http://www.w3.org/ns/prov#Influence -- http://www.w3.org/ns/prov#hadRole --> http://www.w3.org/ns/prov#Role
+http://www.w3.org/ns/prov#Derivation -- http://www.w3.org/ns/prov#hadGeneration --> http://www.w3.org/ns/prov#Generation
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasGeneratedBy --> http://www.w3.org/ns/prov#Activity
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#alternateOf --> http://www.w3.org/ns/prov#Entity
+n0a28b21e0fc04186bda04a2fbb6ea762b19 -- http://www.w3.org/ns/prov#qualifiedInfluence --> http://www.w3.org/ns/prov#Influence
+http://www.w3.org/ns/prov#Collection -- http://www.w3.org/ns/prov#hadMember --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Agent -- http://www.w3.org/ns/prov#actedOnBehalfOf --> http://www.w3.org/ns/prov#Agent
+http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasEndedBy --> http://www.w3.org/ns/prov#Entity
+http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasAssociatedWith --> http://www.w3.org/ns/prov#Agent
 http://www.w3.org/ns/prov#ActivityInfluence -- http://www.w3.org/ns/prov#activity --> http://www.w3.org/ns/prov#Activity
-n3e87e734f5f446588dccb2147f3e61f1b35 -- http://www.w3.org/ns/prov#wasInfluencedBy --> n3e87e734f5f446588dccb2147f3e61f1b39
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedDerivation --> http://www.w3.org/ns/prov#Derivation
+http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedGeneration --> http://www.w3.org/ns/prov#Generation
+http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedStart --> http://www.w3.org/ns/prov#Start
+http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#invalidated --> http://www.w3.org/ns/prov#Entity
                     
                     
                     </pre>

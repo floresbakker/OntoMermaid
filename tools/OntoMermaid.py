@@ -20,24 +20,37 @@ Usage:
 import os
 import pyshacl
 import rdflib 
-from rdflib import Namespace
+from rdflib import Namespace, Dataset
 
-# Get the current working directory in which the OntoMermaid.py file is located.
-current_dir = os.getcwd()
+try:
+    # Command prompt execution: current directory is based on location of OntoMermaid.py file
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    directory_path = os.path.abspath(os.path.join(current_dir, '..'))
 
-# Set the path to the desired standard directory. 
-directory_path = os.path.abspath(os.path.join(current_dir))
+except NameError:
+    # Python IDE exectution: current directory is based on the IDE working directory in Spyder, Jupyter or iPython.
+    # PLEASE NOTE: Set working directory in IDE to OntoMermaid root dir.
+    current_dir = os.getcwd()
+    directory_path  = os.path.abspath(os.path.join(current_dir))
 
 # namespace declaration
-mermaid = Namespace("https://data.rijksfinancien.nl/mermaid/model/def/")
+rdf      = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
+rdfs     = Namespace("http://www.w3.org/2000/01/rdf-schema#")
+dct      = Namespace("http://purl.org/dc/terms/")
+mermaid  = Namespace('https://mermaid.org/ontomermaid/model/def/')
 
 # Function to read a graph (as a string) from a file 
-def readGraphFromFile(file_path):
+def readStringFromFile(file_path):
     # Open each file in read mode
     with open(file_path, 'r', encoding='utf-8') as file:
             # Read the content of the file and append it to the existing string
             file_content = file.read()
     return file_content
+
+mermaid_vocabulary    = readStringFromFile(directory_path + "/specification/mermaid.trig")
+mermaid_status_query  = readStringFromFile(directory_path + "/tools/playground/static/mermaidStatusQuery.rq")
+mermaid_result_query  = readStringFromFile(directory_path + "/tools/playground/static/mermaidResultQuery.rq")
+ontology_query        = readStringFromFile(directory_path + "/tools/playground/static/ontologyQuery.rq")
 
 # Function to write a graph to a file
 def writeGraph(graph):
@@ -58,192 +71,9 @@ def iteratePyShacl(mermaid_generator, serializable_graph):
         iterate_rules=False, #rather than setting this to true, it is better to do the iteration in the script as PyShacl seems to have some buggy behavior around iteration.
         debug=False,
         )
-        
        
-        statusquery = serializable_graph.query('''
-            
-prefix mermaid: <https://mermaid.org/ontomermaid/model/def/>
-prefix owl: <http://www.w3.org/2002/07/owl#>
-prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix sh: <http://www.w3.org/ns/shacl#>
-ASK
-WHERE {
-  # Any OWL or RDFS entity that is not yet described in terms of the manchester syntax
-  {
-    $this a owl:Class.
-  }  
-  UNION
-  {
-    $this a rdfs:Class.
-  }
-  UNION
-  {
-    $this rdfs:subClassOf []
-  }
-  UNION
-  {
-    $this owl:equivalentClass []
-  }
-  UNION
-  {
-    $this owl:unionOf []
-  }
-  UNION
-  {
-    $this owl:intersectionOf []
-  }
-  UNION
-  {
-    $this owl:complementOf []
-  }
-  UNION
-  {
-    $this owl:oneOf []
-  }
-  UNION
-  {
-    $this owl:allValuesFrom []
-  }
-  UNION
-  {
-    $this owl:someValuesFrom []
-  }
-  UNION
-  {
-    $this owl:hasValue []
-  }
-  UNION
-  {
-    $this owl:cardinality []
-  }
-  UNION
-  {
-    $this owl:maxCardinality []
-  }
-  UNION
-  {
-    $this owl:minCardinality []
-  }  
-  UNION
-  {
-   $this rdf:type rdf:Property
-  }
-  UNION
-  {
-    $this rdf:type owl:DatatypeProperty.
-  }
-  UNION
-  {
-    $this rdf:type owl:ObjectProperty.
-  }
-  UNION
-  {
-    $this rdfs:subPropertyOf []
-    FILTER NOT EXISTS {$this rdf:type owl:AnnotationProperty}.
-    FILTER NOT EXISTS {$this rdf:type owl:InverseFunctionalProperty}
-    FILTER NOT EXISTS {$this rdf:type owl:FunctionalProperty}
-  }
-  UNION
-  {
-    $this owl:equivalentProperty [].
-  }
-  filter not exists {
-    $this mermaid:syntax 'CLASS'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'CLASS'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'SUBCLASSOF'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'EQUIVALENTTO'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'OR'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'AND'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'NOT'.
-  }
-  filter not exists {
-    $this mermaid:syntax '{}'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'ONLY'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'SOME'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'VALUE'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'EXACTLY'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'MAX'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'MIN'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'RDF_PROPERTY'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'DATATYPEPROPERTY'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'OBJECTPROPERTY'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'SUBPROPERTYOF'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'EQUIVALENTPROPERTY'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'OR-DATATYPE'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'AND-DATATYPE'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'NOT-DATATYPE'.
-  }
-  filter not exists {
-    $this mermaid:syntax '{}-DATATYPE'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'EXACTLYQUALIFIED'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'MAXQUALIFIED'.
-  }
-  filter not exists {
-    $this mermaid:syntax 'MINQUALIFIED'.
-  }
-}
-        ''')   
-
-        resultquery = serializable_graph.query('''
-            
-prefix owl:  <http://www.w3.org/2002/07/owl#>
-prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix sh:   <http://www.w3.org/ns/shacl#>
-prefix :     <https://mermaid.org/ontomermaid/model/def/>
-
-SELECT (GROUP_CONCAT(?fragment; separator="\\n") AS ?mermaidFragment)
-WHERE {
-  ?element :fragment ?fragment.
-  
-}
-ORDER BY ?mermaidFragment
-        ''')   
+        statusquery = serializable_graph.query(mermaid_status_query)
+        resultquery = serializable_graph.query(mermaid_result_query) 
 
         # Check whether another iteration is needed. If every OWL and RDFS construct contains a mermaid:syntax statement, the processing is considered done.
         for status in statusquery:
@@ -308,26 +138,23 @@ for filename in os.listdir(directory_path+"/tools/input"):
         
         # Establish the stem of the file name for reuse in newly created files
         filename_stem = os.path.splitext(filename)[0]
-        
-        # Get the manchester syntax vocabulary and place it in a string
-        mermaid_generator = readGraphFromFile(directory_path+"/specification/mermaid.trig")
-        
+                
         # Get some ontology to be transformed from OWL to Manchester Syntax. The ontology needs to be placed in the input directory.
-        ontology_graph = readGraphFromFile(file_path)   
-        
+        ontology_graph = readStringFromFile(file_path)   
         
         # Join the manchester syntax and the ontology to be transformed into one big string.
         serializable_graph_string = ontology_graph
         
         # Create a graph of the string consisting of the manchester syntax and the ontology to be transformed 
-        serializable_graph = rdflib.Graph().parse(data=serializable_graph_string , format="trig")
+        serializable_graph = Dataset(default_union=True)
+        serializable_graph.parse(data=serializable_graph_string , format="trig")
         serializable_graph.bind("mermaid", mermaid)
         
         # Inform user
         print ('\nCreating Mermaid diagram labels for file',filename, '...')
         
         # Call the shacl engine with the HTML vocabulary and the document to be serialized
-        iteratePyShacl(mermaid_generator, serializable_graph)
+        iteratePyShacl(mermaid_vocabulary, serializable_graph)
         
         # Inform user
         print ('Done.')

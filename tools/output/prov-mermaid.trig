@@ -1,11 +1,11 @@
-@prefix : <http://www.w3.org/ns/prov#> .
-@prefix ns1: <https://mermaid.org/ontomermaid/model/def/> .
+@prefix mermaid: <https://mermaid.org/ontomermaid/model/def/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-_:Nb3e0cac238d5449eac4b0e90470835c5 {
+{
     rdfs:comment a owl:AnnotationProperty ;
         rdfs:comment ""@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
@@ -18,187 +18,187 @@ _:Nb3e0cac238d5449eac4b0e90470835c5 {
 
     owl:versionInfo a owl:AnnotationProperty .
 
-    : a owl:Ontology .
+    prov: a owl:Ontology .
 
-    :Bundle a owl:Class ;
+    prov:Bundle a owl:Class ;
         rdfs:label "Bundle" ;
         rdfs:comment "Note that there are kinds of bundles (e.g. handwritten letters, audio recordings, etc.) that are not expressed in PROV-O, but can be still be described by PROV-O."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :Entity ;
-        :category "expanded" ;
-        :definition "A bundle is a named set of provenance descriptions, and is itself an Entity, so allowing provenance of provenance to be expressed."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-bundle-entity"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-bundle-declaration"^^xsd:anyURI ;
-        ns1:fragment """http://www.w3.org/ns/prov#Bundle((http://www.w3.org/ns/prov#Bundle)) -- subClassOf --> http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+        rdfs:subClassOf prov:Entity ;
+        prov:category "expanded" ;
+        prov:definition "A bundle is a named set of provenance descriptions, and is itself an Entity, so allowing provenance of provenance to be expressed."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-bundle-entity"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-bundle-declaration"^^xsd:anyURI ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Bundle((http://www.w3.org/ns/prov#Bundle)) -- subClassOf --> http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :EmptyCollection a owl:Class,
+    prov:EmptyCollection a owl:Class,
             owl:NamedIndividual ;
         rdfs:label "EmptyCollection"@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :Collection ;
-        :category "expanded" ;
-        :component "collections" ;
-        :definition "An empty collection is a collection without members."@en ;
-        ns1:fragment """http://www.w3.org/ns/prov#EmptyCollection((http://www.w3.org/ns/prov#EmptyCollection)) -- subClassOf --> http://www.w3.org/ns/prov#Collection((http://www.w3.org/ns/prov#Collection))
+        rdfs:subClassOf prov:Collection ;
+        prov:category "expanded" ;
+        prov:component "collections" ;
+        prov:definition "An empty collection is a collection without members."@en ;
+        mermaid:fragment """http://www.w3.org/ns/prov#EmptyCollection((http://www.w3.org/ns/prov#EmptyCollection)) -- subClassOf --> http://www.w3.org/ns/prov#Collection((http://www.w3.org/ns/prov#Collection))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :Organization a owl:Class ;
+    prov:Organization a owl:Class ;
         rdfs:label "Organization" ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :Agent ;
-        :category "expanded" ;
-        :component "agents-responsibility" ;
-        :definition "An organization is a social or legal institution such as a company, society, etc." ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types"^^xsd:anyURI ;
-        ns1:fragment """http://www.w3.org/ns/prov#Organization((http://www.w3.org/ns/prov#Organization)) -- subClassOf --> http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent))
+        rdfs:subClassOf prov:Agent ;
+        prov:category "expanded" ;
+        prov:component "agents-responsibility" ;
+        prov:definition "An organization is a social or legal institution such as a company, society, etc." ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types"^^xsd:anyURI ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Organization((http://www.w3.org/ns/prov#Organization)) -- subClassOf --> http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :Person a owl:Class ;
+    prov:Person a owl:Class ;
         rdfs:label "Person" ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :Agent ;
-        :category "expanded" ;
-        :component "agents-responsibility" ;
-        :definition "Person agents are people."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types"^^xsd:anyURI ;
-        ns1:fragment """http://www.w3.org/ns/prov#Person((http://www.w3.org/ns/prov#Person)) -- subClassOf --> http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent))
+        rdfs:subClassOf prov:Agent ;
+        prov:category "expanded" ;
+        prov:component "agents-responsibility" ;
+        prov:definition "Person agents are people."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types"^^xsd:anyURI ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Person((http://www.w3.org/ns/prov#Person)) -- subClassOf --> http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :SoftwareAgent a owl:Class ;
+    prov:SoftwareAgent a owl:Class ;
         rdfs:label "SoftwareAgent" ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :Agent ;
-        :category "expanded" ;
-        :component "agents-responsibility" ;
-        :definition "A software agent is running software."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types"^^xsd:anyURI ;
-        ns1:fragment """http://www.w3.org/ns/prov#SoftwareAgent((http://www.w3.org/ns/prov#SoftwareAgent)) -- subClassOf --> http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent))
+        rdfs:subClassOf prov:Agent ;
+        prov:category "expanded" ;
+        prov:component "agents-responsibility" ;
+        prov:definition "A software agent is running software."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types"^^xsd:anyURI ;
+        mermaid:fragment """http://www.w3.org/ns/prov#SoftwareAgent((http://www.w3.org/ns/prov#SoftwareAgent)) -- subClassOf --> http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :aq a owl:AnnotationProperty ;
+    prov:aq a owl:AnnotationProperty ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:subPropertyOf rdfs:seeAlso .
 
-    :category a owl:AnnotationProperty ;
+    prov:category a owl:AnnotationProperty ;
         rdfs:comment "Classify prov-o terms into three categories, including 'starting-point', 'qualifed', and 'extended'. This classification is used by the prov-o html document to gently introduce prov-o terms to its users. "@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
 
-    :component a owl:AnnotationProperty ;
+    prov:component a owl:AnnotationProperty ;
         rdfs:comment "Classify prov-o terms into six components according to prov-dm, including 'agents-responsibility', 'alternate', 'annotations', 'collections', 'derivations', and 'entities-activities'. This classification is used so that readers of prov-o specification can find its correspondence with the prov-dm specification."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
 
-    :constraints a owl:AnnotationProperty ;
+    prov:constraints a owl:AnnotationProperty ;
         rdfs:comment "A reference to the principal section of the PROV-CONSTRAINTS document that describes this concept."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:subPropertyOf rdfs:seeAlso .
 
-    :dm a owl:AnnotationProperty ;
+    prov:dm a owl:AnnotationProperty ;
         rdfs:comment "A reference to the principal section of the PROV-DM document that describes this concept."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:subPropertyOf rdfs:seeAlso .
 
-    :editorialNote a owl:AnnotationProperty ;
+    prov:editorialNote a owl:AnnotationProperty ;
         rdfs:comment "A note by the OWL development team about how this term expresses the PROV-DM concept, or how it should be used in context of semantic web or linked data."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
 
-    :editorsDefinition a owl:AnnotationProperty ;
+    prov:editorsDefinition a owl:AnnotationProperty ;
         rdfs:comment "When the prov-o term does not have a definition drawn from prov-dm, and the prov-o editor provides one."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subPropertyOf :definition .
+        rdfs:subPropertyOf prov:definition .
 
-    :generated a owl:ObjectProperty ;
+    prov:generated a owl:ObjectProperty ;
         rdfs:label "generated" ;
-        rdfs:domain :Activity ;
+        rdfs:domain prov:Activity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Entity ;
-        rdfs:subPropertyOf :influenced ;
-        owl:inverseOf :wasGeneratedBy ;
-        :category "expanded" ;
-        :component "entities-activities" ;
-        :editorialNote "prov:generated is one of few inverse property defined, to allow Activity-oriented assertions in addition to Entity-oriented assertions."@en ;
-        :inverse "wasGeneratedBy" ;
-        :sharesDefinitionWith :Generation ;
-        ns1:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#generated --> http://www.w3.org/ns/prov#Entity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Entity ;
+        rdfs:subPropertyOf prov:influenced ;
+        owl:inverseOf prov:wasGeneratedBy ;
+        prov:category "expanded" ;
+        prov:component "entities-activities" ;
+        prov:editorialNote "prov:generated is one of few inverse property defined, to allow Activity-oriented assertions in addition to Entity-oriented assertions."@en ;
+        prov:inverse "wasGeneratedBy" ;
+        prov:sharesDefinitionWith prov:Generation ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#generated --> http://www.w3.org/ns/prov#Entity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :hadGeneration a owl:ObjectProperty ;
+    prov:hadGeneration a owl:ObjectProperty ;
         rdfs:label "hadGeneration" ;
         rdfs:comment "The _optional_ Generation involved in an Entity's Derivation."@en ;
-        rdfs:domain :Derivation ;
+        rdfs:domain prov:Derivation ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Generation ;
-        :category "qualified" ;
-        :component "derivations" ;
-        :inverse "generatedAsDerivation" ;
-        :sharesDefinitionWith :Generation ;
-        ns1:fragment "http://www.w3.org/ns/prov#Derivation -- http://www.w3.org/ns/prov#hadGeneration --> http://www.w3.org/ns/prov#Generation" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Generation ;
+        prov:category "qualified" ;
+        prov:component "derivations" ;
+        prov:inverse "generatedAsDerivation" ;
+        prov:sharesDefinitionWith prov:Generation ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Derivation -- http://www.w3.org/ns/prov#hadGeneration --> http://www.w3.org/ns/prov#Generation" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :hadPlan a owl:ObjectProperty ;
+    prov:hadPlan a owl:ObjectProperty ;
         rdfs:label "hadPlan" ;
         rdfs:comment "The _optional_ Plan adopted by an Agent in Association with some Activity. Plan specifications are out of the scope of this specification."@en ;
-        rdfs:domain :Association ;
+        rdfs:domain prov:Association ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Plan ;
-        :category "qualified" ;
-        :component "agents-responsibility" ;
-        :inverse "wasPlanOf" ;
-        :sharesDefinitionWith :Plan ;
-        ns1:fragment "http://www.w3.org/ns/prov#Association -- http://www.w3.org/ns/prov#hadPlan --> http://www.w3.org/ns/prov#Plan" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Plan ;
+        prov:category "qualified" ;
+        prov:component "agents-responsibility" ;
+        prov:inverse "wasPlanOf" ;
+        prov:sharesDefinitionWith prov:Plan ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Association -- http://www.w3.org/ns/prov#hadPlan --> http://www.w3.org/ns/prov#Plan" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :hadUsage a owl:ObjectProperty ;
+    prov:hadUsage a owl:ObjectProperty ;
         rdfs:label "hadUsage" ;
         rdfs:comment "The _optional_ Usage involved in an Entity's Derivation."@en ;
-        rdfs:domain :Derivation ;
+        rdfs:domain prov:Derivation ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Usage ;
-        :category "qualified" ;
-        :component "derivations" ;
-        :inverse "wasUsedInDerivation" ;
-        :sharesDefinitionWith :Usage ;
-        ns1:fragment "http://www.w3.org/ns/prov#Derivation -- http://www.w3.org/ns/prov#hadUsage --> http://www.w3.org/ns/prov#Usage" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Usage ;
+        prov:category "qualified" ;
+        prov:component "derivations" ;
+        prov:inverse "wasUsedInDerivation" ;
+        prov:sharesDefinitionWith prov:Usage ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Derivation -- http://www.w3.org/ns/prov#hadUsage --> http://www.w3.org/ns/prov#Usage" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :invalidated a owl:ObjectProperty ;
+    prov:invalidated a owl:ObjectProperty ;
         rdfs:label "invalidated" ;
-        rdfs:domain :Activity ;
+        rdfs:domain prov:Activity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Entity ;
-        rdfs:subPropertyOf :influenced ;
-        owl:inverseOf :wasInvalidatedBy ;
-        :category "expanded" ;
-        :component "entities-activities" ;
-        :editorialNote "prov:invalidated is one of few inverse property defined, to allow Activity-oriented assertions in addition to Entity-oriented assertions."@en ;
-        :inverse "wasInvalidatedBy" ;
-        :sharesDefinitionWith :Invalidation ;
-        ns1:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#invalidated --> http://www.w3.org/ns/prov#Entity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Entity ;
+        rdfs:subPropertyOf prov:influenced ;
+        owl:inverseOf prov:wasInvalidatedBy ;
+        prov:category "expanded" ;
+        prov:component "entities-activities" ;
+        prov:editorialNote "prov:invalidated is one of few inverse property defined, to allow Activity-oriented assertions in addition to Entity-oriented assertions."@en ;
+        prov:inverse "wasInvalidatedBy" ;
+        prov:sharesDefinitionWith prov:Invalidation ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#invalidated --> http://www.w3.org/ns/prov#Entity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :inverse a owl:AnnotationProperty ;
+    prov:inverse a owl:AnnotationProperty ;
         rdfs:comment "PROV-O does not define all property inverses. The directionalities defined in PROV-O should be given preference over those not defined. However, if users wish to name the inverse of a PROV-O property, the local name given by prov:inverse should be used."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:seeAlso <http://www.w3.org/TR/prov-o/#names-of-inverse-properties> .
 
-    :n a owl:AnnotationProperty ;
+    prov:n a owl:AnnotationProperty ;
         rdfs:comment "A reference to the principal section of the PROV-DM document that describes this concept."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:subPropertyOf rdfs:seeAlso .
 
-    :order a owl:AnnotationProperty ;
+    prov:order a owl:AnnotationProperty ;
         rdfs:comment "The position that this OWL term should be listed within documentation. The scope of the documentation (e.g., among all terms, among terms within a prov:category, among properties applying to a particular class, etc.) is unspecified."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
 
-    :qualifiedForm a owl:AnnotationProperty ;
+    prov:qualifiedForm a owl:AnnotationProperty ;
         rdfs:comment """This annotation property links a subproperty of prov:wasInfluencedBy with the subclass of prov:Influence and the qualifying property that are used to qualify it. 
 
 Example annotation:
@@ -221,1094 +221,1094 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:subPropertyOf rdfs:seeAlso .
 
-    :sharesDefinitionWith a owl:AnnotationProperty ;
+    prov:sharesDefinitionWith a owl:AnnotationProperty ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:subPropertyOf rdfs:seeAlso .
 
-    :todo a owl:AnnotationProperty .
+    prov:todo a owl:AnnotationProperty .
 
-    :unqualifiedForm a owl:AnnotationProperty ;
+    prov:unqualifiedForm a owl:AnnotationProperty ;
         rdfs:comment "Classes and properties used to qualify relationships are annotated with prov:unqualifiedForm to indicate the property used to assert an unqualified provenance relation."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:subPropertyOf rdfs:seeAlso .
 
-    :value a owl:DatatypeProperty ;
+    prov:value a owl:DatatypeProperty ;
         rdfs:label "value" ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        :category "expanded" ;
-        :component "entities-activities" ;
-        :definition "Provides a value that is a direct representation of an entity."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribute-value"^^xsd:anyURI ;
-        :editorialNote "The editor's definition comes from http://www.w3.org/TR/rdf-primer/#rdfvalue",
+        prov:category "expanded" ;
+        prov:component "entities-activities" ;
+        prov:definition "Provides a value that is a direct representation of an entity."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribute-value"^^xsd:anyURI ;
+        prov:editorialNote "The editor's definition comes from http://www.w3.org/TR/rdf-primer/#rdfvalue",
             "This property serves the same purpose as rdf:value, but has been reintroduced to avoid some of the definitional ambiguity in the RDF specification (specifically, 'may be used in describing structured values')."@en ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#value --> rdfs:Resource:::Datatype" ;
-        ns1:syntax "DATATYPEPROPERTY" .
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#value --> rdfs:Resource:::Datatype" ;
+        mermaid:syntax "DATATYPEPROPERTY" .
 
     owl:Thing a owl:Class ;
-        ns1:fragment "http://www.w3.org/2002/07/owl#Thing((http://www.w3.org/2002/07/owl#Thing))" ;
-        ns1:syntax "CLASS" .
+        mermaid:fragment "http://www.w3.org/2002/07/owl#Thing((http://www.w3.org/2002/07/owl#Thing))" ;
+        mermaid:syntax "CLASS" .
 
-    :atLocation a owl:ObjectProperty ;
+    prov:atLocation a owl:ObjectProperty ;
         rdfs:label "atLocation" ;
         rdfs:comment "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>.",
             "The Location of any resource."@en ;
-        rdfs:domain _:n3e87e734f5f446588dccb2147f3e61f1b4 ;
+        rdfs:domain _:n0a28b21e0fc04186bda04a2fbb6ea762b4 ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Location ;
-        :category "expanded" ;
-        :editorialNote "The naming of prov:atLocation parallels prov:atTime, and is not named prov:hadLocation to avoid conflicting with the convention that prov:had* properties are used on prov:Influence classes."@en,
+        rdfs:range prov:Location ;
+        prov:category "expanded" ;
+        prov:editorialNote "The naming of prov:atLocation parallels prov:atTime, and is not named prov:hadLocation to avoid conflicting with the convention that prov:had* properties are used on prov:Influence classes."@en,
             "This property is not functional because the many values could be at a variety of granularies (In this building, in this room, in that chair)."@en ;
-        :inverse "locationOf" ;
-        :sharesDefinitionWith :Location ;
-        ns1:fragment "n3e87e734f5f446588dccb2147f3e61f1b4 -- http://www.w3.org/ns/prov#atLocation --> http://www.w3.org/ns/prov#Location" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        prov:inverse "locationOf" ;
+        prov:sharesDefinitionWith prov:Location ;
+        mermaid:fragment "n0a28b21e0fc04186bda04a2fbb6ea762b4 -- http://www.w3.org/ns/prov#atLocation --> http://www.w3.org/ns/prov#Location" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :definition a owl:AnnotationProperty ;
+    prov:definition a owl:AnnotationProperty ;
         rdfs:comment "A definition quoted from PROV-DM or PROV-CONSTRAINTS that describes the concept expressed with this OWL term."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
 
-    :endedAtTime a owl:DatatypeProperty ;
+    prov:endedAtTime a owl:DatatypeProperty ;
         rdfs:label "endedAtTime" ;
         rdfs:comment "The time at which an activity ended. See also prov:startedAtTime."@en ;
-        rdfs:domain :Activity ;
+        rdfs:domain prov:Activity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range xsd:dateTime ;
-        :category "starting-point" ;
-        :component "entities-activities" ;
-        :editorialNote "It is the intent that the property chain holds: (prov:qualifiedEnd o prov:atTime) rdfs:subPropertyOf prov:endedAtTime."@en ;
-        :qualifiedForm :End,
-            :atTime ;
-        ns1:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#endedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype" ;
-        ns1:syntax "DATATYPEPROPERTY" .
+        prov:category "starting-point" ;
+        prov:component "entities-activities" ;
+        prov:editorialNote "It is the intent that the property chain holds: (prov:qualifiedEnd o prov:atTime) rdfs:subPropertyOf prov:endedAtTime."@en ;
+        prov:qualifiedForm prov:End,
+            prov:atTime ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#endedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype" ;
+        mermaid:syntax "DATATYPEPROPERTY" .
 
-    :generatedAtTime a owl:DatatypeProperty ;
+    prov:generatedAtTime a owl:DatatypeProperty ;
         rdfs:label "generatedAtTime" ;
         rdfs:comment "The time at which an entity was completely created and is available for use."@en ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range xsd:dateTime ;
-        :category "expanded" ;
-        :component "entities-activities" ;
-        :editorialNote "It is the intent that the property chain holds: (prov:qualifiedGeneration o prov:atTime) rdfs:subPropertyOf prov:generatedAtTime."@en ;
-        :qualifiedForm :Generation,
-            :atTime ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#generatedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype" ;
-        ns1:syntax "DATATYPEPROPERTY" .
+        prov:category "expanded" ;
+        prov:component "entities-activities" ;
+        prov:editorialNote "It is the intent that the property chain holds: (prov:qualifiedGeneration o prov:atTime) rdfs:subPropertyOf prov:generatedAtTime."@en ;
+        prov:qualifiedForm prov:Generation,
+            prov:atTime ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#generatedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype" ;
+        mermaid:syntax "DATATYPEPROPERTY" .
 
-    :hadActivity a owl:ObjectProperty ;
+    prov:hadActivity a owl:ObjectProperty ;
         rdfs:label "hadActivity" ;
         rdfs:comment "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>.",
             "The _optional_ Activity of an Influence, which used, generated, invalidated, or was the responsibility of some Entity. This property is _not_ used by ActivityInfluence (use prov:activity instead)."@en ;
-        rdfs:domain _:n3e87e734f5f446588dccb2147f3e61f1b9,
-            :Influence ;
+        rdfs:domain _:n0a28b21e0fc04186bda04a2fbb6ea762b9,
+            prov:Influence ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Activity ;
-        :category "qualified" ;
-        :component "derivations" ;
-        :editorialNote "The multiple rdfs:domain assertions are intended. One is simpler and works for OWL-RL, the union is more specific but is not recognized by OWL-RL."@en ;
-        :inverse "wasActivityOfInfluence" ;
-        :sharesDefinitionWith :Activity ;
-        ns1:fragment "http://www.w3.org/ns/prov#Influence -- http://www.w3.org/ns/prov#hadActivity --> http://www.w3.org/ns/prov#Activity",
-            "n3e87e734f5f446588dccb2147f3e61f1b9 -- http://www.w3.org/ns/prov#hadActivity --> http://www.w3.org/ns/prov#Activity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Activity ;
+        prov:category "qualified" ;
+        prov:component "derivations" ;
+        prov:editorialNote "The multiple rdfs:domain assertions are intended. One is simpler and works for OWL-RL, the union is more specific but is not recognized by OWL-RL."@en ;
+        prov:inverse "wasActivityOfInfluence" ;
+        prov:sharesDefinitionWith prov:Activity ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Influence -- http://www.w3.org/ns/prov#hadActivity --> http://www.w3.org/ns/prov#Activity",
+            "n0a28b21e0fc04186bda04a2fbb6ea762b9 -- http://www.w3.org/ns/prov#hadActivity --> http://www.w3.org/ns/prov#Activity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :hadMember a owl:ObjectProperty ;
+    prov:hadMember a owl:ObjectProperty ;
         rdfs:label "hadMember" ;
-        rdfs:domain :Collection ;
+        rdfs:domain prov:Collection ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Entity ;
-        rdfs:subPropertyOf :wasInfluencedBy ;
-        :category "expanded" ;
-        :component "expanded" ;
-        :inverse "wasMemberOf" ;
-        :sharesDefinitionWith :Collection ;
-        ns1:fragment "http://www.w3.org/ns/prov#Collection -- http://www.w3.org/ns/prov#hadMember --> http://www.w3.org/ns/prov#Entity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Entity ;
+        rdfs:subPropertyOf prov:wasInfluencedBy ;
+        prov:category "expanded" ;
+        prov:component "expanded" ;
+        prov:inverse "wasMemberOf" ;
+        prov:sharesDefinitionWith prov:Collection ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Collection -- http://www.w3.org/ns/prov#hadMember --> http://www.w3.org/ns/prov#Entity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :hadRole a owl:ObjectProperty ;
+    prov:hadRole a owl:ObjectProperty ;
         rdfs:label "hadRole" ;
         rdfs:comment "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>.",
             "The _optional_ Role that an Entity assumed in the context of an Activity. For example, :baking prov:used :spoon; prov:qualified [ a prov:Usage; prov:entity :spoon; prov:hadRole roles:mixing_implement ]."@en ;
-        rdfs:domain _:n3e87e734f5f446588dccb2147f3e61f1b16,
-            :Influence ;
+        rdfs:domain _:n0a28b21e0fc04186bda04a2fbb6ea762b16,
+            prov:Influence ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Role ;
-        :category "qualified" ;
-        :component "agents-responsibility" ;
-        :editorsDefinition "prov:hadRole references the Role (i.e. the function of an entity with respect to an activity), in the context of an instantaneous usage, generation, association, start, and end."@en ;
-        :inverse "wasRoleIn" ;
-        :sharesDefinitionWith :Role ;
-        ns1:fragment "http://www.w3.org/ns/prov#Influence -- http://www.w3.org/ns/prov#hadRole --> http://www.w3.org/ns/prov#Role",
-            "n3e87e734f5f446588dccb2147f3e61f1b16 -- http://www.w3.org/ns/prov#hadRole --> http://www.w3.org/ns/prov#Role" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Role ;
+        prov:category "qualified" ;
+        prov:component "agents-responsibility" ;
+        prov:editorsDefinition "prov:hadRole references the Role (i.e. the function of an entity with respect to an activity), in the context of an instantaneous usage, generation, association, start, and end."@en ;
+        prov:inverse "wasRoleIn" ;
+        prov:sharesDefinitionWith prov:Role ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Influence -- http://www.w3.org/ns/prov#hadRole --> http://www.w3.org/ns/prov#Role",
+            "n0a28b21e0fc04186bda04a2fbb6ea762b16 -- http://www.w3.org/ns/prov#hadRole --> http://www.w3.org/ns/prov#Role" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :invalidatedAtTime a owl:DatatypeProperty ;
+    prov:invalidatedAtTime a owl:DatatypeProperty ;
         rdfs:label "invalidatedAtTime" ;
         rdfs:comment "The time at which an entity was invalidated (i.e., no longer usable)."@en ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range xsd:dateTime ;
-        :category "expanded" ;
-        :component "entities-activities" ;
-        :editorialNote "It is the intent that the property chain holds: (prov:qualifiedInvalidation o prov:atTime) rdfs:subPropertyOf prov:invalidatedAtTime."@en ;
-        :qualifiedForm :Invalidation,
-            :atTime ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#invalidatedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype" ;
-        ns1:syntax "DATATYPEPROPERTY" .
+        prov:category "expanded" ;
+        prov:component "entities-activities" ;
+        prov:editorialNote "It is the intent that the property chain holds: (prov:qualifiedInvalidation o prov:atTime) rdfs:subPropertyOf prov:invalidatedAtTime."@en ;
+        prov:qualifiedForm prov:Invalidation,
+            prov:atTime ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#invalidatedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype" ;
+        mermaid:syntax "DATATYPEPROPERTY" .
 
-    :specializationOf a owl:AnnotationProperty,
+    prov:specializationOf a owl:AnnotationProperty,
             owl:ObjectProperty ;
         rdfs:label "specializationOf" ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Entity ;
-        rdfs:seeAlso :alternateOf ;
-        rdfs:subPropertyOf :alternateOf ;
-        :category "expanded" ;
-        :component "alternate" ;
-        :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
-        :definition "An entity that is a specialization of another shares all aspects of the latter, and additionally presents more specific aspects of the same thing as the latter. In particular, the lifetime of the entity being specialized contains that of any specialization. Examples of aspects include a time period, an abstraction, and a context associated with the entity."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-specialization"^^xsd:anyURI ;
-        :inverse "generalizationOf" ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-specialization"^^xsd:anyURI ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#specializationOf --> http://www.w3.org/ns/prov#Entity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Entity ;
+        rdfs:seeAlso prov:alternateOf ;
+        rdfs:subPropertyOf prov:alternateOf ;
+        prov:category "expanded" ;
+        prov:component "alternate" ;
+        prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+        prov:definition "An entity that is a specialization of another shares all aspects of the latter, and additionally presents more specific aspects of the same thing as the latter. In particular, the lifetime of the entity being specialized contains that of any specialization. Examples of aspects include a time period, an abstraction, and a context associated with the entity."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-specialization"^^xsd:anyURI ;
+        prov:inverse "generalizationOf" ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-specialization"^^xsd:anyURI ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#specializationOf --> http://www.w3.org/ns/prov#Entity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :startedAtTime a owl:DatatypeProperty ;
+    prov:startedAtTime a owl:DatatypeProperty ;
         rdfs:label "startedAtTime" ;
         rdfs:comment "The time at which an activity started. See also prov:endedAtTime."@en ;
-        rdfs:domain :Activity ;
+        rdfs:domain prov:Activity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range xsd:dateTime ;
-        :category "starting-point" ;
-        :component "entities-activities" ;
-        :editorialNote "It is the intent that the property chain holds: (prov:qualifiedStart o prov:atTime) rdfs:subPropertyOf prov:startedAtTime."@en ;
-        :qualifiedForm :Start,
-            :atTime ;
-        ns1:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#startedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype" ;
-        ns1:syntax "DATATYPEPROPERTY" .
+        prov:category "starting-point" ;
+        prov:component "entities-activities" ;
+        prov:editorialNote "It is the intent that the property chain holds: (prov:qualifiedStart o prov:atTime) rdfs:subPropertyOf prov:startedAtTime."@en ;
+        prov:qualifiedForm prov:Start,
+            prov:atTime ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#startedAtTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype" ;
+        mermaid:syntax "DATATYPEPROPERTY" .
 
-    :wasInformedBy a owl:ObjectProperty ;
+    prov:wasInformedBy a owl:ObjectProperty ;
         rdfs:label "wasInformedBy" ;
         rdfs:comment "An activity a2 is dependent on or informed by another activity a1, by way of some unspecified entity that is generated by a1 and used by a2."@en ;
-        rdfs:domain :Activity ;
+        rdfs:domain prov:Activity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Activity ;
-        rdfs:subPropertyOf :wasInfluencedBy ;
-        owl:propertyChainAxiom _:n3e87e734f5f446588dccb2147f3e61f1b43 ;
-        :category "starting-point" ;
-        :component "entities-activities" ;
-        :inverse "informed" ;
-        :qualifiedForm :Communication,
-            :qualifiedCommunication ;
-        ns1:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasInformedBy --> http://www.w3.org/ns/prov#Activity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Activity ;
+        rdfs:subPropertyOf prov:wasInfluencedBy ;
+        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b43 ;
+        prov:category "starting-point" ;
+        prov:component "entities-activities" ;
+        prov:inverse "informed" ;
+        prov:qualifiedForm prov:Communication,
+            prov:qualifiedCommunication ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasInformedBy --> http://www.w3.org/ns/prov#Activity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :Location a owl:Class ;
+    prov:Location a owl:Class ;
         rdfs:label "Location" ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:seeAlso :atLocation ;
-        :category "expanded" ;
-        :definition "A location can be an identifiable geographic place (ISO 19112), but it can also be a non-geographic place such as a directory, row, or column. As such, there are numerous ways in which location can be expressed, such as by a coordinate, address, landmark, and so forth."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribute-location"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-attribute"^^xsd:anyURI ;
-        ns1:fragment "http://www.w3.org/ns/prov#Location((http://www.w3.org/ns/prov#Location))" ;
-        ns1:syntax "CLASS" .
+        rdfs:seeAlso prov:atLocation ;
+        prov:category "expanded" ;
+        prov:definition "A location can be an identifiable geographic place (ISO 19112), but it can also be a non-geographic place such as a directory, row, or column. As such, there are numerous ways in which location can be expressed, such as by a coordinate, address, landmark, and so forth."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribute-location"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-attribute"^^xsd:anyURI ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Location((http://www.w3.org/ns/prov#Location))" ;
+        mermaid:syntax "CLASS" .
 
-    :Plan a owl:Class ;
+    prov:Plan a owl:Class ;
         rdfs:label "Plan" ;
         rdfs:comment "There exist no prescriptive requirement on the nature of plans, their representation, the actions or steps they consist of, or their intended goals. Since plans may evolve over time, it may become necessary to track their provenance, so plans themselves are entities. Representing the plan explicitly in the provenance can be useful for various tasks: for example, to validate the execution as represented in the provenance record, to manage expectation failures, or to provide explanations."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :Entity ;
-        :category "expanded",
+        rdfs:subClassOf prov:Entity ;
+        prov:category "expanded",
             "qualified" ;
-        :component "agents-responsibility" ;
-        :definition "A plan is an entity that represents a set of actions or steps intended by one or more agents to achieve some goals." ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Association"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Association"^^xsd:anyURI ;
-        ns1:fragment """http://www.w3.org/ns/prov#Plan((http://www.w3.org/ns/prov#Plan)) -- subClassOf --> http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+        prov:component "agents-responsibility" ;
+        prov:definition "A plan is an entity that represents a set of actions or steps intended by one or more agents to achieve some goals." ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Association"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Association"^^xsd:anyURI ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Plan((http://www.w3.org/ns/prov#Plan)) -- subClassOf --> http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :Role a owl:Class ;
+    prov:Role a owl:Class ;
         rdfs:label "Role" ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:seeAlso :hadRole ;
-        :category "qualified" ;
-        :component "agents-responsibility" ;
-        :definition "A role is the function of an entity or agent with respect to an activity, in the context of a usage, generation, invalidation, association, start, and end."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribute-role"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-attribute"^^xsd:anyURI ;
-        ns1:fragment "http://www.w3.org/ns/prov#Role((http://www.w3.org/ns/prov#Role))" ;
-        ns1:syntax "CLASS" .
+        rdfs:seeAlso prov:hadRole ;
+        prov:category "qualified" ;
+        prov:component "agents-responsibility" ;
+        prov:definition "A role is the function of an entity or agent with respect to an activity, in the context of a usage, generation, invalidation, association, start, and end."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribute-role"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-attribute"^^xsd:anyURI ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Role((http://www.w3.org/ns/prov#Role))" ;
+        mermaid:syntax "CLASS" .
 
-    :actedOnBehalfOf a owl:ObjectProperty ;
+    prov:actedOnBehalfOf a owl:ObjectProperty ;
         rdfs:label "actedOnBehalfOf" ;
         rdfs:comment "An object property to express the accountability of an agent towards another agent. The subordinate agent acted on behalf of the responsible agent in an actual activity. "@en ;
-        rdfs:domain :Agent ;
+        rdfs:domain prov:Agent ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Agent ;
-        rdfs:subPropertyOf :wasInfluencedBy ;
-        owl:propertyChainAxiom _:n3e87e734f5f446588dccb2147f3e61f1b2 ;
-        :category "starting-point" ;
-        :component "agents-responsibility" ;
-        :inverse "hadDelegate" ;
-        :qualifiedForm :Delegation,
-            :qualifiedDelegation ;
-        ns1:fragment "http://www.w3.org/ns/prov#Agent -- http://www.w3.org/ns/prov#actedOnBehalfOf --> http://www.w3.org/ns/prov#Agent" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Agent ;
+        rdfs:subPropertyOf prov:wasInfluencedBy ;
+        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b2 ;
+        prov:category "starting-point" ;
+        prov:component "agents-responsibility" ;
+        prov:inverse "hadDelegate" ;
+        prov:qualifiedForm prov:Delegation,
+            prov:qualifiedDelegation ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Agent -- http://www.w3.org/ns/prov#actedOnBehalfOf --> http://www.w3.org/ns/prov#Agent" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :alternateOf a owl:ObjectProperty ;
+    prov:alternateOf a owl:ObjectProperty ;
         rdfs:label "alternateOf" ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Entity ;
-        rdfs:seeAlso :specializationOf ;
-        :category "expanded" ;
-        :component "alternate" ;
-        :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
-        :definition "Two alternate entities present aspects of the same thing. These aspects may be the same or different, and the alternate entities may or may not overlap in time."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-alternate"^^xsd:anyURI ;
-        :inverse "alternateOf" ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-alternate"^^xsd:anyURI ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#alternateOf --> http://www.w3.org/ns/prov#Entity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Entity ;
+        rdfs:seeAlso prov:specializationOf ;
+        prov:category "expanded" ;
+        prov:component "alternate" ;
+        prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+        prov:definition "Two alternate entities present aspects of the same thing. These aspects may be the same or different, and the alternate entities may or may not overlap in time."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-alternate"^^xsd:anyURI ;
+        prov:inverse "alternateOf" ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-alternate"^^xsd:anyURI ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#alternateOf --> http://www.w3.org/ns/prov#Entity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :influenced a owl:ObjectProperty ;
+    prov:influenced a owl:ObjectProperty ;
         rdfs:label "influenced" ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        owl:inverseOf :wasInfluencedBy ;
-        :category "expanded" ;
-        :component "agents-responsibility" ;
-        :inverse "wasInfluencedBy" ;
-        :sharesDefinitionWith :Influence ;
-        ns1:fragment "rdfs:Resource -- http://www.w3.org/ns/prov#influenced --> rdfs:Resource" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        owl:inverseOf prov:wasInfluencedBy ;
+        prov:category "expanded" ;
+        prov:component "agents-responsibility" ;
+        prov:inverse "wasInfluencedBy" ;
+        prov:sharesDefinitionWith prov:Influence ;
+        mermaid:fragment "rdfs:Resource -- http://www.w3.org/ns/prov#influenced --> rdfs:Resource" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :qualifiedAssociation a owl:ObjectProperty ;
+    prov:qualifiedAssociation a owl:ObjectProperty ;
         rdfs:label "qualifiedAssociation" ;
         rdfs:comment "If this Activity prov:wasAssociatedWith Agent :ag, then it can qualify the Association using prov:qualifiedAssociation [ a prov:Association;  prov:agent :ag; :foo :bar ]."@en ;
-        rdfs:domain :Activity ;
+        rdfs:domain prov:Activity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Association ;
-        rdfs:subPropertyOf :qualifiedInfluence ;
-        :category "qualified" ;
-        :component "agents-responsibility" ;
-        :inverse "qualifiedAssociationOf" ;
-        :sharesDefinitionWith :Association ;
-        :unqualifiedForm :wasAssociatedWith ;
-        ns1:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedAssociation --> http://www.w3.org/ns/prov#Association" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Association ;
+        rdfs:subPropertyOf prov:qualifiedInfluence ;
+        prov:category "qualified" ;
+        prov:component "agents-responsibility" ;
+        prov:inverse "qualifiedAssociationOf" ;
+        prov:sharesDefinitionWith prov:Association ;
+        prov:unqualifiedForm prov:wasAssociatedWith ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedAssociation --> http://www.w3.org/ns/prov#Association" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :qualifiedAttribution a owl:ObjectProperty ;
+    prov:qualifiedAttribution a owl:ObjectProperty ;
         rdfs:label "qualifiedAttribution" ;
         rdfs:comment "If this Entity prov:wasAttributedTo Agent :ag, then it can qualify how it was influenced using prov:qualifiedAttribution [ a prov:Attribution;  prov:agent :ag; :foo :bar ]."@en ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Attribution ;
-        rdfs:subPropertyOf :qualifiedInfluence ;
-        :category "qualified" ;
-        :component "agents-responsibility" ;
-        :inverse "qualifiedAttributionOf" ;
-        :sharesDefinitionWith :Attribution ;
-        :unqualifiedForm :wasAttributedTo ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedAttribution --> http://www.w3.org/ns/prov#Attribution" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Attribution ;
+        rdfs:subPropertyOf prov:qualifiedInfluence ;
+        prov:category "qualified" ;
+        prov:component "agents-responsibility" ;
+        prov:inverse "qualifiedAttributionOf" ;
+        prov:sharesDefinitionWith prov:Attribution ;
+        prov:unqualifiedForm prov:wasAttributedTo ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedAttribution --> http://www.w3.org/ns/prov#Attribution" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :qualifiedCommunication a owl:ObjectProperty ;
+    prov:qualifiedCommunication a owl:ObjectProperty ;
         rdfs:label "qualifiedCommunication" ;
         rdfs:comment "If this Activity prov:wasInformedBy Activity :a, then it can qualify how it was influenced using prov:qualifiedCommunication [ a prov:Communication;  prov:activity :a; :foo :bar ]."@en ;
-        rdfs:domain :Activity ;
+        rdfs:domain prov:Activity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Communication ;
-        rdfs:subPropertyOf :qualifiedInfluence ;
-        :category "qualified" ;
-        :component "entities-activities" ;
-        :inverse "qualifiedCommunicationOf" ;
-        :qualifiedForm :Communication ;
-        :sharesDefinitionWith :Communication ;
-        ns1:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedCommunication --> http://www.w3.org/ns/prov#Communication" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Communication ;
+        rdfs:subPropertyOf prov:qualifiedInfluence ;
+        prov:category "qualified" ;
+        prov:component "entities-activities" ;
+        prov:inverse "qualifiedCommunicationOf" ;
+        prov:qualifiedForm prov:Communication ;
+        prov:sharesDefinitionWith prov:Communication ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedCommunication --> http://www.w3.org/ns/prov#Communication" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :qualifiedDelegation a owl:ObjectProperty ;
+    prov:qualifiedDelegation a owl:ObjectProperty ;
         rdfs:label "qualifiedDelegation" ;
         rdfs:comment "If this Agent prov:actedOnBehalfOf Agent :ag, then it can qualify how with prov:qualifiedResponsibility [ a prov:Responsibility;  prov:agent :ag; :foo :bar ]."@en ;
-        rdfs:domain :Agent ;
+        rdfs:domain prov:Agent ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Delegation ;
-        rdfs:subPropertyOf :qualifiedInfluence ;
-        :category "qualified" ;
-        :component "agents-responsibility" ;
-        :inverse "qualifiedDelegationOf" ;
-        :sharesDefinitionWith :Delegation ;
-        :unqualifiedForm :actedOnBehalfOf ;
-        ns1:fragment "http://www.w3.org/ns/prov#Agent -- http://www.w3.org/ns/prov#qualifiedDelegation --> http://www.w3.org/ns/prov#Delegation" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Delegation ;
+        rdfs:subPropertyOf prov:qualifiedInfluence ;
+        prov:category "qualified" ;
+        prov:component "agents-responsibility" ;
+        prov:inverse "qualifiedDelegationOf" ;
+        prov:sharesDefinitionWith prov:Delegation ;
+        prov:unqualifiedForm prov:actedOnBehalfOf ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Agent -- http://www.w3.org/ns/prov#qualifiedDelegation --> http://www.w3.org/ns/prov#Delegation" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :qualifiedDerivation a owl:ObjectProperty ;
+    prov:qualifiedDerivation a owl:ObjectProperty ;
         rdfs:label "qualifiedDerivation" ;
         rdfs:comment "If this Entity prov:wasDerivedFrom Entity :e, then it can qualify how it was derived using prov:qualifiedDerivation [ a prov:Derivation;  prov:entity :e; :foo :bar ]."@en ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Derivation ;
-        rdfs:subPropertyOf :qualifiedInfluence ;
-        :category "qualified" ;
-        :component "derivations" ;
-        :inverse "qualifiedDerivationOf" ;
-        :sharesDefinitionWith :Derivation ;
-        :unqualifiedForm :wasDerivedFrom ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedDerivation --> http://www.w3.org/ns/prov#Derivation" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Derivation ;
+        rdfs:subPropertyOf prov:qualifiedInfluence ;
+        prov:category "qualified" ;
+        prov:component "derivations" ;
+        prov:inverse "qualifiedDerivationOf" ;
+        prov:sharesDefinitionWith prov:Derivation ;
+        prov:unqualifiedForm prov:wasDerivedFrom ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedDerivation --> http://www.w3.org/ns/prov#Derivation" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :qualifiedEnd a owl:ObjectProperty ;
+    prov:qualifiedEnd a owl:ObjectProperty ;
         rdfs:label "qualifiedEnd" ;
         rdfs:comment "If this Activity prov:wasEndedBy Entity :e1, then it can qualify how it was ended using prov:qualifiedEnd [ a prov:End;  prov:entity :e1; :foo :bar ]."@en ;
-        rdfs:domain :Activity ;
+        rdfs:domain prov:Activity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :End ;
-        rdfs:subPropertyOf :qualifiedInfluence ;
-        :category "qualified" ;
-        :component "entities-activities" ;
-        :inverse "qualifiedEndOf" ;
-        :sharesDefinitionWith :End ;
-        :unqualifiedForm :wasEndedBy ;
-        ns1:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedEnd --> http://www.w3.org/ns/prov#End" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:End ;
+        rdfs:subPropertyOf prov:qualifiedInfluence ;
+        prov:category "qualified" ;
+        prov:component "entities-activities" ;
+        prov:inverse "qualifiedEndOf" ;
+        prov:sharesDefinitionWith prov:End ;
+        prov:unqualifiedForm prov:wasEndedBy ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedEnd --> http://www.w3.org/ns/prov#End" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :qualifiedGeneration a owl:ObjectProperty ;
+    prov:qualifiedGeneration a owl:ObjectProperty ;
         rdfs:label "qualifiedGeneration" ;
         rdfs:comment "If this Activity prov:generated Entity :e, then it can qualify how it performed the Generation using prov:qualifiedGeneration [ a prov:Generation;  prov:entity :e; :foo :bar ]."@en ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Generation ;
-        rdfs:subPropertyOf :qualifiedInfluence ;
-        :category "qualified" ;
-        :component "entities-activities" ;
-        :inverse "qualifiedGenerationOf" ;
-        :sharesDefinitionWith :Generation ;
-        :unqualifiedForm :wasGeneratedBy ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedGeneration --> http://www.w3.org/ns/prov#Generation" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Generation ;
+        rdfs:subPropertyOf prov:qualifiedInfluence ;
+        prov:category "qualified" ;
+        prov:component "entities-activities" ;
+        prov:inverse "qualifiedGenerationOf" ;
+        prov:sharesDefinitionWith prov:Generation ;
+        prov:unqualifiedForm prov:wasGeneratedBy ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedGeneration --> http://www.w3.org/ns/prov#Generation" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :qualifiedInvalidation a owl:ObjectProperty ;
+    prov:qualifiedInvalidation a owl:ObjectProperty ;
         rdfs:label "qualifiedInvalidation" ;
         rdfs:comment "If this Entity prov:wasInvalidatedBy Activity :a, then it can qualify how it was invalidated using prov:qualifiedInvalidation [ a prov:Invalidation;  prov:activity :a; :foo :bar ]."@en ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Invalidation ;
-        rdfs:subPropertyOf :qualifiedInfluence ;
-        :category "qualified" ;
-        :component "entities-activities" ;
-        :inverse "qualifiedInvalidationOf" ;
-        :sharesDefinitionWith :Invalidation ;
-        :unqualifiedForm :wasInvalidatedBy ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedInvalidation --> http://www.w3.org/ns/prov#Invalidation" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Invalidation ;
+        rdfs:subPropertyOf prov:qualifiedInfluence ;
+        prov:category "qualified" ;
+        prov:component "entities-activities" ;
+        prov:inverse "qualifiedInvalidationOf" ;
+        prov:sharesDefinitionWith prov:Invalidation ;
+        prov:unqualifiedForm prov:wasInvalidatedBy ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedInvalidation --> http://www.w3.org/ns/prov#Invalidation" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :qualifiedPrimarySource a owl:ObjectProperty ;
+    prov:qualifiedPrimarySource a owl:ObjectProperty ;
         rdfs:label "qualifiedPrimarySource" ;
         rdfs:comment "If this Entity prov:hadPrimarySource Entity :e, then it can qualify how using prov:qualifiedPrimarySource [ a prov:PrimarySource; prov:entity :e; :foo :bar ]."@en ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :PrimarySource ;
-        rdfs:subPropertyOf :qualifiedInfluence ;
-        :category "qualified" ;
-        :component "derivations" ;
-        :inverse "qualifiedSourceOf" ;
-        :sharesDefinitionWith :PrimarySource ;
-        :unqualifiedForm :hadPrimarySource ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedPrimarySource --> http://www.w3.org/ns/prov#PrimarySource" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:PrimarySource ;
+        rdfs:subPropertyOf prov:qualifiedInfluence ;
+        prov:category "qualified" ;
+        prov:component "derivations" ;
+        prov:inverse "qualifiedSourceOf" ;
+        prov:sharesDefinitionWith prov:PrimarySource ;
+        prov:unqualifiedForm prov:hadPrimarySource ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedPrimarySource --> http://www.w3.org/ns/prov#PrimarySource" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :qualifiedQuotation a owl:ObjectProperty ;
+    prov:qualifiedQuotation a owl:ObjectProperty ;
         rdfs:label "qualifiedQuotation" ;
         rdfs:comment "If this Entity prov:wasQuotedFrom Entity :e, then it can qualify how using prov:qualifiedQuotation [ a prov:Quotation;  prov:entity :e; :foo :bar ]."@en ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Quotation ;
-        rdfs:subPropertyOf :qualifiedInfluence ;
-        :category "qualified" ;
-        :component "derivations" ;
-        :inverse "qualifiedQuotationOf" ;
-        :sharesDefinitionWith :Quotation ;
-        :unqualifiedForm :wasQuotedFrom ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedQuotation --> http://www.w3.org/ns/prov#Quotation" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Quotation ;
+        rdfs:subPropertyOf prov:qualifiedInfluence ;
+        prov:category "qualified" ;
+        prov:component "derivations" ;
+        prov:inverse "qualifiedQuotationOf" ;
+        prov:sharesDefinitionWith prov:Quotation ;
+        prov:unqualifiedForm prov:wasQuotedFrom ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedQuotation --> http://www.w3.org/ns/prov#Quotation" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :qualifiedRevision a owl:ObjectProperty ;
+    prov:qualifiedRevision a owl:ObjectProperty ;
         rdfs:label "qualifiedRevision" ;
         rdfs:comment "If this Entity prov:wasRevisionOf Entity :e, then it can qualify how it was revised using prov:qualifiedRevision [ a prov:Revision;  prov:entity :e; :foo :bar ]."@en ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Revision ;
-        rdfs:subPropertyOf :qualifiedInfluence ;
-        :category "qualified" ;
-        :component "derivations" ;
-        :inverse "revisedEntity" ;
-        :sharesDefinitionWith :Revision ;
-        :unqualifiedForm :wasRevisionOf ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedRevision --> http://www.w3.org/ns/prov#Revision" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Revision ;
+        rdfs:subPropertyOf prov:qualifiedInfluence ;
+        prov:category "qualified" ;
+        prov:component "derivations" ;
+        prov:inverse "revisedEntity" ;
+        prov:sharesDefinitionWith prov:Revision ;
+        prov:unqualifiedForm prov:wasRevisionOf ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#qualifiedRevision --> http://www.w3.org/ns/prov#Revision" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :qualifiedStart a owl:ObjectProperty ;
+    prov:qualifiedStart a owl:ObjectProperty ;
         rdfs:label "qualifiedStart" ;
         rdfs:comment "If this Activity prov:wasStartedBy Entity :e1, then it can qualify how it was started using prov:qualifiedStart [ a prov:Start;  prov:entity :e1; :foo :bar ]."@en ;
-        rdfs:domain :Activity ;
+        rdfs:domain prov:Activity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Start ;
-        rdfs:subPropertyOf :qualifiedInfluence ;
-        :category "qualified" ;
-        :component "entities-activities" ;
-        :inverse "qualifiedStartOf" ;
-        :sharesDefinitionWith :Start ;
-        :unqualifiedForm :wasStartedBy ;
-        ns1:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedStart --> http://www.w3.org/ns/prov#Start" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Start ;
+        rdfs:subPropertyOf prov:qualifiedInfluence ;
+        prov:category "qualified" ;
+        prov:component "entities-activities" ;
+        prov:inverse "qualifiedStartOf" ;
+        prov:sharesDefinitionWith prov:Start ;
+        prov:unqualifiedForm prov:wasStartedBy ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedStart --> http://www.w3.org/ns/prov#Start" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :qualifiedUsage a owl:ObjectProperty ;
+    prov:qualifiedUsage a owl:ObjectProperty ;
         rdfs:label "qualifiedUsage" ;
         rdfs:comment "If this Activity prov:used Entity :e, then it can qualify how it used it using prov:qualifiedUsage [ a prov:Usage; prov:entity :e; :foo :bar ]."@en ;
-        rdfs:domain :Activity ;
+        rdfs:domain prov:Activity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Usage ;
-        rdfs:subPropertyOf :qualifiedInfluence ;
-        :category "qualified" ;
-        :component "entities-activities" ;
-        :inverse "qualifiedUsingActivity" ;
-        :sharesDefinitionWith :Usage ;
-        :unqualifiedForm :used ;
-        ns1:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedUsage --> http://www.w3.org/ns/prov#Usage" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Usage ;
+        rdfs:subPropertyOf prov:qualifiedInfluence ;
+        prov:category "qualified" ;
+        prov:component "entities-activities" ;
+        prov:inverse "qualifiedUsingActivity" ;
+        prov:sharesDefinitionWith prov:Usage ;
+        prov:unqualifiedForm prov:used ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#qualifiedUsage --> http://www.w3.org/ns/prov#Usage" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :used a owl:ObjectProperty ;
+    prov:used a owl:ObjectProperty ;
         rdfs:label "used" ;
         rdfs:comment "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en ;
-        rdfs:domain :Activity ;
+        rdfs:domain prov:Activity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Entity ;
-        rdfs:subPropertyOf :wasInfluencedBy ;
-        owl:propertyChainAxiom _:n3e87e734f5f446588dccb2147f3e61f1b23 ;
-        :category "starting-point" ;
-        :component "entities-activities" ;
-        :inverse "wasUsedBy" ;
-        :qualifiedForm :Usage,
-            :qualifiedUsage ;
-        ns1:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#used --> http://www.w3.org/ns/prov#Entity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Entity ;
+        rdfs:subPropertyOf prov:wasInfluencedBy ;
+        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b23 ;
+        prov:category "starting-point" ;
+        prov:component "entities-activities" ;
+        prov:inverse "wasUsedBy" ;
+        prov:qualifiedForm prov:Usage,
+            prov:qualifiedUsage ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#used --> http://www.w3.org/ns/prov#Entity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :wasAssociatedWith a owl:ObjectProperty ;
+    prov:wasAssociatedWith a owl:ObjectProperty ;
         rdfs:label "wasAssociatedWith" ;
         rdfs:comment "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."@en ;
-        rdfs:domain :Activity ;
+        rdfs:domain prov:Activity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Agent ;
-        rdfs:subPropertyOf :wasInfluencedBy ;
-        owl:propertyChainAxiom _:n3e87e734f5f446588dccb2147f3e61f1b25 ;
-        :category "starting-point" ;
-        :component "agents-responsibility" ;
-        :inverse "wasAssociateFor" ;
-        :qualifiedForm :Association,
-            :qualifiedAssociation ;
-        ns1:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasAssociatedWith --> http://www.w3.org/ns/prov#Agent" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Agent ;
+        rdfs:subPropertyOf prov:wasInfluencedBy ;
+        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b25 ;
+        prov:category "starting-point" ;
+        prov:component "agents-responsibility" ;
+        prov:inverse "wasAssociateFor" ;
+        prov:qualifiedForm prov:Association,
+            prov:qualifiedAssociation ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasAssociatedWith --> http://www.w3.org/ns/prov#Agent" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :wasEndedBy a owl:ObjectProperty ;
+    prov:wasEndedBy a owl:ObjectProperty ;
         rdfs:label "wasEndedBy" ;
         rdfs:comment "End is when an activity is deemed to have ended. An end may refer to an entity, known as trigger, that terminated the activity."@en ;
-        rdfs:domain :Activity ;
+        rdfs:domain prov:Activity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Entity ;
-        rdfs:subPropertyOf :wasInfluencedBy ;
-        owl:propertyChainAxiom _:n3e87e734f5f446588dccb2147f3e61f1b31 ;
-        :category "expanded" ;
-        :component "entities-activities" ;
-        :inverse "ended" ;
-        :qualifiedForm :End,
-            :qualifiedEnd ;
-        ns1:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasEndedBy --> http://www.w3.org/ns/prov#Entity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Entity ;
+        rdfs:subPropertyOf prov:wasInfluencedBy ;
+        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b31 ;
+        prov:category "expanded" ;
+        prov:component "entities-activities" ;
+        prov:inverse "ended" ;
+        prov:qualifiedForm prov:End,
+            prov:qualifiedEnd ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasEndedBy --> http://www.w3.org/ns/prov#Entity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :wasStartedBy a owl:ObjectProperty ;
+    prov:wasStartedBy a owl:ObjectProperty ;
         rdfs:label "wasStartedBy" ;
         rdfs:comment "Start is when an activity is deemed to have started. A start may refer to an entity, known as trigger, that initiated the activity."@en ;
-        rdfs:domain :Activity ;
+        rdfs:domain prov:Activity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Entity ;
-        rdfs:subPropertyOf :wasInfluencedBy ;
-        owl:propertyChainAxiom _:n3e87e734f5f446588dccb2147f3e61f1b51 ;
-        :category "expanded" ;
-        :component "entities-activities" ;
-        :inverse "started" ;
-        :qualifiedForm :Start,
-            :qualifiedStart ;
-        ns1:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasStartedBy --> http://www.w3.org/ns/prov#Entity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Entity ;
+        rdfs:subPropertyOf prov:wasInfluencedBy ;
+        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b51 ;
+        prov:category "expanded" ;
+        prov:component "entities-activities" ;
+        prov:inverse "started" ;
+        prov:qualifiedForm prov:Start,
+            prov:qualifiedStart ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Activity -- http://www.w3.org/ns/prov#wasStartedBy --> http://www.w3.org/ns/prov#Entity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :Attribution a owl:Class ;
+    prov:Attribution a owl:Class ;
         rdfs:label "Attribution" ;
         rdfs:comment "An instance of prov:Attribution provides additional descriptions about the binary prov:wasAttributedTo relation from an prov:Entity to some prov:Agent that had some responsible for it. For example, :cake prov:wasAttributedTo :baker; prov:qualifiedAttribution [ a prov:Attribution; prov:entity :baker; :foo :bar ]."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :AgentInfluence ;
-        :category "qualified" ;
-        :component "agents-responsibility" ;
-        :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
-        :definition """Attribution is the ascribing of an entity to an agent.
+        rdfs:subClassOf prov:AgentInfluence ;
+        prov:category "qualified" ;
+        prov:component "agents-responsibility" ;
+        prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+        prov:definition """Attribution is the ascribing of an entity to an agent.
 
 When an entity e is attributed to agent ag, entity e was generated by some unspecified activity that in turn was associated to agent ag. Thus, this relation is useful when the activity is not known, or irrelevant."""@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribution"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-attribution"^^xsd:anyURI ;
-        :unqualifiedForm :wasAttributedTo ;
-        ns1:fragment """http://www.w3.org/ns/prov#Attribution((http://www.w3.org/ns/prov#Attribution)) -- subClassOf --> http://www.w3.org/ns/prov#AgentInfluence((http://www.w3.org/ns/prov#AgentInfluence))
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribution"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-attribution"^^xsd:anyURI ;
+        prov:unqualifiedForm prov:wasAttributedTo ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Attribution((http://www.w3.org/ns/prov#Attribution)) -- subClassOf --> http://www.w3.org/ns/prov#AgentInfluence((http://www.w3.org/ns/prov#AgentInfluence))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :Collection a owl:Class ;
+    prov:Collection a owl:Class ;
         rdfs:label "Collection" ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :Entity ;
-        :category "expanded" ;
-        :component "collections" ;
-        :definition "A collection is an entity that provides a structure to some constituents, which are themselves entities. These constituents are said to be member of the collections."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-collection"^^xsd:anyURI ;
-        ns1:fragment """http://www.w3.org/ns/prov#Collection((http://www.w3.org/ns/prov#Collection)) -- subClassOf --> http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+        rdfs:subClassOf prov:Entity ;
+        prov:category "expanded" ;
+        prov:component "collections" ;
+        prov:definition "A collection is an entity that provides a structure to some constituents, which are themselves entities. These constituents are said to be member of the collections."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-collection"^^xsd:anyURI ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Collection((http://www.w3.org/ns/prov#Collection)) -- subClassOf --> http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :PrimarySource a owl:Class ;
+    prov:PrimarySource a owl:Class ;
         rdfs:label "PrimarySource" ;
         rdfs:comment "An instance of prov:PrimarySource provides additional descriptions about the binary prov:hadPrimarySource relation from some secondary prov:Entity to an earlier, primary prov:Entity. For example, :blog prov:hadPrimarySource :newsArticle; prov:qualifiedPrimarySource [ a prov:PrimarySource; prov:entity :newsArticle; :foo :bar ] ."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :Derivation ;
-        :category "qualified" ;
-        :component "derivations" ;
-        :definition """A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight.
+        rdfs:subClassOf prov:Derivation ;
+        prov:category "qualified" ;
+        prov:component "derivations" ;
+        prov:definition """A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight.
 
 Because of the directness of primary sources, they 'speak for themselves' in ways that cannot be captured through the filter of secondary sources. As such, it is important for secondary sources to reference those primary sources from which they were derived, so that their reliability can be investigated.
 
 A primary source relation is a particular case of derivation of secondary materials from their primary sources. It is recognized that the determination of primary sources can be up to interpretation, and should be done according to conventions accepted within the application's domain."""@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-primary-source"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-original-source"^^xsd:anyURI ;
-        :unqualifiedForm :hadPrimarySource ;
-        ns1:fragment """http://www.w3.org/ns/prov#PrimarySource((http://www.w3.org/ns/prov#PrimarySource)) -- subClassOf --> http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation))
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-primary-source"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-original-source"^^xsd:anyURI ;
+        prov:unqualifiedForm prov:hadPrimarySource ;
+        mermaid:fragment """http://www.w3.org/ns/prov#PrimarySource((http://www.w3.org/ns/prov#PrimarySource)) -- subClassOf --> http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :Quotation a owl:Class ;
+    prov:Quotation a owl:Class ;
         rdfs:label "Quotation" ;
         rdfs:comment "An instance of prov:Quotation provides additional descriptions about the binary prov:wasQuotedFrom relation from some taken prov:Entity from an earlier, larger prov:Entity. For example, :here_is_looking_at_you_kid prov:wasQuotedFrom :casablanca_script; prov:qualifiedQuotation [ a prov:Quotation; prov:entity :casablanca_script; :foo :bar ]."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :Derivation ;
-        :category "qualified" ;
-        :component "derivations" ;
-        :definition "A quotation is the repeat of (some or all of) an entity, such as text or image, by someone who may or may not be its original author. Quotation is a particular case of derivation."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-quotation"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-quotation"^^xsd:anyURI ;
-        :unqualifiedForm :wasQuotedFrom ;
-        ns1:fragment """http://www.w3.org/ns/prov#Quotation((http://www.w3.org/ns/prov#Quotation)) -- subClassOf --> http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation))
+        rdfs:subClassOf prov:Derivation ;
+        prov:category "qualified" ;
+        prov:component "derivations" ;
+        prov:definition "A quotation is the repeat of (some or all of) an entity, such as text or image, by someone who may or may not be its original author. Quotation is a particular case of derivation."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-quotation"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-quotation"^^xsd:anyURI ;
+        prov:unqualifiedForm prov:wasQuotedFrom ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Quotation((http://www.w3.org/ns/prov#Quotation)) -- subClassOf --> http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :Revision a owl:Class ;
+    prov:Revision a owl:Class ;
         rdfs:label "Revision" ;
         rdfs:comment "An instance of prov:Revision provides additional descriptions about the binary prov:wasRevisionOf relation from some newer prov:Entity to an earlier prov:Entity. For example, :draft_2 prov:wasRevisionOf :draft_1; prov:qualifiedRevision [ a prov:Revision; prov:entity :draft_1; :foo :bar ]."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :Derivation ;
-        :category "qualified" ;
-        :component "derivations" ;
-        :definition "A revision is a derivation for which the resulting entity is a revised version of some original. The implication here is that the resulting entity contains substantial content from the original. Revision is a particular case of derivation."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-revision"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Revision"^^xsd:anyURI ;
-        :unqualifiedForm :wasRevisionOf ;
-        ns1:fragment """http://www.w3.org/ns/prov#Revision((http://www.w3.org/ns/prov#Revision)) -- subClassOf --> http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation))
+        rdfs:subClassOf prov:Derivation ;
+        prov:category "qualified" ;
+        prov:component "derivations" ;
+        prov:definition "A revision is a derivation for which the resulting entity is a revised version of some original. The implication here is that the resulting entity contains substantial content from the original. Revision is a particular case of derivation."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-revision"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Revision"^^xsd:anyURI ;
+        prov:unqualifiedForm prov:wasRevisionOf ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Revision((http://www.w3.org/ns/prov#Revision)) -- subClassOf --> http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :hadPrimarySource a owl:ObjectProperty ;
+    prov:hadPrimarySource a owl:ObjectProperty ;
         rdfs:label "hadPrimarySource" ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Entity ;
-        rdfs:subPropertyOf :wasDerivedFrom ;
-        owl:propertyChainAxiom _:n3e87e734f5f446588dccb2147f3e61f1b14 ;
-        :category "expanded" ;
-        :component "derivations" ;
-        :inverse "wasPrimarySourceOf" ;
-        :qualifiedForm :PrimarySource,
-            :qualifiedPrimarySource ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#hadPrimarySource --> http://www.w3.org/ns/prov#Entity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Entity ;
+        rdfs:subPropertyOf prov:wasDerivedFrom ;
+        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b14 ;
+        prov:category "expanded" ;
+        prov:component "derivations" ;
+        prov:inverse "wasPrimarySourceOf" ;
+        prov:qualifiedForm prov:PrimarySource,
+            prov:qualifiedPrimarySource ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#hadPrimarySource --> http://www.w3.org/ns/prov#Entity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :influencer a owl:ObjectProperty ;
+    prov:influencer a owl:ObjectProperty ;
         rdfs:label "influencer" ;
         rdfs:comment "Subproperties of prov:influencer are used to cite the object of an unqualified PROV-O triple whose predicate is a subproperty of prov:wasInfluencedBy (e.g. prov:used, prov:wasGeneratedBy). prov:influencer is used much like rdf:object is used."@en ;
-        rdfs:domain :Influence ;
+        rdfs:domain prov:Influence ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range owl:Thing ;
-        :category "qualified" ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-influence"^^xsd:anyURI ;
-        :editorialNote "This property and its subproperties are used in the same way as the rdf:object property, i.e. to reference the object of an unqualified prov:wasInfluencedBy or prov:influenced triple."@en ;
-        :editorsDefinition "This property is used as part of the qualified influence pattern. Subclasses of prov:Influence use these subproperties to reference the resource (Entity, Agent, or Activity) whose influence is being qualified."@en ;
-        :inverse "hadInfluence" ;
-        ns1:fragment "http://www.w3.org/ns/prov#Influence -- http://www.w3.org/ns/prov#influencer --> http://www.w3.org/2002/07/owl#Thing" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        prov:category "qualified" ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-influence"^^xsd:anyURI ;
+        prov:editorialNote "This property and its subproperties are used in the same way as the rdf:object property, i.e. to reference the object of an unqualified prov:wasInfluencedBy or prov:influenced triple."@en ;
+        prov:editorsDefinition "This property is used as part of the qualified influence pattern. Subclasses of prov:Influence use these subproperties to reference the resource (Entity, Agent, or Activity) whose influence is being qualified."@en ;
+        prov:inverse "hadInfluence" ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Influence -- http://www.w3.org/ns/prov#influencer --> http://www.w3.org/2002/07/owl#Thing" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :wasAttributedTo a owl:ObjectProperty ;
+    prov:wasAttributedTo a owl:ObjectProperty ;
         rdfs:label "wasAttributedTo" ;
         rdfs:comment "Attribution is the ascribing of an entity to an agent."@en ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Agent ;
-        rdfs:subPropertyOf :wasInfluencedBy ;
-        owl:propertyChainAxiom _:n3e87e734f5f446588dccb2147f3e61f1b27 ;
-        :category "starting-point" ;
-        :component "agents-responsibility" ;
-        :definition "Attribution is the ascribing of an entity to an agent."@en ;
-        :inverse "contributed" ;
-        :qualifiedForm :Attribution,
-            :qualifiedAttribution ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasAttributedTo --> http://www.w3.org/ns/prov#Agent" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Agent ;
+        rdfs:subPropertyOf prov:wasInfluencedBy ;
+        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b27 ;
+        prov:category "starting-point" ;
+        prov:component "agents-responsibility" ;
+        prov:definition "Attribution is the ascribing of an entity to an agent."@en ;
+        prov:inverse "contributed" ;
+        prov:qualifiedForm prov:Attribution,
+            prov:qualifiedAttribution ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasAttributedTo --> http://www.w3.org/ns/prov#Agent" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :wasGeneratedBy a owl:ObjectProperty ;
+    prov:wasGeneratedBy a owl:ObjectProperty ;
         rdfs:label "wasGeneratedBy" ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Activity ;
-        rdfs:subPropertyOf :wasInfluencedBy ;
-        owl:propertyChainAxiom _:n3e87e734f5f446588dccb2147f3e61f1b33 ;
-        :category "starting-point" ;
-        :component "entities-activities" ;
-        :inverse "generated" ;
-        :qualifiedForm :Generation,
-            :qualifiedGeneration ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasGeneratedBy --> http://www.w3.org/ns/prov#Activity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Activity ;
+        rdfs:subPropertyOf prov:wasInfluencedBy ;
+        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b33 ;
+        prov:category "starting-point" ;
+        prov:component "entities-activities" ;
+        prov:inverse "generated" ;
+        prov:qualifiedForm prov:Generation,
+            prov:qualifiedGeneration ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasGeneratedBy --> http://www.w3.org/ns/prov#Activity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :wasInvalidatedBy a owl:ObjectProperty ;
+    prov:wasInvalidatedBy a owl:ObjectProperty ;
         rdfs:label "wasInvalidatedBy" ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Activity ;
-        rdfs:subPropertyOf :wasInfluencedBy ;
-        owl:propertyChainAxiom _:n3e87e734f5f446588dccb2147f3e61f1b45 ;
-        :category "expanded" ;
-        :component "entities-activities" ;
-        :inverse "invalidated" ;
-        :qualifiedForm :Invalidation,
-            :qualifiedInvalidation ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasInvalidatedBy --> http://www.w3.org/ns/prov#Activity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Activity ;
+        rdfs:subPropertyOf prov:wasInfluencedBy ;
+        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b45 ;
+        prov:category "expanded" ;
+        prov:component "entities-activities" ;
+        prov:inverse "invalidated" ;
+        prov:qualifiedForm prov:Invalidation,
+            prov:qualifiedInvalidation ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasInvalidatedBy --> http://www.w3.org/ns/prov#Activity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :wasQuotedFrom a owl:ObjectProperty ;
+    prov:wasQuotedFrom a owl:ObjectProperty ;
         rdfs:label "wasQuotedFrom" ;
         rdfs:comment "An entity is derived from an original entity by copying, or 'quoting', some or all of it."@en ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Entity ;
-        rdfs:subPropertyOf :wasDerivedFrom ;
-        owl:propertyChainAxiom _:n3e87e734f5f446588dccb2147f3e61f1b47 ;
-        :category "expanded" ;
-        :component "derivations" ;
-        :inverse "quotedAs" ;
-        :qualifiedForm :Quotation,
-            :qualifiedQuotation ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasQuotedFrom --> http://www.w3.org/ns/prov#Entity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Entity ;
+        rdfs:subPropertyOf prov:wasDerivedFrom ;
+        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b47 ;
+        prov:category "expanded" ;
+        prov:component "derivations" ;
+        prov:inverse "quotedAs" ;
+        prov:qualifiedForm prov:Quotation,
+            prov:qualifiedQuotation ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasQuotedFrom --> http://www.w3.org/ns/prov#Entity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :wasRevisionOf a owl:AnnotationProperty,
+    prov:wasRevisionOf a owl:AnnotationProperty,
             owl:ObjectProperty ;
         rdfs:label "wasRevisionOf" ;
         rdfs:comment "A revision is a derivation that revises an entity into a revised version."@en ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Entity ;
-        rdfs:subPropertyOf :wasDerivedFrom ;
-        owl:propertyChainAxiom _:n3e87e734f5f446588dccb2147f3e61f1b49 ;
-        :category "expanded" ;
-        :component "derivations" ;
-        :inverse "hadRevision" ;
-        :qualifiedForm :Revision,
-            :qualifiedRevision ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasRevisionOf --> http://www.w3.org/ns/prov#Entity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Entity ;
+        rdfs:subPropertyOf prov:wasDerivedFrom ;
+        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b49 ;
+        prov:category "expanded" ;
+        prov:component "derivations" ;
+        prov:inverse "hadRevision" ;
+        prov:qualifiedForm prov:Revision,
+            prov:qualifiedRevision ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasRevisionOf --> http://www.w3.org/ns/prov#Entity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :ActivityInfluence a owl:Class ;
+    prov:ActivityInfluence a owl:Class ;
         rdfs:label "ActivityInfluence" ;
         rdfs:comment "ActivityInfluence provides additional descriptions of an Activity's binary influence upon any other kind of resource. Instances of ActivityInfluence use the prov:activity property to cite the influencing Activity."@en,
             "It is not recommended that the type ActivityInfluence be asserted without also asserting one of its more specific subclasses."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:seeAlso :activity ;
-        rdfs:subClassOf _:n3e87e734f5f446588dccb2147f3e61f1b1,
-            :Influence ;
-        owl:disjointWith :EntityInfluence ;
-        :category "qualified" ;
-        :editorsDefinition "ActivitiyInfluence is the capacity of an activity to have an effect on the character, development, or behavior of another by means of generation, invalidation, communication, or other."@en ;
-        ns1:fragment """http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence)) -- subClassOf --> http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))
+        rdfs:seeAlso prov:activity ;
+        rdfs:subClassOf _:n0a28b21e0fc04186bda04a2fbb6ea762b1,
+            prov:Influence ;
+        owl:disjointWith prov:EntityInfluence ;
+        prov:category "qualified" ;
+        prov:editorsDefinition "ActivitiyInfluence is the capacity of an activity to have an effect on the character, development, or behavior of another by means of generation, invalidation, communication, or other."@en ;
+        mermaid:fragment """http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence)) -- subClassOf --> http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))
 """,
-            """http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence)) -- subClassOf --> n3e87e734f5f446588dccb2147f3e61f1b1((Anonymous class))
+            """http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence)) -- subClassOf --> n0a28b21e0fc04186bda04a2fbb6ea762b1((Anonymous class))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :AgentInfluence a owl:Class ;
+    prov:AgentInfluence a owl:Class ;
         rdfs:label "AgentInfluence" ;
         rdfs:comment "AgentInfluence provides additional descriptions of an Agent's binary influence upon any other kind of resource. Instances of AgentInfluence use the prov:agent property to cite the influencing Agent."@en,
             "It is not recommended that the type AgentInfluence be asserted without also asserting one of its more specific subclasses."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:seeAlso :agent ;
-        rdfs:subClassOf :Influence ;
-        :category "qualified" ;
-        :editorsDefinition "AgentInfluence is the capacity of an agent to have an effect on the character, development, or behavior of another by means of attribution, association, delegation, or other."@en ;
-        ns1:fragment """http://www.w3.org/ns/prov#AgentInfluence((http://www.w3.org/ns/prov#AgentInfluence)) -- subClassOf --> http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))
+        rdfs:seeAlso prov:agent ;
+        rdfs:subClassOf prov:Influence ;
+        prov:category "qualified" ;
+        prov:editorsDefinition "AgentInfluence is the capacity of an agent to have an effect on the character, development, or behavior of another by means of attribution, association, delegation, or other."@en ;
+        mermaid:fragment """http://www.w3.org/ns/prov#AgentInfluence((http://www.w3.org/ns/prov#AgentInfluence)) -- subClassOf --> http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :Communication a owl:Class ;
+    prov:Communication a owl:Class ;
         rdfs:label "Communication" ;
         rdfs:comment "An instance of prov:Communication provides additional descriptions about the binary prov:wasInformedBy relation from an informed prov:Activity to the prov:Activity that informed it. For example, :you_jumping_off_bridge prov:wasInformedBy :everyone_else_jumping_off_bridge; prov:qualifiedCommunication [ a prov:Communication; prov:activity :everyone_else_jumping_off_bridge; :foo :bar ]."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :ActivityInfluence ;
-        :category "qualified" ;
-        :component "entities-activities" ;
-        :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
-        :definition "Communication is the exchange of an entity by two activities, one activity using the entity generated by the other." ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Communication"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-wasInformedBy"^^xsd:anyURI ;
-        :unqualifiedForm :wasInformedBy ;
-        ns1:fragment """http://www.w3.org/ns/prov#Communication((http://www.w3.org/ns/prov#Communication)) -- subClassOf --> http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence))
+        rdfs:subClassOf prov:ActivityInfluence ;
+        prov:category "qualified" ;
+        prov:component "entities-activities" ;
+        prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+        prov:definition "Communication is the exchange of an entity by two activities, one activity using the entity generated by the other." ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Communication"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-wasInformedBy"^^xsd:anyURI ;
+        prov:unqualifiedForm prov:wasInformedBy ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Communication((http://www.w3.org/ns/prov#Communication)) -- subClassOf --> http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :Delegation a owl:Class ;
+    prov:Delegation a owl:Class ;
         rdfs:label "Delegation" ;
         rdfs:comment "An instance of prov:Delegation provides additional descriptions about the binary prov:actedOnBehalfOf relation from a performing prov:Agent to some prov:Agent for whom it was performed. For example, :mixing prov:wasAssociatedWith :toddler . :toddler prov:actedOnBehalfOf :mother; prov:qualifiedDelegation [ a prov:Delegation; prov:entity :mother; :foo :bar ]."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :AgentInfluence ;
-        :category "qualified" ;
-        :component "agents-responsibility" ;
-        :definition """Delegation is the assignment of authority and responsibility to an agent (by itself or by another agent) to carry out a specific activity as a delegate or representative, while the agent it acts on behalf of retains some responsibility for the outcome of the delegated work.
+        rdfs:subClassOf prov:AgentInfluence ;
+        prov:category "qualified" ;
+        prov:component "agents-responsibility" ;
+        prov:definition """Delegation is the assignment of authority and responsibility to an agent (by itself or by another agent) to carry out a specific activity as a delegate or representative, while the agent it acts on behalf of retains some responsibility for the outcome of the delegated work.
 
 For example, a student acted on behalf of his supervisor, who acted on behalf of the department chair, who acted on behalf of the university; all those agents are responsible in some way for the activity that took place but we do not say explicitly who bears responsibility and to what degree."""@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-delegation"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-delegation"^^xsd:anyURI ;
-        :unqualifiedForm :actedOnBehalfOf ;
-        ns1:fragment """http://www.w3.org/ns/prov#Delegation((http://www.w3.org/ns/prov#Delegation)) -- subClassOf --> http://www.w3.org/ns/prov#AgentInfluence((http://www.w3.org/ns/prov#AgentInfluence))
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-delegation"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-delegation"^^xsd:anyURI ;
+        prov:unqualifiedForm prov:actedOnBehalfOf ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Delegation((http://www.w3.org/ns/prov#Delegation)) -- subClassOf --> http://www.w3.org/ns/prov#AgentInfluence((http://www.w3.org/ns/prov#AgentInfluence))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :activity a owl:ObjectProperty ;
+    prov:activity a owl:ObjectProperty ;
         rdfs:label "activity" ;
-        rdfs:domain :ActivityInfluence ;
+        rdfs:domain prov:ActivityInfluence ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Activity ;
-        rdfs:subPropertyOf :influencer ;
-        :category "qualified" ;
-        :editorialNote "This property behaves in spirit like rdf:object; it references the object of a prov:wasInfluencedBy triple."@en ;
-        :editorsDefinition "The prov:activity property references an prov:Activity which influenced a resource. This property applies to an prov:ActivityInfluence, which is given by a subproperty of prov:qualifiedInfluence from the influenced prov:Entity, prov:Activity or prov:Agent." ;
-        :inverse "activityOfInfluence" ;
-        ns1:fragment "http://www.w3.org/ns/prov#ActivityInfluence -- http://www.w3.org/ns/prov#activity --> http://www.w3.org/ns/prov#Activity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Activity ;
+        rdfs:subPropertyOf prov:influencer ;
+        prov:category "qualified" ;
+        prov:editorialNote "This property behaves in spirit like rdf:object; it references the object of a prov:wasInfluencedBy triple."@en ;
+        prov:editorsDefinition "The prov:activity property references an prov:Activity which influenced a resource. This property applies to an prov:ActivityInfluence, which is given by a subproperty of prov:qualifiedInfluence from the influenced prov:Entity, prov:Activity or prov:Agent." ;
+        prov:inverse "activityOfInfluence" ;
+        mermaid:fragment "http://www.w3.org/ns/prov#ActivityInfluence -- http://www.w3.org/ns/prov#activity --> http://www.w3.org/ns/prov#Activity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :agent a owl:ObjectProperty ;
+    prov:agent a owl:ObjectProperty ;
         rdfs:label "agent" ;
-        rdfs:domain :AgentInfluence ;
+        rdfs:domain prov:AgentInfluence ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Agent ;
-        rdfs:subPropertyOf :influencer ;
-        :category "qualified" ;
-        :editorialNote "This property behaves in spirit like rdf:object; it references the object of a prov:wasInfluencedBy triple."@en ;
-        :editorsDefinition "The prov:agent property references an prov:Agent which influenced a resource. This property applies to an prov:AgentInfluence, which is given by a subproperty of prov:qualifiedInfluence from the influenced prov:Entity, prov:Activity or prov:Agent."@en ;
-        :inverse "agentOfInfluence" ;
-        ns1:fragment "http://www.w3.org/ns/prov#AgentInfluence -- http://www.w3.org/ns/prov#agent --> http://www.w3.org/ns/prov#Agent" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Agent ;
+        rdfs:subPropertyOf prov:influencer ;
+        prov:category "qualified" ;
+        prov:editorialNote "This property behaves in spirit like rdf:object; it references the object of a prov:wasInfluencedBy triple."@en ;
+        prov:editorsDefinition "The prov:agent property references an prov:Agent which influenced a resource. This property applies to an prov:AgentInfluence, which is given by a subproperty of prov:qualifiedInfluence from the influenced prov:Entity, prov:Activity or prov:Agent."@en ;
+        prov:inverse "agentOfInfluence" ;
+        mermaid:fragment "http://www.w3.org/ns/prov#AgentInfluence -- http://www.w3.org/ns/prov#agent --> http://www.w3.org/ns/prov#Agent" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :atTime a owl:DatatypeProperty ;
+    prov:atTime a owl:DatatypeProperty ;
         rdfs:label "atTime" ;
         rdfs:comment "The time at which an InstantaneousEvent occurred, in the form of xsd:dateTime."@en ;
-        rdfs:domain :InstantaneousEvent ;
+        rdfs:domain prov:InstantaneousEvent ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
         rdfs:range xsd:dateTime ;
-        :category "qualified" ;
-        :component "entities-activities" ;
-        :sharesDefinitionWith :InstantaneousEvent ;
-        :unqualifiedForm :endedAtTime,
-            :generatedAtTime,
-            :invalidatedAtTime,
-            :startedAtTime ;
-        ns1:fragment "http://www.w3.org/ns/prov#InstantaneousEvent -- http://www.w3.org/ns/prov#atTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype" ;
-        ns1:syntax "DATATYPEPROPERTY" .
+        prov:category "qualified" ;
+        prov:component "entities-activities" ;
+        prov:sharesDefinitionWith prov:InstantaneousEvent ;
+        prov:unqualifiedForm prov:endedAtTime,
+            prov:generatedAtTime,
+            prov:invalidatedAtTime,
+            prov:startedAtTime ;
+        mermaid:fragment "http://www.w3.org/ns/prov#InstantaneousEvent -- http://www.w3.org/ns/prov#atTime --> http://www.w3.org/2001/XMLSchema#dateTime:::Datatype" ;
+        mermaid:syntax "DATATYPEPROPERTY" .
 
-    :Association a owl:Class ;
+    prov:Association a owl:Class ;
         rdfs:label "Association" ;
         rdfs:comment "An instance of prov:Association provides additional descriptions about the binary prov:wasAssociatedWith relation from an prov:Activity to some prov:Agent that had some responsiblity for it. For example, :baking prov:wasAssociatedWith :baker; prov:qualifiedAssociation [ a prov:Association; prov:agent :baker; :foo :bar ]."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :AgentInfluence ;
-        :category "qualified" ;
-        :component "agents-responsibility" ;
-        :definition "An activity association is an assignment of responsibility to an agent for an activity, indicating that the agent had a role in the activity. It further allows for a plan to be specified, which is the plan intended by the agent to achieve some goals in the context of this activity."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Association"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Association"^^xsd:anyURI ;
-        :unqualifiedForm :wasAssociatedWith ;
-        ns1:fragment """http://www.w3.org/ns/prov#Association((http://www.w3.org/ns/prov#Association)) -- subClassOf --> http://www.w3.org/ns/prov#AgentInfluence((http://www.w3.org/ns/prov#AgentInfluence))
+        rdfs:subClassOf prov:AgentInfluence ;
+        prov:category "qualified" ;
+        prov:component "agents-responsibility" ;
+        prov:definition "An activity association is an assignment of responsibility to an agent for an activity, indicating that the agent had a role in the activity. It further allows for a plan to be specified, which is the plan intended by the agent to achieve some goals in the context of this activity."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Association"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Association"^^xsd:anyURI ;
+        prov:unqualifiedForm prov:wasAssociatedWith ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Association((http://www.w3.org/ns/prov#Association)) -- subClassOf --> http://www.w3.org/ns/prov#AgentInfluence((http://www.w3.org/ns/prov#AgentInfluence))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :End a owl:Class ;
+    prov:End a owl:Class ;
         rdfs:label "End" ;
         rdfs:comment "An instance of prov:End provides additional descriptions about the binary prov:wasEndedBy relation from some ended prov:Activity to an prov:Entity that ended it. For example, :ball_game prov:wasEndedBy :buzzer; prov:qualifiedEnd [ a prov:End; prov:entity :buzzer; :foo :bar; prov:atTime '2012-03-09T08:05:08-05:00'^^xsd:dateTime ]."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :EntityInfluence,
-            :InstantaneousEvent ;
-        :category "qualified" ;
-        :component "entities-activities" ;
-        :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
-        :definition "End is when an activity is deemed to have been ended by an entity, known as trigger. The activity no longer exists after its end. Any usage, generation, or invalidation involving an activity precedes the activity's end. An end may refer to a trigger entity that terminated the activity, or to an activity, known as ender that generated the trigger."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-End"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-End"^^xsd:anyURI ;
-        :unqualifiedForm :wasEndedBy ;
-        ns1:fragment """http://www.w3.org/ns/prov#End((http://www.w3.org/ns/prov#End)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence))
+        rdfs:subClassOf prov:EntityInfluence,
+            prov:InstantaneousEvent ;
+        prov:category "qualified" ;
+        prov:component "entities-activities" ;
+        prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+        prov:definition "End is when an activity is deemed to have been ended by an entity, known as trigger. The activity no longer exists after its end. Any usage, generation, or invalidation involving an activity precedes the activity's end. An end may refer to a trigger entity that terminated the activity, or to an activity, known as ender that generated the trigger."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-End"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-End"^^xsd:anyURI ;
+        prov:unqualifiedForm prov:wasEndedBy ;
+        mermaid:fragment """http://www.w3.org/ns/prov#End((http://www.w3.org/ns/prov#End)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence))
 """,
             """http://www.w3.org/ns/prov#End((http://www.w3.org/ns/prov#End)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :Invalidation a owl:Class ;
+    prov:Invalidation a owl:Class ;
         rdfs:label "Invalidation" ;
         rdfs:comment "An instance of prov:Invalidation provides additional descriptions about the binary prov:wasInvalidatedBy relation from an invalidated prov:Entity to the prov:Activity that invalidated it. For example, :uncracked_egg prov:wasInvalidatedBy :baking; prov:qualifiedInvalidation [ a prov:Invalidation; prov:activity :baking; :foo :bar ]."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :ActivityInfluence,
-            :InstantaneousEvent ;
-        :category "qualified" ;
-        :component "entities-activities" ;
-        :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
-        :definition "Invalidation is the start of the destruction, cessation, or expiry of an existing entity by an activity. The entity is no longer available for use (or further invalidation) after invalidation. Any generation or usage of an entity precedes its invalidation." ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Invalidation"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Invalidation"^^xsd:anyURI ;
-        :unqualifiedForm :wasInvalidatedBy ;
-        ns1:fragment """http://www.w3.org/ns/prov#Invalidation((http://www.w3.org/ns/prov#Invalidation)) -- subClassOf --> http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence))
+        rdfs:subClassOf prov:ActivityInfluence,
+            prov:InstantaneousEvent ;
+        prov:category "qualified" ;
+        prov:component "entities-activities" ;
+        prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+        prov:definition "Invalidation is the start of the destruction, cessation, or expiry of an existing entity by an activity. The entity is no longer available for use (or further invalidation) after invalidation. Any generation or usage of an entity precedes its invalidation." ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Invalidation"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Invalidation"^^xsd:anyURI ;
+        prov:unqualifiedForm prov:wasInvalidatedBy ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Invalidation((http://www.w3.org/ns/prov#Invalidation)) -- subClassOf --> http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence))
 """,
             """http://www.w3.org/ns/prov#Invalidation((http://www.w3.org/ns/prov#Invalidation)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :Start a owl:Class ;
+    prov:Start a owl:Class ;
         rdfs:label "Start" ;
         rdfs:comment "An instance of prov:Start provides additional descriptions about the binary prov:wasStartedBy relation from some started prov:Activity to an prov:Entity that started it. For example, :foot_race prov:wasStartedBy :bang; prov:qualifiedStart [ a prov:Start; prov:entity :bang; :foo :bar; prov:atTime '2012-03-09T08:05:08-05:00'^^xsd:dateTime ] ."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :EntityInfluence,
-            :InstantaneousEvent ;
-        :category "qualified" ;
-        :component "entities-activities" ;
-        :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
-        :definition "Start is when an activity is deemed to have been started by an entity, known as trigger. The activity did not exist before its start. Any usage, generation, or invalidation involving an activity follows the activity's start. A start may refer to a trigger entity that set off the activity, or to an activity, known as starter, that generated the trigger."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Start"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Start"^^xsd:anyURI ;
-        :unqualifiedForm :wasStartedBy ;
-        ns1:fragment """http://www.w3.org/ns/prov#Start((http://www.w3.org/ns/prov#Start)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence))
+        rdfs:subClassOf prov:EntityInfluence,
+            prov:InstantaneousEvent ;
+        prov:category "qualified" ;
+        prov:component "entities-activities" ;
+        prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+        prov:definition "Start is when an activity is deemed to have been started by an entity, known as trigger. The activity did not exist before its start. Any usage, generation, or invalidation involving an activity follows the activity's start. A start may refer to a trigger entity that set off the activity, or to an activity, known as starter, that generated the trigger."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Start"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Start"^^xsd:anyURI ;
+        prov:unqualifiedForm prov:wasStartedBy ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Start((http://www.w3.org/ns/prov#Start)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence))
 """,
             """http://www.w3.org/ns/prov#Start((http://www.w3.org/ns/prov#Start)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :Usage a owl:Class ;
+    prov:Usage a owl:Class ;
         rdfs:label "Usage" ;
         rdfs:comment "An instance of prov:Usage provides additional descriptions about the binary prov:used relation from some prov:Activity to an prov:Entity that it used. For example, :keynote prov:used :podium; prov:qualifiedUsage [ a prov:Usage; prov:entity :podium; :foo :bar ]."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :EntityInfluence,
-            :InstantaneousEvent ;
-        :category "qualified" ;
-        :component "entities-activities" ;
-        :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
-        :definition "Usage is the beginning of utilizing an entity by an activity. Before usage, the activity had not begun to utilize this entity and could not have been affected by the entity."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Usage"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Usage"^^xsd:anyURI ;
-        :unqualifiedForm :used ;
-        ns1:fragment """http://www.w3.org/ns/prov#Usage((http://www.w3.org/ns/prov#Usage)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence))
+        rdfs:subClassOf prov:EntityInfluence,
+            prov:InstantaneousEvent ;
+        prov:category "qualified" ;
+        prov:component "entities-activities" ;
+        prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+        prov:definition "Usage is the beginning of utilizing an entity by an activity. Before usage, the activity had not begun to utilize this entity and could not have been affected by the entity."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Usage"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Usage"^^xsd:anyURI ;
+        prov:unqualifiedForm prov:used ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Usage((http://www.w3.org/ns/prov#Usage)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence))
 """,
             """http://www.w3.org/ns/prov#Usage((http://www.w3.org/ns/prov#Usage)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :EntityInfluence a owl:Class ;
+    prov:EntityInfluence a owl:Class ;
         rdfs:label "EntityInfluence" ;
         rdfs:comment "EntityInfluence provides additional descriptions of an Entity's binary influence upon any other kind of resource. Instances of EntityInfluence use the prov:entity property to cite the influencing Entity."@en,
             "It is not recommended that the type EntityInfluence be asserted without also asserting one of its more specific subclasses."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:seeAlso :entity ;
-        rdfs:subClassOf :Influence ;
-        :category "qualified" ;
-        :editorsDefinition "EntityInfluence is the capacity of an entity to have an effect on the character, development, or behavior of another by means of usage, start, end, derivation, or other. "@en ;
-        ns1:fragment """http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence)) -- subClassOf --> http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))
+        rdfs:seeAlso prov:entity ;
+        rdfs:subClassOf prov:Influence ;
+        prov:category "qualified" ;
+        prov:editorsDefinition "EntityInfluence is the capacity of an entity to have an effect on the character, development, or behavior of another by means of usage, start, end, derivation, or other. "@en ;
+        mermaid:fragment """http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence)) -- subClassOf --> http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
     rdfs:seeAlso a owl:AnnotationProperty ;
         rdfs:comment ""@en .
 
-    :Generation a owl:Class ;
+    prov:Generation a owl:Class ;
         rdfs:label "Generation" ;
         rdfs:comment "An instance of prov:Generation provides additional descriptions about the binary prov:wasGeneratedBy relation from a generated prov:Entity to the prov:Activity that generated it. For example, :cake prov:wasGeneratedBy :baking; prov:qualifiedGeneration [ a prov:Generation; prov:activity :baking; :foo :bar ]."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :ActivityInfluence,
-            :InstantaneousEvent ;
-        :category "qualified" ;
-        :component "entities-activities" ;
-        :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
-        :definition "Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Generation"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Generation"^^xsd:anyURI ;
-        :unqualifiedForm :wasGeneratedBy ;
-        ns1:fragment """http://www.w3.org/ns/prov#Generation((http://www.w3.org/ns/prov#Generation)) -- subClassOf --> http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence))
+        rdfs:subClassOf prov:ActivityInfluence,
+            prov:InstantaneousEvent ;
+        prov:category "qualified" ;
+        prov:component "entities-activities" ;
+        prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+        prov:definition "Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Generation"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Generation"^^xsd:anyURI ;
+        prov:unqualifiedForm prov:wasGeneratedBy ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Generation((http://www.w3.org/ns/prov#Generation)) -- subClassOf --> http://www.w3.org/ns/prov#ActivityInfluence((http://www.w3.org/ns/prov#ActivityInfluence))
 """,
             """http://www.w3.org/ns/prov#Generation((http://www.w3.org/ns/prov#Generation)) -- subClassOf --> http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :entity a owl:ObjectProperty ;
+    prov:entity a owl:ObjectProperty ;
         rdfs:label "entity" ;
-        rdfs:domain :EntityInfluence ;
+        rdfs:domain prov:EntityInfluence ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Entity ;
-        rdfs:subPropertyOf :influencer ;
-        :category "qualified" ;
-        :editorialNote "This property behaves in spirit like rdf:object; it references the object of a prov:wasInfluencedBy triple."@en ;
-        :editorsDefinition "The prov:entity property references an prov:Entity which influenced a resource. This property applies to an prov:EntityInfluence, which is given by a subproperty of prov:qualifiedInfluence from the influenced prov:Entity, prov:Activity or prov:Agent." ;
-        :inverse "entityOfInfluence" ;
-        ns1:fragment "http://www.w3.org/ns/prov#EntityInfluence -- http://www.w3.org/ns/prov#entity --> http://www.w3.org/ns/prov#Entity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Entity ;
+        rdfs:subPropertyOf prov:influencer ;
+        prov:category "qualified" ;
+        prov:editorialNote "This property behaves in spirit like rdf:object; it references the object of a prov:wasInfluencedBy triple."@en ;
+        prov:editorsDefinition "The prov:entity property references an prov:Entity which influenced a resource. This property applies to an prov:EntityInfluence, which is given by a subproperty of prov:qualifiedInfluence from the influenced prov:Entity, prov:Activity or prov:Agent." ;
+        prov:inverse "entityOfInfluence" ;
+        mermaid:fragment "http://www.w3.org/ns/prov#EntityInfluence -- http://www.w3.org/ns/prov#entity --> http://www.w3.org/ns/prov#Entity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :Derivation a owl:Class ;
+    prov:Derivation a owl:Class ;
         rdfs:label "Derivation" ;
         rdfs:comment "An instance of prov:Derivation provides additional descriptions about the binary prov:wasDerivedFrom relation from some derived prov:Entity to another prov:Entity from which it was derived. For example, :chewed_bubble_gum prov:wasDerivedFrom :unwrapped_bubble_gum; prov:qualifiedDerivation [ a prov:Derivation; prov:entity :unwrapped_bubble_gum; :foo :bar ]."@en,
             "The more specific forms of prov:Derivation (i.e., prov:Revision, prov:Quotation, prov:PrimarySource) should be asserted if they apply."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:subClassOf :EntityInfluence ;
-        :category "qualified" ;
-        :component "derivations" ;
-        :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
-        :definition "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Derivation"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#Derivation-Relation"^^xsd:anyURI ;
-        :unqualifiedForm :wasDerivedFrom ;
-        ns1:fragment """http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence))
+        rdfs:subClassOf prov:EntityInfluence ;
+        prov:category "qualified" ;
+        prov:component "derivations" ;
+        prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+        prov:definition "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Derivation"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#Derivation-Relation"^^xsd:anyURI ;
+        prov:unqualifiedForm prov:wasDerivedFrom ;
+        mermaid:fragment """http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation)) -- subClassOf --> http://www.w3.org/ns/prov#EntityInfluence((http://www.w3.org/ns/prov#EntityInfluence))
 """ ;
-        ns1:syntax "SUBCLASSOF" .
+        mermaid:syntax "SUBCLASSOF" .
 
-    :wasDerivedFrom a owl:ObjectProperty ;
+    prov:wasDerivedFrom a owl:ObjectProperty ;
         rdfs:label "wasDerivedFrom" ;
         rdfs:comment "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."@en ;
-        rdfs:domain :Entity ;
+        rdfs:domain prov:Entity ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Entity ;
-        rdfs:subPropertyOf :wasInfluencedBy ;
-        owl:propertyChainAxiom _:n3e87e734f5f446588dccb2147f3e61f1b29 ;
-        :category "starting-point" ;
-        :component "derivations" ;
-        :definition "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en ;
-        :inverse "hadDerivation" ;
-        :qualifiedForm :Derivation,
-            :qualifiedDerivation ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasDerivedFrom --> http://www.w3.org/ns/prov#Entity" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Entity ;
+        rdfs:subPropertyOf prov:wasInfluencedBy ;
+        owl:propertyChainAxiom _:n0a28b21e0fc04186bda04a2fbb6ea762b29 ;
+        prov:category "starting-point" ;
+        prov:component "derivations" ;
+        prov:definition "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en ;
+        prov:inverse "hadDerivation" ;
+        prov:qualifiedForm prov:Derivation,
+            prov:qualifiedDerivation ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity -- http://www.w3.org/ns/prov#wasDerivedFrom --> http://www.w3.org/ns/prov#Entity" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :Influence a owl:Class ;
+    prov:Influence a owl:Class ;
         rdfs:label "Influence" ;
         rdfs:comment "An instance of prov:Influence provides additional descriptions about the binary prov:wasInfluencedBy relation from some influenced Activity, Entity, or Agent to the influencing Activity, Entity, or Agent. For example, :stomach_ache prov:wasInfluencedBy :spoon; prov:qualifiedInfluence [ a prov:Influence; prov:entity :spoon; :foo :bar ] . Because prov:Influence is a broad relation, the more specific relations (Communication, Delegation, End, etc.) should be used when applicable."@en,
             "Because prov:Influence is a broad relation, its most specific subclasses (e.g. prov:Communication, prov:Delegation, prov:End, prov:Revision, etc.) should be used when applicable."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        :category "qualified" ;
-        :component "derivations" ;
-        :definition "Influence is the capacity of an entity, activity, or agent to have an effect on the character, development, or behavior of another by means of usage, start, end, generation, invalidation, communication, derivation, attribution, association, or delegation."@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-influence"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-influence"^^xsd:anyURI ;
-        :unqualifiedForm :wasInfluencedBy ;
-        ns1:fragment "http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))" ;
-        ns1:syntax "CLASS" .
+        prov:category "qualified" ;
+        prov:component "derivations" ;
+        prov:definition "Influence is the capacity of an entity, activity, or agent to have an effect on the character, development, or behavior of another by means of usage, start, end, generation, invalidation, communication, derivation, attribution, association, or delegation."@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-influence"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-influence"^^xsd:anyURI ;
+        prov:unqualifiedForm prov:wasInfluencedBy ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Influence((http://www.w3.org/ns/prov#Influence))" ;
+        mermaid:syntax "CLASS" .
 
-    :InstantaneousEvent a owl:Class ;
+    prov:InstantaneousEvent a owl:Class ;
         rdfs:label "InstantaneousEvent" ;
         rdfs:comment "An instantaneous event, or event for short, happens in the world and marks a change in the world, in its activities and in its entities. The term 'event' is commonly used in process algebra with a similar meaning. Events represent communications or interactions; they are assumed to be atomic and instantaneous."@en ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        :category "qualified" ;
-        :component "entities-activities" ;
-        :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#dfn-event"^^xsd:anyURI ;
-        :definition "The PROV data model is implicitly based on a notion of instantaneous events (or just events), that mark transitions in the world. Events include generation, usage, or invalidation of entities, as well as starting or ending of activities. This notion of event is not first-class in the data model, but it is useful for explaining its other concepts and its semantics."@en ;
-        ns1:fragment "http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))" ;
-        ns1:syntax "CLASS" .
+        prov:category "qualified" ;
+        prov:component "entities-activities" ;
+        prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#dfn-event"^^xsd:anyURI ;
+        prov:definition "The PROV data model is implicitly based on a notion of instantaneous events (or just events), that mark transitions in the world. Events include generation, usage, or invalidation of entities, as well as starting or ending of activities. This notion of event is not first-class in the data model, but it is useful for explaining its other concepts and its semantics."@en ;
+        mermaid:fragment "http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))" ;
+        mermaid:syntax "CLASS" .
 
-    :qualifiedInfluence a owl:ObjectProperty ;
+    prov:qualifiedInfluence a owl:ObjectProperty ;
         rdfs:label "qualifiedInfluence" ;
         rdfs:comment "Because prov:qualifiedInfluence is a broad relation, the more specific relations (qualifiedCommunication, qualifiedDelegation, qualifiedEnd, etc.) should be used when applicable."@en ;
-        rdfs:domain _:n3e87e734f5f446588dccb2147f3e61f1b19 ;
+        rdfs:domain _:n0a28b21e0fc04186bda04a2fbb6ea762b19 ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range :Influence ;
-        :category "qualified" ;
-        :component "derivations" ;
-        :inverse "qualifiedInfluenceOf" ;
-        :sharesDefinitionWith :Influence ;
-        :unqualifiedForm :wasInfluencedBy ;
-        ns1:fragment "n3e87e734f5f446588dccb2147f3e61f1b19 -- http://www.w3.org/ns/prov#qualifiedInfluence --> http://www.w3.org/ns/prov#Influence" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        rdfs:range prov:Influence ;
+        prov:category "qualified" ;
+        prov:component "derivations" ;
+        prov:inverse "qualifiedInfluenceOf" ;
+        prov:sharesDefinitionWith prov:Influence ;
+        prov:unqualifiedForm prov:wasInfluencedBy ;
+        mermaid:fragment "n0a28b21e0fc04186bda04a2fbb6ea762b19 -- http://www.w3.org/ns/prov#qualifiedInfluence --> http://www.w3.org/ns/prov#Influence" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :Agent a owl:Class ;
+    prov:Agent a owl:Class ;
         rdfs:label "Agent" ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        owl:disjointWith :InstantaneousEvent ;
-        :category "starting-point" ;
-        :component "agents-responsibility" ;
-        :definition "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. "@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent"^^xsd:anyURI ;
-        ns1:fragment "http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent))" ;
-        ns1:syntax "CLASS" .
+        owl:disjointWith prov:InstantaneousEvent ;
+        prov:category "starting-point" ;
+        prov:component "agents-responsibility" ;
+        prov:definition "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. "@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent"^^xsd:anyURI ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent))" ;
+        mermaid:syntax "CLASS" .
 
-    :wasInfluencedBy a owl:ObjectProperty ;
+    prov:wasInfluencedBy a owl:ObjectProperty ;
         rdfs:label "wasInfluencedBy" ;
         rdfs:comment "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>.",
             "Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable."@en ;
-        rdfs:domain _:n3e87e734f5f446588dccb2147f3e61f1b35 ;
+        rdfs:domain _:n0a28b21e0fc04186bda04a2fbb6ea762b35 ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        rdfs:range _:n3e87e734f5f446588dccb2147f3e61f1b39 ;
-        :category "qualified" ;
-        :component "agents-responsibility" ;
-        :editorialNote """The sub-properties of prov:wasInfluencedBy can be elaborated in more detail using the Qualification Pattern. For example, the binary relation :baking prov:used :spoon can be qualified by asserting :baking prov:qualifiedUsage [ a prov:Usage; prov:entity :spoon; prov:atLocation :kitchen ] .
+        rdfs:range _:n0a28b21e0fc04186bda04a2fbb6ea762b39 ;
+        prov:category "qualified" ;
+        prov:component "agents-responsibility" ;
+        prov:editorialNote """The sub-properties of prov:wasInfluencedBy can be elaborated in more detail using the Qualification Pattern. For example, the binary relation :baking prov:used :spoon can be qualified by asserting :baking prov:qualifiedUsage [ a prov:Usage; prov:entity :spoon; prov:atLocation :kitchen ] .
 
 Subproperties of prov:wasInfluencedBy may also be asserted directly without being qualified.
 
 prov:wasInfluencedBy should not be used without also using one of its subproperties. 
 """@en ;
-        :inverse "influenced" ;
-        :qualifiedForm :Influence,
-            :qualifiedInfluence ;
-        :sharesDefinitionWith :Influence ;
-        ns1:fragment "n3e87e734f5f446588dccb2147f3e61f1b35 -- http://www.w3.org/ns/prov#wasInfluencedBy --> n3e87e734f5f446588dccb2147f3e61f1b39" ;
-        ns1:syntax "OBJECTPROPERTY" .
+        prov:inverse "influenced" ;
+        prov:qualifiedForm prov:Influence,
+            prov:qualifiedInfluence ;
+        prov:sharesDefinitionWith prov:Influence ;
+        mermaid:fragment "n0a28b21e0fc04186bda04a2fbb6ea762b35 -- http://www.w3.org/ns/prov#wasInfluencedBy --> n0a28b21e0fc04186bda04a2fbb6ea762b39" ;
+        mermaid:syntax "OBJECTPROPERTY" .
 
-    :Activity a owl:Class ;
+    prov:Activity a owl:Class ;
         rdfs:label "Activity" ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        owl:disjointWith :Entity ;
-        :category "starting-point" ;
-        :component "entities-activities" ;
-        :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
-        :definition "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Activity"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Activity"^^xsd:anyURI ;
-        ns1:fragment "http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity))" ;
-        ns1:syntax "CLASS" .
+        owl:disjointWith prov:Entity ;
+        prov:category "starting-point" ;
+        prov:component "entities-activities" ;
+        prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+        prov:definition "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Activity"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Activity"^^xsd:anyURI ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity))" ;
+        mermaid:syntax "CLASS" .
 
-    :Entity a owl:Class ;
+    prov:Entity a owl:Class ;
         rdfs:label "Entity" ;
         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-        owl:disjointWith :InstantaneousEvent ;
-        :category "starting-point" ;
-        :component "entities-activities" ;
-        :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
-        :definition "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-entity"^^xsd:anyURI ;
-        :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity"^^xsd:anyURI ;
-        ns1:fragment "http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))" ;
-        ns1:syntax "CLASS" .
+        owl:disjointWith prov:InstantaneousEvent ;
+        prov:category "starting-point" ;
+        prov:component "entities-activities" ;
+        prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+        prov:definition "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-entity"^^xsd:anyURI ;
+        prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity"^^xsd:anyURI ;
+        mermaid:fragment "http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))" ;
+        mermaid:syntax "CLASS" .
 
     <http://www.w3.org/ns/prov-o#> a owl:Ontology ;
         rdfs:label "W3C PROVenance Interchange Ontology (PROV-O)"@en ;
@@ -1319,289 +1319,289 @@ If you wish to make comments regarding this document, please send them to public
             <http://www.w3.org/ns/prov> ;
         owl:versionIRI <http://www.w3.org/ns/prov-o-20130430> ;
         owl:versionInfo "Recommendation version 2013-04-30"@en ;
-        :specializationOf <http://www.w3.org/ns/prov-o> ;
-        :wasRevisionOf <http://www.w3.org/ns/prov-o-20130312> .
+        prov:specializationOf <http://www.w3.org/ns/prov-o> ;
+        prov:wasRevisionOf <http://www.w3.org/ns/prov-o-20130312> .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b54 a owl:Axiom ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b54 a owl:Axiom ;
         rdfs:comment "A collection is an entity that provides a structure to some constituents, which are themselves entities. These constituents are said to be member of the collections."@en ;
         owl:annotatedProperty rdfs:range ;
-        owl:annotatedSource :hadMember ;
-        owl:annotatedTarget :Entity ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-collection" .
+        owl:annotatedSource prov:hadMember ;
+        owl:annotatedTarget prov:Entity ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-collection" .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b56 a owl:Axiom ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b56 a owl:Axiom ;
         rdfs:comment "hadPrimarySource property is a particular case of wasDerivedFrom (see http://www.w3.org/TR/prov-dm/#term-original-source) that aims to give credit to the source that originated some information." ;
         owl:annotatedProperty rdfs:subPropertyOf ;
-        owl:annotatedSource :hadPrimarySource ;
-        owl:annotatedTarget :wasDerivedFrom .
+        owl:annotatedSource prov:hadPrimarySource ;
+        owl:annotatedTarget prov:wasDerivedFrom .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b58 a owl:Axiom ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b58 a owl:Axiom ;
         rdfs:comment "Attribution is a particular case of trace (see http://www.w3.org/TR/prov-dm/#concept-trace), in the sense that it links an entity to the agent that ascribed it." ;
         owl:annotatedProperty rdfs:subPropertyOf ;
-        owl:annotatedSource :wasAttributedTo ;
-        owl:annotatedTarget :wasInfluencedBy ;
-        :definition "IF wasAttributedTo(e2,ag1,aAttr) holds, THEN wasInfluencedBy(e2,ag1) also holds. " .
+        owl:annotatedSource prov:wasAttributedTo ;
+        owl:annotatedTarget prov:wasInfluencedBy ;
+        prov:definition "IF wasAttributedTo(e2,ag1,aAttr) holds, THEN wasInfluencedBy(e2,ag1) also holds. " .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b60 a owl:Axiom ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b60 a owl:Axiom ;
         rdfs:comment "Derivation is a particular case of trace (see http://www.w3.org/TR/prov-dm/#term-trace), since it links an entity to another entity that contributed to its existence." ;
         owl:annotatedProperty rdfs:subPropertyOf ;
-        owl:annotatedSource :wasDerivedFrom ;
-        owl:annotatedTarget :wasInfluencedBy .
+        owl:annotatedSource prov:wasDerivedFrom ;
+        owl:annotatedTarget prov:wasInfluencedBy .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b62 a owl:Axiom ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b62 a owl:Axiom ;
         owl:annotatedProperty rdfs:range ;
-        owl:annotatedSource :wasInfluencedBy ;
-        owl:annotatedTarget _:n3e87e734f5f446588dccb2147f3e61f1b63 ;
-        :definition "influencer: an identifier (o1) for an ancestor entity, activity, or agent that the former depends on;" ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-influence" .
+        owl:annotatedSource prov:wasInfluencedBy ;
+        owl:annotatedTarget _:n0a28b21e0fc04186bda04a2fbb6ea762b63 ;
+        prov:definition "influencer: an identifier (o1) for an ancestor entity, activity, or agent that the former depends on;" ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-influence" .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b68 a owl:Axiom ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b68 a owl:Axiom ;
         owl:annotatedProperty rdfs:domain ;
-        owl:annotatedSource :wasInfluencedBy ;
-        owl:annotatedTarget _:n3e87e734f5f446588dccb2147f3e61f1b69 ;
-        :definition "influencee: an identifier (o2) for an entity, activity, or agent; " ;
-        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-influence" .
+        owl:annotatedSource prov:wasInfluencedBy ;
+        owl:annotatedTarget _:n0a28b21e0fc04186bda04a2fbb6ea762b69 ;
+        prov:definition "influencee: an identifier (o2) for an entity, activity, or agent; " ;
+        prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-influence" .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b74 a owl:Axiom ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b74 a owl:Axiom ;
         rdfs:comment "Quotation is a particular case of derivation (see http://www.w3.org/TR/prov-dm/#term-quotation) in which an entity is derived from an original entity by copying, or \"quoting\", some or all of it. " ;
         owl:annotatedProperty rdfs:subPropertyOf ;
-        owl:annotatedSource :wasQuotedFrom ;
-        owl:annotatedTarget :wasDerivedFrom .
+        owl:annotatedSource prov:wasQuotedFrom ;
+        owl:annotatedTarget prov:wasDerivedFrom .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b76 a owl:Axiom ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b76 a owl:Axiom ;
         rdfs:comment """Revision is a derivation (see http://www.w3.org/TR/prov-dm/#term-Revision). Moreover, according to 
 http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#term-Revision 23 April 2012 'wasRevisionOf is a strict sub-relation of wasDerivedFrom since two entities e2 and e1 may satisfy wasDerivedFrom(e2,e1) without being a variant of each other.'""" ;
         owl:annotatedProperty rdfs:subPropertyOf ;
-        owl:annotatedSource :wasRevisionOf ;
-        owl:annotatedTarget :wasDerivedFrom .
+        owl:annotatedSource prov:wasRevisionOf ;
+        owl:annotatedTarget prov:wasDerivedFrom .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b1 a owl:Restriction ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b1 a owl:Restriction ;
         owl:maxCardinality "0"^^xsd:nonNegativeInteger ;
-        owl:onProperty :hadActivity ;
-        ns1:fragment """subgraph n3e87e734f5f446588dccb2147f3e61f1b1 [Restriction ≤ N R]
-n3e87e734f5f446588dccb2147f3e61f1b1thing((thing)) --> n3e87e734f5f446588dccb2147f3e61f1b1http://www.w3.org/ns/prov#hadActivity[http://www.w3.org/ns/prov#hadActivity]
+        owl:onProperty prov:hadActivity ;
+        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b1 [Restriction ≤ N R]
+n0a28b21e0fc04186bda04a2fbb6ea762b1thing((thing)) --> n0a28b21e0fc04186bda04a2fbb6ea762b1http://www.w3.org/ns/prov#hadActivity[http://www.w3.org/ns/prov#hadActivity]
 
-n3e87e734f5f446588dccb2147f3e61f1b1http://www.w3.org/ns/prov#hadActivity[http://www.w3.org/ns/prov#hadActivity]
+n0a28b21e0fc04186bda04a2fbb6ea762b1http://www.w3.org/ns/prov#hadActivity[http://www.w3.org/ns/prov#hadActivity]
  -- max --> 0
 end
 """ ;
-        ns1:syntax "MAX" .
+        mermaid:syntax "MAX" .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b10 rdf:first :Delegation ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b11 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b10 rdf:first prov:Delegation ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b11 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b11 rdf:first :Derivation ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b12 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b11 rdf:first prov:Derivation ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b12 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b12 rdf:first :End ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b13 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b12 rdf:first prov:End ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b13 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b13 rdf:first :Start ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b13 rdf:first prov:Start ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b14 rdf:first :qualifiedPrimarySource ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b15 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b14 rdf:first prov:qualifiedPrimarySource ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b15 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b15 rdf:first :entity ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b15 rdf:first prov:entity ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b16 a owl:Class ;
-        owl:unionOf _:n3e87e734f5f446588dccb2147f3e61f1b17 ;
-        ns1:fragment """subgraph n3e87e734f5f446588dccb2147f3e61f1b16[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b16http://www.w3.org/ns/prov#Association((http://www.w3.org/ns/prov#Association)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b16http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b16 a owl:Class ;
+        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b17 ;
+        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b16[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b16http://www.w3.org/ns/prov#Association((http://www.w3.org/ns/prov#Association)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b16http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
 end
 """ ;
-        ns1:syntax "OR" .
+        mermaid:syntax "OR" .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b17 rdf:first :Association ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b18 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b17 rdf:first prov:Association ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b18 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b18 rdf:first :InstantaneousEvent ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b18 rdf:first prov:InstantaneousEvent ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b19 a owl:Class ;
-        owl:unionOf _:n3e87e734f5f446588dccb2147f3e61f1b20 ;
-        ns1:fragment """subgraph n3e87e734f5f446588dccb2147f3e61f1b19[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b19http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b19http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b19http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b19 a owl:Class ;
+        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b20 ;
+        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b19[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b19http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b19http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b19http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 end
 """ ;
-        ns1:syntax "OR" .
+        mermaid:syntax "OR" .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b2 rdf:first :qualifiedDelegation ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b3 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b2 rdf:first prov:qualifiedDelegation ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b3 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b20 rdf:first :Activity ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b21 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b20 rdf:first prov:Activity ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b21 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b21 rdf:first :Agent ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b22 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b21 rdf:first prov:Agent ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b22 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b22 rdf:first :Entity ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b22 rdf:first prov:Entity ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b23 rdf:first :qualifiedUsage ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b24 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b23 rdf:first prov:qualifiedUsage ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b24 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b24 rdf:first :entity ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b24 rdf:first prov:entity ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b25 rdf:first :qualifiedAssociation ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b26 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b25 rdf:first prov:qualifiedAssociation ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b26 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b26 rdf:first :agent ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b26 rdf:first prov:agent ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b27 rdf:first :qualifiedAttribution ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b28 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b27 rdf:first prov:qualifiedAttribution ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b28 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b28 rdf:first :agent ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b28 rdf:first prov:agent ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b29 rdf:first :qualifiedDerivation ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b30 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b29 rdf:first prov:qualifiedDerivation ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b30 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b3 rdf:first :agent ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b3 rdf:first prov:agent ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b30 rdf:first :entity ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b30 rdf:first prov:entity ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b31 rdf:first :qualifiedEnd ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b32 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b31 rdf:first prov:qualifiedEnd ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b32 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b32 rdf:first :entity ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b32 rdf:first prov:entity ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b33 rdf:first :qualifiedGeneration ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b34 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b33 rdf:first prov:qualifiedGeneration ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b34 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b34 rdf:first :activity ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b34 rdf:first prov:activity ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b35 a owl:Class ;
-        owl:unionOf _:n3e87e734f5f446588dccb2147f3e61f1b36 ;
-        ns1:fragment """subgraph n3e87e734f5f446588dccb2147f3e61f1b35[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b35http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b35http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b35http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b35 a owl:Class ;
+        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b36 ;
+        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b35[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b35http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b35http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b35http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 end
 """ ;
-        ns1:syntax "OR" .
+        mermaid:syntax "OR" .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b36 rdf:first :Activity ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b37 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b36 rdf:first prov:Activity ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b37 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b37 rdf:first :Agent ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b38 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b37 rdf:first prov:Agent ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b38 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b38 rdf:first :Entity ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b38 rdf:first prov:Entity ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b39 a owl:Class ;
-        owl:unionOf _:n3e87e734f5f446588dccb2147f3e61f1b40 ;
-        ns1:fragment """subgraph n3e87e734f5f446588dccb2147f3e61f1b39[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b39http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b39http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b39http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b39 a owl:Class ;
+        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b40 ;
+        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b39[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b39http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b39http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b39http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 end
 """ ;
-        ns1:syntax "OR" .
+        mermaid:syntax "OR" .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b4 a owl:Class ;
-        owl:unionOf _:n3e87e734f5f446588dccb2147f3e61f1b5 ;
-        ns1:fragment """subgraph n3e87e734f5f446588dccb2147f3e61f1b4[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b4http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b4http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b4http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b4http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b4 a owl:Class ;
+        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b5 ;
+        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b4[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b4http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b4http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b4http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b4http://www.w3.org/ns/prov#InstantaneousEvent((http://www.w3.org/ns/prov#InstantaneousEvent))
 end
 """ ;
-        ns1:syntax "OR" .
+        mermaid:syntax "OR" .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b40 rdf:first :Activity ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b41 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b40 rdf:first prov:Activity ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b41 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b41 rdf:first :Agent ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b42 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b41 rdf:first prov:Agent ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b42 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b42 rdf:first :Entity ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b42 rdf:first prov:Entity ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b43 rdf:first :qualifiedCommunication ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b44 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b43 rdf:first prov:qualifiedCommunication ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b44 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b44 rdf:first :activity ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b44 rdf:first prov:activity ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b45 rdf:first :qualifiedInvalidation ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b46 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b45 rdf:first prov:qualifiedInvalidation ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b46 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b46 rdf:first :activity ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b46 rdf:first prov:activity ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b47 rdf:first :qualifiedQuotation ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b48 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b47 rdf:first prov:qualifiedQuotation ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b48 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b48 rdf:first :entity ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b48 rdf:first prov:entity ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b49 rdf:first :qualifiedRevision ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b50 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b49 rdf:first prov:qualifiedRevision ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b50 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b5 rdf:first :Activity ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b6 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b5 rdf:first prov:Activity ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b6 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b50 rdf:first :entity ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b50 rdf:first prov:entity ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b51 rdf:first :qualifiedStart ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b52 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b51 rdf:first prov:qualifiedStart ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b52 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b52 rdf:first :entity ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b52 rdf:first prov:entity ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b6 rdf:first :Agent ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b7 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b6 rdf:first prov:Agent ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b7 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b63 a owl:Class ;
-        owl:unionOf _:n3e87e734f5f446588dccb2147f3e61f1b64 ;
-        ns1:fragment """subgraph n3e87e734f5f446588dccb2147f3e61f1b63[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b63http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b63http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b63http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b63 a owl:Class ;
+        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b64 ;
+        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b63[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b63http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b63http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b63http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 end
 """ ;
-        ns1:syntax "OR" .
+        mermaid:syntax "OR" .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b64 rdf:first :Activity ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b65 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b64 rdf:first prov:Activity ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b65 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b65 rdf:first :Agent ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b66 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b65 rdf:first prov:Agent ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b66 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b66 rdf:first :Entity ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b66 rdf:first prov:Entity ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b69 a owl:Class ;
-        owl:unionOf _:n3e87e734f5f446588dccb2147f3e61f1b70 ;
-        ns1:fragment """subgraph n3e87e734f5f446588dccb2147f3e61f1b69[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b69http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b69http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b69http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b69 a owl:Class ;
+        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b70 ;
+        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b69[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b69http://www.w3.org/ns/prov#Activity((http://www.w3.org/ns/prov#Activity)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b69http://www.w3.org/ns/prov#Agent((http://www.w3.org/ns/prov#Agent)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b69http://www.w3.org/ns/prov#Entity((http://www.w3.org/ns/prov#Entity))
 end
 """ ;
-        ns1:syntax "OR" .
+        mermaid:syntax "OR" .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b7 rdf:first :Entity ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b8 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b7 rdf:first prov:Entity ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b8 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b70 rdf:first :Activity ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b71 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b70 rdf:first prov:Activity ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b71 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b71 rdf:first :Agent ;
-        rdf:rest _:n3e87e734f5f446588dccb2147f3e61f1b72 .
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b71 rdf:first prov:Agent ;
+        rdf:rest _:n0a28b21e0fc04186bda04a2fbb6ea762b72 .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b72 rdf:first :Entity ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b72 rdf:first prov:Entity ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b8 rdf:first :InstantaneousEvent ;
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b8 rdf:first prov:InstantaneousEvent ;
         rdf:rest () .
 
-    _:n3e87e734f5f446588dccb2147f3e61f1b9 a owl:Class ;
-        owl:unionOf _:n3e87e734f5f446588dccb2147f3e61f1b10 ;
-        ns1:fragment """subgraph n3e87e734f5f446588dccb2147f3e61f1b9[Union C &cup; D]
-n3e87e734f5f446588dccb2147f3e61f1b9http://www.w3.org/ns/prov#Delegation((http://www.w3.org/ns/prov#Delegation)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b9http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b9http://www.w3.org/ns/prov#End((http://www.w3.org/ns/prov#End)) -- or --- n3e87e734f5f446588dccb2147f3e61f1b9http://www.w3.org/ns/prov#Start((http://www.w3.org/ns/prov#Start))
+    _:n0a28b21e0fc04186bda04a2fbb6ea762b9 a owl:Class ;
+        owl:unionOf _:n0a28b21e0fc04186bda04a2fbb6ea762b10 ;
+        mermaid:fragment """subgraph n0a28b21e0fc04186bda04a2fbb6ea762b9[Union C &cup; D]
+n0a28b21e0fc04186bda04a2fbb6ea762b9http://www.w3.org/ns/prov#Delegation((http://www.w3.org/ns/prov#Delegation)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b9http://www.w3.org/ns/prov#Derivation((http://www.w3.org/ns/prov#Derivation)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b9http://www.w3.org/ns/prov#End((http://www.w3.org/ns/prov#End)) -- or --- n0a28b21e0fc04186bda04a2fbb6ea762b9http://www.w3.org/ns/prov#Start((http://www.w3.org/ns/prov#Start))
 end
 """ ;
-        ns1:syntax "OR" .
+        mermaid:syntax "OR" .
 }
 

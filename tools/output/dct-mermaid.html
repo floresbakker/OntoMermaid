@@ -15,105 +15,105 @@
                     graph TB
                     classDef Datatype fill:#9c6,stroke:#9c6;                    
                     
-                    
-                    http://purl.org/dc/terms/MediaTypeOrExtent((http://purl.org/dc/terms/MediaTypeOrExtent))
-http://purl.org/dc/terms/BibliographicResource((http://purl.org/dc/terms/BibliographicResource))
-http://purl.org/dc/terms/Frequency((http://purl.org/dc/terms/Frequency))
-http://purl.org/dc/terms/RightsStatement((http://purl.org/dc/terms/RightsStatement))
+                  
+                    http://purl.org/dc/terms/Agent((http://purl.org/dc/terms/Agent))
 http://purl.org/dc/terms/LinguisticSystem((http://purl.org/dc/terms/LinguisticSystem))
+http://purl.org/dc/terms/Frequency((http://purl.org/dc/terms/Frequency))
+http://purl.org/dc/terms/Standard((http://purl.org/dc/terms/Standard))
+http://purl.org/dc/terms/BibliographicResource((http://purl.org/dc/terms/BibliographicResource))
+http://purl.org/dc/terms/PhysicalResource((http://purl.org/dc/terms/PhysicalResource))
 http://purl.org/dc/terms/Policy((http://purl.org/dc/terms/Policy))
-http://purl.org/dc/terms/MethodOfInstruction((http://purl.org/dc/terms/MethodOfInstruction))
 http://purl.org/dc/terms/LocationPeriodOrJurisdiction((http://purl.org/dc/terms/LocationPeriodOrJurisdiction))
 http://purl.org/dc/terms/ProvenanceStatement((http://purl.org/dc/terms/ProvenanceStatement))
-http://purl.org/dc/terms/Standard((http://purl.org/dc/terms/Standard))
-http://purl.org/dc/terms/PhysicalResource((http://purl.org/dc/terms/PhysicalResource))
+http://purl.org/dc/terms/MediaTypeOrExtent((http://purl.org/dc/terms/MediaTypeOrExtent))
+http://purl.org/dc/terms/MethodOfInstruction((http://purl.org/dc/terms/MethodOfInstruction))
+http://purl.org/dc/terms/RightsStatement((http://purl.org/dc/terms/RightsStatement))
 http://purl.org/dc/terms/MethodOfAccrual((http://purl.org/dc/terms/MethodOfAccrual))
-http://purl.org/dc/terms/Agent((http://purl.org/dc/terms/Agent))
-http://purl.org/dc/terms/PeriodOfTime((http://purl.org/dc/terms/PeriodOfTime)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction((http://purl.org/dc/terms/LocationPeriodOrJurisdiction))
-
 http://purl.org/dc/terms/LicenseDocument((http://purl.org/dc/terms/LicenseDocument)) -- subClassOf --> http://purl.org/dc/terms/RightsStatement((http://purl.org/dc/terms/RightsStatement))
-
-http://purl.org/dc/terms/Jurisdiction((http://purl.org/dc/terms/Jurisdiction)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction((http://purl.org/dc/terms/LocationPeriodOrJurisdiction))
-
-http://purl.org/dc/terms/AgentClass((http://purl.org/dc/terms/AgentClass)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Class((http://www.w3.org/2000/01/rdf-schema#Class))
-
-http://purl.org/dc/terms/Location((http://purl.org/dc/terms/Location)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction((http://purl.org/dc/terms/LocationPeriodOrJurisdiction))
-
-http://purl.org/dc/terms/MediaType((http://purl.org/dc/terms/MediaType)) -- subClassOf --> http://purl.org/dc/terms/MediaTypeOrExtent((http://purl.org/dc/terms/MediaTypeOrExtent))
-
-http://purl.org/dc/terms/FileFormat((http://purl.org/dc/terms/FileFormat)) -- subClassOf --> http://purl.org/dc/terms/MediaType((http://purl.org/dc/terms/MediaType))
-
-http://purl.org/dc/terms/SizeOrDuration((http://purl.org/dc/terms/SizeOrDuration)) -- subClassOf --> http://purl.org/dc/terms/MediaTypeOrExtent((http://purl.org/dc/terms/MediaTypeOrExtent))
 
 http://purl.org/dc/terms/PhysicalMedium((http://purl.org/dc/terms/PhysicalMedium)) -- subClassOf --> http://purl.org/dc/terms/MediaType((http://purl.org/dc/terms/MediaType))
 
-rdfs:Resource -- http://purl.org/dc/terms/bibliographicCitation --> http://www.w3.org/2000/01/rdf-schema#Literal
-rdfs:Resource -- http://purl.org/dc/terms/dateCopyrighted --> http://www.w3.org/2000/01/rdf-schema#Literal
-rdfs:Resource -- http://purl.org/dc/terms/isVersionOf --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/educationLevel --> rdfs:Resource
+http://purl.org/dc/terms/PeriodOfTime((http://purl.org/dc/terms/PeriodOfTime)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction((http://purl.org/dc/terms/LocationPeriodOrJurisdiction))
+
+http://purl.org/dc/terms/FileFormat((http://purl.org/dc/terms/FileFormat)) -- subClassOf --> http://purl.org/dc/terms/MediaType((http://purl.org/dc/terms/MediaType))
+
+http://purl.org/dc/terms/Jurisdiction((http://purl.org/dc/terms/Jurisdiction)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction((http://purl.org/dc/terms/LocationPeriodOrJurisdiction))
+
+http://purl.org/dc/terms/SizeOrDuration((http://purl.org/dc/terms/SizeOrDuration)) -- subClassOf --> http://purl.org/dc/terms/MediaTypeOrExtent((http://purl.org/dc/terms/MediaTypeOrExtent))
+
+http://purl.org/dc/terms/Location((http://purl.org/dc/terms/Location)) -- subClassOf --> http://purl.org/dc/terms/LocationPeriodOrJurisdiction((http://purl.org/dc/terms/LocationPeriodOrJurisdiction))
+
+http://purl.org/dc/terms/AgentClass((http://purl.org/dc/terms/AgentClass)) -- subClassOf --> http://www.w3.org/2000/01/rdf-schema#Class((http://www.w3.org/2000/01/rdf-schema#Class))
+
+http://purl.org/dc/terms/MediaType((http://purl.org/dc/terms/MediaType)) -- subClassOf --> http://purl.org/dc/terms/MediaTypeOrExtent((http://purl.org/dc/terms/MediaTypeOrExtent))
+
+rdfs:Resource -- http://purl.org/dc/terms/dateSubmitted --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- http://purl.org/dc/terms/created --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- http://purl.org/dc/terms/conformsTo --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/extent --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/instructionalMethod --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/license --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/hasVersion --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/relation --> rdfs:Resource
 rdfs:Resource -- http://purl.org/dc/terms/references --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/valid --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- http://purl.org/dc/terms/type --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/accessRights --> rdfs:Resource
 rdfs:Resource -- http://purl.org/dc/terms/modified --> http://www.w3.org/2000/01/rdf-schema#Literal
-rdfs:Resource -- http://purl.org/dc/terms/replaces --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/hasFormat --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/rightsHolder --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/temporal --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/source --> rdfs:Resource
+http://purl.org/dc/dcmitype/Collection -- http://purl.org/dc/terms/accrualMethod --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/date --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- http://purl.org/dc/terms/identifier --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- http://purl.org/dc/terms/alternative --> http://www.w3.org/2000/01/rdf-schema#Literal
 rdfs:Resource -- http://purl.org/dc/terms/available --> http://www.w3.org/2000/01/rdf-schema#Literal
 rdfs:Resource -- http://purl.org/dc/terms/audience --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/description --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/accessRights --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/medium --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/publisher --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/tableOfContents --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/hasPart --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/relation --> rdfs:Resource
-http://purl.org/dc/dcmitype/Collection -- http://purl.org/dc/terms/accrualPolicy --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/dateSubmitted --> http://www.w3.org/2000/01/rdf-schema#Literal
-rdfs:Resource -- http://purl.org/dc/terms/contributor --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/extent --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/coverage --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/issued --> http://www.w3.org/2000/01/rdf-schema#Literal
-http://purl.org/dc/dcmitype/Collection -- http://purl.org/dc/terms/accrualMethod --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/source --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/mediator --> rdfs:Resource
-http://purl.org/dc/dcmitype/Collection -- http://purl.org/dc/terms/accrualPeriodicity --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/type --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/title --> http://www.w3.org/2000/01/rdf-schema#Literal
-rdfs:Resource -- http://purl.org/dc/terms/rights --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/rightsHolder --> rdfs:Resource
 rdfs:Resource -- http://purl.org/dc/terms/isPartOf --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/created --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- http://purl.org/dc/terms/issued --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- http://purl.org/dc/terms/replaces --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/isReplacedBy --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/tableOfContents --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/language --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/bibliographicCitation --> http://www.w3.org/2000/01/rdf-schema#Literal
 rdfs:Resource -- http://purl.org/dc/terms/isRequiredBy --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/license --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/alternative --> http://www.w3.org/2000/01/rdf-schema#Literal
 rdfs:Resource -- http://purl.org/dc/terms/creator --> rdfs:Resource
 rdfs:Resource -- http://purl.org/dc/terms/provenance --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/isFormatOf --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/instructionalMethod --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/conformsTo --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/subject --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/format --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/hasVersion --> rdfs:Resource
 rdfs:Resource -- http://purl.org/dc/terms/requires --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/spatial --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/valid --> http://www.w3.org/2000/01/rdf-schema#Literal
-rdfs:Resource -- http://purl.org/dc/terms/date --> http://www.w3.org/2000/01/rdf-schema#Literal
-rdfs:Resource -- http://purl.org/dc/terms/language --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/hasFormat --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/title --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- http://purl.org/dc/terms/temporal --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/format --> rdfs:Resource
+http://purl.org/dc/dcmitype/Collection -- http://purl.org/dc/terms/accrualPolicy --> rdfs:Resource
 rdfs:Resource -- http://purl.org/dc/terms/abstract --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/identifier --> http://www.w3.org/2000/01/rdf-schema#Literal
-rdfs:Resource -- http://purl.org/dc/terms/isReplacedBy --> rdfs:Resource
-rdfs:Resource -- http://purl.org/dc/terms/dateAccepted --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- http://purl.org/dc/terms/isFormatOf --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/medium --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/educationLevel --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/spatial --> rdfs:Resource
+http://purl.org/dc/dcmitype/Collection -- http://purl.org/dc/terms/accrualPeriodicity --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/rights --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/mediator --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/description --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/isVersionOf --> rdfs:Resource
 rdfs:Resource -- http://purl.org/dc/terms/isReferencedBy --> rdfs:Resource
-http://purl.org/dc/terms/Period[http://purl.org/dc/terms/Period]:::Datatype
-http://purl.org/dc/terms/RFC5646[http://purl.org/dc/terms/RFC5646]:::Datatype
-http://purl.org/dc/terms/W3CDTF[http://purl.org/dc/terms/W3CDTF]:::Datatype
-http://purl.org/dc/terms/URI[http://purl.org/dc/terms/URI]:::Datatype
-http://purl.org/dc/terms/Box[http://purl.org/dc/terms/Box]:::Datatype
-http://purl.org/dc/terms/ISO3166[http://purl.org/dc/terms/ISO3166]:::Datatype
-http://purl.org/dc/terms/RFC4646[http://purl.org/dc/terms/RFC4646]:::Datatype
-http://purl.org/dc/terms/ISO639-3[http://purl.org/dc/terms/ISO639-3]:::Datatype
-http://purl.org/dc/terms/RFC1766[http://purl.org/dc/terms/RFC1766]:::Datatype
-http://purl.org/dc/terms/ISO639-2[http://purl.org/dc/terms/ISO639-2]:::Datatype
+rdfs:Resource -- http://purl.org/dc/terms/coverage --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/publisher --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/hasPart --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/dateCopyrighted --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- http://purl.org/dc/terms/dateAccepted --> http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Resource -- http://purl.org/dc/terms/contributor --> rdfs:Resource
+rdfs:Resource -- http://purl.org/dc/terms/subject --> rdfs:Resource
 http://purl.org/dc/terms/RFC3066[http://purl.org/dc/terms/RFC3066]:::Datatype
+http://purl.org/dc/terms/Period[http://purl.org/dc/terms/Period]:::Datatype
+http://purl.org/dc/terms/RFC4646[http://purl.org/dc/terms/RFC4646]:::Datatype
+http://purl.org/dc/terms/W3CDTF[http://purl.org/dc/terms/W3CDTF]:::Datatype
+http://purl.org/dc/terms/ISO639-2[http://purl.org/dc/terms/ISO639-2]:::Datatype
+http://purl.org/dc/terms/RFC5646[http://purl.org/dc/terms/RFC5646]:::Datatype
+http://purl.org/dc/terms/ISO3166[http://purl.org/dc/terms/ISO3166]:::Datatype
+http://purl.org/dc/terms/ISO639-3[http://purl.org/dc/terms/ISO639-3]:::Datatype
 http://purl.org/dc/terms/Point[http://purl.org/dc/terms/Point]:::Datatype
+http://purl.org/dc/terms/Box[http://purl.org/dc/terms/Box]:::Datatype
+http://purl.org/dc/terms/URI[http://purl.org/dc/terms/URI]:::Datatype
+http://purl.org/dc/terms/RFC1766[http://purl.org/dc/terms/RFC1766]:::Datatype
                     
                     
                     </pre>
